@@ -1,0 +1,53 @@
+{
+  "capturedAt": "2026-08-21T17:46:48.222Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Chief Labour Commissioner (CLC)"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Provident Fund Organisation",
+          "Employee State Insurance Corporation",
+          "Directorate General Factory Advice Service and Labour Institutes (DGFSALI)",
+          "Chief Labour Commissioner (CLC)",
+          "Child Labour"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Complaints related to Wages /delayed / less payment / non-payment / Bonus.",
+          "Complaints related to Termination / dismissal / retirement / discharge.",
+          "Complaints related to other service conditions.",
+          "Complaints related to Terminal Benefits (including Gratuity).",
+          "Complaints related to employment/ recruitment.",
+          "Complaints related to harassment including harassment against women.",
+          "Complaints related to compensation on closure, layoffs and retrenchment",
+          "Complaints related to other issues."
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9MQlI%3d"
+  }
+}

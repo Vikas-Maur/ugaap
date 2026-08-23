@@ -1,0 +1,103 @@
+{
+  "capturedAt": "2026-08-21T17:50:20.097Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Direct Taxes (Income Tax)",
+    "categoryPath": [
+      "PAN Issues",
+      "Correction in PAN"
+    ],
+    "fields": [
+      {
+        "id": "Name",
+        "name": "Name",
+        "label": "Name",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Name",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AckNo",
+        "name": "AckNo",
+        "label": "Acknowledgement No",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Acknowledgement No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PanNo",
+        "name": "PanNo",
+        "label": "PAN",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter PAN",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Direct Taxes",
+          "PAN Issues",
+          "Technical Issues with website",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Employee Services Related/ Administration",
+          "Pension Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in PAN issues",
+          "Correction in PAN",
+          "Same PAN numbers allotted to multiple users",
+          "Deduplication of PAN",
+          "Linking of PAN with Aadhar",
+          "Transfer of PAN"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d"
+  }
+}

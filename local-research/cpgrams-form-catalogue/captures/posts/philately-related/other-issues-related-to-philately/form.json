@@ -1,0 +1,66 @@
+{
+  "capturedAt": "2026-08-21T17:55:01.838Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Posts",
+    "categoryPath": [
+      "Philately Related",
+      "Other Issues related to philately"
+    ],
+    "fields": [
+      {
+        "id": null,
+        "name": null,
+        "label": null,
+        "kind": "search",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Domestic Mails, Parcel Services Related",
+          "International Mails and Parcel Services Related",
+          "Financial Scheme Related",
+          "Postal Life Insurance/ Rural Postal Life Insurance",
+          "Employee Services Related (Gramin Dak Sevak)",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Post Office Building /Land Related",
+          "Philately Related",
+          "Citizen Services Related",
+          "India Post Website/Portal related issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Stamp Release (Policy Matters)",
+          "Non availability of Philately Stamps/Stationery",
+          "Philatelic Deposit Account",
+          "Other Issues related to philately"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d"
+  }
+}

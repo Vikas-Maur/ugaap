@@ -1,0 +1,47 @@
+{
+  "capturedAt": "2026-08-21T17:46:57.537Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Child Labour"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Provident Fund Organisation",
+          "Employee State Insurance Corporation",
+          "Directorate General Factory Advice Service and Labour Institutes (DGFSALI)",
+          "Chief Labour Commissioner (CLC)",
+          "Child Labour"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Child Labour Incidents",
+          "National Child Labour Project Scheme"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9MQlI%3d"
+  }
+}

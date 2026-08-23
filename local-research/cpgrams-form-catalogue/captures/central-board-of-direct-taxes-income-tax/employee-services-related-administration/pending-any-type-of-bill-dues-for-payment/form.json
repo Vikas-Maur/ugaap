@@ -1,0 +1,54 @@
+{
+  "capturedAt": "2026-08-21T17:50:29.450Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Direct Taxes (Income Tax)",
+    "categoryPath": [
+      "Employee Services Related/ Administration",
+      "Pending any type of Bill/dues for payment"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Direct Taxes",
+          "PAN Issues",
+          "Technical Issues with website",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Employee Services Related/ Administration",
+          "Pension Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Compassionate Ground",
+          "Pending any type of Bill/dues for payment",
+          "Issues related to Promotion/Transfer & posting",
+          "Pending Disciplinary/Vigilance Matter",
+          "Establishment related",
+          "Cadre Matters",
+          "Pay & Allowances"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d"
+  }
+}

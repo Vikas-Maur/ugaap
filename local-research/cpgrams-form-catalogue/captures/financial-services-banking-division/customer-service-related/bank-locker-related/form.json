@@ -1,0 +1,90 @@
+{
+  "capturedAt": "2026-08-21T17:39:31.651Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Customer Service Related",
+      "Bank Locker Related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Fraud",
+          "Government Schemes Related (PMAY, PMEGP,PMJDY, PMMY etc.)",
+          "Customer Service Related",
+          "Loan Related",
+          "Credit/Debit/ATM Cards Related",
+          "Misbehaviour/ Corruption/ Harassment/ Atrocities Against",
+          "Employee Services Related",
+          "Administrative Matters",
+          "Pension Related",
+          "Non Banking Finance Company (NBFC) other than Housing Finance Companies Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in Service",
+          "Draft/Banker Cheque/cheque /passbook/account statement related",
+          "Acceptance of cash",
+          "Non compliance with standing instruction of the customers",
+          "Frequent Failure of Banks server",
+          "Non-opening/delay in opening of new accounts",
+          "Non settlement/delay in settlement of Deceased Account",
+          "Non-transfer/Delay in transfer of accounts from one office to another",
+          "Recurring/ Fixed Term Deposit related",
+          "Digital Payment",
+          "TDS/Tax related complaints",
+          "Mobile Banking",
+          "Bank Locker Related",
+          "Service charges related",
+          "CIBIL Related",
+          "Account/Debit freeze",
+          "DBT Related issue",
+          "Nomination Related issue",
+          "KYC /Aadhar updation related",
+          "Fastag related",
+          "Other customer sevices"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Non-availability of locker",
+          "Demand of Fixed Deposit",
+          "Problem in Locker operation",
+          "Unauthorised break opening of locker",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d"
+  }
+}

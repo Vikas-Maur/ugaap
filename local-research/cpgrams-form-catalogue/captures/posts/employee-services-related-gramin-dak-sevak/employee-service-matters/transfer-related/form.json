@@ -1,0 +1,120 @@
+{
+  "capturedAt": "2026-08-21T17:54:34.168Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Posts",
+    "categoryPath": [
+      "Employee Services Related (Gramin Dak Sevak)",
+      "Employee Service Matters",
+      "Transfer Related"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": null,
+        "name": null,
+        "label": null,
+        "kind": "search",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Domestic Mails, Parcel Services Related",
+          "International Mails and Parcel Services Related",
+          "Financial Scheme Related",
+          "Postal Life Insurance/ Rural Postal Life Insurance",
+          "Employee Services Related (Gramin Dak Sevak)",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Post Office Building /Land Related",
+          "Philately Related",
+          "Citizen Services Related",
+          "India Post Website/Portal related issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Employee Service Matters",
+          "Gramin Dak Seva Matters (GDS) Service Matters"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Provident Fund",
+          "Compassionate Appointment",
+          "Disciplinary Action Related",
+          "Removed/Retrenched Employee",
+          "Departmental Exams",
+          "Recruitment/Exam related issues",
+          "Transfer Related",
+          "Pay Fixation/MACP/TBOP etc.",
+          "Payment of Salary/Allowances/Arrears"
+        ]
+      },
+      {
+        "id": "ddlAjax",
+        "name": "Division",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Search and select applicable Name of Division"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d"
+  }
+}

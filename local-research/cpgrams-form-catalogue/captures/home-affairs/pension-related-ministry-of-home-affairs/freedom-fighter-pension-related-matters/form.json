@@ -1,0 +1,62 @@
+{
+  "capturedAt": "2026-08-21T18:00:05.056Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Home Affairs",
+    "categoryPath": [
+      "Pension Related (Ministry of Home Affairs)",
+      "Freedom Fighter pension related matters"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Service Related (Ministry of Home Affairs)",
+          "Pension Related (Ministry of Home Affairs)",
+          "Civilian Awards & Medals",
+          "Visa, Citizenship and Immigration",
+          "Matter related to Foreign Contribution Regulation (FCRA)",
+          "Internal Security",
+          "Internal Security Related Matters",
+          "Judiciary Related Matters",
+          "Women Safety",
+          "UT Division",
+          "Disaster Management",
+          "Issues related to Freedom Fighter",
+          "Cyber Crime",
+          "Border Related",
+          "Centre State Constitutional Matters",
+          "North Eastern State Related Matters",
+          "J&K Related Matters",
+          "Registrar General of India (RGI)- Census, Voters, Birth/Death Certificate related issues",
+          "Police Modernisation related matter"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension related to Central Paramilitary Forces",
+          "Freedom Fighter pension related matters"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUlOSEE%3d"
+  }
+}

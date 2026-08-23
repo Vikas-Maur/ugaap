@@ -1,0 +1,182 @@
+{
+  "capturedAt": "2026-08-21T17:50:35.899Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Direct Taxes (Income Tax)",
+    "categoryPath": [
+      "Pension Related",
+      "Family Pension"
+    ],
+    "fields": [
+      {
+        "id": "RetirementDate",
+        "name": "RetirementDate",
+        "label": "Date of Retirement",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Date of Retirement",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PpoNo",
+        "name": "PpoNo",
+        "label": "PPO NO.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter PPO NO.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Designation",
+        "name": "Designation",
+        "label": "Designation at Retirement",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Designation at Retirement",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "DepartmantName",
+        "name": "DepartmantName",
+        "label": "Name of Department",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Name of Department",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "LastPay",
+        "name": "LastPay",
+        "label": "Last Pay draw in scale",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Last Pay draw in scale",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "GovtCenterState",
+        "name": "GovtCenterState",
+        "label": "Central/State Govt.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Central/State Govt.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Direct Taxes",
+          "PAN Issues",
+          "Technical Issues with website",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Employee Services Related/ Administration",
+          "Pension Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Family Pension",
+          "Pension not started/ Pension stopped",
+          "Revision/Recalculation of Pension",
+          "PPO Matters",
+          "Retirement Benefits"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "OfficeName",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Regional Office / Office",
+          "Human Resources Development, Delhi",
+          "L&R",
+          "NADT, Nagpur",
+          "National Faceless Appellate Centre (NFAC)",
+          "National Faceless Assessment Center (NaFAC)",
+          "Pr DGIT (Admn & TPS)",
+          "Pr. CCA Delhi",
+          "Pr. CCIT (International Taxation)",
+          "Region Andhra Pradesh & Telangana",
+          "Region Bihar & Jharkhand",
+          "CIT (Investigation)",
+          "Region Delhi",
+          "Region Gujarat",
+          "Region Karnataka & Goa",
+          "Region Kerala",
+          "Region MP & Chhattisgarh",
+          "Region Mumbai",
+          "Region Nagpur",
+          "Region North East",
+          "Region NWR",
+          "Region Odisha",
+          "CIT (ITA)",
+          "Region Pune",
+          "Region Rajasthan",
+          "Region Tamil Nadu and Puducherry",
+          "Region UP (East)",
+          "Region UP (West) & Uttarakhand",
+          "Region West Bengal & Sikkim",
+          "Pr. DGIT(Training)",
+          "CIT (ITA2)",
+          "Others",
+          "DGIT (Systems)",
+          "DGIT (Vigilance)",
+          "Exemptions",
+          "Joint Secretary (FT & TR)-I,Delhi",
+          "JS (Admin.)",
+          "JS (Tax Policy and Litigation)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d"
+  }
+}

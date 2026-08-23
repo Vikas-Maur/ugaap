@@ -1,0 +1,131 @@
+{
+  "capturedAt": "2026-08-21T17:53:25.632Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Posts",
+    "categoryPath": [
+      "Domestic Mails, Parcel Services Related",
+      "Magazine Post",
+      "Loss of article"
+    ],
+    "fields": [
+      {
+        "id": "TrackTraceNo",
+        "name": "TrackTraceNo",
+        "label": "Track/Trace No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Track/Trace No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": null,
+        "name": null,
+        "label": null,
+        "kind": "search",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Domestic Mails, Parcel Services Related",
+          "International Mails and Parcel Services Related",
+          "Financial Scheme Related",
+          "Postal Life Insurance/ Rural Postal Life Insurance",
+          "Employee Services Related (Gramin Dak Sevak)",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Post Office Building /Land Related",
+          "Philately Related",
+          "Citizen Services Related",
+          "India Post Website/Portal related issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Speed Post Letters (Insured/COD)",
+          "Letter (Registered/Insured/COD)",
+          "India Post Parcel- Retail (Registered/Insured/COD)",
+          "India Post Parcel- Contractual (Registered/Insured/COD",
+          "Speed Post Parcel (Registered/Insured/COD)",
+          "Post Card/Book Post/Periodical Post/Registered Newspapers",
+          "Magazine Post",
+          "Tariff /GST Related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in delivery",
+          "Non delivery of article",
+          "Abstraction of contents",
+          "Loss of article"
+        ]
+      },
+      {
+        "id": "ddlAjax",
+        "name": "Pincode",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Search and select applicable Post Office of Booking/PINCODE"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d"
+  }
+}

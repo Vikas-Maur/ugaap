@@ -1,0 +1,74 @@
+{
+  "capturedAt": "2026-08-21T17:45:52.663Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Employee State Insurance Corporation",
+      "Non-Coverage, Non-compliance, Under Reporting for ESIC",
+      "Non deposition of ESIC Contribution in respect of registered employees."
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Provident Fund Organisation",
+          "Employee State Insurance Corporation",
+          "Directorate General Factory Advice Service and Labour Institutes (DGFSALI)",
+          "Chief Labour Commissioner (CLC)",
+          "Child Labour"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Cash Benefit provided by ESIC",
+          "Medical Benefits provided by ESIC",
+          "Medical Reimbursement in ESIC",
+          "Non-Coverage, Non-compliance, Under Reporting for ESIC",
+          "ESI Online System Related Issues",
+          "Recruitment in ESI Corporation",
+          "Service Matters of ESIC Employees",
+          "Suggestions related to ESIC",
+          "Vigilance matter related to ESIC",
+          "Other matters related to ESIC"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Non registration under ESIC",
+          "Non deposition of ESIC Contribution in respect of registered employees.",
+          "Manipulation of Wages for ESIC Contribution",
+          "Demand Notice"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9MQlI%3d"
+  }
+}

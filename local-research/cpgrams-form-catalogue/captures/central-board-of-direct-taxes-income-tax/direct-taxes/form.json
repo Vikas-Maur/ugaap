@@ -1,0 +1,52 @@
+{
+  "capturedAt": "2026-08-21T17:50:01.612Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Direct Taxes (Income Tax)",
+    "categoryPath": [
+      "Direct Taxes"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Direct Taxes",
+          "PAN Issues",
+          "Technical Issues with website",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Employee Services Related/ Administration",
+          "Pension Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Issues with IT Returns/Assessment/Appeal",
+          "Tax Policy Matter/ Suggestions",
+          "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+          "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+          "Information about Benami Transaction",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d"
+  }
+}

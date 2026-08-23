@@ -1,0 +1,161 @@
+{
+  "capturedAt": "2026-08-21T17:50:09.685Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Direct Taxes (Income Tax)",
+    "categoryPath": [
+      "Direct Taxes",
+      "Issues with IT Returns/Assessment/Appeal",
+      "Appeal effect"
+    ],
+    "fields": [
+      {
+        "id": "PanNo",
+        "name": "PanNo",
+        "label": "PAN",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter PAN",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AssessmentYear",
+        "name": "AssessmentYear",
+        "label": "Assessment Year",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Assessment Year",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ChargeOffice",
+        "name": "ChargeOffice",
+        "label": "Charge/Office",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Charge/Office",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Direct Taxes",
+          "PAN Issues",
+          "Technical Issues with website",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Employee Services Related/ Administration",
+          "Pension Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Issues with IT Returns/Assessment/Appeal",
+          "Tax Policy Matter/ Suggestions",
+          "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+          "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+          "Information about Benami Transaction",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Faceless Assessment / Faceless Appeal",
+          "Other than Faceless Assessment / Appeal",
+          "TDS Mismatch",
+          "Refund Matter/Wrong Demand",
+          "Rectification",
+          "Appeal effect",
+          "Delay Condonation",
+          "IT Return Processing",
+          "Challan Correction"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "OfficeName",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Regional Office / Office",
+          "Pr. CCIT (International Taxation)",
+          "Region Andhra Pradesh & Telangana",
+          "Region Bihar & Jharkhand",
+          "Region Delhi",
+          "Region Gujarat",
+          "Region Karnataka & Goa",
+          "Region Kerala",
+          "Region MP & Chhattisgarh",
+          "Region Mumbai",
+          "Region Nagpur",
+          "Region North East",
+          "Region NWR",
+          "Region Odisha",
+          "Region Pune",
+          "Region Rajasthan",
+          "Region Tamil Nadu and Puducherry",
+          "Region UP (East)",
+          "Region UP (West) & Uttarakhand",
+          "Region West Bengal & Sikkim",
+          "Others",
+          "DGIT (Systems)",
+          "Exemptions"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d"
+  }
+}

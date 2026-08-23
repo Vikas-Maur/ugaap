@@ -1,0 +1,129 @@
+{
+  "capturedAt": "2026-08-21T17:54:03.893Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Posts",
+    "categoryPath": [
+      "Financial Scheme Related",
+      "e-banking and m-banking",
+      "Login/Password Issue"
+    ],
+    "fields": [
+      {
+        "id": "CifNo",
+        "name": "CifNo",
+        "label": "CIF No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter CIF No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": null,
+        "name": null,
+        "label": null,
+        "kind": "search",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Domestic Mails, Parcel Services Related",
+          "International Mails and Parcel Services Related",
+          "Financial Scheme Related",
+          "Postal Life Insurance/ Rural Postal Life Insurance",
+          "Employee Services Related (Gramin Dak Sevak)",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Post Office Building /Land Related",
+          "Philately Related",
+          "Citizen Services Related",
+          "India Post Website/Portal related issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Saving Bank (Public Provident Fund Account/ Recurring Deposit/ Monthly Income Scheme/ Sukanya Samriddhi/ Senior Citizen Savings Scheme/ Time Deposit/ Kisan Vikas Patra/National Saving Certificates/Mahila Samman Savings Certificate/PM CARES Scheme / Other Small Saving Scheme)",
+          "ATM Card Related",
+          "MNREGA Account",
+          "e-banking and m-banking",
+          "Indian Postal Order (IPO) Related",
+          "Money Order"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Login/Password Issue",
+          "Account Closure",
+          "Transactions Related",
+          "Server Issue"
+        ]
+      },
+      {
+        "id": "ddlAjax",
+        "name": "Pincode",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Search and select applicable Post Office where A/C or Transaction occurred"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "capturedAt": "2026-08-21T17:59:26.907Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Telecommunications",
+    "categoryPath": [
+      "WPC related (Spectrum, Licensing )/ Satellite related",
+      "WPC related",
+      "Spectrum related"
+    ],
+    "fields": [
+      {
+        "id": "state",
+        "name": "state",
+        "label": "State Name",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter State Name",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Mobile Related",
+          "Broadband Related",
+          "Landline Related",
+          "Tower/ radiation Issues/ Infrastructure related",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment/ Financial irregularities",
+          "Tender/ Vendor/ GeM Issue",
+          "WPC related (Spectrum, Licensing )/ Satellite related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "WPC related",
+          "Satellite Communication related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Licensing related",
+          "Spectrum related",
+          "WPC permission related",
+          "Mobile Jammer related"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9URUw%3d"
+  }
+}

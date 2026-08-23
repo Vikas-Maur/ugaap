@@ -1,0 +1,70 @@
+{
+  "capturedAt": "2026-08-21T17:40:34.904Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Administrative Matters",
+      "Vacation of Premises"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Fraud",
+          "Government Schemes Related (PMAY, PMEGP,PMJDY, PMMY etc.)",
+          "Customer Service Related",
+          "Loan Related",
+          "Credit/Debit/ATM Cards Related",
+          "Misbehaviour/ Corruption/ Harassment/ Atrocities Against",
+          "Employee Services Related",
+          "Administrative Matters",
+          "Pension Related",
+          "Non Banking Finance Company (NBFC) other than Housing Finance Companies Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Opening of New Branches",
+          "BC/CSP/Vendor related matters",
+          "Other Adminstrative Matters",
+          "Vacation of Premises"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Non-renewal of Lease Agreement",
+          "Non-vacation of premises"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d"
+  }
+}

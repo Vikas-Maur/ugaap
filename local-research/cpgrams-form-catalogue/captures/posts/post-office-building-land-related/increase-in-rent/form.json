@@ -1,0 +1,100 @@
+{
+  "capturedAt": "2026-08-21T17:54:54.115Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Posts",
+    "categoryPath": [
+      "Post Office Building /Land Related",
+      "Increase in Rent"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": null,
+        "name": null,
+        "label": null,
+        "kind": "search",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Domestic Mails, Parcel Services Related",
+          "International Mails and Parcel Services Related",
+          "Financial Scheme Related",
+          "Postal Life Insurance/ Rural Postal Life Insurance",
+          "Employee Services Related (Gramin Dak Sevak)",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Post Office Building /Land Related",
+          "Philately Related",
+          "Citizen Services Related",
+          "India Post Website/Portal related issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Increase in Rent",
+          "Vacation of PO Building",
+          "Renewal of Lease Deed",
+          "Encroachment of PO Land",
+          "Amenities in Post Office"
+        ]
+      },
+      {
+        "id": "ddlAjax",
+        "name": "Pincode",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Search and select applicable Post Office"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d"
+  }
+}

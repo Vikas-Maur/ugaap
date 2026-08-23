@@ -1,0 +1,132 @@
+{
+  "capturedAt": "2026-08-21T17:59:04.765Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Telecommunications",
+    "categoryPath": [
+      "Mobile Related",
+      "Network Coverage - 5G",
+      "Improper Network Coverage (5G)"
+    ],
+    "fields": [
+      {
+        "id": "MobileNumber",
+        "name": "MobileNumber",
+        "label": "Mobile Number",
+        "kind": "number",
+        "required": true,
+        "placeholder": "Please Enter Mobile Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Mobile Related",
+          "Broadband Related",
+          "Landline Related",
+          "Tower/ radiation Issues/ Infrastructure related",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment/ Financial irregularities",
+          "Tender/ Vendor/ GeM Issue",
+          "WPC related (Spectrum, Licensing )/ Satellite related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Mobile Number Portability (MNP) related",
+          "Call related",
+          "Data Speed related",
+          "SIM Card related",
+          "Mobile Handset related",
+          "Prepaid related",
+          "Postpaid related",
+          "Roaming related",
+          "Fraud & Cyber Security",
+          "UCC & Spam related",
+          "Activation/Deactivation of Value Added Services(VAS)",
+          "SMS Related",
+          "Network Coverage - Indoor",
+          "Network Coverage - Outoor",
+          "Network Coverage - 5G"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "No Network coverage (5G)",
+          "Improper Network Coverage (5G)",
+          "Frequent Network Outage (5G)",
+          "No Network coverage of any service provider (5G)"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "ServiceProvider",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Service Provider",
+          "Mahanagar Telephone Nigam Limited Corporate office",
+          "M/s Vodafone Idea Ltd.",
+          "M/s.Bharti Airtel Ltd.",
+          "Bharat Sanchar Nigam Limited Corporate Office",
+          "Reliance JIO Infocom Limited",
+          "None of the above"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9URUw%3d"
+  }
+}

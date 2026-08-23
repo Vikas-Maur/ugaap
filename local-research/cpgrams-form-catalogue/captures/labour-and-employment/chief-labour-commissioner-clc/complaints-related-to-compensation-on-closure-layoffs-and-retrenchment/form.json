@@ -1,0 +1,151 @@
+{
+  "capturedAt": "2026-08-21T17:46:55.587Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Chief Labour Commissioner (CLC)",
+      "Complaints related to compensation on closure, layoffs and retrenchment"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Provident Fund Organisation",
+          "Employee State Insurance Corporation",
+          "Directorate General Factory Advice Service and Labour Institutes (DGFSALI)",
+          "Chief Labour Commissioner (CLC)",
+          "Child Labour"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Complaints related to Wages /delayed / less payment / non-payment / Bonus.",
+          "Complaints related to Termination / dismissal / retirement / discharge.",
+          "Complaints related to other service conditions.",
+          "Complaints related to Terminal Benefits (including Gratuity).",
+          "Complaints related to employment/ recruitment.",
+          "Complaints related to harassment including harassment against women.",
+          "Complaints related to compensation on closure, layoffs and retrenchment",
+          "Complaints related to other issues."
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "ClcGovernment",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Establishment in which applicant is / was working i.e. Appropriate Government",
+          "Central Government",
+          "State Government",
+          "Society",
+          "Banking and Non- Banking Financial Institution",
+          "Public Sector Undertaking",
+          "Mines",
+          "Information Technology",
+          "E.commerce",
+          "Railways",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "ClcEmploymentStatus",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Worker employment status",
+          "Regular / Permanent",
+          "Contractual",
+          "Casual/ Daily Wages",
+          "Fixed term Employment",
+          "Gig Worker",
+          "Platform based worker",
+          "Assignment based",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CicOffices",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Region (state & Union Territory)",
+          "Dy Chief Labour Commissioner (Ahmedabad)",
+          "Dy Chief Labour Commissioner (Ajmer)",
+          "Dy Chief Labour Commissioner (Asansol)",
+          "Dy Chief Labour Commissioner (Bangalore)",
+          "Dy Chief Labour Commissioner (Bhunabeswar)",
+          "Dy Chief Labour Commissioner (Chandigarh)",
+          "Dy Chief Labour Commissioner (Chennai)",
+          "Dy Chief Labour Commissioner (Cochin)",
+          "Dy Chief Labour Commissioner (Dehradun)",
+          "Dy Chief Labour Commissioner (Dhanbad)",
+          "Dy Chief Labour Commissioner (Guwahati)",
+          "Dy Chief Labour Commissioner (Hyderabad)",
+          "Dy Chief Labour Commissioner (Jabalpur)",
+          "Dy Chief Labour Commissioner (Kanpur)",
+          "Dy Chief Labour Commissioner (Kolkata)",
+          "Dy Chief Labour Commissioner (Mumbai)",
+          "Dy Chief Labour Commissioner (Nagpur)",
+          "Dy Chief Labour Commissioner (New Delhi)",
+          "Dy Chief Labour Commissioner (Patna)",
+          "Dy Chief Labour Commissioner (Raipur)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9MQlI%3d"
+  }
+}

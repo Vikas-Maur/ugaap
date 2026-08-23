@@ -1,0 +1,101 @@
+{
+  "capturedAt": "2026-08-21T17:59:59.768Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Home Affairs",
+    "categoryPath": [
+      "Employee Service Related (Ministry of Home Affairs)",
+      "IPS Related (Police-I)"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Service Related (Ministry of Home Affairs)",
+          "Pension Related (Ministry of Home Affairs)",
+          "Civilian Awards & Medals",
+          "Visa, Citizenship and Immigration",
+          "Matter related to Foreign Contribution Regulation (FCRA)",
+          "Internal Security",
+          "Internal Security Related Matters",
+          "Judiciary Related Matters",
+          "Women Safety",
+          "UT Division",
+          "Disaster Management",
+          "Issues related to Freedom Fighter",
+          "Cyber Crime",
+          "Border Related",
+          "Centre State Constitutional Matters",
+          "North Eastern State Related Matters",
+          "J&K Related Matters",
+          "Registrar General of India (RGI)- Census, Voters, Birth/Death Certificate related issues",
+          "Police Modernisation related matter"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "All Paramilitary Forces",
+          "IPS Related (Police-I)",
+          "Secretariat Security Force"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "mhaoffices",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Select Office",
+          "Bureau of Police Research & Development",
+          "SVP National Police Academy",
+          "Sardar Vallabhbhai Patel National Police Academy",
+          "Narcotics Control Bureau",
+          "North Eastern Police Academy"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUlOSEE%3d"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "capturedAt": "2026-08-21T17:45:57.136Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Employee State Insurance Corporation",
+      "ESI Online System Related Issues"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Provident Fund Organisation",
+          "Employee State Insurance Corporation",
+          "Directorate General Factory Advice Service and Labour Institutes (DGFSALI)",
+          "Chief Labour Commissioner (CLC)",
+          "Child Labour"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Cash Benefit provided by ESIC",
+          "Medical Benefits provided by ESIC",
+          "Medical Reimbursement in ESIC",
+          "Non-Coverage, Non-compliance, Under Reporting for ESIC",
+          "ESI Online System Related Issues",
+          "Recruitment in ESI Corporation",
+          "Service Matters of ESIC Employees",
+          "Suggestions related to ESIC",
+          "Vigilance matter related to ESIC",
+          "Other matters related to ESIC"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "ESIC Portal Not Working Properly",
+          "Change in Particulars of IP in ESIC Portal not approved by ESIC"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9MQlI%3d"
+  }
+}

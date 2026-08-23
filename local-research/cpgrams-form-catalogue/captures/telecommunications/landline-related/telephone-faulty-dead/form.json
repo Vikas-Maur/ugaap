@@ -1,0 +1,107 @@
+{
+  "capturedAt": "2026-08-21T17:59:14.931Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Telecommunications",
+    "categoryPath": [
+      "Landline Related",
+      "Telephone Faulty / Dead"
+    ],
+    "fields": [
+      {
+        "id": "SubscriberID",
+        "name": "SubscriberID",
+        "label": "Subscriber ID / Telephone Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Subscriber ID / Telephone Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Mobile Related",
+          "Broadband Related",
+          "Landline Related",
+          "Tower/ radiation Issues/ Infrastructure related",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment/ Financial irregularities",
+          "Tender/ Vendor/ GeM Issue",
+          "WPC related (Spectrum, Licensing )/ Satellite related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "New Telephone Connection/Shifting/Change of Name or Address",
+          "Delay in disconnection/ closure (LL)",
+          "Denial of rent rebate during fault (LL)",
+          "Telephone Faulty / Dead",
+          "Security Refund (LL)",
+          "Billing Related (LL)"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "ServiceProvider",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Service Provider",
+          "Mahanagar Telephone Nigam Limited Corporate office",
+          "M/s.Reliance Communications Ltd.",
+          "M/s.Tata Teleservices Ltd.",
+          "M/s Vodafone Idea Ltd.",
+          "M/s.Bharti Airtel Ltd.",
+          "Bharat Sanchar Nigam Limited Corporate Office",
+          "Reliance JIO Infocom Limited",
+          "None of the above"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9URUw%3d"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "capturedAt": "2026-08-21T17:40:37.341Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Pension Related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Fraud",
+          "Government Schemes Related (PMAY, PMEGP,PMJDY, PMMY etc.)",
+          "Customer Service Related",
+          "Loan Related",
+          "Credit/Debit/ATM Cards Related",
+          "Misbehaviour/ Corruption/ Harassment/ Atrocities Against",
+          "Employee Services Related",
+          "Administrative Matters",
+          "Pension Related",
+          "Non Banking Finance Company (NBFC) other than Housing Finance Companies Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay/Non-transfer of pension Account",
+          "Excess Recovery/ Less payment of Pension",
+          "Non-commencement of Pension/Family Pension",
+          "Non-payment of revised pension/arrears",
+          "Non-restoration of Commuted Pension",
+          "Non-sanction of Pension Loan",
+          "Non-submission of Life Certificate",
+          "Atal Pension Yojna/NPS",
+          "Other Pension related"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d"
+  }
+}

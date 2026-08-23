@@ -1,0 +1,85 @@
+{
+  "capturedAt": "2026-08-21T17:58:34.456Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Telecommunications",
+    "categoryPath": [
+      "Mobile Related",
+      "Fraud & Cyber Security"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Mobile Related",
+          "Broadband Related",
+          "Landline Related",
+          "Tower/ radiation Issues/ Infrastructure related",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment/ Financial irregularities",
+          "Tender/ Vendor/ GeM Issue",
+          "WPC related (Spectrum, Licensing )/ Satellite related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Mobile Number Portability (MNP) related",
+          "Call related",
+          "Data Speed related",
+          "SIM Card related",
+          "Mobile Handset related",
+          "Prepaid related",
+          "Postpaid related",
+          "Roaming related",
+          "Fraud & Cyber Security",
+          "UCC & Spam related",
+          "Activation/Deactivation of Value Added Services(VAS)",
+          "SMS Related",
+          "Network Coverage - Indoor",
+          "Network Coverage - Outoor",
+          "Network Coverage - 5G"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Digital arrest related",
+          "Cyber Fraud related",
+          "SIM SWAP fraud",
+          "Unaurhorized SIM transfer",
+          "Malicious link / SMS",
+          "Unauthorized Port In / Port Out",
+          "Blocking / Unblocking of SIM Card"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9URUw%3d"
+  }
+}

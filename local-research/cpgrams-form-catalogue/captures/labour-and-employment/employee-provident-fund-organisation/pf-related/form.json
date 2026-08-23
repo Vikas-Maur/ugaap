@@ -1,0 +1,76 @@
+{
+  "capturedAt": "2026-08-21T17:44:26.667Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Employee Provident Fund Organisation",
+      "PF related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Provident Fund Organisation",
+          "Employee State Insurance Corporation",
+          "Directorate General Factory Advice Service and Labour Institutes (DGFSALI)",
+          "Chief Labour Commissioner (CLC)",
+          "Child Labour"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "PF related",
+          "Pension related",
+          "UAN-KYC",
+          "PF/Pension transfer",
+          "Insurance benefit",
+          "Employer's grievance",
+          "Technical issues",
+          "Coverage/Evasion/Compliance related Issues",
+          "PM Viksit Bharat Rozgar Yojana (PM-VBRY)",
+          "Suggestions"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay or non-settlement of PF",
+          "Delay or non-settlement of PF Advance",
+          "PF Settled but not credited",
+          "TDS Related issues",
+          "Erroneous member balance shown in member passbook/Fraudulent withdrawal from PF account",
+          "Non-credit of previous year annual interest/Non-payment of interest.",
+          "Others (please specify)"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9MQlI%3d"
+  }
+}

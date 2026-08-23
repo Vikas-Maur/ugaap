@@ -1,0 +1,74 @@
+{
+  "capturedAt": "2026-08-21T17:54:23.059Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Posts",
+    "categoryPath": [
+      "Postal Life Insurance/ Rural Postal Life Insurance",
+      "Delay in revival of policy"
+    ],
+    "fields": [
+      {
+        "id": null,
+        "name": null,
+        "label": null,
+        "kind": "search",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Domestic Mails, Parcel Services Related",
+          "International Mails and Parcel Services Related",
+          "Financial Scheme Related",
+          "Postal Life Insurance/ Rural Postal Life Insurance",
+          "Employee Services Related (Gramin Dak Sevak)",
+          "Pension Related",
+          "Misbehaviour/ Corruption/ Harassment",
+          "Post Office Building /Land Related",
+          "Philately Related",
+          "Citizen Services Related",
+          "India Post Website/Portal related issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Change of Address",
+          "Change of Nomination",
+          "Non-conversion/ Delay in conversion of Policy",
+          "Issue of acceptance Letter/Passbook/Policy Bond",
+          "Delay in disbursement of Loan on Policy",
+          "Issue in payment of death claim with / without nomination",
+          "Non-payment/Delay in payment of maturity value/ Survival Benefit/Paid up value of policy",
+          "Delay in payment of surrender value",
+          "Delay in revival of policy",
+          "Delay in transfer of original case file",
+          "PLI/RPLI Technical issues including Online Transaction Failure",
+          "PLI/RPLI Miscellaneous"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "capturedAt": "2026-08-21T17:39:46.949Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Loan Related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Fraud",
+          "Government Schemes Related (PMAY, PMEGP,PMJDY, PMMY etc.)",
+          "Customer Service Related",
+          "Loan Related",
+          "Credit/Debit/ATM Cards Related",
+          "Misbehaviour/ Corruption/ Harassment/ Atrocities Against",
+          "Employee Services Related",
+          "Administrative Matters",
+          "Pension Related",
+          "Non Banking Finance Company (NBFC) other than Housing Finance Companies Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Housing Loan Related",
+          "Education Loan Related",
+          "MSME Loan related",
+          "Agriculture /Kisan Credit Card Loan",
+          "Other Loans"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d"
+  }
+}

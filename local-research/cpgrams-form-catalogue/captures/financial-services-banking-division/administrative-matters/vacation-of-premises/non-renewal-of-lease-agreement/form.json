@@ -1,0 +1,149 @@
+{
+  "capturedAt": "2026-08-21T17:40:35.722Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Administrative Matters",
+      "Vacation of Premises",
+      "Non-renewal of Lease Agreement"
+    ],
+    "fields": [
+      {
+        "id": "Branch",
+        "name": "Branch",
+        "label": "Branch / Name of Bank and Branch",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Branch / Name of Bank and Branch",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Fraud",
+          "Government Schemes Related (PMAY, PMEGP,PMJDY, PMMY etc.)",
+          "Customer Service Related",
+          "Loan Related",
+          "Credit/Debit/ATM Cards Related",
+          "Misbehaviour/ Corruption/ Harassment/ Atrocities Against",
+          "Employee Services Related",
+          "Administrative Matters",
+          "Pension Related",
+          "Non Banking Finance Company (NBFC) other than Housing Finance Companies Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Opening of New Branches",
+          "BC/CSP/Vendor related matters",
+          "Other Adminstrative Matters",
+          "Vacation of Premises"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Non-renewal of Lease Agreement",
+          "Non-vacation of premises"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "Bank",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Bank",
+          "Bank of Baroda",
+          "Bank of India",
+          "Bank of Maharashtra",
+          "Central Bank of India",
+          "Canara Bank",
+          "IDBI Bank",
+          "Indian Bank",
+          "Indian Overseas Bank",
+          "Punjab National Bank",
+          "Punjab & Sind Bank",
+          "State Bank of India",
+          "Union Bank of India",
+          "UCO Bank",
+          "Axis Bank Ltd",
+          "Bandhan Bank Ltd.",
+          "CSB Bank Ltd",
+          "DCB Bank Limited",
+          "Dhanlaxmi Bank Limited",
+          "Federal Bank",
+          "HDFC Bank Ltd",
+          "ICICI Bank Ltd",
+          "IDFC FIRST Bank",
+          "IndusInd Bank Ltd",
+          "Jammu and Kashmir Bank Ltd.",
+          "KARNATAKA BANK",
+          "THE KARUR VYSYA BANK LIMITED",
+          "Kotak Mahindra Bank Ltd.",
+          "RBL Bank Limited",
+          "The south Indian Bank Ltd.",
+          "Tamilnad Mercantile Bank Ltd",
+          "YES Bank Limited",
+          "The Nainital Bank Limited",
+          "CITY UNION BANK LTD",
+          "Housing Finance Companies",
+          "Other/Private Sector Bank."
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d"
+  }
+}

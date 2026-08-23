@@ -1,0 +1,75 @@
+{
+  "capturedAt": "2026-08-21T17:45:02.169Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Employee Provident Fund Organisation",
+      "Technical issues",
+      "Issues related to Online establishment registration"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Provident Fund Organisation",
+          "Employee State Insurance Corporation",
+          "Directorate General Factory Advice Service and Labour Institutes (DGFSALI)",
+          "Chief Labour Commissioner (CLC)",
+          "Child Labour"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "PF related",
+          "Pension related",
+          "UAN-KYC",
+          "PF/Pension transfer",
+          "Insurance benefit",
+          "Employer's grievance",
+          "Technical issues",
+          "Coverage/Evasion/Compliance related Issues",
+          "PM Viksit Bharat Rozgar Yojana (PM-VBRY)",
+          "Suggestions"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Issues related to Unified Portal",
+          "Issues related to Online establishment registration",
+          "Issues related UMANG App.",
+          "Member Passbook related issues",
+          "Others (please specify)"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9MQlI%3d"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "capturedAt": "2026-08-21T17:39:05.749Z",
+  "differences": null,
+  "snapshot": {
+    "authority": null,
+    "categoryPath": [
+      "Government Schemes Related (PMAY, PMEGP,PMJDY, PMMY etc.)",
+      "Pradhan Mantri Jan Dhan Yojna (PMJDY) Related",
+      "Non-sanctioning of OD Limit"
+    ],
+    "fields": [
+      {
+        "id": "Branch",
+        "name": "Branch",
+        "label": "Branch / Name of Bank and Branch",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Branch / Name of Bank and Branch",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "DateOfApplication",
+        "name": "DateOfApplication",
+        "label": "Date of Application",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Date of Application",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Fraud",
+          "Government Schemes Related (PMAY, PMEGP,PMJDY, PMMY etc.)",
+          "Customer Service Related",
+          "Loan Related",
+          "Credit/Debit/ATM Cards Related",
+          "Misbehaviour/ Corruption/ Harassment/ Atrocities Against",
+          "Employee Services Related",
+          "Administrative Matters",
+          "Pension Related",
+          "Non Banking Finance Company (NBFC) other than Housing Finance Companies Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pradhan Mantri Jan Dhan Yojna (PMJDY) Related",
+          "Pradhan Mantri Jeevan Jyoti Yojna",
+          "Pradhan Mantri Mudra Yojana (PMMY) Related",
+          "Pradhan Mantri Jeevan Suraksha Yojana",
+          "Stand Up India Related",
+          "Other Government schemes related-PMAY/PMEGP/ PMSVAnidhi/State Government Employment Schemes etc."
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in Settlement of Death Claim",
+          "Delay/Non-opening of Account",
+          "Levy of Service Charges",
+          "Non-issue of Rupay/ATM card",
+          "Non-sanctioning of OD Limit",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "Bank",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Bank",
+          "Bank of Baroda",
+          "Bank of India",
+          "Bank of Maharashtra",
+          "Central Bank of India",
+          "Canara Bank",
+          "IDBI Bank",
+          "Indian Bank",
+          "Indian Overseas Bank",
+          "Punjab National Bank",
+          "Punjab & Sind Bank",
+          "State Bank of India",
+          "Union Bank of India",
+          "UCO Bank",
+          "Axis Bank Ltd",
+          "Bandhan Bank Ltd.",
+          "CSB Bank Ltd",
+          "DCB Bank Limited",
+          "Dhanlaxmi Bank Limited",
+          "Federal Bank",
+          "HDFC Bank Ltd",
+          "ICICI Bank Ltd",
+          "IDFC FIRST Bank",
+          "IndusInd Bank Ltd",
+          "Jammu and Kashmir Bank Ltd.",
+          "KARNATAKA BANK",
+          "THE KARUR VYSYA BANK LIMITED",
+          "Kotak Mahindra Bank Ltd.",
+          "RBL Bank Limited",
+          "The south Indian Bank Ltd.",
+          "Tamilnad Mercantile Bank Ltd",
+          "YES Bank Limited",
+          "The Nainital Bank Limited",
+          "CITY UNION BANK LTD",
+          "Housing Finance Companies",
+          "Other/Private Sector Bank."
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d"
+  }
+}
