@@ -26,6 +26,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 			{
 				title: "UGAAP | Grievance access",
 			},
+			{
+				name: "theme-color",
+				content: "#f7f9fc",
+			},
 		],
 		links: [
 			{

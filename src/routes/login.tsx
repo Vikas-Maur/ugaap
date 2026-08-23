@@ -4,11 +4,11 @@ import {
 	redirect,
 	useNavigate,
 } from "@tanstack/react-router";
-import { type FormEvent, useEffect, useState } from "react";
+import { ArrowRight, Eye, EyeOff } from "lucide-react";
+import { type FormEvent, useState } from "react";
 import {
-	createDemoSession,
 	getCurrentSession,
-	isDemoModeEnabled,
+	getDemoLoginConfig,
 	sanitizeRedirectPath,
 } from "#/features/auth/functions";
 import { useI18n } from "#/features/i18n/i18n";
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/login")({
 	beforeLoad: async ({ search }) => {
 		if (await getCurrentSession()) throw redirect({ to: search.redirect });
 	},
+	loader: () => getDemoLoginConfig({ data: {} }),
 	component: LoginScreen,
 });
 
@@ -29,17 +30,16 @@ function LoginScreen() {
 	const { text } = useI18n();
 	const navigate = useNavigate();
 	const search = Route.useSearch();
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const demoConfig = Route.useLoaderData();
+	const [identifier, setIdentifier] = useState(
+		demoConfig.enabled ? demoConfig.username : "",
+	);
+	const [password, setPassword] = useState(
+		demoConfig.enabled ? demoConfig.password : "",
+	);
+	const [showPassword, setShowPassword] = useState(false);
 	const [error, setError] = useState("");
 	const [busy, setBusy] = useState(false);
-	const [demoEnabled, setDemoEnabled] = useState(false);
-
-	useEffect(() => {
-		void isDemoModeEnabled({ data: {} }).then((result) => {
-			setDemoEnabled(result.enabled);
-		});
-	}, []);
 
 	async function finishLogin() {
 		const destination = hasPendingIntent() ? "/continuation" : search.redirect;
@@ -50,12 +50,17 @@ function LoginScreen() {
 		event.preventDefault();
 		setBusy(true);
 		setError("");
+		const normalizedIdentifier = identifier.trim().toLowerCase();
+		const email =
+			demoConfig.enabled && normalizedIdentifier === demoConfig.username
+				? demoConfig.email
+				: normalizedIdentifier;
 		const result = await authClient.signIn.email({ email, password });
 		if (result.error) {
 			setError(
 				text({
-					en: "Those details did not work. Check your email and password.",
-					hi: "ये विवरण सही नहीं हैं। अपना ईमेल और पासवर्ड जाँचें।",
+					en: "Those details did not work. Check the username or email and password.",
+					hi: "ये विवरण सही नहीं हैं। उपयोगकर्ता नाम या ईमेल और पासवर्ड जाँचें।",
 				}),
 			);
 			setBusy(false);
@@ -64,130 +69,136 @@ function LoginScreen() {
 		await finishLogin();
 	}
 
-	async function handleDemo() {
-		setBusy(true);
-		setError("");
-		try {
-			await createDemoSession({ data: {} });
-			await finishLogin();
-		} catch {
-			setError(
-				text({
-					en: "Demo access is unavailable right now.",
-					hi: "डेमो सुविधा अभी उपलब्ध नहीं है।",
-				}),
-			);
-			setBusy(false);
-		}
-	}
-
 	return (
-		<div className="mx-auto grid min-h-[650px] w-full max-w-[1120px] grid-cols-1 items-center gap-[52px] px-4 py-[68px] sm:px-6 md:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.75fr)] md:gap-[clamp(60px,10vw,160px)] md:py-[82px] md:pb-[100px]">
-			<section>
-				<p className="mb-3 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-[var(--blue-700)]">
-					{text({ en: "Citizen access", hi: "नागरिक प्रवेश" })}
-				</p>
-				<h1
-					id="login-heading"
-					className="m-0 max-w-3xl text-[clamp(2.7rem,5vw,5rem)] font-extrabold leading-[0.98] tracking-[-0.06em] text-[var(--blue-950)]"
+		<div className="relative overflow-hidden">
+			<div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_24%,rgba(145,185,255,0.28),transparent_31rem)]" />
+			<div className="relative mx-auto grid min-h-[calc(100svh-72px)] w-full max-w-[1180px] grid-cols-1 items-center gap-14 px-4 py-14 sm:px-6 md:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)] md:gap-[clamp(64px,10vw,150px)] md:py-20 lg:px-8">
+				<section>
+					<p className="mb-5 text-sm font-semibold text-[var(--blue-700)]">
+						{text({
+							en: "Your grievance workspace",
+							hi: "आपका शिकायत कार्यस्थल",
+						})}
+					</p>
+					<h1
+						id="login-heading"
+						className="m-0 max-w-[650px] text-[clamp(3rem,6vw,6rem)] font-semibold leading-[0.95] tracking-[-0.068em] text-[var(--blue-950)]"
+					>
+						{text({
+							en: "Continue where you left off.",
+							hi: "जहाँ रुके थे, वहीं से आगे बढ़ें।",
+						})}
+					</h1>
+					<p className="mt-7 max-w-[560px] text-[1.05rem] leading-7 text-[var(--ink-muted)]">
+						{text({
+							en: "Your drafts and grievance activity stay connected to your account.",
+							hi: "आपके मसौदे और शिकायत की गतिविधि आपके खाते से जुड़ी रहती है।",
+						})}
+					</p>
+					<div className="mt-12 flex max-w-[520px] items-center gap-3 border-y border-[var(--line)] py-5 text-sm text-[var(--ink-muted)]">
+						<span className="size-2 rounded-full bg-[var(--blue-600)]" />
+						{text({
+							en: "Saved work, responses and decisions remain in one timeline.",
+							hi: "सहेजा काम, जवाब और निर्णय एक ही समयक्रम में रहते हैं।",
+						})}
+					</div>
+				</section>
+
+				<section
+					className="border-t border-[var(--line-strong)] pt-8 md:border-l md:border-t-0 md:pl-[clamp(34px,5vw,70px)] md:pt-0"
+					aria-labelledby="login-form-title"
 				>
-					{text({ en: "Sign in", hi: "साइन इन करें" })}
-				</h1>
-				<p className="mt-7 max-w-[590px] text-[1.02rem] leading-[1.72] text-[var(--ink-muted)]">
-					{text({
-						en: "Continue to your private grievance workspace.",
-						hi: "अपने निजी शिकायत कार्यस्थल पर जारी रखें।",
-					})}
-				</p>
-				<ol className="m-0 mt-14 list-none border-t border-[var(--line-strong)] p-0">
-					<li className="grid grid-cols-[54px_1fr] gap-3.5 border-b border-[var(--line)] py-[18px] font-semibold text-[var(--ink)]">
-						<span className="text-[0.72rem] font-extrabold tracking-[0.12em] text-[var(--blue-700)]">
-							01
-						</span>
-						{text({ en: "Save unfinished work", hi: "अधूरा काम सहेजें" })}
-					</li>
-					<li className="grid grid-cols-[54px_1fr] gap-3.5 border-b border-[var(--line)] py-[18px] font-semibold text-[var(--ink)]">
-						<span className="text-[0.72rem] font-extrabold tracking-[0.12em] text-[var(--blue-700)]">
-							02
-						</span>
-						{text({
-							en: "Keep grievance history together",
-							hi: "शिकायत का क्रम एक जगह रखें",
-						})}
-					</li>
-					<li className="grid grid-cols-[54px_1fr] gap-3.5 border-b border-[var(--line)] py-[18px] font-semibold text-[var(--ink)]">
-						<span className="text-[0.72rem] font-extrabold tracking-[0.12em] text-[var(--blue-700)]">
-							03
-						</span>
-						{text({
-							en: "Return without starting again",
-							hi: "बिना दोबारा शुरू किए लौटें",
-						})}
-					</li>
-				</ol>
-			</section>
-			<section
-				className="border-t border-[var(--line-strong)] pt-[34px] md:border-l md:border-t-0 md:pl-[clamp(30px,5vw,72px)] md:pt-0"
-				aria-label={text({ en: "Sign-in form", hi: "साइन-इन फ़ॉर्म" })}
-			>
-				<form onSubmit={submit} className="grid gap-[22px]">
-					<label className="grid gap-2 text-sm font-bold text-[var(--ink)]">
-						<span>{text({ en: "Email", hi: "ईमेल" })}</span>
-						<input
-							type="email"
-							required
-							value={email}
-							onChange={(event) => setEmail(event.target.value)}
-							className="min-h-12 w-full rounded-[2px] border border-[var(--line-strong)] bg-white px-3.5 text-[var(--ink)] outline-none transition focus:border-[var(--blue-700)] focus:outline-3 focus:outline-[var(--blue-100)] focus:outline-offset-0"
-						/>
-					</label>
-					<label className="grid gap-2 text-sm font-bold text-[var(--ink)]">
-						<span>{text({ en: "Password", hi: "पासवर्ड" })}</span>
-						<input
-							type="password"
-							required
-							value={password}
-							onChange={(event) => setPassword(event.target.value)}
-							className="min-h-12 w-full rounded-[2px] border border-[var(--line-strong)] bg-white px-3.5 text-[var(--ink)] outline-none transition focus:border-[var(--blue-700)] focus:outline-3 focus:outline-[var(--blue-100)] focus:outline-offset-0"
-						/>
-					</label>
-					{error ? (
-						<p role="alert" className="m-0 text-[0.82rem] text-[var(--danger)]">
-							{error}
-						</p>
-					) : null}
-					<button
-						type="submit"
-						disabled={busy}
-						className="min-h-12 w-full rounded-[2px] border border-[var(--blue-800)] bg-[var(--blue-800)] px-[18px] font-bold text-white transition hover:border-[var(--blue-950)] hover:bg-[var(--blue-950)] focus:outline-3 focus:outline-[var(--blue-100)] focus:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-60"
-					>
-						{text({ en: "Sign in", hi: "साइन इन करें" })}
-					</button>
-				</form>
-				{demoEnabled ? (
-					<button
-						type="button"
-						onClick={() => void handleDemo()}
-						disabled={busy}
-						className="mt-3 min-h-12 w-full rounded-[2px] border border-[var(--line-strong)] bg-transparent px-[18px] font-bold text-[var(--blue-900)] transition hover:border-[var(--blue-700)] hover:bg-[var(--blue-50)] focus:outline-3 focus:outline-[var(--blue-100)] focus:outline-offset-0 disabled:cursor-not-allowed disabled:opacity-60"
-					>
-						{text({
-							en: "Try an isolated demo account",
-							hi: "अलग डेमो खाते से आज़माएँ",
-						})}
-					</button>
-				) : null}
-				<p className="mt-7 text-[0.84rem] text-[var(--ink-muted)]">
-					{text({ en: "New to UGAAP?", hi: "UGAAP पर नए हैं?" })}{" "}
-					<Link
-						to="/register"
-						search={{ redirect: search.redirect }}
-						className="font-bold text-[var(--blue-800)] underline decoration-[var(--blue-300)] decoration-2 underline-offset-4 transition hover:text-[var(--blue-950)] focus:rounded-[2px] focus:outline-3 focus:outline-[var(--blue-100)] focus:outline-offset-2"
-					>
-						{text({ en: "Create an account", hi: "खाता बनाएँ" })}
-					</Link>
-				</p>
-			</section>
+					<div className="mb-8">
+						<h2
+							id="login-form-title"
+							className="m-0 text-2xl font-semibold tracking-[-0.035em] text-[var(--blue-950)]"
+						>
+							{text({ en: "Sign in", hi: "साइन इन करें" })}
+						</h2>
+						{demoConfig.enabled ? (
+							<p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+								{text({
+									en: "The shared test account is already filled in.",
+									hi: "साझा परीक्षण खाता पहले से भरा हुआ है।",
+								})}
+							</p>
+						) : null}
+					</div>
+					<form onSubmit={submit} className="grid gap-5">
+						<label className="grid gap-2 text-sm font-semibold text-[var(--ink)]">
+							<span>
+								{text({ en: "Email or username", hi: "ईमेल या उपयोगकर्ता नाम" })}
+							</span>
+							<input
+								type="text"
+								name="username"
+								autoComplete="username"
+								spellCheck={false}
+								required
+								value={identifier}
+								onChange={(event) => setIdentifier(event.target.value)}
+								className="min-h-12 w-full rounded-xl border border-[var(--line-strong)] bg-white px-4 text-base text-[var(--ink)] outline-none transition focus:border-[var(--blue-700)] focus:ring-3 focus:ring-[var(--blue-100)]"
+							/>
+						</label>
+						<label className="grid gap-2 text-sm font-semibold text-[var(--ink)]">
+							<span>{text({ en: "Password", hi: "पासवर्ड" })}</span>
+							<span className="flex min-h-12 items-center rounded-xl border border-[var(--line-strong)] bg-white pr-2 focus-within:border-[var(--blue-700)] focus-within:ring-3 focus-within:ring-[var(--blue-100)]">
+								<input
+									type={showPassword ? "text" : "password"}
+									name="password"
+									autoComplete="current-password"
+									required
+									value={password}
+									onChange={(event) => setPassword(event.target.value)}
+									className="min-h-11 min-w-0 flex-1 rounded-xl border-0 bg-transparent px-4 text-base text-[var(--ink)] outline-none"
+								/>
+								<button
+									type="button"
+									onClick={() => setShowPassword((value) => !value)}
+									className="grid size-9 shrink-0 place-items-center rounded-full border-0 bg-transparent text-[var(--ink-muted)] hover:bg-[var(--blue-50)] hover:text-[var(--blue-800)] focus-visible:outline-3 focus-visible:outline-[var(--blue-200)]"
+									aria-label={text(
+										showPassword
+											? { en: "Hide password", hi: "पासवर्ड छिपाएँ" }
+											: { en: "Show password", hi: "पासवर्ड दिखाएँ" },
+									)}
+								>
+									{showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+								</button>
+							</span>
+						</label>
+						{error ? (
+							<p
+								role="alert"
+								className="m-0 border-l-3 border-[var(--danger)] pl-3 text-sm leading-6 text-[var(--danger)]"
+							>
+								{error}
+							</p>
+						) : null}
+						<button
+							type="submit"
+							disabled={busy}
+							className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-[var(--blue-700)] bg-[var(--blue-700)] px-5 font-semibold text-white transition hover:border-[var(--blue-900)] hover:bg-[var(--blue-900)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] disabled:cursor-not-allowed disabled:opacity-60"
+						>
+							{text(
+								busy
+									? { en: "Signing in…", hi: "साइन इन हो रहा है…" }
+									: { en: "Sign in", hi: "साइन इन करें" },
+							)}
+							{busy ? null : <ArrowRight size={17} aria-hidden="true" />}
+						</button>
+					</form>
+					<p className="mt-7 text-sm text-[var(--ink-muted)]">
+						{text({ en: "New to UGAAP?", hi: "UGAAP पर नए हैं?" })}{" "}
+						<Link
+							to="/register"
+							search={{ redirect: search.redirect }}
+							className="font-semibold text-[var(--blue-800)] underline decoration-[var(--blue-300)] decoration-2 underline-offset-4 hover:text-[var(--blue-950)]"
+						>
+							{text({ en: "Create an account", hi: "खाता बनाएँ" })}
+						</Link>
+					</p>
+				</section>
+			</div>
 		</div>
 	);
 }

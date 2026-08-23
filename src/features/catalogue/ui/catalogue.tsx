@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { type FormEvent, useEffect, useMemo, useState } from "react";
+import { ArrowLeft, LoaderCircle, Search, X } from "lucide-react";
+import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import { useI18n } from "#/features/i18n/i18n";
 
@@ -10,6 +11,7 @@ import {
 	findForm,
 	loadAuthorityChunk,
 	loadCatalogueDirectory,
+	MIN_CATALOGUE_QUERY_LENGTH,
 	searchCatalogue,
 } from "../client";
 import {
@@ -29,18 +31,25 @@ const copy = (en: string, hi: string) => ({ en, hi });
 
 export function DirectoryBrowser({
 	query,
-	onSearch,
+	onQueryCommit,
 }: {
 	query: string;
-	onSearch: (query: string) => void;
+	onQueryCommit: (query: string) => void;
 }) {
 	const { text } = useI18n();
 	const [directory, setDirectory] = useState<CatalogueDirectory | null>(null);
 	const [error, setError] = useState<string | null>(null);
+	const [inputQuery, setInputQuery] = useState(query);
 	const [searchResults, setSearchResults] = useState<CatalogueSearchResult[]>(
 		[],
 	);
 	const [searching, setSearching] = useState(false);
+	const searchRequest = useRef(0);
+	const normalizedQuery = inputQuery.trim();
+
+	useEffect(() => {
+		setInputQuery(query);
+	}, [query]);
 
 	useEffect(() => {
 		let active = true;
@@ -64,71 +73,69 @@ export function DirectoryBrowser({
 	}, [text]);
 
 	useEffect(() => {
-		if (!query.trim()) {
+		const request = searchRequest.current + 1;
+		searchRequest.current = request;
+		if (normalizedQuery.length < MIN_CATALOGUE_QUERY_LENGTH) {
 			setSearchResults([]);
+			setSearching(false);
+			setError(null);
 			return;
 		}
-		let active = true;
 		setSearching(true);
-		searchCatalogue(query)
-			.then((results) => active && setSearchResults(results))
-			.catch(
-				() =>
-					active &&
-					setError(
-						text(
-							copy("Search is unavailable right now.", "अभी खोज उपलब्ध नहीं है।"),
-						),
+		setError(null);
+		searchCatalogue(normalizedQuery)
+			.then((results) => {
+				if (searchRequest.current === request) setSearchResults(results);
+			})
+			.catch(() => {
+				if (searchRequest.current !== request) return;
+				setError(
+					text(
+						copy("Search is unavailable right now.", "अभी खोज उपलब्ध नहीं है।"),
 					),
-			)
-			.finally(() => active && setSearching(false));
-		return () => {
-			active = false;
-		};
-	}, [query, text]);
+				);
+			})
+			.finally(() => {
+				if (searchRequest.current === request) setSearching(false);
+			});
+	}, [normalizedQuery, text]);
+
+	const clearSearch = () => {
+		setInputQuery("");
+		onQueryCommit("");
+	};
+	const hasSearchQuery = normalizedQuery.length >= MIN_CATALOGUE_QUERY_LENGTH;
+	const needsMoreCharacters =
+		inputQuery.trim().length > 0 &&
+		inputQuery.trim().length < MIN_CATALOGUE_QUERY_LENGTH;
 
 	return (
-		<div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-16 lg:px-8">
-			<div className="mb-10 max-w-3xl">
-				<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
-					{text(copy("Grievance categories", "शिकायत श्रेणियाँ"))}
-				</p>
-				<h1 className="mt-3 text-4xl font-bold tracking-tight text-blue-950 md:text-6xl">
-					{text(
-						copy(
-							"Find the right place to raise a grievance",
-							"शिकायत दर्ज करने की सही जगह खोजें",
-						),
-					)}
-				</h1>
-				<p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
-					{text(
-						copy(
-							"Choose an authority and browse its grievance categories. You can also search in plain language.",
-							"किसी प्राधिकरण को चुनकर उसकी शिकायत श्रेणियाँ देखें। आप आसान भाषा में खोज भी सकते हैं।",
-						),
-					)}
-				</p>
-			</div>
-
-			<form
-				className="mb-10 border-y-2 border-blue-200 py-6"
-				onSubmit={(event) => {
-					event.preventDefault();
-					const form = event.currentTarget;
-					const input = form.elements.namedItem("service-search");
-					if (input instanceof HTMLInputElement) onSearch(input.value.trim());
-				}}
-			>
-				<label className="block text-sm font-semibold" htmlFor="service-search">
+		<div className="w-full py-2 md:py-4">
+			<h1 className="sr-only">
+				{text(copy("Find a grievance category", "शिकायत श्रेणी खोजें"))}
+			</h1>
+			<search className="mb-8 border-b border-blue-200 pb-8">
+				<label className="sr-only" htmlFor="service-search">
 					{text(copy("Search grievance categories", "शिकायत श्रेणियाँ खोजें"))}
 				</label>
-				<div className="mt-3 flex flex-col gap-3 sm:flex-row">
+				<div className="flex min-h-14 items-center gap-3 rounded-xl border border-blue-300 bg-white px-4 shadow-[0_10px_35px_-24px_rgba(15,59,138,0.7)] transition-[border-color,box-shadow] focus-within:border-blue-700 focus-within:ring-4 focus-within:ring-blue-100">
+					<Search
+						className="shrink-0 text-blue-700"
+						size={20}
+						aria-hidden="true"
+					/>
 					<input
 						id="service-search"
 						name="service-search"
-						defaultValue={query}
-						className="min-h-12 flex-1 border border-blue-300 bg-white px-4 text-base text-blue-950 outline-none transition-colors placeholder:text-slate-500 focus:border-blue-700 focus:ring-2 focus:ring-blue-200"
+						type="search"
+						autoComplete="off"
+						value={inputQuery}
+						onChange={(event) => setInputQuery(event.target.value)}
+						onBlur={() => onQueryCommit(normalizedQuery)}
+						onKeyDown={(event) => {
+							if (event.key === "Escape") clearSearch();
+						}}
+						className="min-w-0 flex-1 bg-transparent text-base text-blue-950 outline-none placeholder:text-slate-500 [&::-webkit-search-cancel-button]:hidden"
 						placeholder={text(
 							copy(
 								"Try: passport delay, pension, broadband",
@@ -136,14 +143,40 @@ export function DirectoryBrowser({
 							),
 						)}
 					/>
-					<button
-						className="min-h-12 border border-blue-900 bg-blue-900 px-6 font-semibold text-white transition-colors hover:bg-blue-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-						type="submit"
-					>
-						{text(copy("Search", "खोजें"))}
-					</button>
+					{searching ? (
+						<LoaderCircle
+							className="animate-spin text-blue-700"
+							size={19}
+							aria-hidden="true"
+						/>
+					) : null}
+					{inputQuery ? (
+						<button
+							className="inline-flex size-9 shrink-0 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-blue-50 hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+							type="button"
+							onClick={clearSearch}
+							aria-label={text(copy("Clear search", "खोज साफ़ करें"))}
+						>
+							<X size={18} aria-hidden="true" />
+						</button>
+					) : null}
 				</div>
-			</form>
+				<p className="mt-2 text-sm text-slate-500">
+					{needsMoreCharacters
+						? text(
+								copy(
+									"Type one more character to search.",
+									"खोजने के लिए एक और अक्षर लिखें।",
+								),
+							)
+						: text(
+								copy(
+									"Results update as you type. Press Escape to clear.",
+									"लिखते ही परिणाम बदलेंगे। साफ़ करने के लिए Escape दबाएँ।",
+								),
+							)}
+				</p>
+			</search>
 
 			{error ? (
 				<p
@@ -153,8 +186,12 @@ export function DirectoryBrowser({
 					{error}
 				</p>
 			) : null}
-			{query ? (
-				<SearchResults results={searchResults} searching={searching} />
+			{hasSearchQuery ? (
+				<SearchResults
+					query={normalizedQuery}
+					results={searchResults}
+					searching={searching}
+				/>
 			) : (
 				<AuthorityList directory={directory} />
 			)}
@@ -171,27 +208,18 @@ function AuthorityList({
 	if (!directory) return <LoadingMessage />;
 	return (
 		<section aria-labelledby="authority-list-heading">
-			<div className="mb-4 flex items-end justify-between gap-4">
-				<div>
-					<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
-						{text(
-							copy("Choose a responsible authority", "जिम्मेदार प्राधिकरण चुनें"),
-						)}
-					</p>
-					<h2 id="authority-list-heading" className="mt-2 text-2xl font-bold">
-						{text(
-							copy(
-								`${directory.authorities.length} authorities`,
-								`${directory.authorities.length} प्राधिकरण`,
-							),
-						)}
-					</h2>
-				</div>
-				<p className="text-right text-sm leading-6 text-slate-600">
+			<div className="mb-4 flex items-baseline justify-between gap-4">
+				<h2
+					id="authority-list-heading"
+					className="text-xl font-bold text-blue-950"
+				>
+					{text(copy("Responsible authorities", "जिम्मेदार प्राधिकरण"))}
+				</h2>
+				<p className="text-sm tabular-nums text-slate-500">
 					{text(
 						copy(
-							"Grievance categories load after you choose one.",
-							"श्रेणियाँ चुनने के बाद लोड होंगी।",
+							`${directory.authorities.length} available`,
+							`${directory.authorities.length} उपलब्ध`,
 						),
 					)}
 				</p>
@@ -227,54 +255,84 @@ function AuthorityCard({ authority }: { authority: CatalogueAuthority }) {
 }
 
 function SearchResults({
+	query,
 	results,
 	searching,
 }: {
+	query: string;
 	results: CatalogueSearchResult[];
 	searching: boolean;
 }) {
 	const { text } = useI18n();
-	if (searching) return <LoadingMessage />;
 	return (
-		<section aria-live="polite">
-			<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
-				{text(copy("Search results", "खोज परिणाम"))}
-			</p>
+		<section aria-labelledby="catalogue-results-heading" aria-busy={searching}>
+			<div className="flex flex-wrap items-end justify-between gap-3 border-b border-blue-200 pb-4">
+				<div>
+					<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
+						{text(copy("Search results", "खोज परिणाम"))}
+					</p>
+					<h2
+						id="catalogue-results-heading"
+						className="mt-1 text-xl font-semibold text-blue-950"
+					>
+						{text(copy(`Results for “${query}”`, `“${query}” के परिणाम`))}
+					</h2>
+				</div>
+				<p className="text-sm font-medium text-slate-600">
+					{text(copy(`${results.length} matches`, `${results.length} परिणाम`))}
+				</p>
+			</div>
+			<output className="sr-only" aria-live="polite">
+				{searching
+					? text(copy("Searching the catalogue.", "निर्देशिका में खोज जारी है।"))
+					: text(
+							copy(
+								`${results.length} results found.`,
+								`${results.length} परिणाम मिले।`,
+							),
+						)}
+			</output>
 			{results.length ? (
-				<div className="mt-4 border-y-2 border-blue-200">
+				<div
+					className={
+						searching ? "opacity-60 transition-opacity" : "transition-opacity"
+					}
+				>
 					{results.map((result) => (
 						<Link
-							className="group block border-b border-blue-200 py-5 last:border-b-0 transition-colors hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+							className="group grid gap-3 border-b border-blue-200 px-1 py-5 transition-colors hover:bg-blue-50/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
 							key={result.id}
 							to="/services/$authoritySlug/form/$formId"
 							search={{ review: false, draft: undefined }}
 							params={{
-								authoritySlug: result.authorityId.replace(/^authority-/, ""),
+								authoritySlug: result.authoritySlug,
 								formId: result.id,
 							}}
 						>
-							<p className="text-sm font-semibold text-blue-800">
-								{text(copy(result.authorityName, result.authorityName))}
-							</p>
-							<h2 className="mt-1 text-lg font-bold text-blue-950">
-								{text(copy(result.title, result.title))}
-							</h2>
-							<p className="mt-1 text-sm text-slate-600">
-								{text(
-									copy(
-										result.categoryPath.join(" / "),
-										result.categoryPath.join(" / "),
-									),
-								)}
-							</p>
-							<span className="mt-3 inline-flex text-sm font-semibold text-blue-800 group-hover:text-blue-950">
-								{text(copy("Open grievance form →", "शिकायत फ़ॉर्म खोलें →"))}
+							<div className="min-w-0">
+								<p className="text-sm font-semibold text-blue-700">
+									{text(copy(result.authorityName, result.authorityName))}
+								</p>
+								<h3 className="mt-1 text-lg font-semibold text-blue-950">
+									{text(copy(result.title, result.title))}
+								</h3>
+								<p className="mt-1 truncate text-sm text-slate-600">
+									{text(
+										copy(
+											result.categoryPath.join(" / "),
+											result.categoryPath.join(" / "),
+										),
+									)}
+								</p>
+							</div>
+							<span className="text-sm font-semibold text-blue-800 group-hover:text-blue-950">
+								{text(copy("Open form →", "फ़ॉर्म खोलें →"))}
 							</span>
 						</Link>
 					))}
 				</div>
 			) : (
-				<p className="mt-4 border-y-2 border-blue-200 py-5 text-slate-700">
+				<p className="border-b border-blue-200 py-6 text-slate-700">
 					{text(
 						copy(
 							"No matching grievance categories. Try fewer words.",
@@ -304,16 +362,14 @@ export function AuthorityBrowser({ chunk }: { chunk: AuthorityChunk }) {
 		: roots;
 	return (
 		<div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-			<nav
-				aria-label={text(copy("Breadcrumbs", "ब्रेडक्रंब"))}
-				className="mb-8 text-sm text-slate-600"
+			<Link
+				className="mb-8 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-blue-800 no-underline hover:text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
+				to="/services"
+				search={{ q: "" }}
 			>
-				<Link to="/services" search={{ q: "" }}>
-					{text(copy("Grievance catalogue", "शिकायत सूची"))}
-				</Link>
-				<span className="mx-2">/</span>
-				<span>{text(copy(chunk.authority.name, chunk.authority.name))}</span>
-			</nav>
+				<ArrowLeft size={17} aria-hidden="true" />
+				{text(copy("Back to all authorities", "सभी प्राधिकरणों पर वापस जाएँ"))}
+			</Link>
 			<div className="mb-8 max-w-3xl">
 				<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
 					{text(copy("Choose a category", "श्रेणी चुनें"))}
@@ -444,8 +500,13 @@ export function AuthorityPage({ slug }: { slug: string }) {
 				>
 					{error}
 				</p>
-				<Link className="mt-5 inline-flex" to="/services" search={{ q: "" }}>
-					{text(copy("Back to grievance catalogue", "शिकायत सूची पर वापस जाएँ"))}
+				<Link
+					className="mt-5 inline-flex items-center gap-2"
+					to="/services"
+					search={{ q: "" }}
+				>
+					<ArrowLeft size={17} aria-hidden="true" />
+					{text(copy("Back to all authorities", "सभी प्राधिकरणों पर वापस जाएँ"))}
 				</Link>
 			</div>
 		);
@@ -511,8 +572,13 @@ export function FormPage({
 				>
 					{error}
 				</p>
-				<Link className="mt-5 inline-flex" to="/services" search={{ q: "" }}>
-					{text(copy("Back to grievance catalogue", "शिकायत सूची पर वापस जाएँ"))}
+				<Link
+					className="mt-5 inline-flex items-center gap-2"
+					to="/services/$authoritySlug"
+					params={{ authoritySlug: slug }}
+				>
+					<ArrowLeft size={17} aria-hidden="true" />
+					{text(copy("Back to categories", "श्रेणियों पर वापस जाएँ"))}
 				</Link>
 			</div>
 		);
@@ -671,23 +737,14 @@ function CatalogueFormScreen({
 	if (restoring) return <LoadingMessage />;
 	return (
 		<div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
-			<nav
-				aria-label={text(copy("Breadcrumbs", "ब्रेडक्रंब"))}
-				className="mb-8 text-sm text-slate-600"
+			<Link
+				className="mb-8 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-blue-800 no-underline hover:text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
+				to="/services/$authoritySlug"
+				params={{ authoritySlug: chunk.authority.slug }}
 			>
-				<Link to="/services" search={{ q: "" }}>
-					{text(copy("Grievance catalogue", "शिकायत सूची"))}
-				</Link>
-				<span className="mx-2">/</span>
-				<Link
-					to="/services/$authoritySlug"
-					params={{ authoritySlug: chunk.authority.slug }}
-				>
-					{text(copy(chunk.authority.name, chunk.authority.name))}
-				</Link>
-				<span className="mx-2">/</span>
-				<span>{text(copy(form.title, form.title))}</span>
-			</nav>
+				<ArrowLeft size={17} aria-hidden="true" />
+				{text(copy("Back to categories", "श्रेणियों पर वापस जाएँ"))}
+			</Link>
 			{review ? (
 				<ReviewPanel
 					form={form}

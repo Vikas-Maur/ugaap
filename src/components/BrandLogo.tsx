@@ -7,13 +7,13 @@ export function BrandLogo({ compact = false }: BrandLogoProps) {
 		<img
 			className={
 				compact
-					? "block h-11 w-11 object-cover object-left"
-					: "block h-auto w-[168px] max-w-full"
+					? "block size-10 object-cover object-left"
+					: "block h-auto w-[126px] max-w-full sm:w-[154px]"
 			}
 			src="/brand/ugaap-mark.svg"
 			alt="UGAAP"
-			width={compact ? 48 : 192}
-			height={56}
+			width={compact ? 40 : 184}
+			height={48}
 		/>
 	);
 }

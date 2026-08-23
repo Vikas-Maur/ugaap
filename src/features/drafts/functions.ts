@@ -69,9 +69,11 @@ function mapDraft(draft: typeof grievanceDraft.$inferSelect) {
 
 function mapForm(form: typeof formDefinition.$inferSelect | null) {
 	if (!form) return null;
+	const title = form.schema.title;
 	return {
 		id: form.id,
 		formKey: form.formKey,
+		title: typeof title === "string" && title.trim() ? title : form.formKey,
 		version: form.version,
 		checksum: form.checksum,
 		active: form.active,

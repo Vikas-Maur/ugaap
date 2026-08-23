@@ -45,7 +45,7 @@ function DraftsScreen() {
 							>
 								<div>
 									<p className="text-lg font-bold text-blue-950">
-										{form?.formKey ??
+										{form?.title ??
 											text({ en: "Unavailable form", hi: "फ़ॉर्म उपलब्ध नहीं है" })}
 									</p>
 									<p className="mt-1 text-sm leading-6 text-slate-600">

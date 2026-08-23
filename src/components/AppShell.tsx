@@ -1,11 +1,27 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { FileCheck2, FileClock, Globe2, LogOut, Scale } from "lucide-react";
-import type { ReactNode } from "react";
+import { FileClock, FilePlus2, Globe2, Home, LogOut, Menu } from "lucide-react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { text, useI18n } from "../features/i18n/i18n";
 import { authClient } from "../lib/auth-client";
-import { AssistantComposer } from "./AssistantComposer";
 import { BrandLogo } from "./BrandLogo";
+import {
+	Sidebar,
+	SidebarContent,
+	SidebarFooter,
+	SidebarGroup,
+	SidebarGroupContent,
+	SidebarGroupLabel,
+	SidebarHeader,
+	SidebarInset,
+	SidebarMenu,
+	SidebarMenuButton,
+	SidebarMenuItem,
+	SidebarProvider,
+	SidebarRail,
+	SidebarSeparator,
+	SidebarTrigger,
+} from "./ui/sidebar";
 
 const workspacePrefixes = ["/services", "/drafts", "/continuation"];
 
@@ -18,43 +34,62 @@ export function AppShell({ children }: Readonly<{ children: ReactNode }>) {
 	);
 
 	return isWorkspace ? (
-		<WorkspaceShell>{children}</WorkspaceShell>
+		<WorkspaceShell pathname={pathname}>{children}</WorkspaceShell>
 	) : (
 		<PublicShell>{children}</PublicShell>
 	);
 }
 
-function LanguageControl() {
+function LanguageControl({ inverse = false }: { inverse?: boolean }) {
 	const { language, toggleLanguage, text: translate } = useI18n();
 
 	return (
 		<button
-			className="inline-flex min-h-9 items-center gap-1.5 border-0 bg-transparent p-0 text-[0.76rem] font-bold text-[var(--ink-muted)] transition-colors hover:text-[var(--blue-700)]"
+			className={`inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3 text-xs font-semibold transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] ${
+				inverse
+					? "border-white/35 text-white hover:bg-white/10"
+					: "border-[var(--line)] bg-white/70 text-[var(--ink-muted)] hover:border-[var(--blue-300)] hover:text-[var(--blue-800)]"
+			}`}
 			type="button"
 			onClick={toggleLanguage}
 			aria-label={translate(text({ en: "Switch language", hi: "भाषा बदलें" }))}
 		>
-			<Globe2 size={16} aria-hidden="true" />
+			<Globe2 size={15} aria-hidden="true" />
+			<span className="sm:hidden">{language === "en" ? "EN" : "हिं"}</span>
 			<span
-				className={
-					language === "en"
-						? "text-[var(--blue-800)] underline decoration-[var(--blue-300)] underline-offset-4"
-						: ""
-				}
+				className={`${language === "en" ? "font-extrabold" : "opacity-60"} hidden sm:inline`}
 			>
 				EN
 			</span>
-			<span aria-hidden="true">/</span>
+			<span aria-hidden="true" className="hidden opacity-40 sm:inline">
+				/
+			</span>
 			<span
-				className={
-					language === "hi"
-						? "text-[var(--blue-800)] underline decoration-[var(--blue-300)] underline-offset-4"
-						: ""
-				}
+				className={`${language === "hi" ? "font-extrabold" : "opacity-60"} hidden sm:inline`}
 			>
 				हिं
 			</span>
 		</button>
+	);
+}
+
+const publicLinkClass =
+	"text-sm font-medium text-[var(--ink-muted)] no-underline transition-colors hover:text-[var(--blue-800)] focus-visible:rounded-sm focus-visible:outline-3 focus-visible:outline-[var(--blue-200)] focus-visible:outline-offset-4";
+
+function PublicLinks() {
+	const { text: translate } = useI18n();
+	return (
+		<>
+			<Link className={publicLinkClass} to="/about">
+				{translate(text({ en: "About", hi: "परिचय" }))}
+			</Link>
+			<Link className={publicLinkClass} to="/" hash="how-it-works">
+				{translate(text({ en: "How it works", hi: "यह कैसे काम करता है" }))}
+			</Link>
+			<Link className={publicLinkClass} to="/privacy">
+				{translate(text({ en: "Privacy", hi: "गोपनीयता" }))}
+			</Link>
+		</>
 	);
 }
 
@@ -63,105 +98,99 @@ function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 	const { data: session } = authClient.useSession();
 
 	return (
-		<div className="min-h-screen bg-[linear-gradient(118deg,_rgba(220,234,255,0.42)_0%,_rgba(248,251,255,0)_34rem),_var(--paper)]">
-			<header className="relative z-10 border-b border-[var(--line)] bg-[rgba(248,251,255,0.92)] backdrop-blur-xl">
-				<div className="mx-auto grid min-h-[78px] w-full max-w-[1240px] grid-cols-[auto_1fr_auto] items-center gap-[clamp(30px,5vw,76px)] px-4 sm:px-6 lg:px-0">
+		<div className="min-h-screen bg-[var(--paper)]">
+			<header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color:rgba(251,252,254,0.92)] backdrop-blur-xl">
+				<div className="mx-auto flex min-h-[72px] w-full max-w-[1320px] items-center gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
 					<Link
-						className="inline-flex text-inherit no-underline"
+						className="inline-flex shrink-0 text-inherit no-underline"
 						to="/"
 						aria-label="UGAAP home"
 					>
 						<BrandLogo />
 					</Link>
 					<nav
-						className="hidden items-center gap-[clamp(20px,3vw,38px)] lg:flex"
+						className="ml-auto hidden items-center gap-8 lg:flex"
 						aria-label={translate(
 							text({ en: "Public navigation", hi: "सार्वजनिक नेविगेशन" }),
 						)}
 					>
-						<Link
-							className="text-[0.82rem] font-semibold text-[var(--ink-muted)] no-underline transition-colors hover:text-[var(--blue-800)] hover:underline hover:underline-offset-4"
-							to="/about"
-						>
-							{translate(text({ en: "About", hi: "परिचय" }))}
-						</Link>
-						<Link
-							className="text-[0.82rem] font-semibold text-[var(--ink-muted)] no-underline transition-colors hover:text-[var(--blue-800)] hover:underline hover:underline-offset-4"
-							to="/"
-							hash="how-it-works"
-						>
-							{translate(text({ en: "How it works", hi: "यह कैसे काम करता है" }))}
-						</Link>
-						<Link
-							className="text-[0.82rem] font-semibold text-[var(--ink-muted)] no-underline transition-colors hover:text-[var(--blue-800)] hover:underline hover:underline-offset-4"
-							to="/privacy"
-						>
-							{translate(text({ en: "Privacy", hi: "गोपनीयता" }))}
-						</Link>
+						<PublicLinks />
 					</nav>
-					<div className="flex items-center gap-3 sm:gap-6">
+					<div className="ml-auto flex items-center gap-2 lg:ml-6">
 						<LanguageControl />
 						<Link
-							className="min-h-9 border border-[var(--blue-800)] bg-[var(--blue-800)] px-2.5 py-2 text-[0.8rem] font-bold text-white no-underline transition-colors hover:border-[var(--blue-950)] hover:bg-[var(--blue-950)] sm:px-3.5"
+							className="inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-full border border-[var(--blue-700)] bg-[var(--blue-700)] px-3 text-sm font-semibold text-white no-underline transition-all hover:border-[var(--blue-900)] hover:bg-[var(--blue-900)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] sm:px-4"
 							to={session?.user ? "/services" : "/login"}
 							search={session?.user ? { q: "" } : { redirect: "/services" }}
 						>
 							{session?.user
-								? translate(text({ en: "Open workspace", hi: "कार्यस्थल खोलें" }))
+								? translate(text({ en: "Workspace", hi: "कार्यस्थल" }))
 								: translate(text({ en: "Sign in", hi: "साइन इन" }))}
 						</Link>
+						<details className="group relative lg:hidden">
+							<summary className="grid size-10 cursor-pointer list-none place-items-center rounded-full border border-[var(--line)] bg-white text-[var(--blue-900)] marker:content-none focus-visible:outline-3 focus-visible:outline-[var(--blue-200)]">
+								<Menu size={18} aria-hidden="true" />
+								<span className="sr-only">
+									{translate(text({ en: "Open menu", hi: "मेनू खोलें" }))}
+								</span>
+							</summary>
+							<nav className="absolute right-0 top-12 grid min-w-48 gap-4 border border-[var(--line-strong)] bg-white p-5 shadow-[0_18px_45px_rgba(6,27,66,0.14)]">
+								<PublicLinks />
+							</nav>
+						</details>
 					</div>
 				</div>
 			</header>
 
-			<main className="min-h-[calc(100vh-265px)]">{children}</main>
+			<main className="min-h-[calc(100vh-240px)]">{children}</main>
 
-			<footer className="mx-auto flex w-full max-w-[1240px] flex-col gap-8 border-t border-[var(--line-strong)] px-4 py-9 pb-12 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10 lg:px-0">
-				<div className="flex flex-col items-start gap-3.5 sm:flex-row sm:items-center sm:gap-6">
-					<BrandLogo />
-					<p className="m-0 max-w-[430px] text-[0.8rem] text-[var(--ink-muted)]">
-						{translate(
-							text({
-								en: "One route into the grievance system. A clear record of what follows.",
-								hi: "शिकायत व्यवस्था तक एक रास्ता। आगे की कार्रवाई का स्पष्ट रिकॉर्ड।",
-							}),
+			<footer className="border-t border-[var(--line)] bg-white/55">
+				<div className="mx-auto flex w-full max-w-[1320px] flex-col gap-8 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+					<div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+						<BrandLogo />
+						<p className="m-0 max-w-[420px] text-sm leading-6 text-[var(--ink-muted)]">
+							{translate(
+								text({
+									en: "Describe the issue once. Keep every response and decision in one place.",
+									hi: "समस्या एक बार बताएँ। हर जवाब और निर्णय को एक जगह रखें।",
+								}),
+							)}
+						</p>
+					</div>
+					<nav
+						className="flex flex-wrap items-center gap-x-6 gap-y-3"
+						aria-label={translate(
+							text({ en: "Legal information", hi: "कानूनी जानकारी" }),
 						)}
-					</p>
+					>
+						<Link className={publicLinkClass} to="/terms">
+							{translate(text({ en: "Terms", hi: "नियम" }))}
+						</Link>
+						<Link className={publicLinkClass} to="/privacy">
+							{translate(text({ en: "Privacy", hi: "गोपनीयता" }))}
+						</Link>
+						<Link className={publicLinkClass} to="/cookies">
+							{translate(text({ en: "Cookies", hi: "कुकीज़" }))}
+						</Link>
+					</nav>
 				</div>
-				<nav
-					className="flex items-center gap-6"
-					aria-label={translate(
-						text({ en: "Legal information", hi: "कानूनी जानकारी" }),
-					)}
-				>
-					<Link
-						className="text-[0.82rem] font-semibold text-[var(--ink-muted)] no-underline hover:text-[var(--blue-800)] hover:underline hover:underline-offset-4"
-						to="/terms"
-					>
-						{translate(text({ en: "Terms", hi: "नियम" }))}
-					</Link>
-					<Link
-						className="text-[0.82rem] font-semibold text-[var(--ink-muted)] no-underline hover:text-[var(--blue-800)] hover:underline hover:underline-offset-4"
-						to="/privacy"
-					>
-						{translate(text({ en: "Privacy", hi: "गोपनीयता" }))}
-					</Link>
-					<Link
-						className="text-[0.82rem] font-semibold text-[var(--ink-muted)] no-underline hover:text-[var(--blue-800)] hover:underline hover:underline-offset-4"
-						to="/cookies"
-					>
-						{translate(text({ en: "Cookies", hi: "कुकीज़" }))}
-					</Link>
-				</nav>
 			</footer>
 		</div>
 	);
 }
 
-function WorkspaceShell({ children }: Readonly<{ children: ReactNode }>) {
+function WorkspaceShell({
+	children,
+	pathname,
+}: Readonly<{ children: ReactNode; pathname: string }>) {
 	const { text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
 	const navigate = useNavigate();
+	const title = pathname.startsWith("/drafts")
+		? text({ en: "Saved drafts", hi: "सहेजे गए मसौदे" })
+		: pathname.startsWith("/continuation")
+			? text({ en: "Continue your request", hi: "अपना अनुरोध जारी रखें" })
+			: text({ en: "File a grievance", hi: "शिकायत दर्ज करें" });
 
 	async function signOut() {
 		await authClient.signOut();
@@ -169,77 +198,142 @@ function WorkspaceShell({ children }: Readonly<{ children: ReactNode }>) {
 	}
 
 	return (
-		<div className="min-h-screen bg-white md:grid md:grid-cols-[224px_minmax(0,1fr)]">
-			<aside className="relative flex flex-col bg-[var(--blue-950)] px-4 pt-2 text-white md:sticky md:top-0 md:h-screen md:border-r md:border-[var(--blue-950)] md:px-0 md:py-[18px]">
-				<Link
-					className="mb-2 flex items-center gap-3 font-extrabold tracking-[0.12em] text-white no-underline md:mx-[22px] md:mb-[26px]"
-					to="/"
-				>
-					<BrandLogo compact />
-					<span>UGAAP</span>
-				</Link>
-				<nav
-					className="flex overflow-x-auto border-t border-white/30 md:grid md:overflow-visible"
-					aria-label={translate(
-						text({ en: "Grievance workspace", hi: "शिकायत कार्यस्थल" }),
-					)}
-				>
+		<SidebarProvider
+			defaultOpen
+			style={
+				{
+					"--sidebar-width": "13.75rem",
+					"--sidebar-width-icon": "4.25rem",
+				} as CSSProperties
+			}
+		>
+			<Sidebar collapsible="icon" className="border-[var(--sidebar-border)]">
+				<SidebarHeader className="h-16 flex-row items-center px-3 py-0 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
 					<Link
-						className="flex min-h-[54px] flex-1 shrink-0 items-center gap-3 border-r border-white/30 px-[22px] text-[0.84rem] font-semibold text-[#c8d9f2] no-underline transition-colors hover:bg-[#8dbbff29] hover:text-white md:border-r-0 md:border-b"
-						to="/services"
-						search={{ q: "" }}
-						activeProps={{ className: "bg-[#8dbbff29] text-white" }}
+						className="flex min-h-10 items-center gap-3 overflow-hidden text-[var(--blue-950)] no-underline group-data-[collapsible=icon]:justify-center"
+						to="/"
 					>
-						<FileCheck2 size={19} aria-hidden="true" />
-						<span>
-							{translate(text({ en: "New grievance", hi: "नई शिकायत" }))}
+						<BrandLogo compact />
+						<span className="whitespace-nowrap text-sm font-extrabold tracking-[0.12em] group-data-[collapsible=icon]:hidden">
+							UGAAP
 						</span>
 					</Link>
-					<Link
-						className="flex min-h-[54px] flex-1 shrink-0 items-center gap-3 border-r border-white/30 px-[22px] text-[0.84rem] font-semibold text-[#c8d9f2] no-underline transition-colors hover:bg-[#8dbbff29] hover:text-white md:border-r-0 md:border-b"
-						to="/drafts"
-						activeProps={{ className: "bg-[#8dbbff29] text-white" }}
-					>
-						<FileClock size={19} aria-hidden="true" />
-						<span>{translate(text({ en: "Drafts", hi: "मसौदे" }))}</span>
-					</Link>
-				</nav>
-				<div className="absolute right-4 top-[14px] grid gap-2.5 md:static md:mx-[22px] md:mt-auto md:border-t md:border-white/30 md:px-0 md:pt-5">
-					<span className="hidden max-w-[180px] overflow-hidden text-ellipsis whitespace-nowrap text-[0.76rem] text-[#c8d9f2] md:block">
-						{session?.user.name ||
-							session?.user.email ||
-							translate(text({ en: "Citizen", hi: "नागरिक" }))}
-					</span>
-					<button
-						className="flex items-center gap-2 border-0 bg-transparent p-0 text-[0.8rem] font-bold text-white"
-						type="button"
-						onClick={() => void signOut()}
-					>
-						<LogOut size={17} aria-hidden="true" />
-						<span className="hidden md:inline">
-							{translate(text({ en: "Sign out", hi: "साइन आउट" }))}
-						</span>
-					</button>
-				</div>
-			</aside>
+				</SidebarHeader>
+				<SidebarSeparator className="mx-0" />
+				<SidebarContent>
+					<SidebarGroup className="px-2 py-4">
+						<SidebarGroupLabel>
+							{translate(text({ en: "Your work", hi: "आपका काम" }))}
+						</SidebarGroupLabel>
+						<SidebarGroupContent>
+							<SidebarMenu className="gap-1.5">
+								<SidebarMenuItem>
+									<SidebarMenuButton
+										asChild
+										isActive={pathname.startsWith("/services")}
+										tooltip={translate(
+											text({ en: "New grievance", hi: "नई शिकायत" }),
+										)}
+										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--blue-700)] data-[active=true]:text-white"
+									>
+										<Link to="/services" search={{ q: "" }}>
+											<FilePlus2 aria-hidden="true" />
+											<span>
+												{translate(
+													text({ en: "New grievance", hi: "नई शिकायत" }),
+												)}
+											</span>
+										</Link>
+									</SidebarMenuButton>
+								</SidebarMenuItem>
+								<SidebarMenuItem>
+									<SidebarMenuButton
+										asChild
+										isActive={pathname.startsWith("/drafts")}
+										tooltip={translate(text({ en: "Drafts", hi: "मसौदे" }))}
+										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--blue-700)] data-[active=true]:text-white"
+									>
+										<Link to="/drafts">
+											<FileClock aria-hidden="true" />
+											<span>
+												{translate(text({ en: "Drafts", hi: "मसौदे" }))}
+											</span>
+										</Link>
+									</SidebarMenuButton>
+								</SidebarMenuItem>
+								<SidebarMenuItem>
+									<SidebarMenuButton
+										asChild
+										tooltip={translate(
+											text({ en: "Public home", hi: "मुखपृष्ठ" }),
+										)}
+										className="h-11 rounded-lg px-3"
+									>
+										<Link to="/">
+											<Home aria-hidden="true" />
+											<span>
+												{translate(text({ en: "Public home", hi: "मुखपृष्ठ" }))}
+											</span>
+										</Link>
+									</SidebarMenuButton>
+								</SidebarMenuItem>
+							</SidebarMenu>
+						</SidebarGroupContent>
+					</SidebarGroup>
+				</SidebarContent>
+				<SidebarSeparator />
+				<SidebarFooter className="p-2.5">
+					<SidebarMenu>
+						<SidebarMenuItem>
+							<SidebarMenuButton
+								size="lg"
+								className="h-12 rounded-lg px-2.5"
+								tooltip={session?.user.name || session?.user.email || "Citizen"}
+							>
+								<span className="grid size-8 shrink-0 place-items-center rounded-full bg-[var(--blue-100)] text-xs font-extrabold text-[var(--blue-900)]">
+									{(session?.user.name || session?.user.email || "C")
+										.slice(0, 1)
+										.toUpperCase()}
+								</span>
+								<span className="min-w-0 truncate text-xs font-semibold">
+									{session?.user.name ||
+										session?.user.email ||
+										translate(text({ en: "Citizen", hi: "नागरिक" }))}
+								</span>
+							</SidebarMenuButton>
+						</SidebarMenuItem>
+						<SidebarMenuItem>
+							<SidebarMenuButton
+								onClick={() => void signOut()}
+								tooltip={translate(text({ en: "Sign out", hi: "साइन आउट" }))}
+								className="h-10 rounded-lg px-3"
+							>
+								<LogOut aria-hidden="true" />
+								<span>
+									{translate(text({ en: "Sign out", hi: "साइन आउट" }))}
+								</span>
+							</SidebarMenuButton>
+						</SidebarMenuItem>
+					</SidebarMenu>
+				</SidebarFooter>
+				<SidebarRail />
+			</Sidebar>
 
-			<div className="min-w-0">
-				<header className="flex min-h-[58px] items-center justify-between gap-5 border-b border-[var(--line-strong)] px-4 md:min-h-[66px] md:px-[clamp(24px,4vw,54px)]">
-					<div className="flex items-center gap-2 text-[0.8rem] font-bold text-[var(--ink-muted)]">
-						<Scale size={18} aria-hidden="true" />
-						<span>
-							{translate(
-								text({ en: "Grievance workspace", hi: "शिकायत कार्यस्थल" }),
-							)}
+			<SidebarInset className="min-w-0 bg-white">
+				<header className="sticky top-0 z-30 flex min-h-16 items-center justify-between gap-4 border-b border-[var(--line)] bg-white/90 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
+					<div className="flex min-w-0 items-center gap-3">
+						<SidebarTrigger className="size-10 rounded-full border border-[var(--line)] text-[var(--blue-900)] hover:bg-[var(--blue-50)]" />
+						<div className="h-5 w-px bg-[var(--line)]" aria-hidden="true" />
+						<span className="truncate text-sm font-semibold text-[var(--ink)]">
+							{translate(title)}
 						</span>
 					</div>
 					<LanguageControl />
 				</header>
-				<main className="mx-auto w-[calc(100%_-_28px)] max-w-[1080px] py-[26px] pb-20 md:w-[calc(100%_-_48px)] md:py-9">
-					<AssistantComposer />
+				<div className="mx-auto w-full max-w-[1180px] px-4 py-6 pb-20 sm:px-6 md:py-8 lg:px-10">
 					{children}
-				</main>
-			</div>
-		</div>
+				</div>
+			</SidebarInset>
+		</SidebarProvider>
 	);
 }

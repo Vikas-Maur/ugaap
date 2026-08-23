@@ -19,8 +19,11 @@ export type CatalogueDirectory = {
 
 export type CatalogueSearchResult = SearchEntry & {
 	authorityName: string;
+	authoritySlug: string;
 	form?: CatalogueForm;
 };
+
+export const MIN_CATALOGUE_QUERY_LENGTH = 2;
 
 export type CatalogueDraftPayload = {
 	form: CatalogueForm;
@@ -108,6 +111,7 @@ export function sanitizeReturnTarget(target: string) {
 
 const CATALOGUE_ROOT = "/catalogue";
 let searchIndexPromise: Promise<SearchEntry[]> | undefined;
+let preparedSearchIndexPromise: Promise<PreparedSearchEntry[]> | undefined;
 const authorityCache = new Map<string, Promise<AuthorityChunk>>();
 
 function assertBrowser() {
@@ -164,31 +168,292 @@ function loadSearchIndex(): Promise<SearchEntry[]> {
 	return searchIndexPromise;
 }
 
+type PreparedSearchEntry = {
+	entry: SearchEntry;
+	authorityName: string;
+	authoritySlug: string;
+	title: string;
+	category: string;
+	authority: string;
+	terms: string;
+	tokens: string[];
+};
+
+const searchAliases: Record<string, string[]> = {
+	bijli: ["electricity", "power", "बिजली"],
+	बिजली: ["electricity", "power", "bijli"],
+	electricity: ["bijli", "power", "बिजली"],
+	pension: ["पेंशन"],
+	passport: ["पासपोर्ट"],
+	railway: ["train", "रेल", "रेलवे"],
+	रेल: ["railway", "train", "रेलवे"],
+	रेलवे: ["railway", "train", "रेल"],
+	train: ["railway", "रेल", "रेलवे"],
+	water: ["pani", "पानी"],
+	पानी: ["water", "pani"],
+	pani: ["water", "पानी"],
+};
+
+const searchStopWords = new Set([
+	"a",
+	"about",
+	"an",
+	"and",
+	"are",
+	"complaint",
+	"for",
+	"from",
+	"grievance",
+	"has",
+	"have",
+	"i",
+	"in",
+	"is",
+	"issue",
+	"issues",
+	"me",
+	"my",
+	"not",
+	"of",
+	"on",
+	"our",
+	"please",
+	"problem",
+	"the",
+	"to",
+	"was",
+	"we",
+	"were",
+	"with",
+	"work",
+	"working",
+	"यह",
+	"और",
+	"कर",
+	"का",
+	"काम",
+	"की",
+	"के",
+	"को",
+	"है",
+	"हैं",
+	"मेरी",
+	"मेरा",
+	"मेरे",
+	"मुझे",
+	"में",
+	"नहीं",
+	"रहा",
+	"रही",
+	"रहे",
+	"से",
+]);
+
+function normalizeSearchText(value: string): string {
+	const hindiDigits: Record<string, string> = {
+		"०": "0",
+		"१": "1",
+		"२": "2",
+		"३": "3",
+		"४": "4",
+		"५": "5",
+		"६": "6",
+		"७": "7",
+		"८": "8",
+		"९": "9",
+	};
+	return value
+		.normalize("NFKC")
+		.toLocaleLowerCase()
+		.replace(/[०-९]/g, (digit) => hindiDigits[digit] ?? digit)
+		.replace(/[^\p{L}\p{N}]+/gu, " ")
+		.trim()
+		.replace(/\s+/g, " ");
+}
+
+function uniqueTokens(value: string): string[] {
+	return [...new Set(value.split(" ").filter(Boolean))];
+}
+
+function loadPreparedSearchIndex(): Promise<PreparedSearchEntry[]> {
+	if (!preparedSearchIndexPromise) {
+		preparedSearchIndexPromise = Promise.all([
+			loadSearchIndex(),
+			loadCatalogueDirectory(),
+		]).then(([entries, directory]) => {
+			const authorityById = new Map(
+				directory.authorities.map((authority) => [authority.id, authority]),
+			);
+			return entries.map((entry) => {
+				const catalogueAuthority = authorityById.get(entry.authorityId);
+				const authorityName =
+					catalogueAuthority?.name ??
+					labelFromSlug(entry.authorityId.replace(/^authority-/, ""));
+				const authoritySlug =
+					catalogueAuthority?.slug ??
+					entry.authorityId.replace(/^authority-/, "");
+				const title = normalizeSearchText(entry.title);
+				const category = normalizeSearchText(entry.categoryPath.join(" "));
+				const authority = normalizeSearchText(authorityName);
+				const terms = normalizeSearchText(entry.terms);
+				return {
+					entry,
+					authorityName,
+					authoritySlug,
+					title,
+					category,
+					authority,
+					terms,
+					tokens: uniqueTokens(`${title} ${category} ${authority} ${terms}`),
+				};
+			});
+		});
+	}
+	return preparedSearchIndexPromise;
+}
+
+function editDistanceWithin(
+	left: string,
+	right: string,
+	maximum: number,
+): boolean {
+	if (Math.abs(left.length - right.length) > maximum) return false;
+	let previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+	let previousPrevious: number[] | undefined;
+	for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+		const current = [leftIndex];
+		let rowMinimum = current[0] ?? leftIndex;
+		for (let rightIndex = 1; rightIndex <= right.length; rightIndex += 1) {
+			const substitution =
+				left[leftIndex - 1] === right[rightIndex - 1] ? 0 : 1;
+			let value = Math.min(
+				(previous[rightIndex] ?? maximum + 1) + 1,
+				(current[rightIndex - 1] ?? maximum + 1) + 1,
+				(previous[rightIndex - 1] ?? maximum + 1) + substitution,
+			);
+			if (
+				previousPrevious &&
+				leftIndex > 1 &&
+				rightIndex > 1 &&
+				left[leftIndex - 1] === right[rightIndex - 2] &&
+				left[leftIndex - 2] === right[rightIndex - 1]
+			) {
+				value = Math.min(
+					value,
+					(previousPrevious[rightIndex - 2] ?? maximum + 1) + 1,
+				);
+			}
+			current.push(value);
+			rowMinimum = Math.min(rowMinimum, value);
+		}
+		if (rowMinimum > maximum) return false;
+		previousPrevious = previous;
+		previous = current;
+	}
+	return (previous[right.length] ?? maximum + 1) <= maximum;
+}
+
+function fuzzyTokenScore(
+	queryToken: string,
+	candidateTokens: string[],
+): number {
+	if (candidateTokens.includes(queryToken)) return 28;
+	if (
+		candidateTokens.some(
+			(candidate) =>
+				candidate.startsWith(queryToken) || queryToken.startsWith(candidate),
+		)
+	)
+		return 20;
+	const maximumEdits =
+		queryToken.length >= 8 ? 2 : queryToken.length >= 4 ? 1 : 0;
+	if (
+		maximumEdits > 0 &&
+		candidateTokens.some((candidate) =>
+			editDistanceWithin(queryToken, candidate, maximumEdits),
+		)
+	)
+		return 10;
+	return 0;
+}
+
+function scoreSearchEntry(
+	item: PreparedSearchEntry,
+	phrase: string,
+	queryTokens: string[],
+): number | null {
+	let score = 0;
+	if (item.title === phrase) score += 180;
+	else if (item.title.startsWith(phrase)) score += 130;
+	else if (item.title.includes(phrase)) score += 95;
+	if (item.category.includes(phrase)) score += 62;
+	if (item.authority.includes(phrase)) score += 46;
+	if (item.terms.includes(phrase)) score += 28;
+
+	for (const queryToken of queryTokens) {
+		const alternatives = [queryToken, ...(searchAliases[queryToken] ?? [])].map(
+			normalizeSearchText,
+		);
+		let tokenScore = 0;
+		for (const alternative of alternatives) {
+			if (!alternative) continue;
+			if (item.title.split(" ").includes(alternative))
+				tokenScore = Math.max(tokenScore, 52);
+			else if (
+				item.title.split(" ").some((token) => token.startsWith(alternative))
+			)
+				tokenScore = Math.max(tokenScore, 40);
+			if (item.category.split(" ").includes(alternative))
+				tokenScore = Math.max(tokenScore, 34);
+			if (item.authority.split(" ").includes(alternative))
+				tokenScore = Math.max(tokenScore, 28);
+			tokenScore = Math.max(
+				tokenScore,
+				fuzzyTokenScore(alternative, item.tokens),
+			);
+		}
+		if (tokenScore === 0) return null;
+		score += tokenScore;
+	}
+	return score;
+}
+
 export async function searchCatalogue(
 	query: string,
 	options: { limit?: number } = {},
 ): Promise<CatalogueSearchResult[]> {
-	const normalizedQuery = query.trim().toLocaleLowerCase();
-	if (!normalizedQuery) return [];
+	const normalizedQuery = normalizeSearchText(query);
+	if (normalizedQuery.length < MIN_CATALOGUE_QUERY_LENGTH) return [];
 
-	const [entries, directory] = await Promise.all([
-		loadSearchIndex(),
-		loadCatalogueDirectory(),
-	]);
-	const terms = normalizedQuery.split(/\s+/).filter(Boolean);
-	const authorityById = new Map(
-		directory.authorities.map((authority) => [authority.id, authority]),
+	const entries = await loadPreparedSearchIndex();
+	const queryTokens = uniqueTokens(normalizedQuery).filter(
+		(token) => !searchStopWords.has(token),
 	);
-	const matches = entries
-		.filter((entry) => terms.every((term) => entry.terms.includes(term)))
+	if (!queryTokens.length) return [];
+	return entries
+		.map((item) => ({
+			item,
+			score: scoreSearchEntry(item, normalizedQuery, queryTokens),
+		}))
+		.filter(
+			(match): match is { item: PreparedSearchEntry; score: number } =>
+				match.score !== null,
+		)
+		.sort(
+			(left, right) =>
+				right.score - left.score ||
+				left.item.authorityName.localeCompare(right.item.authorityName) ||
+				left.item.entry.categoryPath
+					.join("/")
+					.localeCompare(right.item.entry.categoryPath.join("/")) ||
+				left.item.entry.id.localeCompare(right.item.entry.id),
+		)
 		.slice(0, options.limit ?? 30)
-		.map((entry) => ({
-			...entry,
-			authorityName:
-				authorityById.get(entry.authorityId)?.name ??
-				labelFromSlug(entry.authorityId.replace(/^authority-/, "")),
+		.map(({ item }) => ({
+			...item.entry,
+			authorityName: item.authorityName,
+			authoritySlug: item.authoritySlug,
 		}));
-	return matches;
 }
 
 export function findForm(chunk: AuthorityChunk, formId: string) {

@@ -27,30 +27,17 @@ export const getCurrentSession = createServerFn({ method: "GET" }).handler(
 	},
 );
 
-export const isDemoModeEnabled = createServerFn({ method: "GET" })
-	.validator(emptyInputSchema)
-	.handler(async () => ({ enabled: process.env.DEMO_MODE === "true" }));
-
-/** Create a fresh account and session for each demo click. */
-export const createDemoSession = createServerFn({ method: "POST" })
+export const getDemoLoginConfig = createServerFn({ method: "GET" })
 	.validator(emptyInputSchema)
 	.handler(async () => {
-		if (process.env.DEMO_MODE !== "true") {
-			throw new Error("Demo access is unavailable");
-		}
-
-		const unique = globalThis.crypto.randomUUID();
-		const email = `demo-${unique}@demo.local`;
-		const password = `${globalThis.crypto.randomUUID()}!A9`;
-		const result = await auth.api.signUpEmail({
-			body: {
-				name: "UGAAP demo citizen",
-				email,
-				password,
-			},
-			headers: getRequest().headers,
-		});
-
 		setPrivateResponseHeaders();
-		return { user: result.user };
+		if (process.env.DEMO_MODE !== "true") {
+			return { enabled: false as const };
+		}
+		return {
+			enabled: true as const,
+			username: "admin",
+			email: "admin@ugaap.test",
+			password: "admin",
+		};
 	});

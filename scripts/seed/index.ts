@@ -13,6 +13,8 @@ const SEED_NAMESPACE = "ugaap:p0.3:synthetic-seed:v1";
 const BASE_TIME = new Date("2026-08-23T12:00:00.000Z");
 const DAY = 24 * 60 * 60 * 1000;
 const INSERT_CHUNK_SIZE = 100;
+// Better Auth scrypt hash for the intentionally public DEMO_MODE password "admin".
+const DEMO_PASSWORD_HASH = "3dab4e02313f06c356bd8bc16bfdd4f1:68b298325ea07802fe052c0c6e662257fdf4fc46f3ad5121b7090f1ea95eefd3de8fa241e09e73cd14c9988d118f4d7071c31b551de57d74e04d2a33743c6a09";
 
 type OrganizationType = "union_ministry" | "central_department" | "state" | "state_department" | "subordinate_office";
 type Status = "draft" | "submitted" | "acknowledged" | "routed" | "in_review" | "needs_information" | "action_taken" | "resolved" | "appealed" | "appeal_resolved" | "withdrawn";
@@ -320,7 +322,7 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 	if (forms.length === 0) throw new Error("Generated catalogue contains no forms");
 
 	const userId = "synthetic-demo-citizen-template";
-	const user = { id: userId, name: "Synthetic Demo Citizen", email: "demo.citizen.synthetic@example.invalid", emailVerified: true as const, image: null, createdAt: cloneDate(BASE_TIME), updatedAt: cloneDate(BASE_TIME) };
+	const user = { id: userId, name: "UGAAP Test Citizen", email: "admin@ugaap.test", emailVerified: true as const, image: null, createdAt: cloneDate(BASE_TIME), updatedAt: cloneDate(BASE_TIME) };
 	const role = { id: deterministicUuid("role:citizen"), slug: "citizen" as const, name: "Citizen", active: true as const, createdAt: cloneDate(BASE_TIME) };
 	const permissions = [
 		["grievance:create", "Create a grievance"],
@@ -525,6 +527,7 @@ async function applySeed(data: SeedData): Promise<void> {
 		await tx.insert(dbSchema.role).values(data.role).onConflictDoUpdate({ target: dbSchema.role.id, set: { slug: data.role.slug, name: data.role.name, active: data.role.active } });
 		for (const rows of chunkRows(data.permissions)) await tx.insert(dbSchema.permission).values(rows).onConflictDoUpdate({ target: dbSchema.permission.id, set: { key: sql`excluded.key`, description: sql`excluded.description`, active: sql`excluded.active` } });
 		await tx.insert(dbSchema.user).values(data.user).onConflictDoUpdate({ target: dbSchema.user.id, set: { name: data.user.name, email: data.user.email, emailVerified: data.user.emailVerified, image: data.user.image, updatedAt: data.user.updatedAt } });
+		await tx.insert(dbSchema.account).values({ id: "synthetic-demo-citizen-credential", issuer: "local:credential", accountId: data.user.id, providerId: "credential", userId: data.user.id, password: DEMO_PASSWORD_HASH, createdAt: cloneDate(BASE_TIME), updatedAt: cloneDate(BASE_TIME) }).onConflictDoUpdate({ target: [dbSchema.account.issuer, dbSchema.account.accountId], set: { providerId: "credential", userId: data.user.id, password: DEMO_PASSWORD_HASH, updatedAt: cloneDate(BASE_TIME) } });
 		await tx.insert(dbSchema.userRole).values({ userId: data.user.id, roleId: data.role.id, createdAt: cloneDate(BASE_TIME) }).onConflictDoNothing();
 		await tx.insert(dbSchema.rolePermission).values(data.permissions.map((permission) => ({ roleId: data.role.id, permissionId: permission.id, createdAt: cloneDate(BASE_TIME) }))).onConflictDoNothing();
 		for (const rows of chunkRows(data.organizations)) await tx.insert(dbSchema.organization).values(rows).onConflictDoUpdate({ target: dbSchema.organization.id, set: { parentOrganizationId: sql`excluded.parent_organization_id`, slug: sql`excluded.slug`, name: sql`excluded.name`, type: sql`excluded.type`, jurisdiction: sql`excluded.jurisdiction`, source: sql`excluded.source`, active: sql`excluded.active`, updatedAt: sql`excluded.updated_at` } });

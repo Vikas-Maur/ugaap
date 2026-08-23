@@ -22,28 +22,28 @@ export function PublicDocument({
 	const { text } = useI18n();
 
 	return (
-		<article className="mx-auto grid w-full max-w-[1120px] grid-cols-1 gap-14 px-4 py-[72px] sm:px-6 sm:py-[88px] lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.15fr)] lg:gap-[clamp(56px,9vw,140px)] lg:py-[100px] lg:pb-[130px]">
-			<header>
+		<article className="mx-auto w-full max-w-[1200px] px-4 py-20 sm:px-6 sm:py-24 lg:py-28 lg:pb-36">
+			<header className="max-w-[920px]">
 				<p className="mb-4 text-[0.72rem] font-extrabold uppercase tracking-[0.14em] leading-[1.4] text-[var(--blue-700)]">
 					{text(eyebrow)}
 				</p>
-				<h1 className="m-0 text-[clamp(2.7rem,5vw,5rem)] font-semibold leading-[0.98] tracking-[-0.06em] text-[var(--blue-950)]">
+				<h1 className="m-0 max-w-[900px] text-[clamp(2.7rem,4vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--blue-950)]">
 					{text(title)}
 				</h1>
-				<p className="mt-7 max-w-[590px] text-[1.02rem] leading-[1.72] text-[var(--ink-muted)]">
+				<p className="mt-8 max-w-[700px] text-[clamp(1.03rem,1.3vw,1.16rem)] leading-[1.75] text-[var(--ink-muted)]">
 					{text(intro)}
 				</p>
 			</header>
-			<div className="border-t border-[var(--line-strong)]">
+			<div className="mt-16 max-w-[1040px] border-t border-[var(--line-strong)] sm:mt-20">
 				{sections.map((section) => (
 					<section
-						className="grid grid-cols-1 gap-3 border-b border-[var(--line-strong)] py-7 pb-9 sm:grid-cols-[minmax(150px,0.5fr)_1fr] sm:gap-8"
+						className="grid grid-cols-1 gap-4 border-b border-[var(--line-strong)] py-8 sm:grid-cols-[minmax(150px,0.42fr)_minmax(0,1fr)] sm:gap-10 lg:grid-cols-[minmax(180px,0.42fr)_minmax(0,1fr)] lg:gap-16 lg:py-10"
 						key={section.title.en}
 					>
-						<h2 className="m-0 text-base font-bold text-[var(--ink)]">
+						<h2 className="m-0 text-base font-bold leading-7 text-[var(--ink)]">
 							{text(section.title)}
 						</h2>
-						<div className="text-[var(--ink-muted)] leading-[1.72]">
+						<div className="max-w-[680px] text-[var(--ink-muted)] leading-[1.72]">
 							{section.paragraphs.map((paragraph) => (
 								<p className="m-0 mb-4 last:mb-0" key={paragraph.en}>
 									{text(paragraph)}
