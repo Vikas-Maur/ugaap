@@ -1,0 +1,711 @@
+{
+  "categoryCount": 694,
+  "checksums": {
+    "authorities": {
+      "central-board-of-direct-taxes-income-tax": "494fde9e7f2ca79d808a90d713de47c50fb08d30188251c5c258e059c16a175e",
+      "financial-services-banking-division": "ac83063b89d890da06f19c4f75c275aebc40374c880a02b1e52f8d34351999ba",
+      "home-affairs": "4ca4fa2a889025c3b267bc17ac61f46ff8a6e1fbadae0857aa5e55a12f074157",
+      "labour-and-employment": "c873b43d1a96ead678ef29471929f78386fe5d69e2d0c4b3d42b8c938f78cb1a",
+      "posts": "1b886a86e847ae2cba653249d4ab8f84f95b439cb1eded89ccbc3bddd713658f",
+      "telecommunications": "acda5d4e5fad9f6e7418b1f4a8003e245aa7e6cba99e279e6e3d141226923886"
+    },
+    "catalogue": "042ab6ecf8e5427064d1eeb7390ff57cef09b874eeffdde90da0942d492f2638",
+    "searchIndex": "54c6ea032c47ee99fdba233dfb6792de08e47932223aab05aca615245392f22e"
+  },
+  "errors": [],
+  "formCount": 558,
+  "organizationCount": 6,
+  "schemaVersion": 1,
+  "sourceCount": 694,
+  "synthesizedFieldCount": 165,
+  "synthesizedFieldWarnings": 87,
+  "warnings": [
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/others/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/cadre-matters/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pending-any-type-of-bill-dues-for-payment/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/misbehaviour-harassment-sexual-harassment/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/deduplication-of-pan/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/ppo-matters/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/centre-state-constitutional-matters/rajya-sabha-lok-sabha-nomination/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/cyber-crime/cyber-crime-related-matter/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/disaster-management/national-disaster-response-force-ndrf/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/employee-service-related-ministry-of-home-affairs/all-paramilitary-forces/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/internal-security-related-matters/cross-border-firing-and-mine-improvised-explosive-device-ied-blasts-on-indian-te/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/judiciary-related-matters/bhartiya-nagrik-suraksha-sanhita/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/judiciary-related-matters/request-for-special-courts/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/pension-related-ministry-of-home-affairs/freedom-fighter-pension-related-matters/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/ut-division/inaction-of-state-administrative-machinery/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/visa-citizenship-and-immigration/immigration/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "home-affairs/women-safety/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/coverage-evasion-compliance-related-issues/others-please-specify/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/insurance-benefit/non-settlement-of-edli-claim/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/insurance-benefit/others-please-specify/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/pension-related/life-certificate-related-issues/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/pf-pension-transfer/transfer-of-pf/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/pm-viksit-bharat-rozgar-yojana-pm-vbry/applicability-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/pm-viksit-bharat-rozgar-yojana-pm-vbry/eligibility-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-provident-fund-organisation/technical-issues/issues-related-to-online-establishment-registration/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-state-insurance-corporation/cash-benefit-provided-by-esic/disablement-benefit/permanent-disablement-benefit-pdb/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-state-insurance-corporation/cash-benefit-provided-by-esic/other-benefits/confinement-expenses/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-state-insurance-corporation/cash-benefit-provided-by-esic/unemployment-allowance/rajiv-gandhi-shramik-kalyan-yojana/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-state-insurance-corporation/medical-reimbursement-in-esic/less-payment/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-state-insurance-corporation/non-coverage-non-compliance-under-reporting-for-esic/demand-notice/c-18-d-18-notice/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-state-insurance-corporation/non-coverage-non-compliance-under-reporting-for-esic/non-deposition-of-esic-contribution-in-respect-of-registered-employees/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "labour-and-employment/employee-state-insurance-corporation/non-coverage-non-compliance-under-reporting-for-esic/non-registration-under-esic/employee/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/citizen-services-related/aadhaar-seva-kendra-related/door-step-service-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/citizen-services-related/e-post/not-printing/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/citizen-services-related/epost-portal-services-related/epost-portal-not-working/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/citizen-services-related/epost-portal-services-related/other-product-related-ganga-jal-national-flag-etc/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/citizen-services-related/india-post-passenger-reservation-system-prs/excess-charges/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/citizen-services-related/passport-office-seva-kendra-popsk-related/delay-in-processing-or-not-processing/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/citizen-services-related/passport-office-seva-kendra-popsk-related/lack-of-basic-amenities/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/damage-of-article/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/domestic-mails-parcel-services-related/letter-registered-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/loss-of-article/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/non-delivery-of-article/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/employee-services-related-gramin-dak-sevak/gramin-dak-seva-matters-gds-service-matters/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/financial-scheme-related/atm-card-related/atm-card-transactions/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/financial-scheme-related/indian-postal-order-ipo-related/extension-of-validity/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/financial-scheme-related/indian-postal-order-ipo-related/non-availability/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/financial-scheme-related/mnrega-account/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/financial-scheme-related/saving-bank-public-provident-fund-account-recurring-deposit-monthly-income-schem/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/india-post-website-portal-related-issues/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/international-mails-and-parcel-services-related/air-parcels/delay-in-delivery/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/delay-in-delivery/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/wrong-non-booking-of-international-article/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/international-mails-and-parcel-services-related/letters-registered-insured/abstraction-of-contents/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/misbehaviour-corruption-harassment/atrocities-against/sc-st-obc/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/misbehaviour-corruption-harassment/atrocities-against/women/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/misbehaviour-corruption-harassment/misbehavior-harassment-by-staff/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/philately-related/other-issues-related-to-philately/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/philately-related/stamp-release-policy-matters/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/change-of-address/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/change-of-nomination/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/delay-in-payment-of-surrender-value/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/delay-in-revival-of-policy/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/non-conversion-delay-in-conversion-of-policy/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/pli-rpli-miscellaneous/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/broadband-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/employee-services-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/landline-related/billing-related-ll/non-receipt-of-bills-ll/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/landline-related/billing-related-ll/post-surrender-bill-generation-ll/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/misbehaviour-corruption-harassment-financial-irregularities/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/activation-deactivation-of-value-added-services-vas/activated-without-consent/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/call-related/call-set-up-delay-failure/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/data-speed-related/consistently-low-data-speed/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/data-speed-related/frequent-4g-5g-fallback/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/malicious-link-sms/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/mobile-handset-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/mobile-number-portability-mnp-related/arbitrary-rejection/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/mobile-number-portability-mnp-related/delay-in-port-out/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/prepaid-related/arbitrary-balance-deduction/form.json"
+    },
+    {
+      "fields": [
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/sim-card-related/sim-conversion-issue-prepaid-postpaid/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/mobile-related/ucc-spam-related/dnd-violation/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/pension-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/tender-vendor-gem-issue/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/tower-radiation-issues-infrastructure-related/form.json"
+    },
+    {
+      "fields": [
+        "remarks",
+        "attachment"
+      ],
+      "message": "Synthesized missing terminal field(s)",
+      "sourcePath": "telecommunications/wpc-related-spectrum-licensing-satellite-related/wpc-related/wpc-permission-related/form.json"
+    }
+  ]
+}

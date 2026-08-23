@@ -1,0 +1,4083 @@
+{
+  "authority": {
+    "id": "authority-central-board-of-direct-taxes-income-tax",
+    "name": "Central Board of Direct Taxes (Income Tax)",
+    "slug": "central-board-of-direct-taxes-income-tax"
+  },
+  "categories": [
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-benami-transaction",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-undisclosed-foreign-income-and-assets-including-financial-interest-in-any-entity-located-outside-india",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-others",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-tax-policy-matter-suggestions"
+      ],
+      "formCapable": false,
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "name": "Direct Taxes",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others"
+      ],
+      "parentId": null,
+      "path": [
+        "Direct Taxes"
+      ],
+      "slug": "direct-taxes",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-benami-transaction",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-benami-transaction",
+      "name": "Information about Benami Transaction",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "path": [
+        "Direct Taxes",
+        "Information about Benami Transaction"
+      ],
+      "slug": "information-about-benami-transaction",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/information-about-benami-transaction/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-undisclosed-foreign-income-and-assets-including-financial-interest-in-any-entity-located-outside-india",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-undisclosed-foreign-income-and-assets-including-financial-interest-in-any-entity-located-outside-india",
+      "name": "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "path": [
+        "Direct Taxes",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India"
+      ],
+      "slug": "information-about-undisclosed-foreign-income-and-assets-including-financial-interest-in-any-entity-located-outside-india",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/information-about-undisclosed-foreign-income-and-assets-including-financial-inte/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-appeal-effect",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-challan-correction",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-delay-condonation",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-faceless-assessment-faceless-appeal",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-it-return-processing",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-other-than-faceless-assessment-appeal",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-rectification",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-refund-matter-wrong-demand",
+        "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-tds-mismatch"
+      ],
+      "formCapable": false,
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "name": "Issues with IT Returns/Assessment/Appeal",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal"
+      ],
+      "slug": "issues-with-it-returns-assessment-appeal",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-appeal-effect",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-appeal-effect",
+      "name": "Appeal effect",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Appeal effect"
+      ],
+      "slug": "appeal-effect",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/appeal-effect/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-challan-correction",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-challan-correction",
+      "name": "Challan Correction",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Challan Correction"
+      ],
+      "slug": "challan-correction",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/challan-correction/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-delay-condonation",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-delay-condonation",
+      "name": "Delay Condonation",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Delay Condonation"
+      ],
+      "slug": "delay-condonation",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/delay-condonation/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-faceless-assessment-faceless-appeal",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-faceless-assessment-faceless-appeal",
+      "name": "Faceless Assessment / Faceless Appeal",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Faceless Assessment / Faceless Appeal"
+      ],
+      "slug": "faceless-assessment-faceless-appeal",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/faceless-assessment-faceless-appeal/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-it-return-processing",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-it-return-processing",
+      "name": "IT Return Processing",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "IT Return Processing"
+      ],
+      "slug": "it-return-processing",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/it-return-processing/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-other-than-faceless-assessment-appeal",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-other-than-faceless-assessment-appeal",
+      "name": "Other than Faceless Assessment / Appeal",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Other than Faceless Assessment / Appeal"
+      ],
+      "slug": "other-than-faceless-assessment-appeal",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/other-than-faceless-assessment-appeal/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-rectification",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-rectification",
+      "name": "Rectification",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Rectification"
+      ],
+      "slug": "rectification",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/rectification/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-refund-matter-wrong-demand",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-refund-matter-wrong-demand",
+      "name": "Refund Matter/Wrong Demand",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Refund Matter/Wrong Demand"
+      ],
+      "slug": "refund-matter-wrong-demand",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/refund-matter-wrong-demand/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-tds-mismatch",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-tds-mismatch",
+      "name": "TDS Mismatch",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others",
+        "Faceless Assessment / Faceless Appeal",
+        "Other than Faceless Assessment / Appeal",
+        "TDS Mismatch",
+        "Refund Matter/Wrong Demand",
+        "Rectification",
+        "Appeal effect",
+        "Delay Condonation",
+        "IT Return Processing",
+        "Challan Correction"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "path": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "TDS Mismatch"
+      ],
+      "slug": "tds-mismatch",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/tds-mismatch/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-others",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "path": [
+        "Direct Taxes",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/others/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets",
+      "name": "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "path": [
+        "Direct Taxes",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets"
+      ],
+      "slug": "search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-tax-policy-matter-suggestions",
+      "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-tax-policy-matter-suggestions",
+      "name": "Tax Policy Matter/ Suggestions",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Tax Policy Matter/ Suggestions",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+        "Information about Benami Transaction",
+        "Others"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "path": [
+        "Direct Taxes",
+        "Tax Policy Matter/ Suggestions"
+      ],
+      "slug": "tax-policy-matter-suggestions",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/tax-policy-matter-suggestions/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [
+        "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-cadre-matters",
+        "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-compassionate-ground",
+        "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-establishment-related",
+        "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-issues-related-to-promotion-transfer-posting",
+        "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pay-allowances",
+        "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-any-type-of-bill-dues-for-payment",
+        "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-disciplinary-vigilance-matter"
+      ],
+      "formCapable": false,
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "name": "Employee Services Related/ Administration",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": null,
+      "path": [
+        "Employee Services Related/ Administration"
+      ],
+      "slug": "employee-services-related-administration",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-cadre-matters",
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-cadre-matters",
+      "name": "Cadre Matters",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "path": [
+        "Employee Services Related/ Administration",
+        "Cadre Matters"
+      ],
+      "slug": "cadre-matters",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/cadre-matters/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-compassionate-ground",
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-compassionate-ground",
+      "name": "Compassionate Ground",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "path": [
+        "Employee Services Related/ Administration",
+        "Compassionate Ground"
+      ],
+      "slug": "compassionate-ground",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/compassionate-ground/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-establishment-related",
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-establishment-related",
+      "name": "Establishment related",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "path": [
+        "Employee Services Related/ Administration",
+        "Establishment related"
+      ],
+      "slug": "establishment-related",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/establishment-related/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-issues-related-to-promotion-transfer-posting",
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-issues-related-to-promotion-transfer-posting",
+      "name": "Issues related to Promotion/Transfer & posting",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "path": [
+        "Employee Services Related/ Administration",
+        "Issues related to Promotion/Transfer & posting"
+      ],
+      "slug": "issues-related-to-promotion-transfer-posting",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/issues-related-to-promotion-transfer-posting/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pay-allowances",
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pay-allowances",
+      "name": "Pay & Allowances",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "path": [
+        "Employee Services Related/ Administration",
+        "Pay & Allowances"
+      ],
+      "slug": "pay-allowances",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pay-allowances/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-any-type-of-bill-dues-for-payment",
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-any-type-of-bill-dues-for-payment",
+      "name": "Pending any type of Bill/dues for payment",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "path": [
+        "Employee Services Related/ Administration",
+        "Pending any type of Bill/dues for payment"
+      ],
+      "slug": "pending-any-type-of-bill-dues-for-payment",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pending-any-type-of-bill-dues-for-payment/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-disciplinary-vigilance-matter",
+      "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-disciplinary-vigilance-matter",
+      "name": "Pending Disciplinary/Vigilance Matter",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Compassionate Ground",
+        "Pending any type of Bill/dues for payment",
+        "Issues related to Promotion/Transfer & posting",
+        "Pending Disciplinary/Vigilance Matter",
+        "Establishment related",
+        "Cadre Matters",
+        "Pay & Allowances"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "path": [
+        "Employee Services Related/ Administration",
+        "Pending Disciplinary/Vigilance Matter"
+      ],
+      "slug": "pending-disciplinary-vigilance-matter",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pending-disciplinary-vigilance-matter/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [
+        "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-corruption",
+        "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-misbehaviour-harassment-sexual-harassment"
+      ],
+      "formCapable": false,
+      "id": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment",
+      "name": "Misbehaviour/ Corruption/ Harassment",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Corruption",
+        "Misbehaviour / Harassment / Sexual Harassment"
+      ],
+      "parentId": null,
+      "path": [
+        "Misbehaviour/ Corruption/ Harassment"
+      ],
+      "slug": "misbehaviour-corruption-harassment",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-corruption",
+      "id": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-corruption",
+      "name": "Corruption",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Corruption",
+        "Misbehaviour / Harassment / Sexual Harassment"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment",
+      "path": [
+        "Misbehaviour/ Corruption/ Harassment",
+        "Corruption"
+      ],
+      "slug": "corruption",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/corruption/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-misbehaviour-harassment-sexual-harassment",
+      "id": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-misbehaviour-harassment-sexual-harassment",
+      "name": "Misbehaviour / Harassment / Sexual Harassment",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Corruption",
+        "Misbehaviour / Harassment / Sexual Harassment"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment",
+      "path": [
+        "Misbehaviour/ Corruption/ Harassment",
+        "Misbehaviour / Harassment / Sexual Harassment"
+      ],
+      "slug": "misbehaviour-harassment-sexual-harassment",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/misbehaviour-harassment-sexual-harassment/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [
+        "category-central-board-of-direct-taxes-income-tax-pan-issues-correction-in-pan",
+        "category-central-board-of-direct-taxes-income-tax-pan-issues-deduplication-of-pan",
+        "category-central-board-of-direct-taxes-income-tax-pan-issues-delay-in-pan-issues",
+        "category-central-board-of-direct-taxes-income-tax-pan-issues-linking-of-pan-with-aadhar",
+        "category-central-board-of-direct-taxes-income-tax-pan-issues-same-pan-numbers-allotted-to-multiple-users",
+        "category-central-board-of-direct-taxes-income-tax-pan-issues-transfer-of-pan"
+      ],
+      "formCapable": false,
+      "id": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "name": "PAN Issues",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Delay in PAN issues",
+        "Correction in PAN",
+        "Same PAN numbers allotted to multiple users",
+        "Deduplication of PAN",
+        "Linking of PAN with Aadhar",
+        "Transfer of PAN"
+      ],
+      "parentId": null,
+      "path": [
+        "PAN Issues"
+      ],
+      "slug": "pan-issues",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pan-issues-correction-in-pan",
+      "id": "category-central-board-of-direct-taxes-income-tax-pan-issues-correction-in-pan",
+      "name": "Correction in PAN",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Delay in PAN issues",
+        "Correction in PAN",
+        "Same PAN numbers allotted to multiple users",
+        "Deduplication of PAN",
+        "Linking of PAN with Aadhar",
+        "Transfer of PAN"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "path": [
+        "PAN Issues",
+        "Correction in PAN"
+      ],
+      "slug": "correction-in-pan",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/correction-in-pan/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pan-issues-deduplication-of-pan",
+      "id": "category-central-board-of-direct-taxes-income-tax-pan-issues-deduplication-of-pan",
+      "name": "Deduplication of PAN",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Delay in PAN issues",
+        "Correction in PAN",
+        "Same PAN numbers allotted to multiple users",
+        "Deduplication of PAN",
+        "Linking of PAN with Aadhar",
+        "Transfer of PAN"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "path": [
+        "PAN Issues",
+        "Deduplication of PAN"
+      ],
+      "slug": "deduplication-of-pan",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/deduplication-of-pan/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pan-issues-delay-in-pan-issues",
+      "id": "category-central-board-of-direct-taxes-income-tax-pan-issues-delay-in-pan-issues",
+      "name": "Delay in PAN issues",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Delay in PAN issues",
+        "Correction in PAN",
+        "Same PAN numbers allotted to multiple users",
+        "Deduplication of PAN",
+        "Linking of PAN with Aadhar",
+        "Transfer of PAN"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "path": [
+        "PAN Issues",
+        "Delay in PAN issues"
+      ],
+      "slug": "delay-in-pan-issues",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/delay-in-pan-issues/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pan-issues-linking-of-pan-with-aadhar",
+      "id": "category-central-board-of-direct-taxes-income-tax-pan-issues-linking-of-pan-with-aadhar",
+      "name": "Linking of PAN with Aadhar",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Delay in PAN issues",
+        "Correction in PAN",
+        "Same PAN numbers allotted to multiple users",
+        "Deduplication of PAN",
+        "Linking of PAN with Aadhar",
+        "Transfer of PAN"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "path": [
+        "PAN Issues",
+        "Linking of PAN with Aadhar"
+      ],
+      "slug": "linking-of-pan-with-aadhar",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/linking-of-pan-with-aadhar/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pan-issues-same-pan-numbers-allotted-to-multiple-users",
+      "id": "category-central-board-of-direct-taxes-income-tax-pan-issues-same-pan-numbers-allotted-to-multiple-users",
+      "name": "Same PAN numbers allotted to multiple users",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Delay in PAN issues",
+        "Correction in PAN",
+        "Same PAN numbers allotted to multiple users",
+        "Deduplication of PAN",
+        "Linking of PAN with Aadhar",
+        "Transfer of PAN"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "path": [
+        "PAN Issues",
+        "Same PAN numbers allotted to multiple users"
+      ],
+      "slug": "same-pan-numbers-allotted-to-multiple-users",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/same-pan-numbers-allotted-to-multiple-users/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pan-issues-transfer-of-pan",
+      "id": "category-central-board-of-direct-taxes-income-tax-pan-issues-transfer-of-pan",
+      "name": "Transfer of PAN",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Delay in PAN issues",
+        "Correction in PAN",
+        "Same PAN numbers allotted to multiple users",
+        "Deduplication of PAN",
+        "Linking of PAN with Aadhar",
+        "Transfer of PAN"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "path": [
+        "PAN Issues",
+        "Transfer of PAN"
+      ],
+      "slug": "transfer-of-pan",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/transfer-of-pan/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [
+        "category-central-board-of-direct-taxes-income-tax-pension-related-family-pension",
+        "category-central-board-of-direct-taxes-income-tax-pension-related-pension-not-started-pension-stopped",
+        "category-central-board-of-direct-taxes-income-tax-pension-related-ppo-matters",
+        "category-central-board-of-direct-taxes-income-tax-pension-related-retirement-benefits",
+        "category-central-board-of-direct-taxes-income-tax-pension-related-revision-recalculation-of-pension"
+      ],
+      "formCapable": false,
+      "id": "category-central-board-of-direct-taxes-income-tax-pension-related",
+      "name": "Pension Related",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Family Pension",
+        "Pension not started/ Pension stopped",
+        "Revision/Recalculation of Pension",
+        "PPO Matters",
+        "Retirement Benefits"
+      ],
+      "parentId": null,
+      "path": [
+        "Pension Related"
+      ],
+      "slug": "pension-related",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pension-related-family-pension",
+      "id": "category-central-board-of-direct-taxes-income-tax-pension-related-family-pension",
+      "name": "Family Pension",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Family Pension",
+        "Pension not started/ Pension stopped",
+        "Revision/Recalculation of Pension",
+        "PPO Matters",
+        "Retirement Benefits"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pension-related",
+      "path": [
+        "Pension Related",
+        "Family Pension"
+      ],
+      "slug": "family-pension",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/family-pension/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pension-related-pension-not-started-pension-stopped",
+      "id": "category-central-board-of-direct-taxes-income-tax-pension-related-pension-not-started-pension-stopped",
+      "name": "Pension not started/ Pension stopped",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Family Pension",
+        "Pension not started/ Pension stopped",
+        "Revision/Recalculation of Pension",
+        "PPO Matters",
+        "Retirement Benefits"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pension-related",
+      "path": [
+        "Pension Related",
+        "Pension not started/ Pension stopped"
+      ],
+      "slug": "pension-not-started-pension-stopped",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/pension-not-started-pension-stopped/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pension-related-ppo-matters",
+      "id": "category-central-board-of-direct-taxes-income-tax-pension-related-ppo-matters",
+      "name": "PPO Matters",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Family Pension",
+        "Pension not started/ Pension stopped",
+        "Revision/Recalculation of Pension",
+        "PPO Matters",
+        "Retirement Benefits"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pension-related",
+      "path": [
+        "Pension Related",
+        "PPO Matters"
+      ],
+      "slug": "ppo-matters",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/ppo-matters/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pension-related-retirement-benefits",
+      "id": "category-central-board-of-direct-taxes-income-tax-pension-related-retirement-benefits",
+      "name": "Retirement Benefits",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Family Pension",
+        "Pension not started/ Pension stopped",
+        "Revision/Recalculation of Pension",
+        "PPO Matters",
+        "Retirement Benefits"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pension-related",
+      "path": [
+        "Pension Related",
+        "Retirement Benefits"
+      ],
+      "slug": "retirement-benefits",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/retirement-benefits/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pension-related-revision-recalculation-of-pension",
+      "id": "category-central-board-of-direct-taxes-income-tax-pension-related-revision-recalculation-of-pension",
+      "name": "Revision/Recalculation of Pension",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related",
+        "Family Pension",
+        "Pension not started/ Pension stopped",
+        "Revision/Recalculation of Pension",
+        "PPO Matters",
+        "Retirement Benefits"
+      ],
+      "parentId": "category-central-board-of-direct-taxes-income-tax-pension-related",
+      "path": [
+        "Pension Related",
+        "Revision/Recalculation of Pension"
+      ],
+      "slug": "revision-recalculation-of-pension",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/revision-recalculation-of-pension/form.json"
+    },
+    {
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-technical-issues-with-website",
+      "id": "category-central-board-of-direct-taxes-income-tax-technical-issues-with-website",
+      "name": "Technical Issues with website",
+      "navigationOptions": [
+        "Direct Taxes",
+        "PAN Issues",
+        "Technical Issues with website",
+        "Misbehaviour/ Corruption/ Harassment",
+        "Employee Services Related/ Administration",
+        "Pension Related"
+      ],
+      "parentId": null,
+      "path": [
+        "Technical Issues with website"
+      ],
+      "slug": "technical-issues-with-website",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/technical-issues-with-website/form.json"
+    }
+  ],
+  "checksum": "494fde9e7f2ca79d808a90d713de47c50fb08d30188251c5c258e059c16a175e",
+  "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-benami-transaction",
+      "categoryPath": [
+        "Direct Taxes",
+        "Information about Benami Transaction"
+      ],
+      "checksum": "91696fe14eac242b43f623c2d30ccfb0d6edf8cee41c4c5100f3ccd779f751d8",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-benami-transaction",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/information-about-benami-transaction/form.json",
+      "title": "Information about Benami Transaction",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-undisclosed-foreign-income-and-assets-including-financial-interest-in-any-entity-located-outside-india",
+      "categoryPath": [
+        "Direct Taxes",
+        "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India"
+      ],
+      "checksum": "7ed9ec84092ce86ce499ee86507123556d5e5aa024e307db93f47252e5dc2334",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-information-about-undisclosed-foreign-income-and-assets-including-financial-interest-in-any-entity-located-outside-india",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/information-about-undisclosed-foreign-income-and-assets-including-financial-inte/form.json",
+      "title": "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-appeal-effect",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Appeal effect"
+      ],
+      "checksum": "d4cb06e97d599fd85c89099955f2b911d16ae43f9985093acfc5652742e9a521",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-appeal-effect",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/appeal-effect/form.json",
+      "title": "Appeal effect",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-challan-correction",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Challan Correction"
+      ],
+      "checksum": "5173715308312f38824ea81eff335be35cd9e2a9ef8170e9fe0ba3b98d033b61",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-challan-correction",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/challan-correction/form.json",
+      "title": "Challan Correction",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-delay-condonation",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Delay Condonation"
+      ],
+      "checksum": "abb75f1db78460349030146d9091c3017409d276e3173424f37024a6e805407a",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-delay-condonation",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/delay-condonation/form.json",
+      "title": "Delay Condonation",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-faceless-assessment-faceless-appeal",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Faceless Assessment / Faceless Appeal"
+      ],
+      "checksum": "bed02a580ce22389c8202decd77ba59e9bb85a9d3e3073770ecaa48fe96d5dd9",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-faceless-assessment-faceless-appeal",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/faceless-assessment-faceless-appeal/form.json",
+      "title": "Faceless Assessment / Faceless Appeal",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-it-return-processing",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "IT Return Processing"
+      ],
+      "checksum": "96519c64ea74098c8f98ee18c1ed4cbd3e1f15fd2dc949e9d5569181d3f860ed",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-it-return-processing",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/it-return-processing/form.json",
+      "title": "IT Return Processing",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-other-than-faceless-assessment-appeal",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Other than Faceless Assessment / Appeal"
+      ],
+      "checksum": "e4864a8cb4cf9e1285b047abf47f201da09fa6556808dae57de9ec61e3847f35",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-other-than-faceless-assessment-appeal",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/other-than-faceless-assessment-appeal/form.json",
+      "title": "Other than Faceless Assessment / Appeal",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-rectification",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Rectification"
+      ],
+      "checksum": "efd5bf42f2aa9720a305d1302bf5c751632f194d7f4f16e0c1f6ad5860b7a1a6",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-rectification",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/rectification/form.json",
+      "title": "Rectification",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-refund-matter-wrong-demand",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "Refund Matter/Wrong Demand"
+      ],
+      "checksum": "4b2125eb63e70d064e968f6f3a4da9304be3fced9a5010db951e549d3a690677",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-refund-matter-wrong-demand",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/refund-matter-wrong-demand/form.json",
+      "title": "Refund Matter/Wrong Demand",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-tds-mismatch",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal",
+        "TDS Mismatch"
+      ],
+      "checksum": "1f78b70daed6c85f578b8423a0934efbc543a1bf7c3e8c7a5a99ddb6ee8358fa",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "chargeoffice",
+          "kind": "text",
+          "label": "Charge/Office",
+          "placeholder": "Please Enter Charge/Office",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "TAN/PAN",
+          "placeholder": "Please Enter TAN/PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-tds-mismatch",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/tds-mismatch/form.json",
+      "title": "TDS Mismatch",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-others",
+      "categoryPath": [
+        "Direct Taxes",
+        "Others"
+      ],
+      "checksum": "7450d928852be949d4383c8dc0d746d0f47ce1b7b5f0b08af0026fdbb459cad5",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Remarks",
+          "maximumLength": 2000,
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-others",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets",
+      "categoryPath": [
+        "Direct Taxes",
+        "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets"
+      ],
+      "checksum": "e4150a1abe9db84666b74101520a23b5a825e03c5111b4fa7f3dc4965033281c",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets/form.json",
+      "title": "Search, Seizure Matters/ Reward to informer/ Tax Evasion Petition /Release of assets",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-tax-policy-matter-suggestions",
+      "categoryPath": [
+        "Direct Taxes",
+        "Tax Policy Matter/ Suggestions"
+      ],
+      "checksum": "8bfb2a471b095a1e6a5c17519871ec219651a6f1c4225f1a835350f48aa560b3",
+      "fields": [
+        {
+          "id": "assessmentyear",
+          "kind": "text",
+          "label": "Assessment Year",
+          "placeholder": "Please Enter Assessment Year",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-tax-policy-matter-suggestions",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/tax-policy-matter-suggestions/form.json",
+      "title": "Tax Policy Matter/ Suggestions",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-cadre-matters",
+      "categoryPath": [
+        "Employee Services Related/ Administration",
+        "Cadre Matters"
+      ],
+      "checksum": "833e77bdd07e559881dfe1d74b1043d5b3645ae644738770dc28fc8686166cd9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Remarks",
+          "maximumLength": 2000,
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-cadre-matters",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/cadre-matters/form.json",
+      "title": "Cadre Matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-compassionate-ground",
+      "categoryPath": [
+        "Employee Services Related/ Administration",
+        "Compassionate Ground"
+      ],
+      "checksum": "10a6c81688123f7a92f1396ad4f7999790151acb63c325d35f11ebacd4831fe6",
+      "fields": [
+        {
+          "id": "bookno",
+          "kind": "text",
+          "label": "Book No.",
+          "placeholder": "Please Enter Book No.",
+          "required": false
+        },
+        {
+          "id": "cbodtorganisation",
+          "kind": "text",
+          "label": "Organisation Name",
+          "placeholder": "Please Enter Organisation Name",
+          "required": false
+        },
+        {
+          "id": "division",
+          "kind": "text",
+          "label": "Division/Section",
+          "placeholder": "Please Enter Division/Section",
+          "required": false
+        },
+        {
+          "id": "empnoandname",
+          "kind": "text",
+          "label": "Employee No. and Name",
+          "placeholder": "Please Enter Employee No. and Name",
+          "required": false
+        },
+        {
+          "id": "fileno",
+          "kind": "text",
+          "label": "File No.",
+          "placeholder": "Please Enter File No.",
+          "required": false
+        },
+        {
+          "id": "issuedate",
+          "kind": "text",
+          "label": "Issue Date",
+          "placeholder": "Please Enter Issue Date",
+          "required": false
+        },
+        {
+          "id": "payslipno",
+          "kind": "text",
+          "label": "Pay Slip No",
+          "placeholder": "Please Enter Pay Slip No",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-compassionate-ground",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/compassionate-ground/form.json",
+      "title": "Compassionate Ground",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-establishment-related",
+      "categoryPath": [
+        "Employee Services Related/ Administration",
+        "Establishment related"
+      ],
+      "checksum": "e4596fcf03e2aa38f0f5d8e85e7b53acb3b77607def85707a9daa4fcf4d55762",
+      "fields": [
+        {
+          "id": "bookno",
+          "kind": "text",
+          "label": "Book No.",
+          "placeholder": "Please Enter Book No.",
+          "required": false
+        },
+        {
+          "id": "cbodtorganisation",
+          "kind": "text",
+          "label": "Organisation Name",
+          "placeholder": "Please Enter Organisation Name",
+          "required": false
+        },
+        {
+          "id": "division",
+          "kind": "text",
+          "label": "Division/Section",
+          "placeholder": "Please Enter Division/Section",
+          "required": false
+        },
+        {
+          "id": "empnoandname",
+          "kind": "text",
+          "label": "Employee No. and Name",
+          "placeholder": "Please Enter Employee No. and Name",
+          "required": false
+        },
+        {
+          "id": "fileno",
+          "kind": "text",
+          "label": "File No.",
+          "placeholder": "Please Enter File No.",
+          "required": false
+        },
+        {
+          "id": "issuedate",
+          "kind": "text",
+          "label": "Issue Date",
+          "placeholder": "Please Enter Issue Date",
+          "required": false
+        },
+        {
+          "id": "payslipno",
+          "kind": "text",
+          "label": "Pay Slip No",
+          "placeholder": "Please Enter Pay Slip No",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-establishment-related",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/establishment-related/form.json",
+      "title": "Establishment related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-issues-related-to-promotion-transfer-posting",
+      "categoryPath": [
+        "Employee Services Related/ Administration",
+        "Issues related to Promotion/Transfer & posting"
+      ],
+      "checksum": "dea8e72bd47157d9cae90b48688ba69d6871cd625f7ea1705f458bd906e82e62",
+      "fields": [
+        {
+          "id": "bookno",
+          "kind": "text",
+          "label": "Book No.",
+          "placeholder": "Please Enter Book No.",
+          "required": false
+        },
+        {
+          "id": "cbodtorganisation",
+          "kind": "text",
+          "label": "Organisation Name",
+          "placeholder": "Please Enter Organisation Name",
+          "required": false
+        },
+        {
+          "id": "division",
+          "kind": "text",
+          "label": "Division/Section",
+          "placeholder": "Please Enter Division/Section",
+          "required": false
+        },
+        {
+          "id": "empnoandname",
+          "kind": "text",
+          "label": "Employee No. and Name",
+          "placeholder": "Please Enter Employee No. and Name",
+          "required": false
+        },
+        {
+          "id": "fileno",
+          "kind": "text",
+          "label": "File No.",
+          "placeholder": "Please Enter File No.",
+          "required": false
+        },
+        {
+          "id": "issuedate",
+          "kind": "text",
+          "label": "Issue Date",
+          "placeholder": "Please Enter Issue Date",
+          "required": false
+        },
+        {
+          "id": "payslipno",
+          "kind": "text",
+          "label": "Pay Slip No",
+          "placeholder": "Please Enter Pay Slip No",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-issues-related-to-promotion-transfer-posting",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/issues-related-to-promotion-transfer-posting/form.json",
+      "title": "Issues related to Promotion/Transfer & posting",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pay-allowances",
+      "categoryPath": [
+        "Employee Services Related/ Administration",
+        "Pay & Allowances"
+      ],
+      "checksum": "9382cb1c80c47f809503a5f182fdeadb5f3f679eae5f67ade1534f86bfd0aff7",
+      "fields": [
+        {
+          "id": "bookno",
+          "kind": "text",
+          "label": "Book No.",
+          "placeholder": "Please Enter Book No.",
+          "required": false
+        },
+        {
+          "id": "cbodtorganisation",
+          "kind": "text",
+          "label": "Organisation Name",
+          "placeholder": "Please Enter Organisation Name",
+          "required": false
+        },
+        {
+          "id": "division",
+          "kind": "text",
+          "label": "Division/Section",
+          "placeholder": "Please Enter Division/Section",
+          "required": false
+        },
+        {
+          "id": "empnoandname",
+          "kind": "text",
+          "label": "Employee No. and Name",
+          "placeholder": "Please Enter Employee No. and Name",
+          "required": false
+        },
+        {
+          "id": "fileno",
+          "kind": "text",
+          "label": "File No.",
+          "placeholder": "Please Enter File No.",
+          "required": false
+        },
+        {
+          "id": "issuedate",
+          "kind": "text",
+          "label": "Issue Date",
+          "placeholder": "Please Enter Issue Date",
+          "required": false
+        },
+        {
+          "id": "payslipno",
+          "kind": "text",
+          "label": "Pay Slip No",
+          "placeholder": "Please Enter Pay Slip No",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pay-allowances",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pay-allowances/form.json",
+      "title": "Pay & Allowances",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-any-type-of-bill-dues-for-payment",
+      "categoryPath": [
+        "Employee Services Related/ Administration",
+        "Pending any type of Bill/dues for payment"
+      ],
+      "checksum": "4194f6dbf558c9914fe7d567b929281a7503e440341384ee3d581dd61a51ecce",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Remarks",
+          "maximumLength": 2000,
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-any-type-of-bill-dues-for-payment",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pending-any-type-of-bill-dues-for-payment/form.json",
+      "title": "Pending any type of Bill/dues for payment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-disciplinary-vigilance-matter",
+      "categoryPath": [
+        "Employee Services Related/ Administration",
+        "Pending Disciplinary/Vigilance Matter"
+      ],
+      "checksum": "59cef0f7728eb3a955228cdc7c2788ccc8ce6654a5f4e11cdfc2ec39e224cb54",
+      "fields": [
+        {
+          "id": "bookno",
+          "kind": "text",
+          "label": "Book No.",
+          "placeholder": "Please Enter Book No.",
+          "required": false
+        },
+        {
+          "id": "cbodtorganisation",
+          "kind": "text",
+          "label": "Organisation Name",
+          "placeholder": "Please Enter Organisation Name",
+          "required": false
+        },
+        {
+          "id": "division",
+          "kind": "text",
+          "label": "Division/Section",
+          "placeholder": "Please Enter Division/Section",
+          "required": false
+        },
+        {
+          "id": "empnoandname",
+          "kind": "text",
+          "label": "Employee No. and Name",
+          "placeholder": "Please Enter Employee No. and Name",
+          "required": false
+        },
+        {
+          "id": "fileno",
+          "kind": "text",
+          "label": "File No.",
+          "placeholder": "Please Enter File No.",
+          "required": false
+        },
+        {
+          "id": "issuedate",
+          "kind": "text",
+          "label": "Issue Date",
+          "placeholder": "Please Enter Issue Date",
+          "required": false
+        },
+        {
+          "id": "payslipno",
+          "kind": "text",
+          "label": "Pay Slip No",
+          "placeholder": "Please Enter Pay Slip No",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-disciplinary-vigilance-matter",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pending-disciplinary-vigilance-matter/form.json",
+      "title": "Pending Disciplinary/Vigilance Matter",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-corruption",
+      "categoryPath": [
+        "Misbehaviour/ Corruption/ Harassment",
+        "Corruption"
+      ],
+      "checksum": "104448d3190f3068f886326971f0f06a09f97cf9068efa0cce0ed06af8428f48",
+      "fields": [
+        {
+          "id": "officerdetails",
+          "kind": "text",
+          "label": "Name and Desination of Officer",
+          "placeholder": "Please Enter Name and Desination of Officer",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-corruption",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/corruption/form.json",
+      "title": "Corruption",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-misbehaviour-harassment-sexual-harassment",
+      "categoryPath": [
+        "Misbehaviour/ Corruption/ Harassment",
+        "Misbehaviour / Harassment / Sexual Harassment"
+      ],
+      "checksum": "befbd346b00f1d176ae127c0cbb1e094ea39b0848d6f86496dbf395b4306a9ba",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Remarks",
+          "maximumLength": 2000,
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-misbehaviour-harassment-sexual-harassment",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/misbehaviour-harassment-sexual-harassment/form.json",
+      "title": "Misbehaviour / Harassment / Sexual Harassment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pan-issues-correction-in-pan",
+      "categoryPath": [
+        "PAN Issues",
+        "Correction in PAN"
+      ],
+      "checksum": "cc1a121dc182c1efff900095d940a871f855424d72a55fe5317af0523ebeafa2",
+      "fields": [
+        {
+          "id": "ackno",
+          "kind": "text",
+          "label": "Acknowledgement No",
+          "placeholder": "Please Enter Acknowledgement No",
+          "required": false
+        },
+        {
+          "id": "name",
+          "kind": "text",
+          "label": "Name",
+          "placeholder": "Please Enter Name",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": false
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pan-issues-correction-in-pan",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/correction-in-pan/form.json",
+      "title": "Correction in PAN",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pan-issues-deduplication-of-pan",
+      "categoryPath": [
+        "PAN Issues",
+        "Deduplication of PAN"
+      ],
+      "checksum": "5956ab2e715ed974f031d7e8399311649562da5fc955a099389f14cf293712e5",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Remarks",
+          "maximumLength": 2000,
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pan-issues-deduplication-of-pan",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/deduplication-of-pan/form.json",
+      "title": "Deduplication of PAN",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pan-issues-delay-in-pan-issues",
+      "categoryPath": [
+        "PAN Issues",
+        "Delay in PAN issues"
+      ],
+      "checksum": "0c0c59bf2396d2a1f295a5487d097ed008b379f7fdb0830aad8e4b513b29fe42",
+      "fields": [
+        {
+          "id": "ackno",
+          "kind": "text",
+          "label": "Acknowledgement No",
+          "placeholder": "Please Enter Acknowledgement No",
+          "required": false
+        },
+        {
+          "id": "name",
+          "kind": "text",
+          "label": "Name",
+          "placeholder": "Please Enter Name",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": false
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pan-issues-delay-in-pan-issues",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/delay-in-pan-issues/form.json",
+      "title": "Delay in PAN issues",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pan-issues-linking-of-pan-with-aadhar",
+      "categoryPath": [
+        "PAN Issues",
+        "Linking of PAN with Aadhar"
+      ],
+      "checksum": "25fb008c6c777dac96a235713e3514a0cac73a4b59a68c87ff51fe391312c7b5",
+      "fields": [
+        {
+          "id": "name",
+          "kind": "text",
+          "label": "Name",
+          "placeholder": "Please Enter Name",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pan-issues-linking-of-pan-with-aadhar",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/linking-of-pan-with-aadhar/form.json",
+      "title": "Linking of PAN with Aadhar",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pan-issues-same-pan-numbers-allotted-to-multiple-users",
+      "categoryPath": [
+        "PAN Issues",
+        "Same PAN numbers allotted to multiple users"
+      ],
+      "checksum": "9d7cbc9bdf8e2ea8c3b47d07913eb287ae2e7a8f2f01ae09a282765ab336d10d",
+      "fields": [
+        {
+          "id": "name",
+          "kind": "text",
+          "label": "Name",
+          "placeholder": "Please Enter Name",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pan-issues-same-pan-numbers-allotted-to-multiple-users",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/same-pan-numbers-allotted-to-multiple-users/form.json",
+      "title": "Same PAN numbers allotted to multiple users",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pan-issues-transfer-of-pan",
+      "categoryPath": [
+        "PAN Issues",
+        "Transfer of PAN"
+      ],
+      "checksum": "25f686488680ec35b69702a70d640d8e8d9eecb427e34ad0434e6f9f678efd27",
+      "fields": [
+        {
+          "id": "name",
+          "kind": "text",
+          "label": "Name",
+          "placeholder": "Please Enter Name",
+          "required": false
+        },
+        {
+          "id": "panno",
+          "kind": "text",
+          "label": "PAN",
+          "placeholder": "Please Enter PAN",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Others",
+            "DGIT (Systems)",
+            "Exemptions"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pan-issues-transfer-of-pan",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/transfer-of-pan/form.json",
+      "title": "Transfer of PAN",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pension-related-family-pension",
+      "categoryPath": [
+        "Pension Related",
+        "Family Pension"
+      ],
+      "checksum": "8ebe4e7688e2711979831bb34253574e788439ac2fded1542bae5ebc142fca68",
+      "fields": [
+        {
+          "id": "departmantname",
+          "kind": "text",
+          "label": "Name of Department",
+          "placeholder": "Please Enter Name of Department",
+          "required": false
+        },
+        {
+          "id": "designation",
+          "kind": "text",
+          "label": "Designation at Retirement",
+          "placeholder": "Please Enter Designation at Retirement",
+          "required": false
+        },
+        {
+          "id": "govtcenterstate",
+          "kind": "text",
+          "label": "Central/State Govt.",
+          "placeholder": "Please Enter Central/State Govt.",
+          "required": false
+        },
+        {
+          "id": "lastpay",
+          "kind": "text",
+          "label": "Last Pay draw in scale",
+          "placeholder": "Please Enter Last Pay draw in scale",
+          "required": false
+        },
+        {
+          "id": "ppono",
+          "kind": "text",
+          "label": "PPO NO.",
+          "placeholder": "Please Enter PPO NO.",
+          "required": false
+        },
+        {
+          "id": "retirementdate",
+          "kind": "text",
+          "label": "Date of Retirement",
+          "placeholder": "Please Enter Date of Retirement",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pension-related-family-pension",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/family-pension/form.json",
+      "title": "Family Pension",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pension-related-pension-not-started-pension-stopped",
+      "categoryPath": [
+        "Pension Related",
+        "Pension not started/ Pension stopped"
+      ],
+      "checksum": "5d3b0730aabc3fe90327e7731553d79de5c00ff575a388d749cdd08f47b555f5",
+      "fields": [
+        {
+          "id": "departmantname",
+          "kind": "text",
+          "label": "Name of Department",
+          "placeholder": "Please Enter Name of Department",
+          "required": false
+        },
+        {
+          "id": "designation",
+          "kind": "text",
+          "label": "Designation at Retirement",
+          "placeholder": "Please Enter Designation at Retirement",
+          "required": false
+        },
+        {
+          "id": "govtcenterstate",
+          "kind": "text",
+          "label": "Central/State Govt.",
+          "placeholder": "Please Enter Central/State Govt.",
+          "required": false
+        },
+        {
+          "id": "lastpay",
+          "kind": "text",
+          "label": "Last Pay draw in scale",
+          "placeholder": "Please Enter Last Pay draw in scale",
+          "required": false
+        },
+        {
+          "id": "ppono",
+          "kind": "text",
+          "label": "PPO NO.",
+          "placeholder": "Please Enter PPO NO.",
+          "required": false
+        },
+        {
+          "id": "retirementdate",
+          "kind": "text",
+          "label": "Date of Retirement",
+          "placeholder": "Please Enter Date of Retirement",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pension-related-pension-not-started-pension-stopped",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/pension-not-started-pension-stopped/form.json",
+      "title": "Pension not started/ Pension stopped",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pension-related-ppo-matters",
+      "categoryPath": [
+        "Pension Related",
+        "PPO Matters"
+      ],
+      "checksum": "b429455d856e2bf4baad9a5395503a111574623d134639d0f6ea71a84ac0e2a5",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Remarks",
+          "maximumLength": 2000,
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pension-related-ppo-matters",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/ppo-matters/form.json",
+      "title": "PPO Matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pension-related-retirement-benefits",
+      "categoryPath": [
+        "Pension Related",
+        "Retirement Benefits"
+      ],
+      "checksum": "21e648bfa3c7cf6c2578bbcf06600d56386feada1655ca16185b55dcc0655277",
+      "fields": [
+        {
+          "id": "departmantname",
+          "kind": "text",
+          "label": "Name of Department",
+          "placeholder": "Please Enter Name of Department",
+          "required": false
+        },
+        {
+          "id": "designation",
+          "kind": "text",
+          "label": "Designation at Retirement",
+          "placeholder": "Please Enter Designation at Retirement",
+          "required": false
+        },
+        {
+          "id": "govtcenterstate",
+          "kind": "text",
+          "label": "Central/State Govt.",
+          "placeholder": "Please Enter Central/State Govt.",
+          "required": false
+        },
+        {
+          "id": "lastpay",
+          "kind": "text",
+          "label": "Last Pay draw in scale",
+          "placeholder": "Please Enter Last Pay draw in scale",
+          "required": false
+        },
+        {
+          "id": "ppono",
+          "kind": "text",
+          "label": "PPO NO.",
+          "placeholder": "Please Enter PPO NO.",
+          "required": false
+        },
+        {
+          "id": "retirementdate",
+          "kind": "text",
+          "label": "Date of Retirement",
+          "placeholder": "Please Enter Date of Retirement",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pension-related-retirement-benefits",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/retirement-benefits/form.json",
+      "title": "Retirement Benefits",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pension-related-revision-recalculation-of-pension",
+      "categoryPath": [
+        "Pension Related",
+        "Revision/Recalculation of Pension"
+      ],
+      "checksum": "a45e2f03de0d096239c85272fad8ad7db03cccc979ecde2ecb5cececfadee859",
+      "fields": [
+        {
+          "id": "departmantname",
+          "kind": "text",
+          "label": "Name of Department",
+          "placeholder": "Please Enter Name of Department",
+          "required": false
+        },
+        {
+          "id": "designation",
+          "kind": "text",
+          "label": "Designation at Retirement",
+          "placeholder": "Please Enter Designation at Retirement",
+          "required": false
+        },
+        {
+          "id": "govtcenterstate",
+          "kind": "text",
+          "label": "Central/State Govt.",
+          "placeholder": "Please Enter Central/State Govt.",
+          "required": false
+        },
+        {
+          "id": "lastpay",
+          "kind": "text",
+          "label": "Last Pay draw in scale",
+          "placeholder": "Please Enter Last Pay draw in scale",
+          "required": false
+        },
+        {
+          "id": "ppono",
+          "kind": "text",
+          "label": "PPO NO.",
+          "placeholder": "Please Enter PPO NO.",
+          "required": false
+        },
+        {
+          "id": "retirementdate",
+          "kind": "text",
+          "label": "Date of Retirement",
+          "placeholder": "Please Enter Date of Retirement",
+          "required": false
+        },
+        {
+          "id": "ddl",
+          "kind": "select",
+          "label": "OfficeName",
+          "options": [
+            "Please select a Regional Office / Office",
+            "Human Resources Development, Delhi",
+            "L&R",
+            "NADT, Nagpur",
+            "National Faceless Appellate Centre (NFAC)",
+            "National Faceless Assessment Center (NaFAC)",
+            "Pr DGIT (Admn & TPS)",
+            "Pr. CCA Delhi",
+            "Pr. CCIT (International Taxation)",
+            "Region Andhra Pradesh & Telangana",
+            "Region Bihar & Jharkhand",
+            "CIT (Investigation)",
+            "Region Delhi",
+            "Region Gujarat",
+            "Region Karnataka & Goa",
+            "Region Kerala",
+            "Region MP & Chhattisgarh",
+            "Region Mumbai",
+            "Region Nagpur",
+            "Region North East",
+            "Region NWR",
+            "Region Odisha",
+            "CIT (ITA)",
+            "Region Pune",
+            "Region Rajasthan",
+            "Region Tamil Nadu and Puducherry",
+            "Region UP (East)",
+            "Region UP (West) & Uttarakhand",
+            "Region West Bengal & Sikkim",
+            "Pr. DGIT(Training)",
+            "CIT (ITA2)",
+            "Others",
+            "DGIT (Systems)",
+            "DGIT (Vigilance)",
+            "Exemptions",
+            "Joint Secretary (FT & TR)-I,Delhi",
+            "JS (Admin.)",
+            "JS (Tax Policy and Litigation)"
+          ],
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pension-related-revision-recalculation-of-pension",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/revision-recalculation-of-pension/form.json",
+      "title": "Revision/Recalculation of Pension",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-technical-issues-with-website",
+      "categoryPath": [
+        "Technical Issues with website"
+      ],
+      "checksum": "4b0ce1ebc32367d1f7b12cb0bd5ce013d013c8fb85a7769a76be372636bb7477",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "fileUpload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-technical-issues-with-website",
+      "pathname": "/V7/NewGrievance/Index/Q0JPRFQ%3d",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/technical-issues-with-website/form.json",
+      "title": "Technical Issues with website",
+      "version": 1
+    }
+  ],
+  "schemaVersion": 1
+}
