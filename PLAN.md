@@ -317,7 +317,8 @@ Use a fixed random seed so screenshots, tests, and the two-minute demo are repro
 
 - Replace starter content and remove production devtools.
 - Use a calm civic palette, plain-language copy, system/self-hosted fonts, minimal animation, and no remote font request on first load.
-- Implement the collapsible icon rail, mobile task control, universal assistant composer, prototype label, loading skeletons, empty states, and error states.
+- Create a distinct UGAAP logo and implement the collapsible icon rail, mobile task control, universal assistant composer, loading skeletons, empty states, and error states.
+- Write all citizen-facing copy in English and Hindi, and provide a persistent language control that updates the website language.
 - Build reusable accessible controls for dynamic fields, timelines, grades, metric explanations, transcript messages, microphone status, and review cards.
 - Ensure every agent action has a visible/manual equivalent.
 

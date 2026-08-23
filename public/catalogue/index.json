@@ -1,0 +1,57 @@
+{
+  "authorities": [
+    {
+      "categoryCount": 41,
+      "checksum": "34f1454f59e60dc34a225aeb3fbd9ec20040fdba40a2427e50b7b9aa9821ee13",
+      "formCount": 35,
+      "id": "authority-central-board-of-direct-taxes-income-tax",
+      "name": "Central Board of Direct Taxes (Income Tax)",
+      "slug": "central-board-of-direct-taxes-income-tax"
+    },
+    {
+      "categoryCount": 133,
+      "checksum": "ac94045ed9d510c4cd0b423c069f8ba8687aebe9ad3e8278f63790dba73e2d4e",
+      "formCount": 111,
+      "id": "authority-financial-services-banking-division",
+      "name": "Financial Services (Banking Division)",
+      "slug": "financial-services-banking-division"
+    },
+    {
+      "categoryCount": 76,
+      "checksum": "ced2a0a87bd0ccdd380efc87a785e6625a30634dc0dd350470916e5e1b7329bc",
+      "formCount": 57,
+      "id": "authority-home-affairs",
+      "name": "Home Affairs",
+      "slug": "home-affairs"
+    },
+    {
+      "categoryCount": 165,
+      "checksum": "07f818d8a92942140cdad4b618e84f8aa6b36b4e2daa37ed1e2eafe5a89edfde",
+      "formCount": 129,
+      "id": "authority-labour-and-employment",
+      "name": "Labour and Employment",
+      "slug": "labour-and-employment"
+    },
+    {
+      "categoryCount": 175,
+      "checksum": "659d347146e45b96ad4f590d17e6777ae5def28b6212df524bc9cdcf41bf56ab",
+      "formCount": 142,
+      "id": "authority-posts",
+      "name": "Posts",
+      "slug": "posts"
+    },
+    {
+      "categoryCount": 104,
+      "checksum": "d7ea99dbdb796421e6c63f38b835bdde53631e7842546051886fed92dba3261d",
+      "formCount": 84,
+      "id": "authority-telecommunications",
+      "name": "Telecommunications",
+      "slug": "telecommunications"
+    }
+  ],
+  "catalogueChecksum": "0010cdeb27d6246c6ceec2d1533d319077773a182dcfe1c1fb95b89bd6683fe9",
+  "categoryCount": 694,
+  "formCount": 558,
+  "organizationCount": 6,
+  "schemaVersion": 1
+}

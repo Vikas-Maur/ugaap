@@ -10,42 +10,219 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as AuthenticatedContinuationRouteImport } from './routes/_authenticated/continuation'
+import { Route as AuthenticatedDraftsRouteImport } from './routes/_authenticated/drafts'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesAuthoritySlugRouteImport } from './routes/services.$authoritySlug'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ServicesAuthoritySlugIndexRouteImport } from './routes/services.$authoritySlug.index'
+import { Route as ServicesAuthoritySlugFormFormIdRouteImport } from './routes/services.$authoritySlug.form.$formId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedContinuationRoute =
+  AuthenticatedContinuationRouteImport.update({
+    id: '/continuation',
+    path: '/continuation',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedDraftsRoute = AuthenticatedDraftsRouteImport.update({
+  id: '/drafts',
+  path: '/drafts',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesAuthoritySlugRoute = ServicesAuthoritySlugRouteImport.update({
+  id: '/$authoritySlug',
+  path: '/$authoritySlug',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesAuthoritySlugIndexRoute =
+  ServicesAuthoritySlugIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => ServicesAuthoritySlugRoute,
+  } as any)
+const ServicesAuthoritySlugFormFormIdRoute =
+  ServicesAuthoritySlugFormFormIdRouteImport.update({
+    id: '/form/$formId',
+    path: '/form/$formId',
+    getParentRoute: () => ServicesAuthoritySlugRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/cookies': typeof CookiesRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/register': typeof RegisterRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/continuation': typeof AuthenticatedContinuationRoute
+  '/drafts': typeof AuthenticatedDraftsRoute
+  '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
+  '/services/': typeof ServicesIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
+  '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/cookies': typeof CookiesRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/register': typeof RegisterRoute
+  '/terms': typeof TermsRoute
+  '/continuation': typeof AuthenticatedContinuationRoute
+  '/drafts': typeof AuthenticatedDraftsRoute
+  '/services': typeof ServicesIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/services/$authoritySlug': typeof ServicesAuthoritySlugIndexRoute
+  '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/about': typeof AboutRoute
+  '/cookies': typeof CookiesRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/register': typeof RegisterRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/terms': typeof TermsRoute
+  '/_authenticated/continuation': typeof AuthenticatedContinuationRoute
+  '/_authenticated/drafts': typeof AuthenticatedDraftsRoute
+  '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
+  '/services/': typeof ServicesIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
+  '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/auth/$'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/cookies'
+    | '/login'
+    | '/privacy'
+    | '/register'
+    | '/services'
+    | '/terms'
+    | '/continuation'
+    | '/drafts'
+    | '/services/$authoritySlug'
+    | '/services/'
+    | '/api/auth/$'
+    | '/services/$authoritySlug/'
+    | '/services/$authoritySlug/form/$formId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/auth/$'
-  id: '__root__' | '/' | '/api/auth/$'
+  to:
+    | '/'
+    | '/about'
+    | '/cookies'
+    | '/login'
+    | '/privacy'
+    | '/register'
+    | '/terms'
+    | '/continuation'
+    | '/drafts'
+    | '/services'
+    | '/api/auth/$'
+    | '/services/$authoritySlug'
+    | '/services/$authoritySlug/form/$formId'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/about'
+    | '/cookies'
+    | '/login'
+    | '/privacy'
+    | '/register'
+    | '/services'
+    | '/terms'
+    | '/_authenticated/continuation'
+    | '/_authenticated/drafts'
+    | '/services/$authoritySlug'
+    | '/services/'
+    | '/api/auth/$'
+    | '/services/$authoritySlug/'
+    | '/services/$authoritySlug/form/$formId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
+  AboutRoute: typeof AboutRoute
+  CookiesRoute: typeof CookiesRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RegisterRoute: typeof RegisterRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
+  TermsRoute: typeof TermsRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
@@ -58,6 +235,90 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/continuation': {
+      id: '/_authenticated/continuation'
+      path: '/continuation'
+      fullPath: '/continuation'
+      preLoaderRoute: typeof AuthenticatedContinuationRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/drafts': {
+      id: '/_authenticated/drafts'
+      path: '/drafts'
+      fullPath: '/drafts'
+      preLoaderRoute: typeof AuthenticatedDraftsRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/$authoritySlug': {
+      id: '/services/$authoritySlug'
+      path: '/$authoritySlug'
+      fullPath: '/services/$authoritySlug'
+      preLoaderRoute: typeof ServicesAuthoritySlugRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -65,11 +326,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/$authoritySlug/': {
+      id: '/services/$authoritySlug/'
+      path: '/'
+      fullPath: '/services/$authoritySlug/'
+      preLoaderRoute: typeof ServicesAuthoritySlugIndexRouteImport
+      parentRoute: typeof ServicesAuthoritySlugRoute
+    }
+    '/services/$authoritySlug/form/$formId': {
+      id: '/services/$authoritySlug/form/$formId'
+      path: '/form/$formId'
+      fullPath: '/services/$authoritySlug/form/$formId'
+      preLoaderRoute: typeof ServicesAuthoritySlugFormFormIdRouteImport
+      parentRoute: typeof ServicesAuthoritySlugRoute
+    }
   }
 }
 
+interface AuthenticatedRouteChildren {
+  AuthenticatedContinuationRoute: typeof AuthenticatedContinuationRoute
+  AuthenticatedDraftsRoute: typeof AuthenticatedDraftsRoute
+}
+
+const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedContinuationRoute: AuthenticatedContinuationRoute,
+  AuthenticatedDraftsRoute: AuthenticatedDraftsRoute,
+}
+
+const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
+  AuthenticatedRouteChildren,
+)
+
+interface ServicesAuthoritySlugRouteChildren {
+  ServicesAuthoritySlugIndexRoute: typeof ServicesAuthoritySlugIndexRoute
+  ServicesAuthoritySlugFormFormIdRoute: typeof ServicesAuthoritySlugFormFormIdRoute
+}
+
+const ServicesAuthoritySlugRouteChildren: ServicesAuthoritySlugRouteChildren = {
+  ServicesAuthoritySlugIndexRoute: ServicesAuthoritySlugIndexRoute,
+  ServicesAuthoritySlugFormFormIdRoute: ServicesAuthoritySlugFormFormIdRoute,
+}
+
+const ServicesAuthoritySlugRouteWithChildren =
+  ServicesAuthoritySlugRoute._addFileChildren(
+    ServicesAuthoritySlugRouteChildren,
+  )
+
+interface ServicesRouteChildren {
+  ServicesAuthoritySlugRoute: typeof ServicesAuthoritySlugRouteWithChildren
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAuthoritySlugRoute: ServicesAuthoritySlugRouteWithChildren,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRoute: AuthenticatedRouteWithChildren,
+  AboutRoute: AboutRoute,
+  CookiesRoute: CookiesRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  RegisterRoute: RegisterRoute,
+  ServicesRoute: ServicesRouteWithChildren,
+  TermsRoute: TermsRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

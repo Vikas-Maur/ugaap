@@ -1,7 +1,5 @@
 import { createMiddleware } from "@tanstack/react-start";
-import { getRequest } from "@tanstack/react-start/server";
-import { auth } from "#/lib/auth";
-import { setPrivateResponseHeaders } from "#/server/http/headers";
+import type { auth } from "#/lib/auth";
 
 export type AuthSession = NonNullable<
 	Awaited<ReturnType<typeof auth.api.getSession>>
@@ -11,6 +9,7 @@ export type AuthSession = NonNullable<
 export async function getSessionFromRequest(
 	request: Request,
 ): Promise<AuthSession | null> {
+	const { auth } = await import("#/lib/auth");
 	return auth.api.getSession({ headers: request.headers });
 }
 
@@ -19,6 +18,7 @@ export async function requireSession(request: Request): Promise<AuthSession> {
 	if (!session) {
 		throw new Error("Unauthorized");
 	}
+	const { setPrivateResponseHeaders } = await import("#/server/http/headers");
 	setPrivateResponseHeaders();
 	return session;
 }
@@ -26,7 +26,17 @@ export async function requireSession(request: Request): Promise<AuthSession> {
 /** Attach to every private createServerFn; route guards are UX, not security. */
 export const authMiddleware = createMiddleware({ type: "function" }).server(
 	async ({ next }) => {
-		const session = await requireSession(getRequest());
+		const [{ getRequest }, { setPrivateResponseHeaders }] = await Promise.all([
+			import("@tanstack/react-start/server"),
+			import("#/server/http/headers"),
+		]);
+		setPrivateResponseHeaders();
+		const request = getRequest();
+		const origin = request.headers.get("origin");
+		if (origin && new URL(origin).origin !== new URL(request.url).origin) {
+			throw new Error("Origin check failed");
+		}
+		const session = await requireSession(request);
 		return next({ context: { session } });
 	},
 );

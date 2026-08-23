@@ -86,6 +86,8 @@ export type SearchEntry = {
 	id: string;
 	authorityId: string;
 	categoryId: string;
+	title: string;
+	categoryPath: string[];
 	terms: string;
 };
 
@@ -110,4 +112,20 @@ export type CatalogueManifest = {
 		searchIndex: string;
 		authorities: Record<string, string>;
 	};
+};
+
+export type CatalogueIndex = {
+	schemaVersion: 1;
+	catalogueChecksum: string;
+	organizationCount: number;
+	categoryCount: number;
+	formCount: number;
+	authorities: Array<{
+		id: string;
+		name: string;
+		slug: string;
+		checksum: string;
+		categoryCount: number;
+		formCount: number;
+	}>;
 };

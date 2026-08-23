@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, join, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { captureSchema, type Capture, type CaptureField, type AuthorityChunk, type CatalogueCategory, type CatalogueField, type CatalogueForm, type CatalogueManifest, type CatalogueWarning, type SearchEntry } from '../../src/features/catalogue/schema.ts'
+import { captureSchema, type Capture, type CaptureField, type AuthorityChunk, type CatalogueCategory, type CatalogueField, type CatalogueForm, type CatalogueIndex, type CatalogueManifest, type CatalogueWarning, type SearchEntry } from '../../src/features/catalogue/schema.ts'
 
 type CompilerOptions = {
   capturesDir?: string
@@ -90,7 +90,10 @@ function isNavigationField(field: CaptureField): boolean {
 }
 
 function displayFieldLabel(field: CaptureField): string {
-  return field.label?.trim() || field.name?.trim() || field.id?.trim() || 'Field'
+  const raw = field.label?.trim() || field.name?.trim() || field.id?.trim()
+  if (!raw) return 'Field'
+  const readable = raw.replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
+  return readable.charAt(0).toUpperCase() + readable.slice(1)
 }
 
 function outputField(field: CaptureField, id = slugify(field.id || field.name || field.label || 'field')): CatalogueField {
@@ -237,7 +240,7 @@ function compileArtifacts(records: SourceRecord[], errors: Array<{ sourcePath: s
       item.category.formCapable = true
       item.category.formId = form.id
       forms.push(form)
-      searchIndex.push({ id: form.id, authorityId: form.authorityId, categoryId: form.categoryId, terms: [bucket.name, ...form.categoryPath, form.title, ...form.fields.flatMap((field) => [field.label, ...(field.options ?? [])])].join(' ').toLocaleLowerCase() })
+      searchIndex.push({ id: form.id, authorityId: form.authorityId, categoryId: form.categoryId, title: form.title, categoryPath: form.categoryPath, terms: [bucket.name, ...form.categoryPath, form.title, ...form.fields.flatMap((field) => [field.label, ...(field.options ?? [])])].join(' ').toLocaleLowerCase() })
     }
     const chunk: AuthorityChunk = { schemaVersion: 1, authority: { id: `authority-${bucket.slug}`, name: bucket.name, slug: bucket.slug }, categories: sortedCategories(bucket.categories), forms: forms.sort((a, b) => a.id.localeCompare(b.id)), checksum: '' }
     chunk.checksum = checksum({ ...chunk, checksum: undefined })
@@ -278,13 +281,31 @@ function refreshArtifacts(artifacts: { manifest: CatalogueManifest; chunks: Reco
     chunk.forms.sort((a, b) => a.id.localeCompare(b.id))
     chunk.checksum = checksum({ ...chunk, checksum: undefined })
   }
-  artifacts.searchIndex = Object.values(artifacts.chunks).flatMap((chunk) => chunk.forms.filter((form) => form.active).map((form) => ({ id: form.id, authorityId: chunk.authority.id, categoryId: form.categoryId, terms: [chunk.authority.name, ...form.categoryPath, form.title, ...form.fields.flatMap((field) => [field.label, ...(field.options ?? [])])].join(' ').toLocaleLowerCase() }))).sort((a, b) => a.id.localeCompare(b.id))
+  artifacts.searchIndex = Object.values(artifacts.chunks).flatMap((chunk) => chunk.forms.filter((form) => form.active).map((form) => ({ id: form.id, authorityId: chunk.authority.id, categoryId: form.categoryId, title: form.title, categoryPath: form.categoryPath, terms: [chunk.authority.name, ...form.categoryPath, form.title, ...form.fields.flatMap((field) => [field.label, ...(field.options ?? [])])].join(' ').toLocaleLowerCase() }))).sort((a, b) => a.id.localeCompare(b.id))
   const authorities = Object.fromEntries(Object.entries(artifacts.chunks).sort(([a], [b]) => a.localeCompare(b)).map(([slug, chunk]) => [slug, chunk.checksum]))
   const searchIndex = checksum(artifacts.searchIndex)
   artifacts.manifest.organizationCount = Object.keys(artifacts.chunks).length
   artifacts.manifest.categoryCount = Object.values(artifacts.chunks).reduce((count, chunk) => count + chunk.categories.length, 0)
   artifacts.manifest.formCount = Object.values(artifacts.chunks).reduce((count, chunk) => count + chunk.forms.filter((form) => form.active).length, 0)
   artifacts.manifest.checksums = { authorities, searchIndex, catalogue: checksum({ chunks: authorities, searchIndex, sourceCount: artifacts.manifest.sourceCount, errors: artifacts.manifest.errors }) }
+}
+
+function buildCatalogueIndex(artifacts: { manifest: CatalogueManifest; chunks: Record<string, AuthorityChunk> }): CatalogueIndex {
+  return {
+    schemaVersion: 1,
+    catalogueChecksum: artifacts.manifest.checksums.catalogue,
+    organizationCount: artifacts.manifest.organizationCount,
+    categoryCount: artifacts.manifest.categoryCount,
+    formCount: artifacts.manifest.formCount,
+    authorities: Object.values(artifacts.chunks)
+      .sort((a, b) => a.authority.name.localeCompare(b.authority.name))
+      .map((chunk) => ({
+        ...chunk.authority,
+        checksum: chunk.checksum,
+        categoryCount: chunk.categories.length,
+        formCount: chunk.forms.filter((form) => form.active).length,
+      })),
+  }
 }
 
 function applyHistoricalState(artifacts: { manifest: CatalogueManifest; chunks: Record<string, AuthorityChunk> }, previous: Record<string, AuthorityChunk>): void {
@@ -331,9 +352,10 @@ export async function compileCatalogue(options: CompilerOptions = {}): Promise<{
   const previous = await readPreviousChunks(outputDir)
   applyHistoricalState(artifacts, previous)
   refreshArtifacts(artifacts)
+  const catalogueIndex = buildCatalogueIndex(artifacts)
   const differences: string[] = []
   if (!options.check) { await ensureDirectory(outputDir); await ensureDirectory(join(outputDir, 'authorities')) }
-  const writes: Array<[string, unknown]> = [[join(outputDir, 'manifest.json'), artifacts.manifest], [join(outputDir, 'search-index.json'), artifacts.searchIndex]]
+  const writes: Array<[string, unknown]> = [[join(outputDir, 'index.json'), catalogueIndex], [join(outputDir, 'manifest.json'), artifacts.manifest], [join(outputDir, 'search-index.json'), artifacts.searchIndex]]
   for (const [slug, chunk] of Object.entries(artifacts.chunks)) writes.push([join(outputDir, 'authorities', `${slug}.json`), chunk])
   for (const [path, value] of writes) await writeOrCheck(path, value, options.check ?? false, differences)
   return { manifest: artifacts.manifest, differences }
