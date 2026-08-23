@@ -22,6 +22,8 @@ import { Route as AuthenticatedContinuationRouteImport } from './routes/_authent
 import { Route as AuthenticatedDraftsRouteImport } from './routes/_authenticated/drafts'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAuthoritySlugRouteImport } from './routes/services.$authoritySlug'
+import { Route as ApiAiChatRouteImport } from './routes/api/ai/chat'
+import { Route as ApiAiRealtimeTokenRouteImport } from './routes/api/ai/realtime-token'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ServicesAuthoritySlugIndexRouteImport } from './routes/services.$authoritySlug.index'
 import { Route as ServicesAuthoritySlugFormFormIdRouteImport } from './routes/services.$authoritySlug.form.$formId'
@@ -91,6 +93,16 @@ const ServicesAuthoritySlugRoute = ServicesAuthoritySlugRouteImport.update({
   path: '/$authoritySlug',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ApiAiChatRoute = ApiAiChatRouteImport.update({
+  id: '/api/ai/chat',
+  path: '/api/ai/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAiRealtimeTokenRoute = ApiAiRealtimeTokenRouteImport.update({
+  id: '/api/ai/realtime-token',
+  path: '/api/ai/realtime-token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -122,6 +134,8 @@ export interface FileRoutesByFullPath {
   '/drafts': typeof AuthenticatedDraftsRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
   '/services/': typeof ServicesIndexRoute
+  '/api/ai/chat': typeof ApiAiChatRoute
+  '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
@@ -137,6 +151,8 @@ export interface FileRoutesByTo {
   '/continuation': typeof AuthenticatedContinuationRoute
   '/drafts': typeof AuthenticatedDraftsRoute
   '/services': typeof ServicesIndexRoute
+  '/api/ai/chat': typeof ApiAiChatRoute
+  '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
@@ -156,6 +172,8 @@ export interface FileRoutesById {
   '/_authenticated/drafts': typeof AuthenticatedDraftsRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
   '/services/': typeof ServicesIndexRoute
+  '/api/ai/chat': typeof ApiAiChatRoute
+  '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
@@ -175,6 +193,8 @@ export interface FileRouteTypes {
     | '/drafts'
     | '/services/$authoritySlug'
     | '/services/'
+    | '/api/ai/chat'
+    | '/api/ai/realtime-token'
     | '/api/auth/$'
     | '/services/$authoritySlug/'
     | '/services/$authoritySlug/form/$formId'
@@ -190,6 +210,8 @@ export interface FileRouteTypes {
     | '/continuation'
     | '/drafts'
     | '/services'
+    | '/api/ai/chat'
+    | '/api/ai/realtime-token'
     | '/api/auth/$'
     | '/services/$authoritySlug'
     | '/services/$authoritySlug/form/$formId'
@@ -208,6 +230,8 @@ export interface FileRouteTypes {
     | '/_authenticated/drafts'
     | '/services/$authoritySlug'
     | '/services/'
+    | '/api/ai/chat'
+    | '/api/ai/realtime-token'
     | '/api/auth/$'
     | '/services/$authoritySlug/'
     | '/services/$authoritySlug/form/$formId'
@@ -223,6 +247,8 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   TermsRoute: typeof TermsRoute
+  ApiAiChatRoute: typeof ApiAiChatRoute
+  ApiAiRealtimeTokenRoute: typeof ApiAiRealtimeTokenRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
@@ -319,6 +345,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAuthoritySlugRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/api/ai/chat': {
+      id: '/api/ai/chat'
+      path: '/api/ai/chat'
+      fullPath: '/api/ai/chat'
+      preLoaderRoute: typeof ApiAiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ai/realtime-token': {
+      id: '/api/ai/realtime-token'
+      path: '/api/ai/realtime-token'
+      fullPath: '/api/ai/realtime-token'
+      preLoaderRoute: typeof ApiAiRealtimeTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -396,6 +436,8 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   ServicesRoute: ServicesRouteWithChildren,
   TermsRoute: TermsRoute,
+  ApiAiChatRoute: ApiAiChatRoute,
+  ApiAiRealtimeTokenRoute: ApiAiRealtimeTokenRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

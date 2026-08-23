@@ -304,7 +304,7 @@ function loadPreparedSearchIndex(): Promise<PreparedSearchEntry[]> {
 					category,
 					authority,
 					terms,
-					tokens: uniqueTokens(`${title} ${category} ${authority} ${terms}`),
+					tokens: uniqueTokens(`${title} ${category} ${authority}`),
 				};
 			});
 		});
@@ -361,7 +361,9 @@ function fuzzyTokenScore(
 	if (
 		candidateTokens.some(
 			(candidate) =>
-				candidate.startsWith(queryToken) || queryToken.startsWith(candidate),
+				candidate.length >= 4 &&
+				queryToken.length >= 4 &&
+				(candidate.startsWith(queryToken) || queryToken.startsWith(candidate)),
 		)
 	)
 		return 20;
@@ -383,6 +385,7 @@ function scoreSearchEntry(
 	queryTokens: string[],
 ): number | null {
 	let score = 0;
+	let matchedTokens = 0;
 	if (item.title === phrase) score += 180;
 	else if (item.title.startsWith(phrase)) score += 130;
 	else if (item.title.includes(phrase)) score += 95;
@@ -390,7 +393,7 @@ function scoreSearchEntry(
 	if (item.authority.includes(phrase)) score += 46;
 	if (item.terms.includes(phrase)) score += 28;
 
-	for (const queryToken of queryTokens) {
+	for (const [queryIndex, queryToken] of queryTokens.entries()) {
 		const alternatives = [queryToken, ...(searchAliases[queryToken] ?? [])].map(
 			normalizeSearchText,
 		);
@@ -412,10 +415,13 @@ function scoreSearchEntry(
 				fuzzyTokenScore(alternative, item.tokens),
 			);
 		}
-		if (tokenScore === 0) return null;
-		score += tokenScore;
+		if (tokenScore === 0) continue;
+		matchedTokens += 1;
+		score += tokenScore + (queryIndex === 0 ? 25 : 0);
 	}
-	return score;
+	const requiredMatches = queryTokens.length <= 3 ? 1 : 2;
+	if (matchedTokens < requiredMatches) return null;
+	return score + Math.round((matchedTokens / queryTokens.length) * 40);
 }
 
 export async function searchCatalogue(
@@ -430,7 +436,7 @@ export async function searchCatalogue(
 		(token) => !searchStopWords.has(token),
 	);
 	if (!queryTokens.length) return [];
-	return entries
+	const ranked = entries
 		.map((item) => ({
 			item,
 			score: scoreSearchEntry(item, normalizedQuery, queryTokens),
@@ -447,7 +453,10 @@ export async function searchCatalogue(
 					.join("/")
 					.localeCompare(right.item.entry.categoryPath.join("/")) ||
 				left.item.entry.id.localeCompare(right.item.entry.id),
-		)
+		);
+	const topScore = ranked[0]?.score;
+	return ranked
+		.filter((match) => topScore === undefined || match.score >= topScore - 35)
 		.slice(0, options.limit ?? 30)
 		.map(({ item }) => ({
 			...item.entry,

@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { AppShell } from "../components/AppShell";
+import { AssistantProvider } from "../features/assistant/context";
 import { I18nProvider } from "../features/i18n/i18n";
 import appCss from "../styles.css?url";
 
@@ -49,7 +50,9 @@ function RootDocument({ children }: { children: ReactNode }) {
 			</head>
 			<body>
 				<I18nProvider>
-					<AppShell>{children}</AppShell>
+					<AssistantProvider>
+						<AppShell>{children}</AppShell>
+					</AssistantProvider>
 				</I18nProvider>
 				<Scripts />
 			</body>

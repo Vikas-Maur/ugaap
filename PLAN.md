@@ -53,7 +53,7 @@ Execution must begin by saving this approved plan verbatim as `PLAN.md`.
 - Use TanStack AI’s `chat()`, `toServerSentEventsResponse()`, `useChat()`, `toolDefinition()`, and structured outputs. Do not introduce Vercel AI SDK patterns.
 - Default text, classification, and structured tool work to `gemini-3.5-flash-lite` through `geminiText()`.
 - Use Gemini Live as the primary voice experience through TanStack AI’s `geminiRealtime()`, with short-lived server-minted tokens from `geminiRealtimeToken()`; browser-native speech is fallback-only.
-- Implement an environment-selected provider registry for Gemini, OpenAI, and OpenRouter; provider changes must not affect UI or agent tools.
+- Use Gemini as the only AI provider for the hackathon build. Keep model selection in server environment variables so Gemini models can change without affecting the UI or agent tools.
 - Pin all currently declared `latest` TanStack dependencies to compatible exact versions before feature work to prevent deadline-time drift.
 - Consolidate the duplicate database clients into one request-safe Drizzle connection using Neon’s pooled URL.
 - Use a private Vercel Blob store for attachments. Vercel currently includes Blob on Hobby with 1 GB-month storage, 2,000 advanced operations, and 10 GB transfer; if its token is absent in local development, use a metadata-only adapter rather than storing file bytes in PostgreSQL. [Vercel Blob pricing](https://vercel.com/docs/vercel-blob/usage-and-pricing)
@@ -247,19 +247,14 @@ DATABASE_URL_POOLER=
 BETTER_AUTH_SECRET=
 BETTER_AUTH_URL=
 GEMINI_API_KEY=
-AI_PROVIDER=gemini
 AI_TEXT_MODEL=gemini-3.5-flash-lite
-VOICE_PROVIDER=gemini-live
 GEMINI_LIVE_MODEL=gemini-3.1-flash-live-preview
-BROWSER_VOICE_FALLBACK=true
-OPENAI_API_KEY=
-OPENROUTER_API_KEY=
 BLOB_READ_WRITE_TOKEN=
 PUBLIC_DATA_REVALIDATE_SECONDS=21600
 DEMO_MODE=true
 ```
 
-Only the selected provider key is required at runtime. Secrets remain server-only, are never logged, and `.env.example` contains placeholders only.
+The Gemini key is required only for AI chat and Gemini Live; the manual grievance experience remains available without it. Secrets remain server-only, are never logged, and `.env.example` contains placeholders only.
 
 ---
 
@@ -491,9 +486,9 @@ Phase gate:
 
 ### Phase 2 — Ambient AI and Hindi/English voice experience
 
-#### P2.1 Provider registry and AI endpoint
+#### P2.1 Gemini configuration and AI endpoint
 
-- Implement an allowlisted provider registry for Gemini, OpenAI, and OpenRouter.
+- Use Gemini as the only provider for typed and realtime AI in the hackathon build.
 - Default to `gemini-3.5-flash-lite` with low-temperature structured extraction.
 - Stream typed assistant responses over SSE.
 - Use the installed TanStack Gemini realtime adapter for voice: mint a single-use, short-lived token on the server with `realtimeToken({ adapter: geminiRealtimeToken(...) })`, then connect the browser with `geminiRealtime()` over WebSocket. Anonymous sessions receive a tightly rate-limited token and public tools only; authenticated sessions receive the citizen tool set. Never expose `GEMINI_API_KEY` to the client.
@@ -761,7 +756,7 @@ After the lead implementer completes shared schemas, route contracts, and migrat
 
 - Lane A — catalogue compiler, database, seed data, server authorization.
 - Lane B — shell, authentication UI, manual forms, responsive accessibility.
-- Lane C — provider registry, agent tools, structured classification, voice.
+- Lane C — Gemini configuration, agent tools, structured classification, voice.
 - Lane D — lifecycle UI, public grievances, leaderboard, methodology.
 
 Phase 1.5 may split into three bounded tasks after P1.5.0 and P1.5.1 are complete:

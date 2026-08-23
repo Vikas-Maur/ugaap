@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, LoaderCircle, Search, X } from "lucide-react";
 import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
-
+import { useAssistantContext } from "#/features/assistant/context";
 import { useI18n } from "#/features/i18n/i18n";
 
 import {
@@ -607,10 +607,16 @@ function CatalogueFormScreen({
 	const { text, language } = useI18n();
 	const navigate = useNavigate();
 	const state = useCatalogueFormState(form);
+	const { registerForm } = useAssistantContext();
 	const { restore } = state;
 	const [saveMessage, setSaveMessage] = useState<string | null>(null);
 	const [restoring, setRestoring] = useState(Boolean(draftId));
 	const [saving, setSaving] = useState(false);
+
+	useEffect(() => {
+		registerForm({ form, values: state.values, setValue: state.setValue });
+		return () => registerForm(null);
+	}, [form, registerForm, state.setValue, state.values]);
 
 	useEffect(() => {
 		if (!draftId) {

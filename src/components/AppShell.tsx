@@ -4,6 +4,7 @@ import type { CSSProperties, ReactNode } from "react";
 
 import { text, useI18n } from "../features/i18n/i18n";
 import { authClient } from "../lib/auth-client";
+import { AssistantEntry } from "./AssistantEntry";
 import { BrandLogo } from "./BrandLogo";
 import {
 	Sidebar,
@@ -33,10 +34,15 @@ export function AppShell({ children }: Readonly<{ children: ReactNode }>) {
 		pathname.startsWith(prefix),
 	);
 
-	return isWorkspace ? (
-		<WorkspaceShell pathname={pathname}>{children}</WorkspaceShell>
-	) : (
-		<PublicShell>{children}</PublicShell>
+	return (
+		<>
+			{isWorkspace ? (
+				<WorkspaceShell pathname={pathname}>{children}</WorkspaceShell>
+			) : (
+				<PublicShell>{children}</PublicShell>
+			)}
+			<AssistantEntry />
+		</>
 	);
 }
 
@@ -98,7 +104,7 @@ function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 	const { data: session } = authClient.useSession();
 
 	return (
-		<div className="min-h-screen bg-[var(--paper)]">
+		<div className="min-h-screen bg-[var(--paper)] pb-32 sm:pb-36">
 			<header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color:rgba(251,252,254,0.92)] backdrop-blur-xl">
 				<div className="mx-auto flex min-h-[72px] w-full max-w-[1320px] items-center gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
 					<Link
@@ -142,7 +148,9 @@ function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 				</div>
 			</header>
 
-			<main className="min-h-[calc(100vh-240px)]">{children}</main>
+			<main className="min-h-[calc(100vh-240px)]" data-assistant-page-content>
+				{children}
+			</main>
 
 			<footer className="border-t border-[var(--line)] bg-white/55">
 				<div className="mx-auto flex w-full max-w-[1320px] flex-col gap-8 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
@@ -330,7 +338,10 @@ function WorkspaceShell({
 					</div>
 					<LanguageControl />
 				</header>
-				<div className="mx-auto w-full max-w-[1180px] px-4 py-6 pb-20 sm:px-6 md:py-8 lg:px-10">
+				<div
+					className="mx-auto w-full max-w-[1180px] px-4 py-6 pb-40 sm:px-6 md:py-8 lg:px-10"
+					data-assistant-page-content
+				>
 					{children}
 				</div>
 			</SidebarInset>
