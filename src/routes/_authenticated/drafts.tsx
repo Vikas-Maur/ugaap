@@ -63,7 +63,10 @@ function DraftsScreen() {
 									<Link
 										className="inline-flex min-h-11 shrink-0 items-center justify-center border border-blue-900 bg-blue-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
 										to="/services/$authoritySlug/form/$formId"
-										params={{ authoritySlug: authority.slug, formId: form.id }}
+										params={{
+											authoritySlug: authority.slug,
+											formId: form.formKey,
+										}}
 										search={{ review: false, draft: item.draft.id }}
 									>
 										{text({ en: "Resume draft", hi: "मसौदा फिर शुरू करें" })}
