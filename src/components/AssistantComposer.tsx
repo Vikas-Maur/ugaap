@@ -90,7 +90,7 @@ export function AssistantComposer() {
 				<label className="sr-only" htmlFor="assistant-service-search">
 					{translate(text({ en: "Search grievances", hi: "शिकायतें खोजें" }))}
 				</label>
-				<div className="flex min-h-14 items-center gap-3 rounded-xl border border-blue-300 bg-white px-4 shadow-[0_10px_35px_-24px_rgba(15,59,138,0.7)] transition-[border-color,box-shadow] focus-within:border-blue-700 focus-within:ring-4 focus-within:ring-blue-100">
+				<div className="flex min-h-14 items-center gap-3 rounded-lg border border-[var(--line-strong)] bg-[var(--paper)] px-4 shadow-[0_8px_24px_-20px_rgba(16,24,40,0.4)] transition-[border-color,box-shadow] focus-within:border-blue-700 focus-within:ring-3 focus-within:ring-blue-100">
 					<Search
 						className="shrink-0 text-blue-700"
 						size={20}

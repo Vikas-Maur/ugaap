@@ -56,7 +56,7 @@ export function TextInput({ label, hint, id, ...props }: TextInputProps) {
 		<label className="grid gap-1.5" htmlFor={inputId}>
 			{label ? <span className="text-sm font-bold">{text(label)}</span> : null}
 			<input
-				className="min-h-11 w-full border border-slate-400 bg-white px-3 text-slate-950 outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200"
+				className="min-h-11 w-full border border-slate-400 bg-[var(--paper)] px-3 text-slate-950 outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200"
 				id={inputId}
 				{...props}
 			/>

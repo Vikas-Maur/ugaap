@@ -1,7 +1,5 @@
-import { Bot, LoaderCircle, Mic } from "lucide-react";
+import { LoaderCircle, MessageSquareText, Mic } from "lucide-react";
 import { lazy, Suspense } from "react";
-
-import { text, useI18n } from "#/features/i18n/i18n";
 
 const AssistantLauncher = lazy(() =>
 	import("./AssistantLauncher").then((module) => ({
@@ -9,41 +7,31 @@ const AssistantLauncher = lazy(() =>
 	})),
 );
 
-export function AssistantEntry() {
-	const { text: translate } = useI18n();
-
+export function AssistantEntry({ home = false }: { home?: boolean }) {
 	return (
 		<Suspense
 			fallback={
-				<div className="fixed inset-x-3 bottom-3 z-40 mx-auto flex min-h-20 max-w-3xl items-center gap-3 border border-blue-300 bg-white px-4 shadow-[0_18px_55px_rgba(15,59,138,0.2)] sm:inset-x-6 sm:bottom-5">
-					<Bot
-						className="shrink-0 text-blue-800"
-						size={21}
-						aria-hidden="true"
-					/>
-					<div className="min-w-0 flex-1">
-						<p className="m-0 text-sm font-semibold text-blue-950">
-							{translate(text({ en: "Ask UGAAP", hi: "UGAAP से पूछें" }))}
-						</p>
-						<p className="m-0 mt-1 truncate text-xs text-slate-500">
-							{translate(
-								text({
-									en: "Loading text and voice controls…",
-									hi: "टेक्स्ट और आवाज़ नियंत्रण लोड हो रहे हैं…",
-								}),
-							)}
-						</p>
+				<div
+					className={`assistant-dock fixed inset-x-3 z-40 mx-auto flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-[var(--paper)] px-3 pb-4 pt-5 shadow-[0_18px_55px_rgba(16,24,40,0.14)] transition-[bottom,max-width,min-height,transform] duration-500 sm:inset-x-6 sm:px-4 ${home ? "bottom-[clamp(2.5rem,10vh,7rem)] min-h-[172px] max-w-[920px]" : "bottom-3 min-h-[124px] max-w-[760px] sm:bottom-5"}`}
+				>
+					<div className="grid size-13 shrink-0 place-items-center rounded-full bg-[var(--blue-800)] text-white">
+						<Mic size={21} aria-hidden="true" />
 					</div>
-					<Mic className="text-blue-700" size={18} aria-hidden="true" />
-					<LoaderCircle
-						className="animate-spin text-blue-700"
-						size={18}
-						aria-hidden="true"
-					/>
+					<div className="min-h-[88px] min-w-0 flex-1" />
+					<div className="grid size-13 shrink-0 place-items-center rounded-full bg-[var(--blue-800)] text-white">
+						<LoaderCircle
+							className="animate-spin"
+							size={19}
+							aria-hidden="true"
+						/>
+					</div>
+					<div className="grid size-13 shrink-0 place-items-center rounded-full bg-[var(--blue-50)] text-[var(--blue-800)]">
+						<MessageSquareText size={19} aria-hidden="true" />
+					</div>
 				</div>
 			}
 		>
-			<AssistantLauncher />
+			<AssistantLauncher home={home} />
 		</Suspense>
 	);
 }

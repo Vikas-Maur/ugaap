@@ -1,5 +1,12 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { ArrowLeft, LoaderCircle, Search, X } from "lucide-react";
+import {
+	ArrowLeft,
+	ChevronDown,
+	ChevronRight,
+	LoaderCircle,
+	Search,
+	X,
+} from "lucide-react";
 import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useAssistantContext } from "#/features/assistant/context";
 import { useI18n } from "#/features/i18n/i18n";
@@ -110,15 +117,15 @@ export function DirectoryBrowser({
 		inputQuery.trim().length < MIN_CATALOGUE_QUERY_LENGTH;
 
 	return (
-		<div className="w-full py-2 md:py-4">
+		<div className="page-shell">
 			<h1 className="sr-only">
 				{text(copy("Find a grievance category", "शिकायत श्रेणी खोजें"))}
 			</h1>
-			<search className="mb-8 border-b border-blue-200 pb-8">
+			<search className="mb-7">
 				<label className="sr-only" htmlFor="service-search">
 					{text(copy("Search grievance categories", "शिकायत श्रेणियाँ खोजें"))}
 				</label>
-				<div className="flex min-h-14 items-center gap-3 rounded-xl border border-blue-300 bg-white px-4 shadow-[0_10px_35px_-24px_rgba(15,59,138,0.7)] transition-[border-color,box-shadow] focus-within:border-blue-700 focus-within:ring-4 focus-within:ring-blue-100">
+				<div className="search-control">
 					<Search
 						className="shrink-0 text-blue-700"
 						size={20}
@@ -211,7 +218,7 @@ function AuthorityList({
 			<div className="mb-4 flex items-baseline justify-between gap-4">
 				<h2
 					id="authority-list-heading"
-					className="text-xl font-bold text-blue-950"
+					className="text-xl font-semibold tracking-[-0.02em] text-blue-950"
 				>
 					{text(copy("Responsible authorities", "जिम्मेदार प्राधिकरण"))}
 				</h2>
@@ -224,7 +231,7 @@ function AuthorityList({
 					)}
 				</p>
 			</div>
-			<div className="border-y-2 border-blue-200">
+			<div className="grid gap-2">
 				{directory.authorities.map((authority) => (
 					<AuthorityCard authority={authority} key={authority.id} />
 				))}
@@ -234,22 +241,20 @@ function AuthorityList({
 }
 
 function AuthorityCard({ authority }: { authority: CatalogueAuthority }) {
-	const { text } = useI18n();
 	return (
 		<Link
 			to="/services/$authoritySlug"
 			params={{ authoritySlug: authority.slug }}
-			className="group block border-b border-blue-200 px-1 py-6 last:border-b-0 transition-colors hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+			className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
 		>
-			<span className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
-				{text(copy("Authority", "प्राधिकरण"))}
-			</span>
-			<h3 className="mt-2 text-xl font-bold text-blue-950">
-				{text(copy(authority.name, authority.name))}
+			<h3 className="text-base font-semibold tracking-[-0.01em] text-blue-950 sm:text-lg">
+				{authority.name}
 			</h3>
-			<span className="mt-4 inline-flex text-sm font-semibold text-blue-800 group-hover:text-blue-950">
-				{text(copy("Browse grievance categories →", "शिकायत श्रेणियाँ देखें →"))}
-			</span>
+			<ChevronRight
+				className="text-blue-700 transition-transform group-hover:translate-x-0.5"
+				size={20}
+				aria-hidden="true"
+			/>
 		</Link>
 	);
 }
@@ -266,7 +271,7 @@ function SearchResults({
 	const { text } = useI18n();
 	return (
 		<section aria-labelledby="catalogue-results-heading" aria-busy={searching}>
-			<div className="flex flex-wrap items-end justify-between gap-3 border-b border-blue-200 pb-4">
+			<div className="flex flex-wrap items-end justify-between gap-3 pb-5">
 				<div>
 					<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
 						{text(copy("Search results", "खोज परिणाम"))}
@@ -295,12 +300,14 @@ function SearchResults({
 			{results.length ? (
 				<div
 					className={
-						searching ? "opacity-60 transition-opacity" : "transition-opacity"
+						searching
+							? "grid gap-2 opacity-60 transition-opacity"
+							: "grid gap-2 transition-opacity"
 					}
 				>
 					{results.map((result) => (
 						<Link
-							className="group grid gap-3 border-b border-blue-200 px-1 py-5 transition-colors hover:bg-blue-50/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
+							className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
 							key={result.id}
 							to="/services/$authoritySlug/form/$formId"
 							search={{ review: false, draft: undefined }}
@@ -325,14 +332,16 @@ function SearchResults({
 									)}
 								</p>
 							</div>
-							<span className="text-sm font-semibold text-blue-800 group-hover:text-blue-950">
-								{text(copy("Open form →", "फ़ॉर्म खोलें →"))}
-							</span>
+							<ChevronRight
+								className="text-blue-700 transition-transform group-hover:translate-x-0.5"
+								size={20}
+								aria-hidden="true"
+							/>
 						</Link>
 					))}
 				</div>
 			) : (
-				<p className="border-b border-blue-200 py-6 text-slate-700">
+				<p className="py-6 text-slate-700">
 					{text(
 						copy(
 							"No matching grievance categories. Try fewer words.",
@@ -361,7 +370,7 @@ export function AuthorityBrowser({ chunk }: { chunk: AuthorityChunk }) {
 			)
 		: roots;
 	return (
-		<div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
+		<div className="page-shell">
 			<Link
 				className="mb-8 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-blue-800 no-underline hover:text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
 				to="/services"
@@ -371,13 +380,13 @@ export function AuthorityBrowser({ chunk }: { chunk: AuthorityChunk }) {
 				{text(copy("Back to all authorities", "सभी प्राधिकरणों पर वापस जाएँ"))}
 			</Link>
 			<div className="mb-8 max-w-3xl">
-				<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
+				<p className="page-eyebrow">
 					{text(copy("Choose a category", "श्रेणी चुनें"))}
 				</p>
-				<h1 className="mt-3 text-4xl font-bold tracking-tight text-blue-950 md:text-5xl">
+				<h1 className="page-title">
 					{text(copy(chunk.authority.name, chunk.authority.name))}
 				</h1>
-				<p className="mt-4 leading-7 text-slate-600">
+				<p className="page-intro">
 					{text(
 						copy(
 							"Open a category to see the available grievance forms.",
@@ -391,17 +400,24 @@ export function AuthorityBrowser({ chunk }: { chunk: AuthorityChunk }) {
 				htmlFor="category-filter"
 			>
 				{text(copy("Filter categories", "श्रेणियाँ फ़िल्टर करें"))}
-				<input
-					id="category-filter"
-					value={filter}
-					onChange={(event) => setFilter(event.target.value)}
-					className="mt-2 min-h-12 w-full border border-blue-300 bg-white px-4 text-blue-950 outline-none placeholder:text-slate-500 focus:border-blue-700 focus:ring-2 focus:ring-blue-200"
-					placeholder={text(
-						copy("Try a grievance topic", "शिकायत का विषय लिखें"),
-					)}
-				/>
+				<span className="search-control mt-2">
+					<Search
+						className="shrink-0 text-blue-700"
+						size={19}
+						aria-hidden="true"
+					/>
+					<input
+						id="category-filter"
+						value={filter}
+						onChange={(event) => setFilter(event.target.value)}
+						className="min-w-0 flex-1 bg-transparent text-base font-normal text-blue-950 outline-none placeholder:text-slate-500"
+						placeholder={text(
+							copy("Try a grievance topic", "शिकायत का विषय लिखें"),
+						)}
+					/>
+				</span>
 			</label>
-			<div className="mt-8 border-y-2 border-blue-200">
+			<div className="mt-7 grid gap-2">
 				{categories.map((category) => (
 					<CategoryCard category={category} chunk={chunk} key={category.id} />
 				))}
@@ -432,19 +448,21 @@ function CategoryCard({
 		(item) => item.parentId === category.id,
 	);
 	return (
-		<details
-			className="border-b border-blue-200 py-5 last:border-b-0"
-			open={category.parentId === null}
-		>
-			<summary className="cursor-pointer list-none text-lg font-bold text-blue-950 marker:content-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700">
-				{text(copy(category.name, category.name))}
+		<details className="category-disclosure">
+			<summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 text-base font-semibold text-blue-950 transition-[border-color,background-color] marker:content-none hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:text-lg">
+				<span>{text(copy(category.name, category.name))}</span>
+				<ChevronDown
+					className="shrink-0 text-blue-700 transition-transform"
+					size={20}
+					aria-hidden="true"
+				/>
 			</summary>
-			<p className="mt-2 text-sm text-slate-600">
+			<p className="mx-1 mt-2 text-sm text-slate-600">
 				{text(copy(category.path.join(" / "), category.path.join(" / ")))}
 			</p>
 			{category.formCapable && category.formId ? (
 				<Link
-					className="mt-4 inline-flex min-h-10 items-center border border-blue-900 bg-blue-900 px-4 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-blue-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+					className="action-primary mt-4 min-h-10 px-4 no-underline"
 					to="/services/$authoritySlug/form/$formId"
 					search={{ review: false, draft: undefined }}
 					params={{
@@ -453,10 +471,11 @@ function CategoryCard({
 					}}
 				>
 					{text(copy("Open this grievance form", "यह शिकायत फ़ॉर्म खोलें"))}
+					<ChevronRight size={17} aria-hidden="true" />
 				</Link>
 			) : null}
 			{children.length ? (
-				<div className="ml-4 mt-4 border-l-2 border-blue-200 pl-4 sm:ml-6">
+				<div className="mt-2 grid gap-2">
 					{children.map((child) => (
 						<CategoryCard category={child} chunk={chunk} key={child.id} />
 					))}
@@ -742,7 +761,7 @@ function CatalogueFormScreen({
 	};
 	if (restoring) return <LoadingMessage />;
 	return (
-		<div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-14 lg:px-8">
+		<div className="page-shell">
 			<Link
 				className="mb-8 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-blue-800 no-underline hover:text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
 				to="/services/$authoritySlug"
@@ -763,13 +782,11 @@ function CatalogueFormScreen({
 			) : (
 				<form onSubmit={goReview} noValidate>
 					<div className="mb-8 max-w-3xl">
-						<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
+						<p className="page-eyebrow">
 							{text(copy("Grievance form", "शिकायत फ़ॉर्म"))}
 						</p>
-						<h1 className="mt-3 text-4xl font-bold tracking-tight text-blue-950 md:text-5xl">
-							{text(copy(form.title, form.title))}
-						</h1>
-						<p className="mt-4 leading-7 text-slate-600">
+						<h1 className="page-title">{text(copy(form.title, form.title))}</h1>
+						<p className="page-intro">
 							{text(
 								copy(
 									"Tell us what happened. You can save your progress on this device and return later.",
@@ -778,8 +795,8 @@ function CatalogueFormScreen({
 							)}
 						</p>
 					</div>
-					<div className="max-w-3xl border-t-2 border-blue-800 pt-6">
-						<p className="border-l-4 border-blue-700 bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-950">
+					<div className="max-w-3xl pt-2">
+						<p className="rounded-xl bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-950">
 							{text(
 								copy(
 									"Please use clear details. Attachments stay on this device for now and are not uploaded.",
@@ -801,14 +818,11 @@ function CatalogueFormScreen({
 							))}
 						</div>
 						<div className="mt-8 flex flex-wrap gap-3">
-							<button
-								className="min-h-11 border border-blue-900 bg-blue-900 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
-								type="submit"
-							>
+							<button className="action-primary" type="submit">
 								{text(copy("Review details", "विवरण देखें"))}
 							</button>
 							<button
-								className="min-h-11 border border-blue-700 bg-white px-5 py-2.5 font-semibold text-blue-900 transition-colors hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+								className="action-secondary disabled:pointer-events-none disabled:opacity-50"
 								type="button"
 								onClick={() => void save()}
 								disabled={saving}
@@ -866,7 +880,7 @@ function FieldControl({
 		required: field.required,
 	};
 	return (
-		<div className="border-b border-blue-100 pb-6 last:border-b-0">
+		<div className="pb-6">
 			<label className="block text-sm font-semibold" htmlFor={field.id}>
 				{label}
 				{field.required ? (
@@ -880,7 +894,7 @@ function FieldControl({
 					{...common}
 					value={values[field.id] ?? ""}
 					onChange={(event) => onValue(field.id, event.target.value)}
-					className="mt-2 min-h-12 w-full border border-blue-300 bg-white px-4 text-blue-950 outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200"
+					className="field-control mt-2"
 				>
 					<option value="">
 						{text(copy("Select an option", "एक विकल्प चुनें"))}
@@ -902,7 +916,7 @@ function FieldControl({
 							? text(copy(field.placeholder, field.placeholder))
 							: undefined
 					}
-					className="mt-2 min-h-36 w-full border border-blue-300 bg-white p-4 text-blue-950 outline-none placeholder:text-slate-500 focus:border-blue-700 focus:ring-2 focus:ring-blue-200"
+					className="field-control mt-2 min-h-36 resize-y py-3"
 				/>
 			) : field.kind === "file" ? (
 				<input
@@ -930,7 +944,7 @@ function FieldControl({
 							? text(copy(field.placeholder, field.placeholder))
 							: undefined
 					}
-					className="mt-2 min-h-12 w-full border border-blue-300 bg-white px-4 text-blue-950 outline-none placeholder:text-slate-500 focus:border-blue-700 focus:ring-2 focus:ring-blue-200"
+					className="field-control mt-2"
 				/>
 			)}
 			{field.kind === "file" && attachments[field.id]?.length ? (
@@ -984,13 +998,13 @@ function ReviewPanel({
 	const { text } = useI18n();
 	return (
 		<div className="max-w-3xl">
-			<p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-800">
+			<p className="page-eyebrow">
 				{text(copy("Final review", "अंतिम समीक्षा"))}
 			</p>
-			<h1 className="mt-3 text-4xl font-bold tracking-tight text-blue-950 md:text-5xl">
+			<h1 className="page-title">
 				{text(copy("Check your details", "अपने विवरण जाँचें"))}
 			</h1>
-			<p className="mt-4 leading-7 text-slate-600">
+			<p className="page-intro">
 				{text(
 					copy(
 						"Review the details before saving this draft.",
@@ -998,7 +1012,7 @@ function ReviewPanel({
 					),
 				)}
 			</p>
-			<dl className="mt-8 border-y-2 border-blue-200">
+			<dl className="mt-8 border-y border-blue-200">
 				{form.fields.map((field) => (
 					<div
 						className="grid gap-1 border-b border-blue-200 py-4 last:border-b-0 sm:grid-cols-[minmax(10rem,0.45fr)_1fr]"
@@ -1017,15 +1031,11 @@ function ReviewPanel({
 					</div>
 				))}
 				<div className="mt-8 flex flex-wrap gap-3">
-					<button
-						className="min-h-11 border border-blue-700 bg-white px-5 py-2.5 font-semibold text-blue-900 transition-colors hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-						type="button"
-						onClick={onEdit}
-					>
+					<button className="action-secondary" type="button" onClick={onEdit}>
 						{text(copy("Edit details", "विवरण बदलें"))}
 					</button>
 					<button
-						className="min-h-11 border border-blue-900 bg-blue-900 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-blue-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+						className="action-primary"
 						type="button"
 						onClick={onSave}
 						disabled={saving}
@@ -1050,7 +1060,7 @@ function ReviewPanel({
 function LoadingMessage() {
 	const { text } = useI18n();
 	return (
-		<output className="mx-auto block w-full max-w-6xl border-y-2 border-blue-200 px-4 py-6 text-sm font-medium text-slate-700 sm:px-6 lg:px-8">
+		<output className="mx-auto block w-full max-w-6xl px-4 py-6 text-sm font-medium text-slate-700 sm:px-6 lg:px-8">
 			{text(
 				copy("Loading grievance categories…", "शिकायत श्रेणियाँ लोड हो रही हैं…"),
 			)}

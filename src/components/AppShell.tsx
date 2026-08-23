@@ -1,6 +1,6 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { FileClock, FilePlus2, Globe2, Home, LogOut, Menu } from "lucide-react";
-import type { CSSProperties, ReactNode } from "react";
+import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
 
 import { text, useI18n } from "../features/i18n/i18n";
 import { authClient } from "../lib/auth-client";
@@ -20,11 +20,27 @@ import {
 	SidebarMenuItem,
 	SidebarProvider,
 	SidebarRail,
-	SidebarSeparator,
 	SidebarTrigger,
 } from "./ui/sidebar";
 
 const workspacePrefixes = ["/services", "/drafts", "/continuation"];
+
+function useHeaderScrolled() {
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const update = () => setScrolled(window.scrollY > 8);
+		const frame = requestAnimationFrame(update);
+		window.addEventListener("scroll", update, { passive: true });
+
+		return () => {
+			cancelAnimationFrame(frame);
+			window.removeEventListener("scroll", update);
+		};
+	}, []);
+
+	return scrolled;
+}
 
 export function AppShell({ children }: Readonly<{ children: ReactNode }>) {
 	const pathname = useRouterState({
@@ -36,12 +52,14 @@ export function AppShell({ children }: Readonly<{ children: ReactNode }>) {
 
 	return (
 		<>
-			{isWorkspace ? (
-				<WorkspaceShell pathname={pathname}>{children}</WorkspaceShell>
-			) : (
-				<PublicShell>{children}</PublicShell>
-			)}
-			<AssistantEntry />
+			<div className="route-view">
+				{isWorkspace ? (
+					<WorkspaceShell pathname={pathname}>{children}</WorkspaceShell>
+				) : (
+					<PublicShell home={pathname === "/"}>{children}</PublicShell>
+				)}
+			</div>
+			<AssistantEntry home={pathname === "/"} />
 		</>
 	);
 }
@@ -51,10 +69,10 @@ function LanguageControl({ inverse = false }: { inverse?: boolean }) {
 
 	return (
 		<button
-			className={`inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3 text-xs font-semibold transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] ${
+			className={`inline-flex min-h-10 items-center gap-1.5 rounded-lg border px-3 text-xs font-semibold transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] ${
 				inverse
 					? "border-white/35 text-white hover:bg-white/10"
-					: "border-[var(--line)] bg-white/70 text-[var(--ink-muted)] hover:border-[var(--blue-300)] hover:text-[var(--blue-800)]"
+					: "border-transparent bg-transparent text-[var(--ink-muted)] hover:border-[var(--line)] hover:bg-[var(--paper)] hover:text-[var(--blue-800)]"
 			}`}
 			type="button"
 			onClick={toggleLanguage}
@@ -99,14 +117,23 @@ function PublicLinks() {
 	);
 }
 
-function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
+function PublicShell({
+	children,
+	home = false,
+}: Readonly<{ children: ReactNode; home?: boolean }>) {
 	const { text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
+	const headerScrolled = useHeaderScrolled();
 
 	return (
-		<div className="min-h-screen bg-[var(--paper)] pb-32 sm:pb-36">
-			<header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color:rgba(251,252,254,0.92)] backdrop-blur-xl">
-				<div className="mx-auto flex min-h-[72px] w-full max-w-[1320px] items-center gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
+		<div
+			className={`min-h-screen bg-[var(--paper)] ${home ? "bg-[radial-gradient(ellipse_90%_52rem_at_0%_0%,rgba(21,89,199,0.2)_0%,rgba(65,128,216,0.09)_38%,transparent_72%)] bg-no-repeat" : ""}`}
+		>
+			<header
+				className="glass-navbar sticky top-0 z-40 bg-transparent"
+				data-scrolled={headerScrolled}
+			>
+				<div className="mx-auto flex min-h-16 w-full max-w-[1280px] items-center gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
 					<Link
 						className="inline-flex shrink-0 text-inherit no-underline"
 						to="/"
@@ -115,7 +142,7 @@ function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 						<BrandLogo />
 					</Link>
 					<nav
-						className="ml-auto hidden items-center gap-8 lg:flex"
+						className="ml-auto hidden items-center gap-7 lg:flex"
 						aria-label={translate(
 							text({ en: "Public navigation", hi: "सार्वजनिक नेविगेशन" }),
 						)}
@@ -125,7 +152,7 @@ function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 					<div className="ml-auto flex items-center gap-2 lg:ml-6">
 						<LanguageControl />
 						<Link
-							className="inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-full border border-[var(--blue-700)] bg-[var(--blue-700)] px-3 text-sm font-semibold text-white no-underline transition-all hover:border-[var(--blue-900)] hover:bg-[var(--blue-900)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] sm:px-4"
+							className="inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-lg border border-[var(--blue-700)] bg-[var(--blue-700)] px-3 text-sm font-semibold text-white no-underline transition-colors hover:border-[var(--blue-900)] hover:bg-[var(--blue-900)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] sm:px-4"
 							to={session?.user ? "/services" : "/login"}
 							search={session?.user ? { q: "" } : { redirect: "/services" }}
 						>
@@ -134,13 +161,13 @@ function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 								: translate(text({ en: "Sign in", hi: "साइन इन" }))}
 						</Link>
 						<details className="group relative lg:hidden">
-							<summary className="grid size-10 cursor-pointer list-none place-items-center rounded-full border border-[var(--line)] bg-white text-[var(--blue-900)] marker:content-none focus-visible:outline-3 focus-visible:outline-[var(--blue-200)]">
+							<summary className="grid size-10 cursor-pointer list-none place-items-center rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--blue-900)] marker:content-none focus-visible:outline-3 focus-visible:outline-[var(--blue-200)]">
 								<Menu size={18} aria-hidden="true" />
 								<span className="sr-only">
 									{translate(text({ en: "Open menu", hi: "मेनू खोलें" }))}
 								</span>
 							</summary>
-							<nav className="absolute right-0 top-12 grid min-w-48 gap-4 border border-[var(--line-strong)] bg-white p-5 shadow-[0_18px_45px_rgba(6,27,66,0.14)]">
+							<nav className="absolute right-0 top-12 grid min-w-52 gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] p-5 shadow-[0_18px_45px_rgba(16,24,40,0.12)]">
 								<PublicLinks />
 							</nav>
 						</details>
@@ -152,8 +179,8 @@ function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 				{children}
 			</main>
 
-			<footer className="border-t border-[var(--line)] bg-white/55">
-				<div className="mx-auto flex w-full max-w-[1320px] flex-col gap-8 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+			<footer className="bg-[var(--paper)] pb-8 pt-16">
+				<div className="mx-auto flex w-full max-w-[1280px] flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
 					<div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
 						<BrandLogo />
 						<p className="m-0 max-w-[420px] text-sm leading-6 text-[var(--ink-muted)]">
@@ -194,6 +221,7 @@ function WorkspaceShell({
 	const { text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
 	const navigate = useNavigate();
+	const headerScrolled = useHeaderScrolled();
 	const title = pathname.startsWith("/drafts")
 		? text({ en: "Saved drafts", hi: "सहेजे गए मसौदे" })
 		: pathname.startsWith("/continuation")
@@ -210,12 +238,15 @@ function WorkspaceShell({
 			defaultOpen
 			style={
 				{
-					"--sidebar-width": "13.75rem",
+					"--sidebar-width": "14.5rem",
 					"--sidebar-width-icon": "4.25rem",
 				} as CSSProperties
 			}
 		>
-			<Sidebar collapsible="icon" className="border-[var(--sidebar-border)]">
+			<Sidebar
+				collapsible="icon"
+				className="border-[var(--sidebar-border)] bg-[var(--sidebar)]"
+			>
 				<SidebarHeader className="h-16 flex-row items-center px-3 py-0 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
 					<Link
 						className="flex min-h-10 items-center gap-3 overflow-hidden text-[var(--blue-950)] no-underline group-data-[collapsible=icon]:justify-center"
@@ -227,7 +258,6 @@ function WorkspaceShell({
 						</span>
 					</Link>
 				</SidebarHeader>
-				<SidebarSeparator className="mx-0" />
 				<SidebarContent>
 					<SidebarGroup className="px-2 py-4">
 						<SidebarGroupLabel>
@@ -242,7 +272,7 @@ function WorkspaceShell({
 										tooltip={translate(
 											text({ en: "New grievance", hi: "नई शिकायत" }),
 										)}
-										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--blue-700)] data-[active=true]:text-white"
+										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--sidebar-accent)] data-[active=true]:text-[var(--blue-900)]"
 									>
 										<Link to="/services" search={{ q: "" }}>
 											<FilePlus2 aria-hidden="true" />
@@ -259,7 +289,7 @@ function WorkspaceShell({
 										asChild
 										isActive={pathname.startsWith("/drafts")}
 										tooltip={translate(text({ en: "Drafts", hi: "मसौदे" }))}
-										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--blue-700)] data-[active=true]:text-white"
+										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--sidebar-accent)] data-[active=true]:text-[var(--blue-900)]"
 									>
 										<Link to="/drafts">
 											<FileClock aria-hidden="true" />
@@ -289,7 +319,6 @@ function WorkspaceShell({
 						</SidebarGroupContent>
 					</SidebarGroup>
 				</SidebarContent>
-				<SidebarSeparator />
 				<SidebarFooter className="p-2.5">
 					<SidebarMenu>
 						<SidebarMenuItem>
@@ -327,21 +356,20 @@ function WorkspaceShell({
 				<SidebarRail />
 			</Sidebar>
 
-			<SidebarInset className="min-w-0 bg-white">
-				<header className="sticky top-0 z-30 flex min-h-16 items-center justify-between gap-4 border-b border-[var(--line)] bg-white/90 px-4 backdrop-blur-xl sm:px-6 lg:px-8">
+			<SidebarInset className="min-w-0 bg-[var(--paper)]">
+				<header
+					className="glass-navbar sticky top-0 z-30 flex min-h-16 items-center justify-between gap-4 bg-transparent px-4 sm:px-6 lg:px-8"
+					data-scrolled={headerScrolled}
+				>
 					<div className="flex min-w-0 items-center gap-3">
-						<SidebarTrigger className="size-10 rounded-full border border-[var(--line)] text-[var(--blue-900)] hover:bg-[var(--blue-50)]" />
-						<div className="h-5 w-px bg-[var(--line)]" aria-hidden="true" />
+						<SidebarTrigger className="size-10 rounded-lg text-[var(--blue-900)] hover:bg-[var(--blue-50)]" />
 						<span className="truncate text-sm font-semibold text-[var(--ink)]">
 							{translate(title)}
 						</span>
 					</div>
 					<LanguageControl />
 				</header>
-				<div
-					className="mx-auto w-full max-w-[1180px] px-4 py-6 pb-40 sm:px-6 md:py-8 lg:px-10"
-					data-assistant-page-content
-				>
+				<div className="w-full pb-40" data-assistant-page-content>
 					{children}
 				</div>
 			</SidebarInset>

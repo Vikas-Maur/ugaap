@@ -22,12 +22,12 @@ export function PublicDocument({
 	const { text } = useI18n();
 
 	return (
-		<article className="mx-auto w-full max-w-[1200px] px-4 py-20 sm:px-6 sm:py-24 lg:py-28 lg:pb-36">
+		<article className="mx-auto w-full max-w-[1120px] px-4 py-16 sm:px-6 sm:py-20 lg:py-24 lg:pb-32">
 			<header className="max-w-[920px]">
 				<p className="mb-4 text-[0.72rem] font-extrabold uppercase tracking-[0.14em] leading-[1.4] text-[var(--blue-700)]">
 					{text(eyebrow)}
 				</p>
-				<h1 className="m-0 max-w-[900px] text-[clamp(2.7rem,4vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--blue-950)]">
+				<h1 className="m-0 max-w-[820px] text-[clamp(2.5rem,4vw,3.5rem)] font-semibold leading-[1.04] tracking-[-0.045em] text-[var(--blue-950)]">
 					{text(title)}
 				</h1>
 				<p className="mt-8 max-w-[700px] text-[clamp(1.03rem,1.3vw,1.16rem)] leading-[1.75] text-[var(--ink-muted)]">
