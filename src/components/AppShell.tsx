@@ -117,6 +117,28 @@ function PublicLinks() {
 	const { text: translate } = useI18n();
 	return (
 		<>
+			<Link
+				className={publicLinkClass}
+				to="/leaderboard"
+				search={{ group: "central", compare: "" }}
+			>
+				{translate(text({ en: "Leaderboard", hi: "रैंकिंग" }))}
+			</Link>
+			<Link
+				className={publicLinkClass}
+				to="/public-grievances"
+				search={{
+					q: "",
+					status: "all",
+					organization: "all",
+					sort: "recent",
+				}}
+			>
+				{translate(text({ en: "Public grievances", hi: "सार्वजनिक शिकायतें" }))}
+			</Link>
+			<Link className={publicLinkClass} to="/methodology">
+				{translate(text({ en: "Methodology", hi: "कार्यप्रणाली" }))}
+			</Link>
 			<Link className={publicLinkClass} to="/about">
 				{translate(text({ en: "About", hi: "परिचय" }))}
 			</Link>
@@ -405,10 +427,7 @@ function WorkspaceShell({
 						<LanguageControl />
 					</div>
 				</header>
-				<div
-					className="w-full pb-80"
-					data-assistant-page-content
-				>
+				<div className="w-full pb-80" data-assistant-page-content>
 					{children}
 				</div>
 			</SidebarInset>

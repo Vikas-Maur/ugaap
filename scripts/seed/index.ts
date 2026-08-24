@@ -6,6 +6,10 @@ import { fileURLToPath } from "node:url";
 import { and, eq, inArray, or, sql } from "drizzle-orm";
 import type { AuthorityChunk, CatalogueCategory, CatalogueForm } from "../../src/features/catalogue/schema.ts";
 import * as dbSchema from "../../src/db/schema.ts";
+import {
+	calculateLeaderboardScore,
+	snapshotRawMetrics,
+} from "../../src/features/leaderboard/scoring.ts";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const CATALOGUE_DIR = join(ROOT, "public", "catalogue", "authorities");
@@ -147,6 +151,15 @@ type SeedData = {
 		withdrawnAt: null;
 		createdAt: Date;
 		updatedAt: Date;
+	}>;
+	publicEvents: Array<{
+		id: string;
+		publicGrievanceId: string;
+		sourceEventId: string;
+		status: Status;
+		label: string;
+		occurredAt: Date;
+		createdAt: Date;
 	}>;
 	snapshots: Array<{
 		id: string;
@@ -464,17 +477,81 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 			updatedAt: cloneDate(BASE_TIME),
 		};
 	});
+	const publicStatusLabels: Record<Status, string> = {
+		draft: "Grievance prepared",
+		submitted: "Grievance submitted",
+		acknowledged: "Grievance acknowledged",
+		routed: "Sent to the responsible organization",
+		in_review: "Under review",
+		needs_information: "More information requested",
+		action_taken: "Organization reports action taken",
+		resolved: "Grievance resolved",
+		appealed: "Resolution appealed",
+		appeal_resolved: "Appeal decided",
+		withdrawn: "Official grievance withdrawn",
+	};
+	const projectableEventTypes = new Set<EventType>([
+		"submitted",
+		"status_changed",
+		"appeal_filed",
+		"appeal_resolved",
+	]);
+	const publicEvents = publicGrievances.flatMap((publicCopy) =>
+		events
+			.filter(
+				(event) =>
+					event.grievanceId === publicCopy.grievanceId &&
+					event.toStatus !== null &&
+					projectableEventTypes.has(event.eventType),
+			)
+			.map((event) => ({
+				id: deterministicUuid(`public-event:${publicCopy.id}:${event.id}`),
+				publicGrievanceId: publicCopy.id,
+				sourceEventId: event.id,
+				status: event.toStatus ?? "submitted",
+				label: publicStatusLabels[event.toStatus ?? "submitted"],
+				occurredAt: cloneDate(event.createdAt),
+				createdAt: cloneDate(event.createdAt),
+			})),
+	);
 
 	const snapshots: SeedData["snapshots"] = [];
 	for (const [organizationIndex, organization] of organizations.entries()) {
 		for (const [period, [windowStart, windowEnd]] of [["current", [at(90), cloneDate(BASE_TIME)]], ["previous", [at(180), at(90)]]] as const) {
-			const score = 62 + ((organizationIndex * 7 + (period === "current" ? 11 : 3)) % 31);
-			const grade = score >= 80 ? "A" : score >= 65 ? "B" : score >= 50 ? "C" : "D";
-			snapshots.push({ id: deterministicUuid(`snapshot:${organization.slug}:${period}`), organizationId: organization.id, windowStart: cloneDate(windowStart), windowEnd: cloneDate(windowEnd), rawMetrics: { timelyResolutionRate: score - 4, satisfactionRate: score - 8, backlogHealth: score + 2, appealQuality: score - 6, communicationCoverage: score + 1 }, compositeScore: score.toFixed(4), grade, sampleSize: 40 + organizationIndex, createdAt: cloneDate(BASE_TIME) });
+			const currentPeriod = period === "current";
+			const eligible = organization.type === "state" || organization.type === "state_department" || organizationIndex % 3 !== 0;
+			const closedCases = eligible ? 24 + (organizationIndex % 7) * 4 : 8 + (organizationIndex % 8);
+			const ratingCount = eligible ? 11 + (organizationIndex % 8) : 3 + (organizationIndex % 5);
+			const qualityShift = ((organizationIndex * 9 + (currentPeriod ? 7 : 2)) % 28) / 100;
+			const timelyClosedCases = Math.min(closedCases, Math.round(closedCases * (0.58 + qualityShift)));
+			const reopenedCases = Math.min(closedCases, (organizationIndex + (currentPeriod ? 0 : 1)) % 5);
+			const averageRating = 2.8 + ((organizationIndex * 5 + (currentPeriod ? 3 : 1)) % 19) / 10;
+			const openCases = 9 + (organizationIndex % 6) * 3;
+			const overdueOpenCases = Math.min(openCases, 1 + ((organizationIndex * 2 + (currentPeriod ? 0 : 2)) % 8));
+			const decidedAppeals = 3 + (organizationIndex % 6);
+			const upheldAppeals = Math.min(decidedAppeals, (organizationIndex + (currentPeriod ? 1 : 2)) % 4);
+			const totalCases = closedCases + openCases;
+			const publicCaseCount = Math.min(totalCases, 1 + (organizationIndex % 5));
+			const metrics = calculateLeaderboardScore({
+				closedCases,
+				ratingCount,
+				timelyClosedCases,
+				reopenedCases,
+				ratingSum: averageRating * ratingCount,
+				openCases,
+				overdueOpenCases,
+				decidedAppeals,
+				upheldAppeals,
+				casesWithMeaningfulUpdates: Math.min(totalCases, Math.round(totalCases * (0.62 + qualityShift))),
+				totalCases,
+				publicCaseCount,
+				privateCaseCount: totalCases - publicCaseCount,
+			});
+			snapshots.push({ id: deterministicUuid(`snapshot:${organization.slug}:${period}`), organizationId: organization.id, windowStart: cloneDate(windowStart), windowEnd: cloneDate(windowEnd), rawMetrics: snapshotRawMetrics(metrics), compositeScore: metrics.compositeScore.toFixed(4), grade: metrics.grade, sampleSize: metrics.closedCases, createdAt: cloneDate(BASE_TIME) });
 		}
 	}
 
-	return { organizations, categories, forms, user, role, permissions, drafts, grievances, events, feedback, appeals, publicGrievances, snapshots };
+	return { organizations, categories, forms, user, role, permissions, drafts, grievances, events, feedback, appeals, publicGrievances, publicEvents, snapshots };
 }
 
 function uniqueCount(values: string[]): number {
@@ -517,6 +594,7 @@ function validateSeedData(data: SeedData, chunks: AuthorityChunk[]): void {
 		if (grievance.appealEligibleUntil && grievance.closedAt && grievance.appealEligibleUntil < grievance.closedAt) throw new Error(`Appeal deadline precedes closure for ${grievance.registrationId}`);
 	}
 	if (data.publicGrievances.length < 2 || data.publicGrievances.some((item) => !item.synthetic || /@|\\+91|account|phone/i.test(item.summary))) throw new Error("Missing redacted public synthetic examples");
+	if (data.publicEvents.length < data.publicGrievances.length) throw new Error("Each public synthetic example needs a safe status timeline");
 	if (uniqueCount(data.organizations.map((item) => item.id)) !== data.organizations.length || uniqueCount(data.forms.map((item) => item.id)) !== data.forms.length || uniqueCount(data.grievances.map((item) => item.id)) !== data.grievances.length) throw new Error("Seed contains duplicate deterministic IDs");
 	if (data.snapshots.length !== data.organizations.length * 2) throw new Error("Each organization must have current and previous 90-day snapshots");
 }
@@ -527,7 +605,7 @@ function report(data: SeedData, chunks: AuthorityChunk[], mode: "dry-run" | "app
 	const inactiveForms = data.forms.filter((form) => !form.active).length;
 	const nonV1Forms = data.forms.filter((form) => form.version !== 1).length;
 	if (inactiveForms > 0 || nonV1Forms > 0) console.log(`Catalogue version coverage: ${nonV1Forms} non-v1 forms, ${inactiveForms} inactive forms.`);
-	console.log(`Rows: ${data.organizations.length} organizations, 1 demo citizen, ${data.grievances.length} grievances, ${data.events.length} events, ${data.feedback.length} feedback, ${data.appeals.length} appeals, ${data.publicGrievances.length} public cases, ${data.snapshots.length} performance snapshots.`);
+	console.log(`Rows: ${data.organizations.length} organizations, 1 demo citizen, ${data.grievances.length} grievances, ${data.events.length} events, ${data.feedback.length} feedback, ${data.appeals.length} appeals, ${data.publicGrievances.length} public cases, ${data.publicEvents.length} public events, ${data.snapshots.length} performance snapshots.`);
 	console.log(`Lifecycle coverage: ${[...new Set(["draft" as Status, ...data.grievances.map((grievance) => grievance.status)])].sort().join(", ")}.`);
 }
 
@@ -572,6 +650,7 @@ async function applySeed(data: SeedData): Promise<void> {
 		for (const rows of chunkRows(data.feedback)) await tx.insert(dbSchema.feedback).values(rows).onConflictDoUpdate({ target: dbSchema.feedback.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, score: sql`excluded.score`, comment: sql`excluded.comment`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.appeals)) await tx.insert(dbSchema.appeal).values(rows).onConflictDoUpdate({ target: dbSchema.appeal.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, reason: sql`excluded.reason`, status: sql`excluded.status`, resolution: sql`excluded.resolution`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.publicGrievances)) await tx.insert(dbSchema.publicGrievance).values(rows).onConflictDoUpdate({ target: dbSchema.publicGrievance.id, set: { grievanceId: sql`excluded.grievance_id`, publicId: sql`excluded.public_id`, summary: sql`excluded.summary`, categoryPath: sql`excluded.category_path`, organizationId: sql`excluded.organization_id`, status: sql`excluded.status`, broadLocation: sql`excluded.broad_location`, synthetic: sql`excluded.synthetic`, publishedAt: sql`excluded.published_at`, withdrawnAt: sql`excluded.withdrawn_at`, updatedAt: sql`excluded.updated_at` } });
+		for (const rows of chunkRows(data.publicEvents)) await tx.insert(dbSchema.publicGrievanceEvent).values(rows).onConflictDoUpdate({ target: dbSchema.publicGrievanceEvent.id, set: { publicGrievanceId: sql`excluded.public_grievance_id`, sourceEventId: sql`excluded.source_event_id`, status: sql`excluded.status`, label: sql`excluded.label`, occurredAt: sql`excluded.occurred_at` } });
 		for (const rows of chunkRows(data.snapshots)) await tx.insert(dbSchema.performanceSnapshot).values(rows).onConflictDoUpdate({ target: dbSchema.performanceSnapshot.id, set: { organizationId: sql`excluded.organization_id`, windowStart: sql`excluded.window_start`, windowEnd: sql`excluded.window_end`, rawMetrics: sql`excluded.raw_metrics`, compositeScore: sql`excluded.composite_score`, grade: sql`excluded.grade`, sampleSize: sql`excluded.sample_size` } });
 	});
 }

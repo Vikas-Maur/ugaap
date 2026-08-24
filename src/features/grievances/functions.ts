@@ -12,7 +12,9 @@ import {
 	grievanceDraft,
 	grievanceEvent,
 	organization,
+	publicGrievance,
 } from "#/db/schema";
+import { projectPublicStatusEvent } from "#/features/public-grievances/projection.server";
 import { authMiddleware } from "#/server/auth/middleware";
 import {
 	CITIZEN_PERMISSIONS,
@@ -369,6 +371,13 @@ export type GrievanceDetail = {
 	};
 	submittedAt: string;
 	demoMode: boolean;
+	publication: {
+		publicId: string;
+		summary: string;
+		broadLocation: string | null;
+		publishedAt: string;
+		withdrawnAt: string | null;
+	} | null;
 };
 
 export const submitGrievance = createServerFn({ method: "POST" })
@@ -616,47 +625,52 @@ export const getGrievance = createServerFn({ method: "GET" })
 			context.session.user.id,
 			data.registrationId,
 		);
-		const [[joined], attachments, events, [feedbackRow], [appealRow]] =
-			await Promise.all([
-				db
-					.select({
-						grievance,
-						organization,
-						category: categoryNode,
-						form: formDefinition,
-					})
-					.from(grievance)
-					.innerJoin(
-						organization,
-						eq(organization.id, grievance.organizationId),
-					)
-					.innerJoin(
-						categoryNode,
-						eq(categoryNode.id, grievance.categoryNodeId),
-					)
-					.innerJoin(
-						formDefinition,
-						eq(formDefinition.id, grievance.formDefinitionId),
-					)
-					.where(eq(grievance.id, row.id))
-					.limit(1),
-				db
-					.select()
-					.from(attachment)
-					.where(eq(attachment.grievanceId, row.id))
-					.orderBy(asc(attachment.createdAt)),
-				db
-					.select()
-					.from(grievanceEvent)
-					.where(eq(grievanceEvent.grievanceId, row.id))
-					.orderBy(asc(grievanceEvent.createdAt), asc(grievanceEvent.id)),
-				db
-					.select()
-					.from(feedback)
-					.where(eq(feedback.grievanceId, row.id))
-					.limit(1),
-				db.select().from(appeal).where(eq(appeal.grievanceId, row.id)).limit(1),
-			]);
+		const [
+			[joined],
+			attachments,
+			events,
+			[feedbackRow],
+			[appealRow],
+			[publicationRow],
+		] = await Promise.all([
+			db
+				.select({
+					grievance,
+					organization,
+					category: categoryNode,
+					form: formDefinition,
+				})
+				.from(grievance)
+				.innerJoin(organization, eq(organization.id, grievance.organizationId))
+				.innerJoin(categoryNode, eq(categoryNode.id, grievance.categoryNodeId))
+				.innerJoin(
+					formDefinition,
+					eq(formDefinition.id, grievance.formDefinitionId),
+				)
+				.where(eq(grievance.id, row.id))
+				.limit(1),
+			db
+				.select()
+				.from(attachment)
+				.where(eq(attachment.grievanceId, row.id))
+				.orderBy(asc(attachment.createdAt)),
+			db
+				.select()
+				.from(grievanceEvent)
+				.where(eq(grievanceEvent.grievanceId, row.id))
+				.orderBy(asc(grievanceEvent.createdAt), asc(grievanceEvent.id)),
+			db
+				.select()
+				.from(feedback)
+				.where(eq(feedback.grievanceId, row.id))
+				.limit(1),
+			db.select().from(appeal).where(eq(appeal.grievanceId, row.id)).limit(1),
+			db
+				.select()
+				.from(publicGrievance)
+				.where(eq(publicGrievance.grievanceId, row.id))
+				.limit(1),
+		]);
 		if (!joined) throw new Error("Grievance not found");
 		const title =
 			typeof joined.form.schema.title === "string" &&
@@ -750,6 +764,15 @@ export const getGrievance = createServerFn({ method: "GET" })
 				closedAt: iso(row.closedAt),
 				appealEligibleUntil: iso(row.appealEligibleUntil),
 			},
+			publication: publicationRow
+				? {
+						publicId: publicationRow.publicId,
+						summary: publicationRow.summary,
+						broadLocation: publicationRow.broadLocation,
+						publishedAt: publicationRow.publishedAt.toISOString(),
+						withdrawnAt: iso(publicationRow.withdrawnAt),
+					}
+				: null,
 		};
 	});
 
@@ -807,14 +830,24 @@ export const advanceDemoGrievance = createServerFn({ method: "POST" })
 				.where(and(eq(grievance.id, row.id), eq(grievance.status, row.status)))
 				.returning();
 			if (!updated) throw new Error("Grievance could not be advanced");
-			await tx.insert(grievanceEvent).values({
+			const [statusEvent] = await tx
+				.insert(grievanceEvent)
+				.values({
+					grievanceId: row.id,
+					eventType: "status_changed",
+					actorType: "system",
+					fromStatus: row.status,
+					toStatus: next,
+					message: `Status changed to ${next}.`,
+					createdAt: now,
+				})
+				.returning({ id: grievanceEvent.id });
+			if (!statusEvent) throw new Error("Grievance status event was not saved");
+			await projectPublicStatusEvent(tx, {
 				grievanceId: row.id,
-				eventType: "status_changed",
-				actorType: "system",
-				fromStatus: row.status,
-				toStatus: next,
-				message: `Status changed to ${next}.`,
-				createdAt: now,
+				sourceEventId: statusEvent.id,
+				status: next,
+				occurredAt: now,
 			});
 			if (isNeedsInformation)
 				await tx.insert(grievanceEvent).values({
@@ -990,14 +1023,26 @@ export const submitAppeal = createServerFn({ method: "POST" })
 				.where(eq(grievance.id, row.id))
 				.returning();
 			if (!updated) throw new Error("Appeal could not be saved");
-			await tx.insert(grievanceEvent).values({
+			const appealCreatedAt = new Date();
+			const [appealEvent] = await tx
+				.insert(grievanceEvent)
+				.values({
+					grievanceId: row.id,
+					eventType: "appeal_filed",
+					actorType: "citizen",
+					actorUserId: context.session.user.id,
+					fromStatus: "resolved",
+					toStatus: "appealed",
+					message: "Appeal filed.",
+					createdAt: appealCreatedAt,
+				})
+				.returning({ id: grievanceEvent.id });
+			if (!appealEvent) throw new Error("Appeal event was not saved");
+			await projectPublicStatusEvent(tx, {
 				grievanceId: row.id,
-				eventType: "appeal_filed",
-				actorType: "citizen",
-				actorUserId: context.session.user.id,
-				fromStatus: "resolved",
-				toStatus: "appealed",
-				message: "Appeal filed.",
+				sourceEventId: appealEvent.id,
+				status: "appealed",
+				occurredAt: appealCreatedAt,
 			});
 			return {
 				ok: true as const,

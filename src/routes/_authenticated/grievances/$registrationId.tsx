@@ -10,6 +10,11 @@ import {
 	submitFeedback,
 } from "#/features/grievances/functions";
 import { useI18n } from "#/features/i18n/i18n";
+import {
+	createPublicationPreview,
+	publishGrievance,
+	withdrawPublicGrievance,
+} from "#/features/public-grievances/functions";
 
 import { StatusLabel } from "./index";
 
@@ -31,6 +36,17 @@ function GrievanceDetailScreen() {
 	const [score, setScore] = useState<number | null>(null);
 	const [comment, setComment] = useState("");
 	const [appealReason, setAppealReason] = useState("");
+	const [broadLocation, setBroadLocation] = useState("");
+	const [publicationPreview, setPublicationPreview] = useState<{
+		id: string;
+		summary: string;
+		categoryPath: string[];
+		broadLocation: string | null;
+		contentHash: string;
+		redactionVersion: string;
+		expiresAt: string;
+	} | null>(null);
+	const [publicationApproved, setPublicationApproved] = useState(false);
 	const lastClarificationRequest = lastEventIndex(
 		grievance.events,
 		"clarification_requested",
@@ -69,16 +85,54 @@ function GrievanceDetailScreen() {
 		try {
 			await action();
 			await router.invalidate({ sync: true });
-		} catch {
+		} catch (error) {
 			setActionError(
-				text({
-					en: "That update could not be saved. Please try again.",
-					hi: "यह बदलाव सहेजा नहीं जा सका। कृपया फिर से कोशिश करें।",
-				}),
+				error instanceof Error && error.message
+					? error.message
+					: text({
+							en: "That update could not be saved. Please try again.",
+							hi: "यह बदलाव सहेजा नहीं जा सका। कृपया फिर से कोशिश करें।",
+						}),
 			);
 		} finally {
 			setPendingAction(null);
 		}
+	}
+
+	function generatePublicationPreview() {
+		void runAction("publication-preview", async () => {
+			const preview = await createPublicationPreview({
+				data: {
+					registrationId: grievance.registrationId,
+					broadLocation: broadLocation.trim() || undefined,
+				},
+			});
+			setPublicationPreview(preview);
+			setPublicationApproved(false);
+		});
+	}
+
+	function approvePublication() {
+		if (!publicationPreview || !publicationApproved) return;
+		void runAction("publish", async () => {
+			await publishGrievance({
+				data: {
+					registrationId: grievance.registrationId,
+					previewId: publicationPreview.id,
+					contentHash: publicationPreview.contentHash,
+				},
+			});
+			setPublicationPreview(null);
+			setPublicationApproved(false);
+		});
+	}
+
+	function withdrawPublication() {
+		void runAction("withdraw-publication", () =>
+			withdrawPublicGrievance({
+				data: { registrationId: grievance.registrationId },
+			}),
+		);
 	}
 
 	function reply(event: FormEvent<HTMLFormElement>) {
@@ -302,6 +356,181 @@ function GrievanceDetailScreen() {
 						</li>
 					))}
 				</ol>
+			</section>
+
+			<section
+				className="border-t-2 border-[var(--blue-700)] py-8"
+				aria-labelledby="public-copy-title"
+			>
+				<p className="page-eyebrow">
+					{text({ en: "Public accountability", hi: "सार्वजनिक जवाबदेही" })}
+				</p>
+				<h2
+					id="public-copy-title"
+					className="mt-2 text-xl font-bold text-[var(--blue-950)]"
+				>
+					{text({ en: "Public copy", hi: "सार्वजनिक प्रति" })}
+				</h2>
+				{grievance.publication && !grievance.publication.withdrawnAt ? (
+					<div className="mt-5 border-l-4 border-emerald-700 pl-5">
+						<p className="text-sm font-bold text-emerald-900">
+							{text({
+								en: "This grievance has an active public copy.",
+								hi: "इस शिकायत की सार्वजनिक प्रति सक्रिय है।",
+							})}
+						</p>
+						<p className="mt-3 max-w-3xl whitespace-pre-wrap text-sm leading-6 text-[var(--ink)]">
+							{grievance.publication.summary}
+						</p>
+						<div className="mt-5 flex flex-wrap gap-3">
+							<Link
+								className="action-secondary inline-flex items-center no-underline"
+								to="/public-grievances/$publicId"
+								params={{ publicId: grievance.publication.publicId }}
+							>
+								{text({ en: "View public copy", hi: "सार्वजनिक प्रति देखें" })}
+							</Link>
+							<button
+								className="action-secondary"
+								type="button"
+								disabled={pendingAction !== null}
+								onClick={withdrawPublication}
+							>
+								{pendingAction === "withdraw-publication"
+									? text({ en: "Withdrawing...", hi: "हटाया जा रहा है..." })
+									: text({
+											en: "Withdraw public copy",
+											hi: "सार्वजनिक प्रति हटाएं",
+										})}
+							</button>
+						</div>
+					</div>
+				) : (
+					<div className="mt-5 max-w-3xl">
+						<p className="text-sm leading-6 text-[var(--ink-muted)]">
+							{text({
+								en: "Sharing is optional and off by default. The public copy excludes attachments, contact details, identifiers, private messages, and internal notes.",
+								hi: "साझा करना वैकल्पिक है और डिफ़ॉल्ट रूप से बंद है। सार्वजनिक प्रति में संलग्नक, संपर्क विवरण, पहचानकर्ता, निजी संदेश और आंतरिक टिप्पणियां शामिल नहीं होती हैं।",
+							})}
+						</p>
+						{publicationPreview ? (
+							<div className="mt-6 border-y border-[var(--line)] py-5">
+								<p className="text-sm font-bold text-[var(--blue-950)]">
+									{text({
+										en: "Exact public preview",
+										hi: "सटीक सार्वजनिक पूर्वावलोकन",
+									})}
+								</p>
+								<p className="mt-3 whitespace-pre-wrap text-base leading-7 text-[var(--ink)]">
+									{publicationPreview.summary}
+								</p>
+								<dl className="mt-5 border-t border-[var(--line)] text-sm">
+									<Detail
+										label={text({ en: "Category", hi: "श्रेणी" })}
+										value={publicationPreview.categoryPath.join(" › ")}
+									/>
+									<Detail
+										label={text({ en: "Broad location", hi: "व्यापक स्थान" })}
+										value={
+											publicationPreview.broadLocation ||
+											text({ en: "Not included", hi: "शामिल नहीं" })
+										}
+									/>
+									<Detail
+										label={text({ en: "Current status", hi: "वर्तमान स्थिति" })}
+										value={grievance.status.replaceAll("_", " ")}
+									/>
+								</dl>
+								<label className="mt-5 flex items-start gap-3 text-sm leading-6 text-[var(--ink)]">
+									<input
+										className="mt-1 size-4 accent-[var(--blue-800)]"
+										type="checkbox"
+										checked={publicationApproved}
+										onChange={(event) =>
+											setPublicationApproved(event.target.checked)
+										}
+									/>
+									<span>
+										{text({
+											en: "I reviewed this exact text and consent to publishing it. Future status changes will appear with privacy-safe wording.",
+											hi: "मैंने इस सटीक पाठ की समीक्षा की है और इसे प्रकाशित करने की सहमति देता/देती हूं। भविष्य के स्थिति बदलाव गोपनीयता-सुरक्षित शब्दों में दिखाई देंगे।",
+										})}
+									</span>
+								</label>
+								<div className="mt-5 flex flex-wrap gap-3">
+									<button
+										className="action-primary"
+										type="button"
+										disabled={pendingAction !== null || !publicationApproved}
+										onClick={approvePublication}
+									>
+										{pendingAction === "publish"
+											? text({
+													en: "Publishing...",
+													hi: "प्रकाशित किया जा रहा है...",
+												})
+											: text({
+													en: "Approve and publish",
+													hi: "स्वीकृत करें और प्रकाशित करें",
+												})}
+									</button>
+									<button
+										className="action-secondary"
+										type="button"
+										disabled={pendingAction !== null}
+										onClick={() => {
+											setPublicationPreview(null);
+											setPublicationApproved(false);
+										}}
+									>
+										{text({ en: "Discard preview", hi: "पूर्वावलोकन हटाएं" })}
+									</button>
+								</div>
+							</div>
+						) : (
+							<>
+								<label
+									className="mt-5 block text-sm font-bold text-[var(--blue-950)]"
+									htmlFor="public-broad-location"
+								>
+									{text({
+										en: "Broad location, optional",
+										hi: "व्यापक स्थान, वैकल्पिक",
+									})}
+								</label>
+								<p className="mt-1 text-xs leading-5 text-[var(--ink-muted)]">
+									{text({
+										en: "Use only a district, state, or region. Do not enter an address or postcode.",
+										hi: "केवल जिला, राज्य या क्षेत्र लिखें। पता या पिन कोड न लिखें।",
+									})}
+								</p>
+								<input
+									id="public-broad-location"
+									className="field-control mt-2 max-w-lg"
+									value={broadLocation}
+									maxLength={120}
+									onChange={(event) => setBroadLocation(event.target.value)}
+								/>
+								<button
+									className="action-secondary mt-4"
+									type="button"
+									disabled={pendingAction !== null}
+									onClick={generatePublicationPreview}
+								>
+									{pendingAction === "publication-preview"
+										? text({
+												en: "Preparing preview...",
+												hi: "पूर्वावलोकन तैयार हो रहा है...",
+											})
+										: text({
+												en: "Prepare redacted preview",
+												hi: "संपादित पूर्वावलोकन तैयार करें",
+											})}
+								</button>
+							</>
+						)}
+					</div>
+				)}
 			</section>
 
 			{actionError ? (

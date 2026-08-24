@@ -576,6 +576,71 @@ export const publicGrievance = pgTable(
 	],
 );
 
+export const publicationPreview = pgTable(
+	"publication_preview",
+	{
+		id: uuid("id").defaultRandom().primaryKey(),
+		grievanceId: uuid("grievance_id")
+			.notNull()
+			.references(() => grievance.id, { onDelete: "cascade" }),
+		userId: text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		summary: text("summary").notNull(),
+		categoryPath: text("category_path").array().notNull(),
+		organizationId: uuid("organization_id")
+			.notNull()
+			.references(() => organization.id, { onDelete: "restrict" }),
+		broadLocation: text("broad_location"),
+		sourceReviewHash: text("source_review_hash").notNull(),
+		contentHash: text("content_hash").notNull(),
+		redactionVersion: text("redaction_version").notNull(),
+		expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+		approvedAt: timestamp("approved_at", { withTimezone: true }),
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.defaultNow()
+			.notNull(),
+		updatedAt: timestamp("updated_at", { withTimezone: true })
+			.defaultNow()
+			.$onUpdate(() => /* @__PURE__ */ new Date())
+			.notNull(),
+	},
+	(table) => [
+		uniqueIndex("publication_preview_grievance_uidx").on(table.grievanceId),
+		index("publication_preview_user_expiry_idx").on(
+			table.userId,
+			table.expiresAt,
+		),
+	],
+);
+
+export const publicGrievanceEvent = pgTable(
+	"public_grievance_event",
+	{
+		id: uuid("id").defaultRandom().primaryKey(),
+		publicGrievanceId: uuid("public_grievance_id")
+			.notNull()
+			.references(() => publicGrievance.id, { onDelete: "cascade" }),
+		sourceEventId: uuid("source_event_id")
+			.notNull()
+			.references(() => grievanceEvent.id, { onDelete: "restrict" }),
+		status: grievanceStatus("status").notNull(),
+		label: text("label").notNull(),
+		occurredAt: timestamp("occurred_at", { withTimezone: true }).notNull(),
+		createdAt: timestamp("created_at", { withTimezone: true })
+			.defaultNow()
+			.notNull(),
+	},
+	(table) => [
+		uniqueIndex("public_grievance_event_source_uidx").on(table.sourceEventId),
+		index("public_grievance_event_timeline_idx").on(
+			table.publicGrievanceId,
+			table.occurredAt,
+			table.id,
+		),
+	],
+);
+
 export const performanceSnapshot = pgTable(
 	"performance_snapshot",
 	{
@@ -705,6 +770,7 @@ export const userRelations = relations(user, ({ many }) => ({
 	events: many(grievanceEvent),
 	feedback: many(feedback),
 	appeals: many(appeal),
+	publicationPreviews: many(publicationPreview),
 	threads: many(agentThread),
 	roles: many(userRole),
 }));
@@ -736,6 +802,7 @@ export const organizationRelations = relations(
 		forms: many(formDefinition),
 		grievances: many(grievance),
 		publicGrievances: many(publicGrievance),
+		publicationPreviews: many(publicationPreview),
 		performanceSnapshots: many(performanceSnapshot),
 	}),
 );
@@ -796,6 +863,7 @@ export const grievanceRelations = relations(grievance, ({ one, many }) => ({
 	feedback: many(feedback),
 	appeals: many(appeal),
 	publicCopies: many(publicGrievance),
+	publicationPreviews: many(publicationPreview),
 }));
 
 export const grievanceDraftRelations = relations(
@@ -824,6 +892,53 @@ export const grievanceEventRelations = relations(grievanceEvent, ({ one }) => ({
 		references: [user.id],
 	}),
 }));
+
+export const publicationPreviewRelations = relations(
+	publicationPreview,
+	({ one }) => ({
+		grievance: one(grievance, {
+			fields: [publicationPreview.grievanceId],
+			references: [grievance.id],
+		}),
+		user: one(user, {
+			fields: [publicationPreview.userId],
+			references: [user.id],
+		}),
+		organization: one(organization, {
+			fields: [publicationPreview.organizationId],
+			references: [organization.id],
+		}),
+	}),
+);
+
+export const publicGrievanceRelations = relations(
+	publicGrievance,
+	({ one, many }) => ({
+		grievance: one(grievance, {
+			fields: [publicGrievance.grievanceId],
+			references: [grievance.id],
+		}),
+		organization: one(organization, {
+			fields: [publicGrievance.organizationId],
+			references: [organization.id],
+		}),
+		events: many(publicGrievanceEvent),
+	}),
+);
+
+export const publicGrievanceEventRelations = relations(
+	publicGrievanceEvent,
+	({ one }) => ({
+		publicGrievance: one(publicGrievance, {
+			fields: [publicGrievanceEvent.publicGrievanceId],
+			references: [publicGrievance.id],
+		}),
+		sourceEvent: one(grievanceEvent, {
+			fields: [publicGrievanceEvent.sourceEventId],
+			references: [grievanceEvent.id],
+		}),
+	}),
+);
 
 export const attachmentRelations = relations(attachment, ({ one }) => ({
 	owner: one(user, {

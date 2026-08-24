@@ -22,21 +22,8 @@ import {
 	requestRateLimitKey,
 } from "#/server/ai/guard";
 import { createAiTelemetry } from "#/server/ai/telemetry";
+import { configuredTextModel, hasConfiguredTextModel } from "#/server/ai/model";
 import { getSessionFromRequest } from "#/server/auth/middleware";
-
-const supportedTextModels = [
-	"gemini-3.5-flash-lite",
-	"gemini-3-flash-preview",
-	"gemini-2.5-flash-lite",
-] as const;
-
-function configuredTextModel(): (typeof supportedTextModels)[number] {
-	const configured = process.env.AI_TEXT_MODEL;
-	return (
-		supportedTextModels.find((model) => model === configured) ??
-		"gemini-3.5-flash-lite"
-	);
-}
 
 function latestUserText(messages: Array<Record<string, unknown>>) {
 	for (let index = messages.length - 1; index >= 0; index -= 1) {
@@ -102,7 +89,7 @@ export const Route = createFileRoute("/api/ai/chat")({
 		handlers: {
 			POST: async ({ request }) => {
 				assertSameOrigin(request);
-				if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
+				if (!hasConfiguredTextModel()) {
 					return Response.json(
 						{ error: "The assistant is not configured yet." },
 						{ status: 503, headers: privateAiHeaders },
