@@ -61,12 +61,15 @@ function DraftsScreen() {
 								{authority && form ? (
 									<Link
 										className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 no-underline transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-										to="/services/$authoritySlug/form/$formId"
+										to="/services/$authoritySlug"
 										params={{
 											authoritySlug: authority.slug,
-											formId: form.formKey,
 										}}
-										search={{ review: false, draft: item.draft.id }}
+										search={{
+											form: form.formKey,
+											review: false,
+											draft: item.draft.id,
+										}}
 									>
 										{details}
 										<span className="inline-flex items-center gap-1 text-sm font-semibold text-blue-800">

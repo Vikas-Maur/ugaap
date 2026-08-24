@@ -116,6 +116,11 @@ function readablePageContent() {
 	return lines.join("\n").slice(0, 8_000);
 }
 
+function canonicalFormDestination(authoritySlug: string, formId: string) {
+	const search = new URLSearchParams({ form: formId, review: "false" });
+	return `/services/${encodeURIComponent(authoritySlug)}?${search.toString()}`;
+}
+
 export function AssistantLauncher({ home = false }: { home?: boolean }) {
 	const { language, text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
@@ -300,7 +305,7 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 							requiresLogin: false,
 							reason: "The route is not in the catalogue.",
 						};
-					const destination = `/services/${authoritySlug}/form/${formId}`;
+					const destination = canonicalFormDestination(authoritySlug, formId);
 					if (!sessionRef.current?.user) {
 						await navigateRef.current({
 							to: "/login",
@@ -314,9 +319,9 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 						};
 					}
 					await navigateRef.current({
-						to: "/services/$authoritySlug/form/$formId",
-						params: { authoritySlug, formId },
-						search: { review: false, draft: undefined },
+						to: "/services/$authoritySlug",
+						params: { authoritySlug },
+						search: { form: formId, review: false, draft: undefined },
 					});
 					return {
 						opened: true,
@@ -601,15 +606,18 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 
 	async function openRecommendation(turn: typeof chatState.final) {
 		if (!turn?.formId || !turn.authoritySlug) return;
-		const destination = `/services/${turn.authoritySlug}/form/${turn.formId}`;
+		const destination = canonicalFormDestination(
+			turn.authoritySlug,
+			turn.formId,
+		);
 		if (!session?.user) {
 			await navigate({ to: "/login", search: { redirect: destination } });
 			return;
 		}
 		await navigate({
-			to: "/services/$authoritySlug/form/$formId",
-			params: { authoritySlug: turn.authoritySlug, formId: turn.formId },
-			search: { review: false, draft: undefined },
+			to: "/services/$authoritySlug",
+			params: { authoritySlug: turn.authoritySlug },
+			search: { form: turn.formId, review: false, draft: undefined },
 		});
 	}
 
@@ -639,7 +647,7 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 		if (turn.intent !== "navigate" && turn.intent !== "login-required") return;
 		const destination =
 			turn.formId && turn.authoritySlug
-				? `/services/${turn.authoritySlug}/form/${turn.formId}`
+				? canonicalFormDestination(turn.authoritySlug, turn.formId)
 				: "/services";
 		if (!session?.user) {
 			void navigate({
@@ -650,12 +658,11 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 		}
 		if (turn.formId && turn.authoritySlug) {
 			void navigate({
-				to: "/services/$authoritySlug/form/$formId",
+				to: "/services/$authoritySlug",
 				params: {
 					authoritySlug: turn.authoritySlug,
-					formId: turn.formId,
 				},
-				search: { review: false, draft: undefined },
+				search: { form: turn.formId, review: false, draft: undefined },
 			});
 		}
 	}, [

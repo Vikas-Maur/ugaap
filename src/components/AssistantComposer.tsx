@@ -167,12 +167,11 @@ export function AssistantComposer() {
 						{suggestions.map((result) => (
 							<Link
 								key={result.id}
-								to="/services/$authoritySlug/form/$formId"
+								to="/services/$authoritySlug"
 								params={{
 									authoritySlug: result.authoritySlug,
-									formId: result.id,
 								}}
-								search={{ review: false, draft: undefined }}
+								search={{ form: result.id, review: false, draft: undefined }}
 								className="group grid gap-2 border-b border-blue-200 px-1 py-4 last:border-b-0 transition-colors hover:bg-blue-50/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
 							>
 								<div className="min-w-0">

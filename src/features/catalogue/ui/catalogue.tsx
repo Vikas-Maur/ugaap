@@ -1,13 +1,35 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import {
 	ArrowLeft,
+	Check,
 	ChevronDown,
 	ChevronRight,
+	ChevronsUpDown,
 	LoaderCircle,
 	Search,
 	X,
 } from "lucide-react";
-import { type FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import {
+	type FormEvent,
+	type ReactNode,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+} from "react";
+import {
+	Command,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList,
+} from "#/components/ui/command";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "#/components/ui/popover";
 import { useAssistantContext } from "#/features/assistant/context";
 import { useI18n } from "#/features/i18n/i18n";
 
@@ -245,6 +267,7 @@ function AuthorityCard({ authority }: { authority: CatalogueAuthority }) {
 		<Link
 			to="/services/$authoritySlug"
 			params={{ authoritySlug: authority.slug }}
+			search={{ form: undefined, review: false, draft: undefined }}
 			className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
 		>
 			<h3 className="text-base font-semibold tracking-[-0.01em] text-blue-950 sm:text-lg">
@@ -309,11 +332,10 @@ function SearchResults({
 						<Link
 							className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
 							key={result.id}
-							to="/services/$authoritySlug/form/$formId"
-							search={{ review: false, draft: undefined }}
+							to="/services/$authoritySlug"
+							search={{ form: result.id, review: false, draft: undefined }}
 							params={{
 								authoritySlug: result.authoritySlug,
-								formId: result.id,
 							}}
 						>
 							<div className="min-w-0">
@@ -379,7 +401,7 @@ export function AuthorityBrowser({ chunk }: { chunk: AuthorityChunk }) {
 				<ArrowLeft size={17} aria-hidden="true" />
 				{text(copy("Back to all authorities", "सभी प्राधिकरणों पर वापस जाएँ"))}
 			</Link>
-			<div className="mb-8 max-w-3xl">
+			<div className="mb-8">
 				<p className="page-eyebrow">
 					{text(copy("Choose a category", "श्रेणी चुनें"))}
 				</p>
@@ -463,11 +485,14 @@ function CategoryCard({
 			{category.formCapable && category.formId ? (
 				<Link
 					className="action-primary mt-4 min-h-10 px-4 no-underline"
-					to="/services/$authoritySlug/form/$formId"
-					search={{ review: false, draft: undefined }}
+					to="/services/$authoritySlug"
+					search={{
+						form: category.formId,
+						review: false,
+						draft: undefined,
+					}}
 					params={{
 						authoritySlug: chunk.authority.slug,
-						formId: category.formId,
 					}}
 				>
 					{text(copy("Open this grievance form", "यह शिकायत फ़ॉर्म खोलें"))}
@@ -485,13 +510,76 @@ function CategoryCard({
 	);
 }
 
-export function AuthorityPage({ slug }: { slug: string }) {
+function categorySelectionForForm(
+	chunk: AuthorityChunk,
+	formId: string | undefined,
+): string[] {
+	if (!formId) return [];
+	const form = findForm(chunk, formId);
+	if (!form) return [];
+	const categoryById = new Map(
+		chunk.categories.map((category) => [category.id, category]),
+	);
+	const path: string[] = [];
+	let category = categoryById.get(form.categoryId);
+	while (category) {
+		path.unshift(category.id);
+		category = category.parentId
+			? categoryById.get(category.parentId)
+			: undefined;
+	}
+	if (!path.length) return [];
+	for (let index = 1; index < path.length; index += 1) {
+		const child = categoryById.get(path[index] ?? "");
+		if (child?.parentId !== path[index - 1]) return [];
+	}
+	return path;
+}
+
+function categoryLevels(chunk: AuthorityChunk, selectedIds: string[]) {
+	const levels: Array<{
+		options: CatalogueCategory[];
+		value: string | undefined;
+	}> = [];
+	let options = chunk.categories.filter(
+		(category) => category.parentId === null,
+	);
+	let level = 0;
+	while (options.length) {
+		const value = selectedIds[level];
+		levels.push({ options, value });
+		if (!value) break;
+		const selected = options.find((category) => category.id === value);
+		if (!selected) break;
+		options = chunk.categories.filter(
+			(category) => category.parentId === selected.id,
+		);
+		level += 1;
+	}
+	return levels;
+}
+
+export function AuthorityPage({
+	slug,
+	formId,
+	review,
+	draftId,
+}: {
+	slug: string;
+	formId?: string;
+	review: boolean;
+	draftId?: string;
+}) {
 	const { text } = useI18n();
+	const navigate = useNavigate();
 	const [chunk, setChunk] = useState<AuthorityChunk | null>(null);
 	const [error, setError] = useState<string | null>(null);
+	const [selectedIds, setSelectedIds] = useState<string[]>([]);
+	const manualUrlUpdate = useRef<{ formId: string | undefined } | null>(null);
 	useEffect(() => {
 		let active = true;
 		setChunk(null);
+		setError(null);
 		loadAuthorityChunk(slug)
 			.then((value) => active && setChunk(value))
 			.catch(
@@ -510,9 +598,20 @@ export function AuthorityPage({ slug }: { slug: string }) {
 			active = false;
 		};
 	}, [slug, text]);
+
+	useEffect(() => {
+		if (!chunk) return;
+		if (manualUrlUpdate.current?.formId === formId) {
+			manualUrlUpdate.current = null;
+			return;
+		}
+		manualUrlUpdate.current = null;
+		setSelectedIds(categorySelectionForForm(chunk, formId));
+	}, [chunk, formId]);
+
 	if (error)
 		return (
-			<div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+			<div className="page-shell">
 				<p
 					className="border-l-4 border-red-700 bg-red-50 px-4 py-3 text-red-900"
 					role="alert"
@@ -529,7 +628,220 @@ export function AuthorityPage({ slug }: { slug: string }) {
 				</Link>
 			</div>
 		);
-	return chunk ? <AuthorityBrowser chunk={chunk} /> : <LoadingMessage />;
+	if (!chunk) return <LoadingMessage page />;
+
+	const levels = categoryLevels(chunk, selectedIds);
+	const selectedCategory = chunk.categories.find(
+		(category) => category.id === selectedIds.at(-1),
+	);
+	const selectedForm =
+		selectedCategory?.formCapable && selectedCategory.formId
+			? findForm(chunk, selectedCategory.formId)
+			: undefined;
+	const invalidRequestedForm = Boolean(
+		formId && !categorySelectionForForm(chunk, formId).length,
+	);
+
+	const selectCategory = (level: number, categoryId: string) => {
+		const nextIds = [...selectedIds.slice(0, level), categoryId];
+		const category = chunk.categories.find((item) => item.id === categoryId);
+		const nextForm =
+			category?.formCapable && category.formId
+				? findForm(chunk, category.formId)
+				: undefined;
+		setSelectedIds(nextIds);
+		manualUrlUpdate.current = { formId: nextForm?.id };
+		void navigate({
+			to: "/services/$authoritySlug",
+			params: { authoritySlug: chunk.authority.slug },
+			search: {
+				form: nextForm?.id,
+				review: false,
+				draft: undefined,
+			},
+			replace: true,
+			resetScroll: false,
+		});
+	};
+
+	const selectors = (
+		<CategorySelectors
+			levels={levels}
+			onSelect={selectCategory}
+		/>
+	);
+
+	return (
+		<div className="page-shell">
+			<div className="w-full">
+				<Link
+					className="mb-8 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-blue-800 no-underline hover:text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
+					to="/services"
+					search={{ q: "" }}
+				>
+					<ArrowLeft size={17} aria-hidden="true" />
+					{text(copy("Back to all authorities", "सभी प्राधिकरणों पर वापस जाएं"))}
+				</Link>
+				<header className="mb-10">
+					<h1 className="page-title mt-0">
+						{text(copy(chunk.authority.name, chunk.authority.name))}
+					</h1>
+				</header>
+				{invalidRequestedForm ? (
+					<output
+						className="mb-7 border-l-4 border-amber-600 bg-amber-50 px-4 py-3 text-sm text-amber-950"
+					>
+						{text(
+							copy(
+								"The requested category is not available. Choose another category below.",
+								"अनुरोधित श्रेणी उपलब्ध नहीं है। नीचे कोई दूसरी श्रेणी चुनें।",
+							),
+						)}
+					</output>
+				) : null}
+				{selectedForm ? (
+					<CatalogueFormScreen
+						categoryControls={selectors}
+						form={selectedForm}
+						review={review}
+						draftId={draftId}
+					/>
+				) : (
+					<form noValidate>{selectors}</form>
+				)}
+			</div>
+		</div>
+	);
+}
+
+function CategorySelectors({
+	levels,
+	onSelect,
+}: {
+	levels: Array<{
+		options: CatalogueCategory[];
+		value: string | undefined;
+	}>;
+	onSelect: (level: number, categoryId: string) => void;
+}) {
+	const { text } = useI18n();
+	const nextLevel = levels.findIndex((level) => !level.value);
+	return (
+		<fieldset className="mb-9 grid gap-6 border-0 p-0">
+			<legend className="sr-only">
+				{text(copy("Choose a grievance category", "शिकायत की श्रेणी चुनें"))}
+			</legend>
+			{levels.map((level, index) => (
+				<CategoryCombobox
+					key={index === 0 ? "category" : `subcategory-${index}`}
+					label={
+						index === 0
+							? text(copy("Category", "श्रेणी"))
+							: text(copy(`Sub-category ${index}`, `उप-श्रेणी ${index}`))
+					}
+					options={level.options}
+					value={level.value}
+					onChange={(categoryId) => onSelect(index, categoryId)}
+				/>
+			))}
+			<p className="sr-only" aria-live="polite">
+				{nextLevel > 0
+					? text(
+							copy(
+								`Sub-category ${nextLevel} is ready to choose.`,
+								`उप-श्रेणी ${nextLevel} चुनने के लिए तैयार है।`,
+							),
+						)
+					: ""}
+			</p>
+		</fieldset>
+	);
+}
+
+function CategoryCombobox({
+	label,
+	options,
+	value,
+	onChange,
+}: {
+	label: string;
+	options: CatalogueCategory[];
+	value?: string;
+	onChange: (categoryId: string) => void;
+}) {
+	const { text } = useI18n();
+	const [open, setOpen] = useState(false);
+	const selected = options.find((option) => option.id === value);
+	const controlId = `category-${options[0]?.parentId ?? "root"}`;
+	return (
+		<div>
+			<label className="block text-sm font-semibold" htmlFor={controlId}>
+				{label}
+				<span className="ml-1 text-red-700" aria-hidden="true">
+					*
+				</span>
+			</label>
+			<Popover open={open} onOpenChange={setOpen}>
+				<PopoverTrigger asChild>
+					<button
+						id={controlId}
+						type="button"
+						role="combobox"
+						aria-expanded={open}
+						aria-required="true"
+						className="field-control mt-2 flex items-center justify-between gap-3 text-left"
+					>
+						<span className={selected ? "truncate" : "truncate text-slate-500"}>
+							{selected
+								? text(copy(selected.name, selected.name))
+								: text(copy("Search or choose an option", "विकल्प खोजें या चुनें"))}
+						</span>
+						<ChevronsUpDown
+							className="shrink-0 text-blue-700"
+							size={18}
+							aria-hidden="true"
+						/>
+					</button>
+				</PopoverTrigger>
+				<PopoverContent
+					className="w-[var(--radix-popover-trigger-width)] p-0"
+					align="start"
+				>
+					<Command>
+						<CommandInput
+							placeholder={text(copy("Search options", "विकल्प खोजें"))}
+						/>
+						<CommandList className="max-h-72">
+							<CommandEmpty>
+								{text(copy("No matching options.", "कोई मिलता विकल्प नहीं है।"))}
+							</CommandEmpty>
+							<CommandGroup>
+								{options.map((option) => (
+									<CommandItem
+										key={option.id}
+										value={`${option.name} ${option.path.join(" ")}`}
+										onSelect={() => {
+											onChange(option.id);
+											setOpen(false);
+										}}
+									>
+										<Check
+											className={
+												option.id === value ? "opacity-100" : "opacity-0"
+											}
+											size={16}
+											aria-hidden="true"
+										/>
+										<span>{text(copy(option.name, option.name))}</span>
+									</CommandItem>
+								))}
+							</CommandGroup>
+						</CommandList>
+					</Command>
+				</PopoverContent>
+			</Popover>
+		</div>
+	);
 }
 
 export function FormPage({
@@ -584,7 +896,7 @@ export function FormPage({
 	}, [formId, slug, text]);
 	if (error)
 		return (
-			<div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+			<div className="page-shell">
 				<p
 					className="border-l-4 border-red-700 bg-red-50 px-4 py-3 text-red-900"
 					role="alert"
@@ -595,16 +907,17 @@ export function FormPage({
 					className="mt-5 inline-flex items-center gap-2"
 					to="/services/$authoritySlug"
 					params={{ authoritySlug: slug }}
+					search={{ form: undefined, review: false, draft: undefined }}
 				>
 					<ArrowLeft size={17} aria-hidden="true" />
 					{text(copy("Back to categories", "श्रेणियों पर वापस जाएँ"))}
 				</Link>
 			</div>
 		);
-	if (!form || !chunk) return <LoadingMessage />;
+	if (!form || !chunk) return <LoadingMessage page />;
 	return (
 		<CatalogueFormScreen
-			chunk={chunk}
+			categoryControls={null}
 			form={form}
 			review={review}
 			draftId={draftId}
@@ -614,12 +927,12 @@ export function FormPage({
 
 function CatalogueFormScreen({
 	form,
-	chunk,
+	categoryControls,
 	review,
 	draftId,
 }: {
 	form: CatalogueForm;
-	chunk: AuthorityChunk;
+	categoryControls: ReactNode;
 	review: boolean;
 	draftId?: string;
 }) {
@@ -700,10 +1013,24 @@ function CatalogueFormScreen({
 	const goReview = (event: FormEvent) => {
 		event.preventDefault();
 		if (state.validate())
-			void navigate({ to: ".", search: { review: true, draft: draftId } });
+			void navigate({
+				to: ".",
+				search: (previous) => ({
+					...previous,
+					review: true,
+					draft: draftId,
+				}),
+			});
 	};
 	const goEdit = () =>
-		void navigate({ to: ".", search: { review: false, draft: draftId } });
+		void navigate({
+			to: ".",
+			search: (previous) => ({
+				...previous,
+				review: false,
+				draft: draftId,
+			}),
+		});
 	const save = async () => {
 		if (saving || !state.validate()) return;
 		setSaving(true);
@@ -726,7 +1053,11 @@ function CatalogueFormScreen({
 				if (!draftId && result.draftId) {
 					await navigate({
 						to: ".",
-						search: { review, draft: result.draftId },
+						search: (previous) => ({
+							...previous,
+							review,
+							draft: result.draftId,
+						}),
 						replace: true,
 					});
 				}
@@ -760,96 +1091,63 @@ function CatalogueFormScreen({
 		}
 	};
 	if (restoring) return <LoadingMessage />;
+	if (review)
+		return (
+			<ReviewPanel
+				form={form}
+				state={state}
+				onEdit={goEdit}
+				onSave={() => void save()}
+				saveMessage={saveMessage}
+				saving={saving}
+			/>
+		);
 	return (
-		<div className="page-shell">
-			<Link
-				className="mb-8 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-blue-800 no-underline hover:text-blue-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
-				to="/services/$authoritySlug"
-				params={{ authoritySlug: chunk.authority.slug }}
-			>
-				<ArrowLeft size={17} aria-hidden="true" />
-				{text(copy("Back to categories", "श्रेणियों पर वापस जाएँ"))}
-			</Link>
-			{review ? (
-				<ReviewPanel
-					form={form}
-					state={state}
-					onEdit={goEdit}
-					onSave={() => void save()}
-					saveMessage={saveMessage}
-					saving={saving}
-				/>
-			) : (
-				<form onSubmit={goReview} noValidate>
-					<div className="mb-8 max-w-3xl">
-						<p className="page-eyebrow">
-							{text(copy("Grievance form", "शिकायत फ़ॉर्म"))}
-						</p>
-						<h1 className="page-title">{text(copy(form.title, form.title))}</h1>
-						<p className="page-intro">
-							{text(
-								copy(
-									"Tell us what happened. You can save your progress on this device and return later.",
-									"क्या हुआ, हमें बताएँ। आपकी प्रगति इस डिवाइस पर अपने आप सहेजी जाएगी।",
-								),
-							)}
-						</p>
-					</div>
-					<div className="max-w-3xl pt-2">
-						<p className="rounded-xl bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-950">
-							{text(
-								copy(
-									"Please use clear details. Attachments stay on this device for now and are not uploaded.",
-									"कृपया साफ़ जानकारी दें। अटैचमेंट अभी इस डिवाइस पर ही रहेंगे और अपलोड नहीं होंगे।",
-								),
-							)}
-						</p>
-						<div className="grid gap-6">
-							{form.fields.map((field) => (
-								<FieldControl
-									field={field}
-									key={field.id}
-									values={state.values}
-									attachments={state.attachments}
-									errors={state.errors}
-									onValue={state.setValue}
-									onAttachment={state.setAttachment}
-								/>
-							))}
-						</div>
-						<div className="mt-8 flex flex-wrap gap-3">
-							<button className="action-primary" type="submit">
-								{text(copy("Review details", "विवरण देखें"))}
-							</button>
-							<button
-								className="action-secondary disabled:pointer-events-none disabled:opacity-50"
-								type="button"
-								onClick={() => void save()}
-								disabled={saving}
-							>
-								{text(
-									saving
-										? copy("Saving…", "सहेजा जा रहा है…")
-										: copy("Save draft", "ड्राफ़्ट सहेजें"),
-								)}
-							</button>
-							<button
-								className="min-h-11 px-5 py-2.5 text-sm font-semibold text-slate-600 underline-offset-4 hover:text-blue-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-								type="button"
-								onClick={state.reset}
-							>
-								{text(copy("Clear form", "फ़ॉर्म साफ़ करें"))}
-							</button>
-						</div>
-						{saveMessage ? (
-							<output className="mt-4 block text-sm font-semibold text-emerald-800">
-								{saveMessage}
-							</output>
-						) : null}
-					</div>
-				</form>
-			)}
-		</div>
+		<form onSubmit={goReview} noValidate>
+			{categoryControls}
+			<div className="grid gap-6">
+				{form.fields.map((field) => (
+					<FieldControl
+						field={field}
+						key={field.id}
+						values={state.values}
+						attachments={state.attachments}
+						errors={state.errors}
+						onValue={state.setValue}
+						onAttachment={state.setAttachment}
+					/>
+				))}
+			</div>
+			<div className="mt-8 flex flex-wrap gap-3">
+				<button className="action-primary" type="submit">
+					{text(copy("Review details", "विवरण देखें"))}
+				</button>
+				<button
+					className="action-secondary disabled:pointer-events-none disabled:opacity-50"
+					type="button"
+					onClick={() => void save()}
+					disabled={saving}
+				>
+					{text(
+						saving
+							? copy("Saving…", "सहेजा जा रहा है…")
+							: copy("Save draft", "ड्राफ़्ट सहेजें"),
+					)}
+				</button>
+				<button
+					className="min-h-11 px-5 py-2.5 text-sm font-semibold text-slate-600 underline-offset-4 hover:text-blue-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+					type="button"
+					onClick={state.reset}
+				>
+					{text(copy("Clear form", "फ़ॉर्म साफ़ करें"))}
+				</button>
+			</div>
+			{saveMessage ? (
+				<output className="mt-4 block text-sm font-semibold text-emerald-800">
+					{saveMessage}
+				</output>
+			) : null}
+		</form>
 	);
 }
 
@@ -997,7 +1295,7 @@ function ReviewPanel({
 }) {
 	const { text } = useI18n();
 	return (
-		<div className="max-w-3xl">
+		<div className="w-full">
 			<p className="page-eyebrow">
 				{text(copy("Final review", "अंतिम समीक्षा"))}
 			</p>
@@ -1057,10 +1355,16 @@ function ReviewPanel({
 	);
 }
 
-function LoadingMessage() {
+function LoadingMessage({ page = false }: { page?: boolean }) {
 	const { text } = useI18n();
 	return (
-		<output className="mx-auto block w-full max-w-6xl px-4 py-6 text-sm font-medium text-slate-700 sm:px-6 lg:px-8">
+		<output
+			className={
+				page
+					? "page-shell block text-sm font-medium text-slate-700"
+					: "block w-full py-6 text-sm font-medium text-slate-700"
+			}
+		>
 			{text(
 				copy("Loading grievance categories…", "शिकायत श्रेणियाँ लोड हो रही हैं…"),
 			)}

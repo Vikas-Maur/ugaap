@@ -39,7 +39,7 @@ function ContinuationScreen() {
 
 	if (!intent) {
 		return (
-			<main className="page-shell max-w-3xl">
+			<main className="page-shell">
 				<h1 className="page-title mt-0">
 					{text({ en: "Nothing is waiting", hi: "कोई काम लंबित नहीं है" })}
 				</h1>
@@ -55,7 +55,7 @@ function ContinuationScreen() {
 	}
 
 	return (
-		<main className="page-shell max-w-3xl">
+		<main className="page-shell">
 			<p className="page-eyebrow">
 				{text({ en: "Your saved request", hi: "आपका सुरक्षित अनुरोध" })}
 			</p>

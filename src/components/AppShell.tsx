@@ -358,16 +358,18 @@ function WorkspaceShell({
 
 			<SidebarInset className="min-w-0 bg-[var(--paper)]">
 				<header
-					className="glass-navbar sticky top-0 z-30 flex min-h-16 items-center justify-between gap-4 bg-transparent px-4 sm:px-6 lg:px-8"
+					className="glass-navbar sticky top-0 z-30 bg-transparent"
 					data-scrolled={headerScrolled}
 				>
-					<div className="flex min-w-0 items-center gap-3">
-						<SidebarTrigger className="size-10 rounded-lg text-[var(--blue-900)] hover:bg-[var(--blue-50)]" />
-						<span className="truncate text-sm font-semibold text-[var(--ink)]">
-							{translate(title)}
-						</span>
+					<div className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-7">
+						<div className="flex min-w-0 items-center gap-3">
+							<SidebarTrigger className="size-10 rounded-lg text-[var(--blue-900)] hover:bg-[var(--blue-50)]" />
+							<span className="truncate text-sm font-semibold text-[var(--ink)]">
+								{translate(title)}
+							</span>
+						</div>
+						<LanguageControl />
 					</div>
-					<LanguageControl />
 				</header>
 				<div className="w-full pb-40" data-assistant-page-content>
 					{children}
