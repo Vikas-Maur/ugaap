@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { useI18n } from "#/features/i18n/i18n";
+import type { ReadyAttachment } from "#/features/attachments/constants";
 import type { CatalogueField, CatalogueForm } from "./schema";
 
 export type FormValues = Record<string, string>;
-export type AttachmentState = Record<string, string[]>;
+export type AttachmentState = Record<string, ReadyAttachment[]>;
 export type FormErrors = Record<string, string>;
 
 export type StoredFormState = {
@@ -30,12 +31,35 @@ function readStoredState(formId: string): StoredFormState | null {
 		if (!parsed || typeof parsed !== "object" || !parsed.values) return null;
 		return {
 			values: parsed.values,
-			attachments: parsed.attachments ?? {},
+			attachments: normalizeAttachments(parsed.attachments),
 			updatedAt: parsed.updatedAt ?? new Date().toISOString(),
 		};
 	} catch {
 		return null;
 	}
+}
+
+function normalizeAttachments(value: unknown): AttachmentState {
+	if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+	const result: AttachmentState = {};
+	for (const [fieldId, items] of Object.entries(value)) {
+		if (!Array.isArray(items)) continue;
+		const ready = items.filter(
+			(item): item is ReadyAttachment =>
+				typeof item === "object" &&
+				item !== null &&
+				!Array.isArray(item) &&
+				typeof item.id === "string" &&
+				typeof item.fieldId === "string" &&
+				typeof item.name === "string" &&
+				["application/pdf", "image/jpeg", "image/png"].includes(
+					String(item.mimeType),
+				) &&
+				typeof item.sizeBytes === "number",
+		);
+		if (ready.length) result[fieldId] = ready;
+	}
+	return result;
 }
 
 function initialValues(form: CatalogueForm): FormValues {
@@ -141,13 +165,16 @@ export function useCatalogueFormState(form: CatalogueForm) {
 		});
 	}, []);
 
-	const setAttachment = useCallback((fieldId: string, names: string[]) => {
-		setState((current) => ({
-			...current,
-			attachments: { ...current.attachments, [fieldId]: names },
-			updatedAt: new Date().toISOString(),
-		}));
-	}, []);
+	const setAttachment = useCallback(
+		(fieldId: string, attachments: ReadyAttachment[]) => {
+			setState((current) => ({
+				...current,
+				attachments: { ...current.attachments, [fieldId]: attachments },
+				updatedAt: new Date().toISOString(),
+			}));
+		},
+		[],
+	);
 
 	const restore = useCallback((restored: FormStateRestore) => {
 		setState({

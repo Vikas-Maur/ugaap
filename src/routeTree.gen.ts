@@ -22,8 +22,12 @@ import { Route as AuthenticatedContinuationRouteImport } from './routes/_authent
 import { Route as AuthenticatedDraftsRouteImport } from './routes/_authenticated/drafts'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAuthoritySlugRouteImport } from './routes/services.$authoritySlug'
+import { Route as AuthenticatedGrievancesIndexRouteImport } from './routes/_authenticated/grievances/index'
+import { Route as AuthenticatedGrievancesRegistrationIdRouteImport } from './routes/_authenticated/grievances/$registrationId'
 import { Route as ApiAiChatRouteImport } from './routes/api/ai/chat'
 import { Route as ApiAiRealtimeTokenRouteImport } from './routes/api/ai/realtime-token'
+import { Route as ApiAttachmentsAttachmentIdRouteImport } from './routes/api/attachments/$attachmentId'
+import { Route as ApiAttachmentsUploadRouteImport } from './routes/api/attachments/upload'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ServicesAuthoritySlugIndexRouteImport } from './routes/services.$authoritySlug.index'
 import { Route as ServicesAuthoritySlugFormFormIdRouteImport } from './routes/services.$authoritySlug.form.$formId'
@@ -93,6 +97,18 @@ const ServicesAuthoritySlugRoute = ServicesAuthoritySlugRouteImport.update({
   path: '/$authoritySlug',
   getParentRoute: () => ServicesRoute,
 } as any)
+const AuthenticatedGrievancesIndexRoute =
+  AuthenticatedGrievancesIndexRouteImport.update({
+    id: '/grievances/',
+    path: '/grievances/',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedGrievancesRegistrationIdRoute =
+  AuthenticatedGrievancesRegistrationIdRouteImport.update({
+    id: '/grievances/$registrationId',
+    path: '/grievances/$registrationId',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
 const ApiAiChatRoute = ApiAiChatRouteImport.update({
   id: '/api/ai/chat',
   path: '/api/ai/chat',
@@ -101,6 +117,17 @@ const ApiAiChatRoute = ApiAiChatRouteImport.update({
 const ApiAiRealtimeTokenRoute = ApiAiRealtimeTokenRouteImport.update({
   id: '/api/ai/realtime-token',
   path: '/api/ai/realtime-token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAttachmentsAttachmentIdRoute =
+  ApiAttachmentsAttachmentIdRouteImport.update({
+    id: '/api/attachments/$attachmentId',
+    path: '/api/attachments/$attachmentId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiAttachmentsUploadRoute = ApiAttachmentsUploadRouteImport.update({
+  id: '/api/attachments/upload',
+  path: '/api/attachments/upload',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -134,9 +161,13 @@ export interface FileRoutesByFullPath {
   '/drafts': typeof AuthenticatedDraftsRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
   '/services/': typeof ServicesIndexRoute
+  '/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
+  '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
+  '/api/attachments/upload': typeof ApiAttachmentsUploadRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/grievances/': typeof AuthenticatedGrievancesIndexRoute
   '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
 }
@@ -151,9 +182,13 @@ export interface FileRoutesByTo {
   '/continuation': typeof AuthenticatedContinuationRoute
   '/drafts': typeof AuthenticatedDraftsRoute
   '/services': typeof ServicesIndexRoute
+  '/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
+  '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
+  '/api/attachments/upload': typeof ApiAttachmentsUploadRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/grievances': typeof AuthenticatedGrievancesIndexRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
 }
@@ -172,9 +207,13 @@ export interface FileRoutesById {
   '/_authenticated/drafts': typeof AuthenticatedDraftsRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
   '/services/': typeof ServicesIndexRoute
+  '/_authenticated/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
+  '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
+  '/api/attachments/upload': typeof ApiAttachmentsUploadRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/_authenticated/grievances/': typeof AuthenticatedGrievancesIndexRoute
   '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
 }
@@ -193,9 +232,13 @@ export interface FileRouteTypes {
     | '/drafts'
     | '/services/$authoritySlug'
     | '/services/'
+    | '/grievances/$registrationId'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
+    | '/api/attachments/$attachmentId'
+    | '/api/attachments/upload'
     | '/api/auth/$'
+    | '/grievances/'
     | '/services/$authoritySlug/'
     | '/services/$authoritySlug/form/$formId'
   fileRoutesByTo: FileRoutesByTo
@@ -210,9 +253,13 @@ export interface FileRouteTypes {
     | '/continuation'
     | '/drafts'
     | '/services'
+    | '/grievances/$registrationId'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
+    | '/api/attachments/$attachmentId'
+    | '/api/attachments/upload'
     | '/api/auth/$'
+    | '/grievances'
     | '/services/$authoritySlug'
     | '/services/$authoritySlug/form/$formId'
   id:
@@ -230,9 +277,13 @@ export interface FileRouteTypes {
     | '/_authenticated/drafts'
     | '/services/$authoritySlug'
     | '/services/'
+    | '/_authenticated/grievances/$registrationId'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
+    | '/api/attachments/$attachmentId'
+    | '/api/attachments/upload'
     | '/api/auth/$'
+    | '/_authenticated/grievances/'
     | '/services/$authoritySlug/'
     | '/services/$authoritySlug/form/$formId'
   fileRoutesById: FileRoutesById
@@ -249,6 +300,8 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   ApiAiChatRoute: typeof ApiAiChatRoute
   ApiAiRealtimeTokenRoute: typeof ApiAiRealtimeTokenRoute
+  ApiAttachmentsAttachmentIdRoute: typeof ApiAttachmentsAttachmentIdRoute
+  ApiAttachmentsUploadRoute: typeof ApiAttachmentsUploadRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
@@ -345,6 +398,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesAuthoritySlugRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/_authenticated/grievances/': {
+      id: '/_authenticated/grievances/'
+      path: '/grievances'
+      fullPath: '/grievances/'
+      preLoaderRoute: typeof AuthenticatedGrievancesIndexRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/grievances/$registrationId': {
+      id: '/_authenticated/grievances/$registrationId'
+      path: '/grievances/$registrationId'
+      fullPath: '/grievances/$registrationId'
+      preLoaderRoute: typeof AuthenticatedGrievancesRegistrationIdRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
     '/api/ai/chat': {
       id: '/api/ai/chat'
       path: '/api/ai/chat'
@@ -357,6 +424,20 @@ declare module '@tanstack/react-router' {
       path: '/api/ai/realtime-token'
       fullPath: '/api/ai/realtime-token'
       preLoaderRoute: typeof ApiAiRealtimeTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/attachments/$attachmentId': {
+      id: '/api/attachments/$attachmentId'
+      path: '/api/attachments/$attachmentId'
+      fullPath: '/api/attachments/$attachmentId'
+      preLoaderRoute: typeof ApiAttachmentsAttachmentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/attachments/upload': {
+      id: '/api/attachments/upload'
+      path: '/api/attachments/upload'
+      fullPath: '/api/attachments/upload'
+      preLoaderRoute: typeof ApiAttachmentsUploadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -386,11 +467,16 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteChildren {
   AuthenticatedContinuationRoute: typeof AuthenticatedContinuationRoute
   AuthenticatedDraftsRoute: typeof AuthenticatedDraftsRoute
+  AuthenticatedGrievancesRegistrationIdRoute: typeof AuthenticatedGrievancesRegistrationIdRoute
+  AuthenticatedGrievancesIndexRoute: typeof AuthenticatedGrievancesIndexRoute
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedContinuationRoute: AuthenticatedContinuationRoute,
   AuthenticatedDraftsRoute: AuthenticatedDraftsRoute,
+  AuthenticatedGrievancesRegistrationIdRoute:
+    AuthenticatedGrievancesRegistrationIdRoute,
+  AuthenticatedGrievancesIndexRoute: AuthenticatedGrievancesIndexRoute,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
@@ -438,6 +524,8 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   ApiAiChatRoute: ApiAiChatRoute,
   ApiAiRealtimeTokenRoute: ApiAiRealtimeTokenRoute,
+  ApiAttachmentsAttachmentIdRoute: ApiAttachmentsAttachmentIdRoute,
+  ApiAttachmentsUploadRoute: ApiAttachmentsUploadRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport

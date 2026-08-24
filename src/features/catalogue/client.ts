@@ -1,4 +1,5 @@
 import { sanitizeRedirectPath, savePendingIntent } from "#/features/intent";
+import type { AttachmentState } from "./form-state";
 import type {
 	AuthorityChunk,
 	CatalogueForm,
@@ -29,12 +30,12 @@ export type CatalogueDraftPayload = {
 	form: CatalogueForm;
 	draftId?: string;
 	values: Record<string, string>;
-	attachments: Record<string, string[]>;
+	attachments: AttachmentState;
 	language?: "en" | "hi";
 };
 
 export type CatalogueDraftResult =
-	| { ok: true; draftId?: string }
+	| { ok: true; draftId: string; reviewHash: string }
 	| { ok: false; requiresAuth: true };
 
 export type CatalogueDraftAdapter = (
@@ -57,12 +58,26 @@ let draftAdapter: CatalogueDraftAdapter = async (payload) => {
 				language: payload.language ?? "en",
 				answers: payload.values,
 				remarks: payload.values.remarks ?? "",
-				attachmentMetadata: Object.entries(payload.attachments).flatMap(
-					([fieldId, names]) => names.map((name) => ({ fieldId, name })),
+				attachmentMetadata: Object.values(payload.attachments).flatMap(
+					(items) =>
+						items.map((item) => ({
+							attachmentId: item.id,
+							fieldId: item.fieldId,
+							name: item.name,
+							mimeType: item.mimeType,
+							sizeBytes: item.sizeBytes,
+						})),
 				),
 			},
 		});
-		return { ok: true, draftId: result.draft.id };
+		if (!result.draft.reviewHash) {
+			throw new Error("The saved draft could not be prepared for review");
+		}
+		return {
+			ok: true,
+			draftId: result.draft.id,
+			reviewHash: result.draft.reviewHash,
+		};
 	} catch (error) {
 		if (error instanceof Error && /unauthorized/i.test(error.message)) {
 			return { ok: false, requiresAuth: true };

@@ -360,9 +360,13 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 		if (!catalogueForm) throw new Error(`Unable to find source form ${form.formKey}`);
 		const answers = Object.fromEntries(catalogueForm.fields.map((field, fieldIndex) => [field.id, answerForField(field, fieldIndex)]));
 		const createdAt = at(8 + index * 4, 9 + (index % 8));
-		const id = deterministicUuid(`grievance:${definition.key}`);
-		const draftId = definition.status === "draft" ? deterministicUuid(`draft:${definition.key}`) : null;
 		const reviewHash = digest({ formChecksum: form.checksum, answers, remarks: `Synthetic demo grievance ${definition.key}` });
+		if (definition.status === "draft") {
+			const draftId = deterministicUuid(`draft:${definition.key}`);
+			drafts.push({ id: draftId, userId, formDefinitionId: form.id, language: "en", answers, remarks: "Synthetic demo draft; complete the review before submitting.", attachmentMetadata: [], aiConfidence: "0.9800", reviewHash, publicConsent: "not_set", createdAt: cloneDate(createdAt), updatedAt: cloneDate(BASE_TIME) });
+			continue;
+		}
+		const id = deterministicUuid(`grievance:${definition.key}`);
 		const resolvedAt = definition.status === "appeal_resolved" ? new Date(createdAt.getTime() + 8 * DAY) : definition.status === "withdrawn" ? new Date(createdAt.getTime() + DAY) : definition.status === "resolved" ? new Date(createdAt.getTime() + 6 * DAY) : null;
 		const closureReason: ClosureReason | null = definition.key === "resolved-positive" ? "citizen_confirmed" : definition.key === "resolved-poor" ? "department_action_unconfirmed" : definition.status === "appeal_resolved" ? "appeal_decided" : definition.status === "withdrawn" ? "withdrawn_by_citizen" : null;
 		const citizenResponseDueAt = definition.status === "needs_information" || definition.status === "action_taken" ? new Date(BASE_TIME.getTime() + 7 * DAY) : null;
@@ -371,7 +375,7 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 			id,
 			registrationId: `SYN-20260823-${String(index + 1).padStart(3, "0")}`,
 			userId,
-			draftId,
+			draftId: null,
 			organizationId: form.organizationId,
 			categoryNodeId: form.categoryNodeId,
 			formDefinitionId: form.id,
@@ -392,13 +396,15 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 			updatedAt: cloneDate(BASE_TIME),
 		};
 		grievances.push(grievance);
-		if (draftId) drafts.push({ id: draftId, userId, formDefinitionId: form.id, language: "en", answers, remarks: "Synthetic demo draft; complete the review before submitting.", attachmentMetadata: [], aiConfidence: "0.9800", reviewHash, publicConsent: "not_set", createdAt: cloneDate(createdAt), updatedAt: cloneDate(BASE_TIME) });
 	}
 
 	const lifecycle: Status[] = ["submitted", "acknowledged", "routed", "in_review", "needs_information", "action_taken", "resolved", "appealed", "appeal_resolved"];
 	const events: SeedData["events"] = [];
-	for (const [caseIndex, grievance] of grievances.entries()) {
-		const definition = caseDefinitions[caseIndex];
+	for (const grievance of grievances) {
+		const definition = caseDefinitions.find(
+			(candidate) =>
+				grievance.id === deterministicUuid(`grievance:${candidate.key}`),
+		);
 		if (!definition) continue;
 		const history = definition.status === "draft" ? ["draft" as Status] : definition.status === "withdrawn" ? ["submitted" as Status, "withdrawn" as Status] : lifecycle.slice(0, Math.max(1, lifecycle.indexOf(definition.status) + 1));
 		let previous: Status | null = null;
@@ -479,7 +485,15 @@ function validateSeedData(data: SeedData, chunks: AuthorityChunk[]): void {
 	const statusCounts = new Map<Status, number>();
 	for (const grievance of data.grievances) statusCounts.set(grievance.status, (statusCounts.get(grievance.status) ?? 0) + 1);
 	const statuses: Status[] = ["draft", "submitted", "acknowledged", "routed", "in_review", "needs_information", "action_taken", "resolved", "appealed", "appeal_resolved", "withdrawn"];
-	for (const status of statuses) if (!statusCounts.get(status)) throw new Error(`Seed coverage missing lifecycle status: ${status}`);
+	for (const status of statuses) {
+		if (status === "draft") {
+			if (data.drafts.length === 0)
+				throw new Error("Seed coverage missing lifecycle status: draft");
+			continue;
+		}
+		if (!statusCounts.get(status))
+			throw new Error(`Seed coverage missing lifecycle status: ${status}`);
+	}
 	const generatedForms = chunks.flatMap((chunk) => chunk.forms);
 	const catalogueFormKeys = new Set(generatedForms.map((form) => `${form.id}:${form.version}`));
 	if (data.forms.length !== catalogueFormKeys.size || data.forms.some((form) => !catalogueFormKeys.has(`${form.formKey}:${form.version}`))) throw new Error("Seed coverage does not include every generated catalogue form version");
@@ -514,7 +528,7 @@ function report(data: SeedData, chunks: AuthorityChunk[], mode: "dry-run" | "app
 	const nonV1Forms = data.forms.filter((form) => form.version !== 1).length;
 	if (inactiveForms > 0 || nonV1Forms > 0) console.log(`Catalogue version coverage: ${nonV1Forms} non-v1 forms, ${inactiveForms} inactive forms.`);
 	console.log(`Rows: ${data.organizations.length} organizations, 1 demo citizen, ${data.grievances.length} grievances, ${data.events.length} events, ${data.feedback.length} feedback, ${data.appeals.length} appeals, ${data.publicGrievances.length} public cases, ${data.snapshots.length} performance snapshots.`);
-	console.log(`Lifecycle coverage: ${[...new Set(data.grievances.map((grievance) => grievance.status))].sort().join(", ")}.`);
+	console.log(`Lifecycle coverage: ${[...new Set(["draft" as Status, ...data.grievances.map((grievance) => grievance.status)])].sort().join(", ")}.`);
 }
 
 async function applySeed(data: SeedData): Promise<void> {
@@ -552,6 +566,7 @@ async function applySeed(data: SeedData): Promise<void> {
 		if (uniqueDeactivateIds.length > 0) await tx.update(dbSchema.formDefinition).set({ active: false, updatedAt: cloneDate(BASE_TIME) }).where(and(inArray(dbSchema.formDefinition.id, uniqueDeactivateIds), eq(dbSchema.formDefinition.active, true)));
 		if (uniqueActivateIds.length > 0) await tx.update(dbSchema.formDefinition).set({ active: true, updatedAt: cloneDate(BASE_TIME) }).where(and(inArray(dbSchema.formDefinition.id, uniqueActivateIds), eq(dbSchema.formDefinition.active, false)));
 		for (const rows of chunkRows(data.drafts)) await tx.insert(dbSchema.grievanceDraft).values(rows).onConflictDoUpdate({ target: dbSchema.grievanceDraft.id, set: { userId: sql`excluded.user_id`, formDefinitionId: sql`excluded.form_definition_id`, language: sql`excluded.language`, answers: sql`excluded.answers`, remarks: sql`excluded.remarks`, attachmentMetadata: sql`excluded.attachment_metadata`, aiConfidence: sql`excluded.ai_confidence`, reviewHash: sql`excluded.review_hash`, publicConsent: sql`excluded.public_consent`, updatedAt: sql`excluded.updated_at` } });
+		await tx.delete(dbSchema.grievance).where(and(eq(dbSchema.grievance.id, deterministicUuid("grievance:draft")), eq(dbSchema.grievance.userId, data.user.id)));
 		for (const rows of chunkRows(data.grievances)) await tx.insert(dbSchema.grievance).values(rows).onConflictDoUpdate({ target: dbSchema.grievance.id, set: { registrationId: sql`excluded.registration_id`, userId: sql`excluded.user_id`, draftId: sql`excluded.draft_id`, organizationId: sql`excluded.organization_id`, categoryNodeId: sql`excluded.category_node_id`, formDefinitionId: sql`excluded.form_definition_id`, status: sql`excluded.status`, language: sql`excluded.language`, answers: sql`excluded.answers`, remarks: sql`excluded.remarks`, reviewHash: sql`excluded.review_hash`, idempotencyKey: sql`excluded.idempotency_key`, publicConsent: sql`excluded.public_consent`, closureReason: sql`excluded.closure_reason`, closedAt: sql`excluded.closed_at`, closureNote: sql`excluded.closure_note`, citizenResponseDueAt: sql`excluded.citizen_response_due_at`, appealEligibleUntil: sql`excluded.appeal_eligible_until`, submittedAt: sql`excluded.submitted_at`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.events)) await tx.insert(dbSchema.grievanceEvent).values(rows).onConflictDoNothing();
 		for (const rows of chunkRows(data.feedback)) await tx.insert(dbSchema.feedback).values(rows).onConflictDoUpdate({ target: dbSchema.feedback.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, score: sql`excluded.score`, comment: sql`excluded.comment`, updatedAt: sql`excluded.updated_at` } });

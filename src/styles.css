@@ -185,12 +185,6 @@
 	animation: voice-bar 820ms ease-in-out infinite;
 }
 
-.assistant-editor:empty::before {
-	pointer-events: none;
-	content: attr(data-placeholder);
-	color: var(--ink-faint);
-}
-
 .glass-navbar {
 	isolation: isolate;
 }

@@ -56,6 +56,7 @@ import {
 	SheetTitle,
 } from "./ui/sheet";
 import { ScrollArea } from "./ui/scroll-area";
+import { Textarea } from "./ui/textarea";
 
 type BrowserRecognition = {
 	lang: string;
@@ -137,7 +138,7 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 	const [voiceRequested, setVoiceRequested] = useState(false);
 	const [homeScrolled, setHomeScrolled] = useState(false);
 	const [pageContent, setPageContent] = useState("");
-	const composerRef = useRef<HTMLDivElement | null>(null);
+	const composerRef = useRef<HTMLTextAreaElement | null>(null);
 	const recognitionRef = useRef<BrowserRecognition | null>(null);
 	const speakFallbackRef = useRef(false);
 	const voiceRequestedRef = useRef(false);
@@ -180,6 +181,18 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 			window.removeEventListener("scroll", updateDockPosition);
 		};
 	}, [home]);
+
+	const resizeComposer = useCallback(() => {
+		const composer = composerRef.current;
+		if (!composer) return;
+		const minimumHeight = heroDock ? 136 : 88;
+		composer.style.height = `${minimumHeight}px`;
+		composer.style.height = `${Math.max(minimumHeight, composer.scrollHeight)}px`;
+	}, [heroDock]);
+
+	useEffect(() => {
+		resizeComposer();
+	}, [resizeComposer]);
 
 	useEffect(() => {
 		if (!pageIdentity) return;
@@ -419,12 +432,12 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 					}),
 				),
 			),
-		onError: () =>
+		onError: (error) =>
 			setNotice(
 				translate(
 					text({
-						en: "Gemini Live is unavailable. Voice will use your browser when supported.",
-						hi: "Gemini Live उपलब्ध नहीं है। संभव होने पर आवाज़ के लिए ब्राउज़र का उपयोग होगा।",
+						en: `Gemini Live could not start: ${error.message}`,
+						hi: `Gemini Live शुरू नहीं हो सका: ${error.message}`,
 					}),
 				),
 			),
@@ -462,7 +475,6 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 		if (!message || chatState.isLoading) return;
 		setNotice(null);
 		setInput("");
-		if (composerRef.current) composerRef.current.textContent = "";
 		await chatState.sendMessage(message);
 	}
 
@@ -1184,28 +1196,25 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 						</span>
 						<ScrollArea
 							className={`min-w-0 flex-1 transition-[height] duration-500 ease-out ${heroDock ? "h-[136px]" : "h-[88px]"}`}
-							type="always"
+							type="auto"
 						>
-							{/* biome-ignore lint/a11y/useSemanticElements: The contenteditable surface lets the Radix ScrollArea own scrolling instead of the browser textarea. */}
-							<div
+							<Textarea
 								ref={composerRef}
 								id="ugaap-command-input"
-								role="textbox"
-								aria-multiline="true"
 								aria-labelledby="ugaap-command-label"
-								tabIndex={0}
-								contentEditable="plaintext-only"
-								suppressContentEditableWarning
-								onInput={(event) =>
-									setInput(event.currentTarget.textContent ?? "")
-								}
+								rows={heroDock ? 4 : 3}
+								value={input}
+								onChange={(event) => {
+									resizeComposer();
+									setInput(event.target.value);
+								}}
 								onKeyDown={(event) => {
 									if (event.key === "Enter" && !event.shiftKey) {
 										event.preventDefault();
 										void submit();
 									}
 								}}
-								data-placeholder={
+								placeholder={
 									voiceActive
 										? (realtime.pendingUserTranscript ?? voiceStatus)
 										: translate(
@@ -1215,7 +1224,7 @@ export function AssistantLauncher({ home = false }: { home?: boolean }) {
 												}),
 											)
 								}
-								className="assistant-editor min-h-full px-1 py-3 pr-4 text-base leading-7 text-blue-950 outline-none"
+								className="min-h-full w-full resize-none overflow-y-hidden rounded-none border-0 bg-transparent px-3 py-3 text-base leading-7 text-blue-950 shadow-none placeholder:text-[var(--ink-muted)] focus-visible:border-transparent focus-visible:ring-0"
 							/>
 						</ScrollArea>
 						<button

@@ -1,5 +1,13 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { FileClock, FilePlus2, Globe2, Home, LogOut, Menu } from "lucide-react";
+import {
+	ClipboardList,
+	FileClock,
+	FilePlus2,
+	Globe2,
+	Home,
+	LogOut,
+	Menu,
+} from "lucide-react";
 import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
 
 import { text, useI18n } from "../features/i18n/i18n";
@@ -23,7 +31,12 @@ import {
 	SidebarTrigger,
 } from "./ui/sidebar";
 
-const workspacePrefixes = ["/services", "/drafts", "/continuation"];
+const workspacePrefixes = [
+	"/services",
+	"/drafts",
+	"/continuation",
+	"/grievances",
+];
 
 function useHeaderScrolled() {
 	const [scrolled, setScrolled] = useState(false);
@@ -224,9 +237,11 @@ function WorkspaceShell({
 	const headerScrolled = useHeaderScrolled();
 	const title = pathname.startsWith("/drafts")
 		? text({ en: "Saved drafts", hi: "सहेजे गए मसौदे" })
-		: pathname.startsWith("/continuation")
-			? text({ en: "Continue your request", hi: "अपना अनुरोध जारी रखें" })
-			: text({ en: "File a grievance", hi: "शिकायत दर्ज करें" });
+		: pathname.startsWith("/grievances")
+			? text({ en: "My grievances", hi: "मेरी शिकायतें" })
+			: pathname.startsWith("/continuation")
+				? text({ en: "Continue your request", hi: "अपना अनुरोध जारी रखें" })
+				: text({ en: "File a grievance", hi: "शिकायत दर्ज करें" });
 
 	async function signOut() {
 		await authClient.signOut();
@@ -295,6 +310,25 @@ function WorkspaceShell({
 											<FileClock aria-hidden="true" />
 											<span>
 												{translate(text({ en: "Drafts", hi: "मसौदे" }))}
+											</span>
+										</Link>
+									</SidebarMenuButton>
+								</SidebarMenuItem>
+								<SidebarMenuItem>
+									<SidebarMenuButton
+										asChild
+										isActive={pathname.startsWith("/grievances")}
+										tooltip={translate(
+											text({ en: "My grievances", hi: "मेरी शिकायतें" }),
+										)}
+										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--sidebar-accent)] data-[active=true]:text-[var(--blue-900)]"
+									>
+										<Link to="/grievances">
+											<ClipboardList aria-hidden="true" />
+											<span>
+												{translate(
+													text({ en: "My grievances", hi: "मेरी शिकायतें" }),
+												)}
 											</span>
 										</Link>
 									</SidebarMenuButton>
@@ -371,7 +405,10 @@ function WorkspaceShell({
 						<LanguageControl />
 					</div>
 				</header>
-				<div className="w-full pb-40" data-assistant-page-content>
+				<div
+					className="w-full pb-80"
+					data-assistant-page-content
+				>
 					{children}
 				</div>
 			</SidebarInset>

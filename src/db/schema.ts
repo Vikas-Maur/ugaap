@@ -380,6 +380,7 @@ export const grievance = pgTable(
 			table.userId,
 			table.idempotencyKey,
 		),
+		uniqueIndex("grievance_draft_uidx").on(table.draftId),
 		index("grievance_user_status_submitted_idx").on(
 			table.userId,
 			table.status,
@@ -424,6 +425,8 @@ export const attachment = pgTable(
 			onDelete: "cascade",
 		}),
 		pathname: text("pathname").notNull(),
+		originalName: text("original_name").notNull(),
+		fieldId: text("field_id").notNull(),
 		mimeType: text("mime_type").notNull(),
 		sizeBytes: bigint("size_bytes", { mode: "number" }).notNull(),
 		checksum: text("checksum").notNull(),
@@ -437,6 +440,8 @@ export const attachment = pgTable(
 			table.ownerUserId,
 			table.pathname,
 		),
+		uniqueIndex("attachment_draft_uidx").on(table.draftId),
+		uniqueIndex("attachment_grievance_uidx").on(table.grievanceId),
 		index("attachment_grievance_owner_idx").on(
 			table.grievanceId,
 			table.ownerUserId,
