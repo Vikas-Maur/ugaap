@@ -52,13 +52,18 @@ let draftAdapter: CatalogueDraftAdapter = async (payload) => {
 	if (!(await getCurrentSession())) return { ok: false, requiresAuth: true };
 
 	try {
+		const answers = Object.fromEntries(
+			payload.form.fields
+				.filter((field) => field.kind !== "file")
+				.map((field) => [field.id, payload.values[field.id] ?? ""]),
+		);
 		const result = await saveDraft({
 			data: {
 				formKey: payload.form.id,
 				formVersion: payload.form.version,
 				draftId: payload.draftId,
 				language: payload.language ?? "en",
-				answers: payload.values,
+				answers,
 				remarks: payload.values.remarks ?? "",
 				attachmentMetadata: Object.values(payload.attachments).flatMap(
 					(items) =>

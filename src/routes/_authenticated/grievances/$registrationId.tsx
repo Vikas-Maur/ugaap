@@ -299,16 +299,30 @@ function GrievanceDetailScreen() {
 								key={attachment.id}
 								className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-[var(--line)] py-4 last:border-b-0"
 							>
-								<a
-									className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
-									href={`/api/attachments/${attachment.id}`}
-									download
-								>
+								<span className="font-semibold text-[var(--blue-950)]">
 									{attachment.name}
-								</a>
-								<span className="text-sm text-[var(--ink-muted)]">
-									{attachment.mimeType} · {formatFileSize(attachment.sizeBytes)}
 								</span>
+								<div className="flex flex-wrap items-center gap-4 text-sm">
+									<span className="text-[var(--ink-muted)]">
+										{attachment.mimeType} ·{" "}
+										{formatFileSize(attachment.sizeBytes)}
+									</span>
+									<a
+										className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
+										href={`/api/attachments/${encodeURIComponent(attachment.id)}?preview=1`}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{text({ en: "Preview", hi: "पूर्वावलोकन" })}
+									</a>
+									<a
+										className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
+										href={`/api/attachments/${encodeURIComponent(attachment.id)}`}
+										download
+									>
+										{text({ en: "Download", hi: "डाउनलोड" })}
+									</a>
+								</div>
 							</li>
 						))}
 					</ul>

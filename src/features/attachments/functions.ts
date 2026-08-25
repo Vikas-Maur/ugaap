@@ -117,17 +117,6 @@ export const prepareAttachment = createServerFn({ method: "POST" })
 		});
 	});
 
-export const finalizeAttachment = createServerFn({ method: "POST" })
-	.middleware([authMiddleware])
-	.validator(attachmentIdSchema)
-	.handler(async ({ context, data }) => {
-		const { finalizeAttachmentById } = await import("./server");
-		return finalizeAttachmentById({
-			attachmentId: data.attachmentId,
-			ownerUserId: context.session.user.id,
-		});
-	});
-
 export const removeAttachment = createServerFn({ method: "POST" })
 	.middleware([authMiddleware])
 	.validator(attachmentIdSchema)

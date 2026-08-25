@@ -1,8 +1,9 @@
 import "@tanstack/react-start/server-only";
 
-import { del, get } from "@vercel/blob";
-import { and, eq } from "drizzle-orm";
+import { Buffer } from "node:buffer";
 import { createHash } from "node:crypto";
+import { del, put } from "@vercel/blob";
+import { and, eq } from "drizzle-orm";
 import { db } from "#/db/index";
 import { attachment } from "#/db/schema";
 import { MAX_ATTACHMENT_BYTES, type ReadyAttachment } from "./constants";
@@ -52,7 +53,7 @@ async function readLimited(stream: ReadableStream<Uint8Array>) {
 			length += result.value.byteLength;
 			if (length > MAX_ATTACHMENT_BYTES) {
 				await reader.cancel();
-				throw new Error("Attachment exceeds the 5 MB limit");
+				throw new Error("Attachment exceeds the 4 MB limit");
 			}
 			chunks.push(result.value);
 		}
@@ -78,72 +79,91 @@ function readyResult(row: typeof attachment.$inferSelect): ReadyAttachment {
 	};
 }
 
-export async function finalizeAttachmentById({
+async function deleteBlobBestEffort(pathname: string) {
+	const controller = new AbortController();
+	const timeout = setTimeout(() => controller.abort(), 5_000);
+	try {
+		await del(pathname, { abortSignal: controller.signal }).catch(
+			() => undefined,
+		);
+	} finally {
+		clearTimeout(timeout);
+	}
+}
+
+export async function storePreparedAttachment({
 	attachmentId,
 	ownerUserId,
-	expectedPathname,
+	contentType,
+	stream,
 }: {
 	attachmentId: string;
-	ownerUserId?: string;
-	expectedPathname?: string;
+	ownerUserId: string;
+	contentType: string;
+	stream: ReadableStream<Uint8Array>;
 }): Promise<ReadyAttachment> {
-	const conditions = [eq(attachment.id, attachmentId)];
-	if (ownerUserId) conditions.push(eq(attachment.ownerUserId, ownerUserId));
 	const [row] = await db
 		.select()
 		.from(attachment)
-		.where(and(...conditions))
+		.where(
+			and(
+				eq(attachment.id, attachmentId),
+				eq(attachment.ownerUserId, ownerUserId),
+			),
+		)
 		.limit(1);
 	if (!row) throw new Error("Attachment not found");
-	if (expectedPathname && row.pathname !== expectedPathname)
-		throw new Error("Attachment path does not match the upload token");
 	if (row.status === "ready") return readyResult(row);
 	if (row.status !== "pending") throw new Error("Attachment upload failed");
+	if (contentType !== row.mimeType)
+		throw new Error("Attachment type does not match");
 
 	try {
-		const result = await get(row.pathname, {
-			access: "private",
-			useCache: false,
-		});
-		if (!result || result.statusCode !== 200)
-			throw new Error("Uploaded attachment was not found");
-		if (result.blob.pathname !== row.pathname)
-			throw new Error("Uploaded attachment path is invalid");
-		if (result.blob.size !== row.sizeBytes)
-			throw new Error("Uploaded attachment size does not match");
-		if (result.blob.contentType !== row.mimeType)
-			throw new Error("Uploaded attachment type does not match");
-
-		const bytes = await readLimited(result.stream);
+		const bytes = await readLimited(stream);
 		if (bytes.byteLength !== row.sizeBytes)
-			throw new Error("Uploaded attachment size does not match");
+			throw new Error("Attachment size does not match");
 		if (detectedMime(bytes) !== row.mimeType)
 			throw new Error("Attachment contents do not match its file type");
 		const checksum = createHash("sha256").update(bytes).digest("hex");
 		if (checksum !== row.checksum)
 			throw new Error("Attachment checksum does not match");
 
+		const controller = new AbortController();
+		const timeout = setTimeout(() => controller.abort(), 20_000);
+		try {
+			const blob = await put(row.pathname, Buffer.from(bytes), {
+				access: "private",
+				abortSignal: controller.signal,
+				addRandomSuffix: false,
+				allowOverwrite: false,
+				cacheControlMaxAge: 60,
+				contentType: row.mimeType,
+			});
+			if (blob.pathname !== row.pathname || blob.contentType !== row.mimeType)
+				throw new Error("Stored attachment metadata does not match");
+		} finally {
+			clearTimeout(timeout);
+		}
+
 		const [updated] = await db
 			.update(attachment)
 			.set({ status: "ready", checksum })
 			.where(and(eq(attachment.id, row.id), eq(attachment.status, "pending")))
 			.returning();
-		if (!updated) {
-			const [winner] = await db
-				.select()
-				.from(attachment)
-				.where(eq(attachment.id, row.id))
-				.limit(1);
-			if (winner?.status === "ready") return readyResult(winner);
-			throw new Error("Attachment could not be finalized");
-		}
-		return readyResult(updated);
+		if (updated) return readyResult(updated);
+		const [winner] = await db
+			.select()
+			.from(attachment)
+			.where(eq(attachment.id, row.id))
+			.limit(1);
+		if (winner?.status === "ready") return readyResult(winner);
+		throw new Error("Attachment could not be finalized");
 	} catch (error) {
 		await db
 			.update(attachment)
 			.set({ status: "failed" })
 			.where(and(eq(attachment.id, row.id), eq(attachment.status, "pending")));
-		await del(row.pathname).catch(() => undefined);
+		await deleteBlobBestEffort(row.pathname);
 		throw error;
 	}
 }

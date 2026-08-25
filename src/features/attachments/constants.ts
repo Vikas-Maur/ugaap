@@ -1,4 +1,6 @@
-export const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
+import { z } from "zod";
+
+export const MAX_ATTACHMENT_BYTES = 4 * 1024 * 1024;
 
 export const ATTACHMENT_MIME_TYPES = [
 	"application/pdf",
@@ -8,13 +10,17 @@ export const ATTACHMENT_MIME_TYPES = [
 
 export type AttachmentMimeType = (typeof ATTACHMENT_MIME_TYPES)[number];
 
-export type ReadyAttachment = {
-	id: string;
-	fieldId: string;
-	name: string;
-	mimeType: AttachmentMimeType;
-	sizeBytes: number;
-};
+export const readyAttachmentSchema = z
+	.object({
+		id: z.uuid(),
+		fieldId: z.string(),
+		name: z.string(),
+		mimeType: z.enum(ATTACHMENT_MIME_TYPES),
+		sizeBytes: z.number().int().positive().max(MAX_ATTACHMENT_BYTES),
+	})
+	.strict();
+
+export type ReadyAttachment = z.infer<typeof readyAttachmentSchema>;
 
 export function attachmentExtension(name: string): string | null {
 	const match = /\.([a-z0-9]+)$/i.exec(name.trim());

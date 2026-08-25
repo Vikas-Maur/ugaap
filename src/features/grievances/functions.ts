@@ -501,7 +501,7 @@ export const submitGrievance = createServerFn({ method: "POST" })
 						),
 				)
 			)
-				throw new Error("Attachment must be a PDF, JPEG, or PNG up to 5 MB");
+				throw new Error("Attachment must be a PDF, JPEG, or PNG up to 4 MB");
 			const now = new Date();
 			const [created] = await tx
 				.insert(grievance)

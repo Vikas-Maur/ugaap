@@ -564,7 +564,7 @@ Submission runs one server transaction:
 
 #### P3.2 Attachments
 
-- Use one private Vercel Blob attachment per grievance, maximum 5 MB.
+- Use one private Vercel Blob attachment per grievance, maximum 4 MB.
 - Accept PDF, JPEG, and PNG only.
 - Validate extension, declared MIME type, detected signature, size, checksum, and ownership.
 - Upload directly using a short-lived authenticated token.

@@ -12,6 +12,7 @@ import {
 import {
 	type FormEvent,
 	type ReactNode,
+	useCallback,
 	useEffect,
 	useMemo,
 	useRef,
@@ -36,6 +37,7 @@ import {
 	expectedMimeForExtension,
 	MAX_ATTACHMENT_BYTES,
 	type ReadyAttachment,
+	readyAttachmentSchema,
 } from "#/features/attachments/constants";
 
 import { submitGrievance } from "#/features/grievances/functions";
@@ -74,9 +76,29 @@ function createIdempotencyKey() {
 
 type AttachmentUploadState = {
 	fieldId: string;
-	progress: number;
-	error: string | null;
+	phase: "preparing" | "uploading" | "checking" | "removing";
 } | null;
+
+type AttachmentError = {
+	fieldId: string;
+	message: string;
+} | null;
+
+type DraftSaveStatus = "idle" | "saving" | "saved" | "error";
+
+const ATTACHMENT_UPLOAD_TIMEOUT_MS = 30_000;
+const DRAFT_AUTOSAVE_DELAY_MS = 800;
+
+function draftSnapshot(values: FormValues, attachments: AttachmentState) {
+	return JSON.stringify({ values, attachments });
+}
+
+function hasDraftContent(values: FormValues, attachments: AttachmentState) {
+	return (
+		Object.values(values).some((value) => value.trim().length > 0) ||
+		Object.values(attachments).some((items) => items.length > 0)
+	);
+}
 
 async function checksumFile(file: File) {
 	const digest = await globalThis.crypto.subtle.digest(
@@ -832,6 +854,7 @@ export function AuthorityPage({
 					<CatalogueFormScreen
 						categoryControls={selectors}
 						form={selectedForm}
+						key={selectedForm.id}
 						authorityName={chunk.authority.name}
 						review={review}
 						draftId={draftId}
@@ -1072,6 +1095,7 @@ export function FormPage({
 		<CatalogueFormScreen
 			categoryControls={null}
 			form={form}
+			key={form.id}
 			authorityName={chunk.authority.name}
 			review={review}
 			draftId={draftId}
@@ -1104,6 +1128,13 @@ function CatalogueFormScreen({
 	const [submitting, setSubmitting] = useState(false);
 	const [attachmentUpload, setAttachmentUpload] =
 		useState<AttachmentUploadState>(null);
+	const [attachmentError, setAttachmentError] = useState<AttachmentError>(null);
+	const [draftSaveStatus, setDraftSaveStatus] = useState<DraftSaveStatus>(
+		draftId ? "saved" : "idle",
+	);
+	const autosaveInitialized = useRef(false);
+	const failedDraftSnapshot = useRef<string | null>(null);
+	const lastSavedDraftSnapshot = useRef<string | null>(null);
 	const submissionKey = useRef<string | null>(null);
 
 	useEffect(() => {
@@ -1135,10 +1166,17 @@ function CatalogueFormScreen({
 					);
 					return;
 				}
+				const fileFieldIds = new Set(
+					form.fields
+						.filter((field) => field.kind === "file")
+						.map((field) => field.id),
+				);
 				const values = Object.fromEntries(
-					Object.entries(result.draft.answers).flatMap(([key, value]) =>
-						typeof value === "string" ? [[key, value]] : [],
-					),
+					Object.entries(result.draft.answers).flatMap(([key, value]) => {
+						return typeof value === "string" && !fileFieldIds.has(key)
+							? [[key, value]]
+							: [];
+					}),
 				);
 				const attachments: AttachmentState = {};
 				for (const item of result.draft.attachmentMetadata) {
@@ -1193,7 +1231,7 @@ function CatalogueFormScreen({
 		return () => {
 			active = false;
 		};
-	}, [draftId, form.id, form.version, restore, translate]);
+	}, [draftId, form.fields, form.id, form.version, restore, translate]);
 	const goReview = (event: FormEvent) => {
 		event.preventDefault();
 		if (state.validate())
@@ -1215,58 +1253,63 @@ function CatalogueFormScreen({
 				draft: draftId,
 			}),
 		});
-	const save = async ({
-		validate = true,
-		attachments = state.attachments,
-		quiet = false,
-		targetDraftId = draftId,
-	}: {
-		validate?: boolean;
-		attachments?: AttachmentState;
-		quiet?: boolean;
-		targetDraftId?: string;
-	} = {}) => {
-		if (saving || (validate && !state.validate())) return;
-		setSaving(true);
-		if (!quiet) setSaveMessage(null);
-		setSaveError(false);
-		try {
-			const {
-				preservePendingCatalogueIntent,
-				sanitizeReturnTarget,
-				saveCatalogueDraft,
-			} = await import("../client");
-			const result = await saveCatalogueDraft({
-				form,
-				draftId: targetDraftId,
-				values: state.values,
-				attachments,
-				language,
-			});
-			if (result.ok) {
-				if (!quiet)
-					setSaveMessage(
-						translate(text({ en: "Draft saved.", hi: "ड्राफ़्ट सहेजा गया।" })),
-					);
-				if (!targetDraftId && result.draftId) {
-					await navigate({
-						to: ".",
-						search: (previous) => ({
-							...previous,
-							review,
-							draft: result.draftId,
-						}),
-						replace: true,
-					});
+	const save = useCallback(
+		async ({
+			validate = true,
+			attachments = state.attachments,
+			quiet = false,
+			targetDraftId = draftId,
+		}: {
+			validate?: boolean;
+			attachments?: AttachmentState;
+			quiet?: boolean;
+			targetDraftId?: string;
+		} = {}) => {
+			if (saving || (validate && !state.validate())) return;
+			const snapshot = draftSnapshot(state.values, attachments);
+			setSaving(true);
+			setDraftSaveStatus("saving");
+			if (!quiet) setSaveMessage(null);
+			setSaveError(false);
+			try {
+				const {
+					preservePendingCatalogueIntent,
+					sanitizeReturnTarget,
+					saveCatalogueDraft,
+				} = await import("../client");
+				const result = await saveCatalogueDraft({
+					form,
+					draftId: targetDraftId,
+					values: state.values,
+					attachments,
+					language,
+				});
+				if (result.ok) {
+					failedDraftSnapshot.current = null;
+					lastSavedDraftSnapshot.current = snapshot;
+					setDraftSaveStatus("saved");
+					if (!targetDraftId && result.draftId) {
+						await navigate({
+							to: ".",
+							search: (previous) => ({
+								...previous,
+								review,
+								draft: result.draftId,
+							}),
+							replace: true,
+							resetScroll: false,
+						});
+					}
+					return result;
 				}
-				return result;
-			} else {
 				preservePendingCatalogueIntent({
 					form,
 					values: state.values,
 					attachments,
 					language,
 				});
+				failedDraftSnapshot.current = snapshot;
+				setDraftSaveStatus("error");
 				await navigate({
 					to: "/login",
 					search: {
@@ -1275,22 +1318,68 @@ function CatalogueFormScreen({
 						),
 					},
 				});
+			} catch {
+				failedDraftSnapshot.current = snapshot;
+				setDraftSaveStatus("error");
+				setSaveError(true);
+				if (!quiet)
+					setSaveMessage(
+						translate(
+							text({
+								en: "The draft could not be saved. Try again.",
+								hi: "मसौदा सहेजा नहीं जा सका। फिर कोशिश करें।",
+							}),
+						),
+					);
+			} finally {
+				setSaving(false);
 			}
-		} catch {
-			setSaveError(true);
-			if (!quiet)
-				setSaveMessage(
-					translate(
-						text({
-							en: "The draft could not be saved. Try again.",
-							hi: "मसौदा सहेजा नहीं जा सका। फिर कोशिश करें।",
-						}),
-					),
-				);
-		} finally {
-			setSaving(false);
+		},
+		[
+			draftId,
+			form,
+			language,
+			navigate,
+			review,
+			saving,
+			state.attachments,
+			state.validate,
+			state.values,
+			translate,
+		],
+	);
+	const currentDraftSnapshot = useMemo(
+		() => draftSnapshot(state.values, state.attachments),
+		[state.attachments, state.values],
+	);
+	useEffect(() => {
+		if (restoring || submitting || attachmentUpload || saving) return;
+		if (!autosaveInitialized.current) {
+			autosaveInitialized.current = true;
+			if (draftId || !hasDraftContent(state.values, state.attachments)) {
+				lastSavedDraftSnapshot.current = currentDraftSnapshot;
+				setDraftSaveStatus(draftId ? "saved" : "idle");
+				return;
+			}
 		}
-	};
+		if (lastSavedDraftSnapshot.current === currentDraftSnapshot) return;
+		if (failedDraftSnapshot.current === currentDraftSnapshot) return;
+		setDraftSaveStatus("saving");
+		const timeout = globalThis.setTimeout(() => {
+			void save({ validate: false, quiet: true });
+		}, DRAFT_AUTOSAVE_DELAY_MS);
+		return () => globalThis.clearTimeout(timeout);
+	}, [
+		attachmentUpload,
+		currentDraftSnapshot,
+		draftId,
+		restoring,
+		save,
+		saving,
+		state.attachments,
+		state.values,
+		submitting,
+	]);
 	const uploadAttachment = async (fieldId: string, file: File) => {
 		if (attachmentUpload || saving || submitting) return;
 		const extension = attachmentExtension(file.name);
@@ -1301,25 +1390,29 @@ function CatalogueFormScreen({
 			file.size <= 0 ||
 			file.size > MAX_ATTACHMENT_BYTES
 		) {
-			setSaveError(true);
-			setSaveMessage(
-				translate(
+			setSaveError(false);
+			setSaveMessage(null);
+			setAttachmentError({
+				fieldId,
+				message: translate(
 					text({
-						en: "Choose one PDF, JPEG, or PNG file no larger than 5 MB.",
-						hi: "5 MB तक की एक PDF, JPEG या PNG फ़ाइल चुनें।",
+						en: "Choose one PDF, JPEG, or PNG file no larger than 4 MB.",
+						hi: "4 MB तक की एक PDF, JPEG या PNG फ़ाइल चुनें।",
 					}),
 				),
-			);
+			});
 			return;
 		}
-		setAttachmentUpload({ fieldId, progress: 0, error: null });
+		setAttachmentUpload({ fieldId, phase: "preparing" });
+		setAttachmentError(null);
 		setSaveError(false);
 		setSaveMessage(null);
 		let preparedId: string | null = null;
 		try {
 			const currentAttachments = Object.values(state.attachments).flat();
-			const { finalizeAttachment, prepareAttachment, removeAttachment } =
-				await import("#/features/attachments/functions");
+			const { prepareAttachment, removeAttachment } = await import(
+				"#/features/attachments/functions"
+			);
 			for (const current of currentAttachments) {
 				await removeAttachment({ data: { attachmentId: current.id } });
 			}
@@ -1331,7 +1424,19 @@ function CatalogueFormScreen({
 				attachments: emptyAttachments,
 				quiet: true,
 			});
-			if (!saved?.ok) return;
+			if (!saved?.ok) {
+				setSaveError(false);
+				setAttachmentError({
+					fieldId,
+					message: translate(
+						text({
+							en: "The attachment could not be prepared. Try again.",
+							hi: "संलग्नक तैयार नहीं किया जा सका। फिर से कोशिश करें।",
+						}),
+					),
+				});
+				return;
+			}
 			const checksum = await checksumFile(file);
 			const prepared = await prepareAttachment({
 				data: {
@@ -1344,43 +1449,56 @@ function CatalogueFormScreen({
 				},
 			});
 			preparedId = prepared.attachmentId;
-			const { upload } = await import("@vercel/blob/client");
-			await upload(prepared.pathname, file, {
-				access: "private",
-				contentType: expectedMime,
-				handleUploadUrl: "/api/attachments/upload",
-				clientPayload: JSON.stringify({
-					attachmentId: prepared.attachmentId,
-				}),
-				onUploadProgress: ({ percentage }) =>
-					setAttachmentUpload({
-						fieldId,
-						progress: Math.round(percentage),
-						error: null,
-					}),
-			});
-			const ready = await finalizeAttachment({
-				data: { attachmentId: prepared.attachmentId },
-			});
-			const nextAttachments: AttachmentState = { [fieldId]: [ready] };
-			state.setAttachment(fieldId, [ready]);
-			const savedWithAttachment = await save({
-				validate: false,
-				attachments: nextAttachments,
-				quiet: true,
-				targetDraftId: saved.draftId,
-			});
-			if (!savedWithAttachment?.ok)
-				throw new Error("Attachment metadata could not be saved");
-			setSaveMessage(
-				translate(
-					text({
-						en: "Attachment uploaded and checked.",
-						hi: "संलग्नक अपलोड और जाँच कर लिया गया।",
-					}),
-				),
-			);
-		} catch {
+			const uploadAbortController = new AbortController();
+			let uploadTimedOut = false;
+			const uploadTimeout = globalThis.setTimeout(() => {
+				uploadTimedOut = true;
+				uploadAbortController.abort();
+			}, ATTACHMENT_UPLOAD_TIMEOUT_MS);
+			try {
+				setAttachmentUpload({ fieldId, phase: "uploading" });
+				const response = await fetch(
+					`/api/attachments/${encodeURIComponent(prepared.attachmentId)}`,
+					{
+						method: "PUT",
+						body: file,
+						headers: { "Content-Type": expectedMime },
+						signal: uploadAbortController.signal,
+					},
+				);
+				if (!response.ok) {
+					const payload: unknown = await response.json().catch(() => null);
+					const message =
+						typeof payload === "object" &&
+						payload !== null &&
+						"error" in payload &&
+						typeof payload.error === "string"
+							? payload.error
+							: "Attachment upload failed";
+					throw new Error(message);
+				}
+				const ready = readyAttachmentSchema.parse(await response.json());
+				globalThis.clearTimeout(uploadTimeout);
+				uploadTimedOut = false;
+				setAttachmentUpload({ fieldId, phase: "checking" });
+				const nextAttachments: AttachmentState = { [fieldId]: [ready] };
+				state.setAttachment(fieldId, [ready]);
+				const savedWithAttachment = await save({
+					validate: false,
+					attachments: nextAttachments,
+					quiet: true,
+					targetDraftId: saved.draftId,
+				});
+				if (!savedWithAttachment?.ok)
+					throw new Error("Attachment metadata could not be saved");
+			} catch (error) {
+				if (uploadTimedOut)
+					throw new Error("Attachment upload timed out", { cause: error });
+				throw error;
+			} finally {
+				globalThis.clearTimeout(uploadTimeout);
+			}
+		} catch (error) {
 			state.setAttachment(fieldId, []);
 			if (preparedId) {
 				const { removeAttachment } = await import(
@@ -1390,15 +1508,23 @@ function CatalogueFormScreen({
 					data: { attachmentId: preparedId },
 				}).catch(() => undefined);
 			}
-			setSaveError(true);
-			setSaveMessage(
-				translate(
+			setSaveError(false);
+			setSaveMessage(null);
+			setAttachmentError({
+				fieldId,
+				message: translate(
 					text({
-						en: "The attachment could not be uploaded or verified. Try again.",
+						en:
+							error instanceof Error &&
+							/secure attachment storage is not configured/i.test(error.message)
+								? "File uploads are temporarily unavailable because secure storage is not configured."
+								: error instanceof Error && /timed out/i.test(error.message)
+									? "The file upload took too long. Check your connection and try again."
+									: "The attachment could not be uploaded or verified. Try again.",
 						hi: "संलग्नक अपलोड या सत्यापित नहीं हो सका। फिर से कोशिश करें।",
 					}),
 				),
-			);
+			});
 		} finally {
 			setAttachmentUpload(null);
 		}
@@ -1408,7 +1534,8 @@ function CatalogueFormScreen({
 		item: ReadyAttachment,
 	) => {
 		if (attachmentUpload || saving || submitting) return;
-		setAttachmentUpload({ fieldId, progress: 0, error: null });
+		setAttachmentUpload({ fieldId, phase: "removing" });
+		setAttachmentError(null);
 		setSaveError(false);
 		try {
 			const { removeAttachment } = await import(
@@ -1428,21 +1555,18 @@ function CatalogueFormScreen({
 					quiet: true,
 					targetDraftId: draftId,
 				});
-			setSaveMessage(
-				translate(
-					text({ en: "Attachment removed.", hi: "संलग्नक हटा दिया गया।" }),
-				),
-			);
 		} catch {
-			setSaveError(true);
-			setSaveMessage(
-				translate(
+			setSaveError(false);
+			setSaveMessage(null);
+			setAttachmentError({
+				fieldId,
+				message: translate(
 					text({
 						en: "The attachment could not be removed. Try again.",
 						hi: "संलग्नक हटाया नहीं जा सका। फिर से कोशिश करें।",
 					}),
 				),
-			);
+			});
 		} finally {
 			setAttachmentUpload(null);
 		}
@@ -1460,6 +1584,7 @@ function CatalogueFormScreen({
 				}).catch(() => undefined);
 		}
 		state.reset();
+		setAttachmentError(null);
 	};
 	const submit = async () => {
 		if (submitting || !state.validate()) return;
@@ -1467,7 +1592,7 @@ function CatalogueFormScreen({
 		setSaveMessage(null);
 		setSaveError(false);
 		try {
-			const saved = await save();
+			const saved = await save({ quiet: true });
 			if (!saved?.ok) return;
 			if (!submissionKey.current)
 				submissionKey.current = createIdempotencyKey();
@@ -1498,8 +1623,8 @@ function CatalogueFormScreen({
 				language={language}
 				state={state}
 				onEdit={goEdit}
-				onSave={() => void save()}
 				onSubmit={() => void submit()}
+				draftSaveStatus={draftSaveStatus}
 				saveMessage={saveMessage}
 				saveError={saveError}
 				saving={saving}
@@ -1516,6 +1641,11 @@ function CatalogueFormScreen({
 						key={field.id}
 						values={state.values}
 						attachments={state.attachments}
+						attachmentError={
+							attachmentError?.fieldId === field.id
+								? attachmentError.message
+								: null
+						}
 						errors={state.errors}
 						onValue={state.setValue}
 						uploadState={attachmentUpload}
@@ -1534,18 +1664,7 @@ function CatalogueFormScreen({
 				>
 					{translate(text({ en: "Review details", hi: "विवरण देखें" }))}
 				</button>
-				<button
-					className="action-secondary disabled:pointer-events-none disabled:opacity-50"
-					type="button"
-					onClick={() => void save()}
-					disabled={saving || attachmentUpload !== null}
-				>
-					{translate(
-						saving
-							? text({ en: "Saving…", hi: "सहेजा जा रहा है…" })
-							: text({ en: "Save draft", hi: "ड्राफ़्ट सहेजें" }),
-					)}
-				</button>
+				<DraftSaveIndicator status={draftSaveStatus} />
 				<button
 					className="min-h-11 px-5 py-2.5 text-sm font-semibold text-slate-600 underline-offset-4 hover:text-blue-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
 					type="button"
@@ -1573,6 +1692,7 @@ function FieldControl({
 	field,
 	values,
 	attachments,
+	attachmentError,
 	errors,
 	onValue,
 	uploadState,
@@ -1582,6 +1702,7 @@ function FieldControl({
 	field: CatalogueField;
 	values: FormValues;
 	attachments: AttachmentState;
+	attachmentError: string | null;
 	errors: FormErrors;
 	onValue: (id: string, value: string) => void;
 	uploadState: AttachmentUploadState;
@@ -1593,6 +1714,7 @@ function FieldControl({
 	const error = errors[field.id];
 	const describedBy = error ? `${field.id}-error` : undefined;
 	const attachmentHelpId = `${field.id}-attachment-help`;
+	const attachmentErrorId = `${field.id}-attachment-error`;
 	const currentAttachment = attachments[field.id]?.[0];
 	const uploadingThisField = uploadState?.fieldId === field.id;
 	const common = {
@@ -1650,11 +1772,14 @@ function FieldControl({
 						type="file"
 						accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
 						disabled={uploadState !== null}
-						aria-describedby={
-							describedBy
-								? `${describedBy} ${attachmentHelpId}`
-								: attachmentHelpId
-						}
+						aria-describedby={[
+							describedBy,
+							attachmentHelpId,
+							attachmentError ? attachmentErrorId : null,
+						]
+							.filter(Boolean)
+							.join(" ")}
+						aria-invalid={Boolean(error || attachmentError)}
 						onChange={(event) => {
 							const file = event.currentTarget.files?.[0];
 							if (file) onAttachment(file);
@@ -1668,24 +1793,40 @@ function FieldControl({
 					>
 						{translate(
 							text({
-								en: "Demo only. Upload one synthetic PDF, JPEG, or PNG file with no real personal data, up to 5 MB. The prototype checks the file type and checksum. Production also requires malware scanning.",
-								hi: "केवल डेमो के लिए। वास्तविक व्यक्तिगत डेटा के बिना एक कृत्रिम PDF, JPEG या PNG फ़ाइल अपलोड करें, अधिकतम 5 MB। प्रोटोटाइप फ़ाइल प्रकार और चेकसम जाँचता है। उत्पादन में मैलवेयर स्कैनिंग भी आवश्यक है।",
+								en: "Upload one PDF, JPEG, or PNG file, up to 4 MB. The prototype checks the file type and checksum.",
+								hi: "एक PDF, JPEG या PNG फ़ाइल अपलोड करें, अधिकतम 4 MB। प्रोटोटाइप फ़ाइल प्रकार और चेकसम जाँचता है।",
 							}),
 						)}
 					</p>
+					{attachmentError ? (
+						<p
+							id={attachmentErrorId}
+							className="mt-2 text-sm font-semibold text-red-700"
+							role="alert"
+						>
+							{attachmentError}
+						</p>
+					) : null}
 					{uploadingThisField ? (
 						<output className="mt-2 block text-sm font-semibold text-blue-800">
 							{translate(
 								text({
-									en: `Uploading and checking... ${uploadState.progress}%`,
-									hi: `अपलोड और जाँच जारी है... ${uploadState.progress}%`,
+									en:
+										uploadState.phase === "preparing"
+											? "Preparing file..."
+											: uploadState.phase === "checking"
+												? "Checking uploaded file..."
+												: uploadState.phase === "removing"
+													? "Removing attachment..."
+													: "Uploading file...",
+									hi: "फ़ाइल अपलोड की जा रही है...",
 								}),
 							)}
 						</output>
 					) : null}
 					{currentAttachment ? (
 						<div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-y border-blue-200 py-3">
-							<p className="min-w-0 text-sm text-blue-950">
+							<p className="min-w-0 flex-1 text-sm text-blue-950">
 								<span className="block truncate font-semibold">
 									{currentAttachment.name}
 								</span>
@@ -1694,14 +1835,24 @@ function FieldControl({
 									{formatFileSize(currentAttachment.sizeBytes)}
 								</span>
 							</p>
-							<button
-								className="min-h-10 text-sm font-semibold text-red-700 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
-								type="button"
-								disabled={uploadState !== null}
-								onClick={() => onRemoveAttachment(currentAttachment)}
-							>
-								{translate(text({ en: "Remove", hi: "हटाएँ" }))}
-							</button>
+							<div className="flex flex-wrap items-center gap-3">
+								<a
+									className="inline-flex min-h-10 items-center text-sm font-semibold text-blue-800 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+									href={`/api/attachments/${encodeURIComponent(currentAttachment.id)}?preview=1`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{translate(text({ en: "Preview", hi: "पूर्वावलोकन" }))}
+								</a>
+								<button
+									className="inline-flex min-h-10 items-center text-sm font-semibold text-red-700 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
+									type="button"
+									disabled={uploadState !== null}
+									onClick={() => onRemoveAttachment(currentAttachment)}
+								>
+									{translate(text({ en: "Remove", hi: "हटाएँ" }))}
+								</button>
+							</div>
 						</div>
 					) : null}
 				</>
@@ -1746,14 +1897,50 @@ function FieldControl({
 	);
 }
 
+function DraftSaveIndicator({ status }: { status: DraftSaveStatus }) {
+	const { text: translate } = useI18n();
+	const message =
+		status === "saving"
+			? text({
+					en: "Saving in draft",
+					hi: "ड्राफ़्ट में सहेजा जा रहा है",
+				})
+			: status === "saved"
+				? text({ en: "Saved in draft", hi: "ड्राफ़्ट में सहेजा गया" })
+				: status === "error"
+					? text({
+							en: "Draft could not be saved",
+							hi: "ड्राफ़्ट सहेजा नहीं जा सका",
+						})
+					: text({
+							en: "Changes save automatically",
+							hi: "बदलाव अपने आप सहेजे जाते हैं",
+						});
+	return (
+		<output
+			className={`inline-flex min-h-11 items-center px-2 text-sm font-semibold ${
+				status === "error"
+					? "text-red-700"
+					: status === "saved"
+						? "text-emerald-800"
+						: "text-slate-600"
+			}`}
+			aria-live="polite"
+			role={status === "error" ? "alert" : undefined}
+		>
+			{translate(message)}
+		</output>
+	);
+}
+
 function ReviewPanel({
 	form,
 	authorityName,
 	language,
 	state,
 	onEdit,
-	onSave,
 	onSubmit,
+	draftSaveStatus,
 	saveMessage,
 	saveError,
 	saving,
@@ -1764,8 +1951,8 @@ function ReviewPanel({
 	language: "en" | "hi";
 	state: ReturnType<typeof useCatalogueFormState>;
 	onEdit: () => void;
-	onSave: () => void;
 	onSubmit: () => void;
+	draftSaveStatus: DraftSaveStatus;
 	saveMessage: string | null;
 	saveError: boolean;
 	saving: boolean;
@@ -1885,18 +2072,7 @@ function ReviewPanel({
 				>
 					{translate(text({ en: "Edit details", hi: "विवरण बदलें" }))}
 				</button>
-				<button
-					className="action-secondary"
-					type="button"
-					onClick={onSave}
-					disabled={saving || submitting}
-				>
-					{translate(
-						saving
-							? text({ en: "Saving…", hi: "सहेजा जा रहा है…" })
-							: text({ en: "Save draft", hi: "ड्राफ़्ट सहेजें" }),
-					)}
-				</button>
+				<DraftSaveIndicator status={draftSaveStatus} />
 				<button
 					className="action-primary"
 					type="button"
