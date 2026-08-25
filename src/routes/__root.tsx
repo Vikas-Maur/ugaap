@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { AppShell } from "../components/AppShell";
+import { Toaster } from "../components/ui/sonner";
 import { AssistantProvider } from "../features/assistant/context";
 import { I18nProvider } from "../features/i18n/i18n";
 import appCss from "../styles.css?url";
@@ -53,6 +54,7 @@ function RootDocument({ children }: { children: ReactNode }) {
 					<AssistantProvider>
 						<AppShell>{children}</AppShell>
 					</AssistantProvider>
+					<Toaster position="top-right" />
 				</I18nProvider>
 				<Scripts />
 			</body>

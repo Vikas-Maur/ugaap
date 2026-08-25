@@ -1,11 +1,10 @@
-import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import {
 	ClipboardList,
 	FileClock,
 	FilePlus2,
 	Globe2,
 	Home,
-	LogOut,
 	Menu,
 } from "lucide-react";
 import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
@@ -14,6 +13,7 @@ import { text, useI18n } from "../features/i18n/i18n";
 import { authClient } from "../lib/auth-client";
 import { AssistantEntry } from "./AssistantEntry";
 import { BrandLogo } from "./BrandLogo";
+import { SignOutButton } from "./SignOutButton";
 import {
 	Sidebar,
 	SidebarContent,
@@ -255,7 +255,6 @@ function WorkspaceShell({
 }: Readonly<{ children: ReactNode; pathname: string }>) {
 	const { text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
-	const navigate = useNavigate();
 	const headerScrolled = useHeaderScrolled();
 	const title = pathname.startsWith("/drafts")
 		? text({ en: "Saved drafts", hi: "सहेजे गए मसौदे" })
@@ -264,11 +263,6 @@ function WorkspaceShell({
 			: pathname.startsWith("/continuation")
 				? text({ en: "Continue your request", hi: "अपना अनुरोध जारी रखें" })
 				: text({ en: "File a grievance", hi: "शिकायत दर्ज करें" });
-
-	async function signOut() {
-		await authClient.signOut();
-		await navigate({ to: "/" });
-	}
 
 	return (
 		<SidebarProvider
@@ -396,16 +390,7 @@ function WorkspaceShell({
 							</SidebarMenuButton>
 						</SidebarMenuItem>
 						<SidebarMenuItem>
-							<SidebarMenuButton
-								onClick={() => void signOut()}
-								tooltip={translate(text({ en: "Sign out", hi: "साइन आउट" }))}
-								className="h-10 rounded-lg px-3"
-							>
-								<LogOut aria-hidden="true" />
-								<span>
-									{translate(text({ en: "Sign out", hi: "साइन आउट" }))}
-								</span>
-							</SidebarMenuButton>
+							<SignOutButton />
 						</SidebarMenuItem>
 					</SidebarMenu>
 				</SidebarFooter>
