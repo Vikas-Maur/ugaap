@@ -21,6 +21,7 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AuthenticatedContinuationRouteImport } from './routes/_authenticated/continuation'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDraftsRouteImport } from './routes/_authenticated/drafts'
 import { Route as PublicGrievancesIndexRouteImport } from './routes/public-grievances/index'
 import { Route as PublicGrievancesPublicIdRouteImport } from './routes/public-grievances/$publicId'
@@ -96,6 +97,11 @@ const AuthenticatedContinuationRoute =
     path: '/continuation',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
 const AuthenticatedDraftsRoute = AuthenticatedDraftsRouteImport.update({
   id: '/drafts',
   path: '/drafts',
@@ -185,6 +191,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/terms': typeof TermsRoute
   '/continuation': typeof AuthenticatedContinuationRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/drafts': typeof AuthenticatedDraftsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
@@ -211,6 +218,7 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/terms': typeof TermsRoute
   '/continuation': typeof AuthenticatedContinuationRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/drafts': typeof AuthenticatedDraftsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/public-grievances': typeof PublicGrievancesIndexRoute
@@ -239,6 +247,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/terms': typeof TermsRoute
   '/_authenticated/continuation': typeof AuthenticatedContinuationRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/drafts': typeof AuthenticatedDraftsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
@@ -268,6 +277,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/terms'
     | '/continuation'
+    | '/dashboard'
     | '/drafts'
     | '/public-grievances/$publicId'
     | '/services/$authoritySlug'
@@ -294,6 +304,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/terms'
     | '/continuation'
+    | '/dashboard'
     | '/drafts'
     | '/public-grievances/$publicId'
     | '/public-grievances'
@@ -321,6 +332,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/terms'
     | '/_authenticated/continuation'
+    | '/_authenticated/dashboard'
     | '/_authenticated/drafts'
     | '/public-grievances/$publicId'
     | '/services/$authoritySlug'
@@ -444,6 +456,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedContinuationRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
     '/_authenticated/drafts': {
       id: '/_authenticated/drafts'
       path: '/drafts'
@@ -547,6 +566,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteChildren {
   AuthenticatedContinuationRoute: typeof AuthenticatedContinuationRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedDraftsRoute: typeof AuthenticatedDraftsRoute
   AuthenticatedGrievancesRegistrationIdRoute: typeof AuthenticatedGrievancesRegistrationIdRoute
   AuthenticatedGrievancesIndexRoute: typeof AuthenticatedGrievancesIndexRoute
@@ -554,6 +574,7 @@ interface AuthenticatedRouteChildren {
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedContinuationRoute: AuthenticatedContinuationRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedDraftsRoute: AuthenticatedDraftsRoute,
   AuthenticatedGrievancesRegistrationIdRoute:
     AuthenticatedGrievancesRegistrationIdRoute,

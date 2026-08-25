@@ -18,7 +18,10 @@ import { authClient } from "#/lib/auth-client";
 
 export const Route = createFileRoute("/register")({
 	validateSearch: (search) => ({
-		redirect: sanitizeRedirectPath(search.redirect),
+		redirect:
+			typeof search.redirect === "string"
+				? sanitizeRedirectPath(search.redirect)
+				: "/dashboard",
 	}),
 	beforeLoad: async ({ search }) => {
 		if (await getCurrentSession()) throw redirect({ to: search.redirect });

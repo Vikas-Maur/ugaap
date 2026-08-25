@@ -323,31 +323,52 @@ function AuthorityList({
 					)}
 				</p>
 			</div>
-			<div className="grid gap-2">
-				{directory.authorities.map((authority) => (
-					<AuthorityCard authority={authority} key={authority.id} />
+			<div className="border-y border-[var(--line-strong)] bg-[var(--paper)]">
+				{directory.authorities.map((authority, index) => (
+					<AuthorityCard
+						authority={authority}
+						index={index}
+						key={authority.id}
+					/>
 				))}
 			</div>
 		</section>
 	);
 }
 
-function AuthorityCard({ authority }: { authority: CatalogueAuthority }) {
+function AuthorityCard({
+	authority,
+	index,
+}: {
+	authority: CatalogueAuthority;
+	index: number;
+}) {
+	const { text: translate } = useI18n();
 	return (
 		<Link
 			to="/services/$authoritySlug"
 			params={{ authoritySlug: authority.slug }}
 			search={{ form: undefined, review: false, draft: undefined }}
-			className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+			className="group grid grid-cols-[2.25rem_minmax(0,1fr)_auto] items-center gap-3 border-b border-[var(--line)] px-3 py-5 last:border-b-0 transition-colors hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action)] sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:px-5 sm:py-6"
 		>
-			<h3 className="text-base font-semibold tracking-[-0.01em] text-blue-950 sm:text-lg">
-				{authority.name}
-			</h3>
-			<ChevronRight
-				className="text-blue-700 transition-transform group-hover:translate-x-0.5"
-				size={20}
-				aria-hidden="true"
-			/>
+			<span className="text-xs font-bold tabular-nums text-[var(--action)]">
+				{String(index + 1).padStart(2, "0")}
+			</span>
+			<div className="min-w-0">
+				<h3 className="text-base font-bold tracking-[-0.01em] text-[var(--ink)] sm:text-lg">
+					{authority.name}
+				</h3>
+			</div>
+			<span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--action)]">
+				<span className="hidden sm:inline">
+					{translate(text({ en: "View", hi: "देखें" }))}
+				</span>
+				<ChevronRight
+					className="transition-transform group-hover:translate-x-0.5"
+					size={20}
+					aria-hidden="true"
+				/>
+			</span>
 		</Link>
 	);
 }
@@ -406,13 +427,13 @@ function SearchResults({
 				<div
 					className={
 						searching
-							? "grid gap-2 opacity-60 transition-opacity"
-							: "grid gap-2 transition-opacity"
+							? "border-y border-[var(--line-strong)] bg-[var(--paper)] opacity-60 transition-opacity"
+							: "border-y border-[var(--line-strong)] bg-[var(--paper)] transition-opacity"
 					}
 				>
 					{results.map((result) => (
 						<Link
-							className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+							className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-[var(--line)] px-3 py-5 last:border-b-0 transition-colors hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action)] sm:px-5"
 							key={result.id}
 							to="/services/$authoritySlug"
 							search={{ form: result.id, review: false, draft: undefined }}
@@ -565,7 +586,7 @@ function CategoryCard({
 	);
 	return (
 		<details className="category-disclosure">
-			<summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 text-base font-semibold text-blue-950 transition-[border-color,background-color] marker:content-none hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:text-lg">
+			<summary className="flex cursor-pointer list-none items-center justify-between gap-4 border-y border-[var(--line-strong)] bg-[var(--paper)] px-2 py-4 text-base font-semibold text-[var(--ink)] transition-colors marker:content-none hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action)] sm:text-lg">
 				<span>{translate(text({ en: category.name, hi: category.name }))}</span>
 				<ChevronDown
 					className="shrink-0 text-blue-700 transition-transform"
@@ -927,6 +948,9 @@ function CategoryCombobox({
 				>
 					<Command>
 						<CommandInput
+							aria-label={translate(
+								text({ en: "Search options", hi: "विकल्प खोजें" }),
+							)}
 							placeholder={translate(
 								text({ en: "Search options", hi: "विकल्प खोजें" }),
 							)}
@@ -1636,7 +1660,7 @@ function FieldControl({
 							if (file) onAttachment(file);
 							event.currentTarget.value = "";
 						}}
-						className="mt-2 block min-h-12 w-full border border-dashed border-blue-300 bg-blue-50 p-3 text-sm text-blue-950 file:mr-4 file:border-0 file:bg-blue-800 file:px-3 file:py-2 file:font-semibold file:text-white disabled:cursor-wait disabled:opacity-60"
+						className="mt-2 block min-h-12 w-full cursor-pointer border border-dashed border-blue-300 bg-blue-50 p-3 text-sm text-blue-950 file:mr-4 file:cursor-pointer file:border-0 file:bg-blue-800 file:px-3 file:py-2 file:font-semibold file:text-white disabled:cursor-wait disabled:file:cursor-wait disabled:opacity-60"
 					/>
 					<p
 						id={attachmentHelpId}

@@ -3,11 +3,13 @@ import {
 	ClipboardList,
 	FileClock,
 	FilePlus2,
+	Gauge,
 	Globe2,
 	Home,
+	LogIn,
 	Menu,
 } from "lucide-react";
-import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
+import type { ReactNode } from "react";
 
 import { text, useI18n } from "../features/i18n/i18n";
 import { authClient } from "../lib/auth-client";
@@ -27,33 +29,16 @@ import {
 	SidebarMenuButton,
 	SidebarMenuItem,
 	SidebarProvider,
-	SidebarRail,
 	SidebarTrigger,
 } from "./ui/sidebar";
 
 const workspacePrefixes = [
+	"/dashboard",
 	"/services",
 	"/drafts",
 	"/continuation",
 	"/grievances",
 ];
-
-function useHeaderScrolled() {
-	const [scrolled, setScrolled] = useState(false);
-
-	useEffect(() => {
-		const update = () => setScrolled(window.scrollY > 8);
-		const frame = requestAnimationFrame(update);
-		window.addEventListener("scroll", update, { passive: true });
-
-		return () => {
-			cancelAnimationFrame(frame);
-			window.removeEventListener("scroll", update);
-		};
-	}, []);
-
-	return scrolled;
-}
 
 export function AppShell({ children }: Readonly<{ children: ReactNode }>) {
 	const pathname = useRouterState({
@@ -69,49 +54,40 @@ export function AppShell({ children }: Readonly<{ children: ReactNode }>) {
 				{isWorkspace ? (
 					<WorkspaceShell pathname={pathname}>{children}</WorkspaceShell>
 				) : (
-					<PublicShell home={pathname === "/"}>{children}</PublicShell>
+					<PublicShell>{children}</PublicShell>
 				)}
 			</div>
-			<AssistantEntry home={pathname === "/"} />
+			<AssistantEntry home={pathname === "/"} workspace={isWorkspace} />
 		</>
 	);
 }
-
 function LanguageControl({ inverse = false }: { inverse?: boolean }) {
-	const { language, toggleLanguage, text: translate } = useI18n();
-
+	const { language, toggleLanguage } = useI18n();
+	const switchLabel = language === "en" ? "हिंदी" : "English";
+	const switchAriaLabel =
+		language === "en" ? "Switch to Hindi" : "Switch to English";
 	return (
 		<button
-			className={`inline-flex min-h-10 items-center gap-1.5 rounded-lg border px-3 text-xs font-semibold transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] ${
+			className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-lg border px-3 text-sm font-bold transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)] ${
 				inverse
-					? "border-white/35 text-white hover:bg-white/10"
-					: "border-transparent bg-transparent text-[var(--ink-muted)] hover:border-[var(--line)] hover:bg-[var(--paper)] hover:text-[var(--blue-800)]"
+					? "border-white/45 text-white hover:bg-white/10"
+					: "border-[var(--line-strong)] bg-[var(--paper)] text-[var(--ink)] hover:border-[var(--action)] hover:bg-[var(--blue-50)]"
 			}`}
 			type="button"
 			onClick={toggleLanguage}
-			aria-label={translate(text({ en: "Switch language", hi: "भाषा बदलें" }))}
+			aria-label={switchAriaLabel}
 		>
-			<Globe2 size={15} aria-hidden="true" />
-			<span className="sm:hidden">{language === "en" ? "EN" : "हिं"}</span>
-			<span
-				className={`${language === "en" ? "font-extrabold" : "opacity-60"} hidden sm:inline`}
-			>
-				EN
+			<Globe2 size={17} aria-hidden="true" />
+			<span className="text-xs sm:hidden">
+				{language === "en" ? "हिं" : "EN"}
 			</span>
-			<span aria-hidden="true" className="hidden opacity-40 sm:inline">
-				/
-			</span>
-			<span
-				className={`${language === "hi" ? "font-extrabold" : "opacity-60"} hidden sm:inline`}
-			>
-				हिं
-			</span>
+			<span className="hidden sm:inline">{switchLabel}</span>
 		</button>
 	);
 }
 
 const publicLinkClass =
-	"text-sm font-medium text-[var(--ink-muted)] no-underline transition-colors hover:text-[var(--blue-800)] focus-visible:rounded-sm focus-visible:outline-3 focus-visible:outline-[var(--blue-200)] focus-visible:outline-offset-4";
+	"text-sm font-bold text-[var(--ink-muted)] no-underline transition-colors hover:text-[var(--action)] focus-visible:rounded-sm focus-visible:outline-3 focus-visible:outline-[var(--highlight)] focus-visible:outline-offset-4";
 
 function PublicLinks() {
 	const { text: translate } = useI18n();
@@ -119,56 +95,46 @@ function PublicLinks() {
 		<>
 			<Link
 				className={publicLinkClass}
-				to="/leaderboard"
-				search={{ group: "central", compare: "" }}
+				to="/public-grievances"
+				search={{ q: "", status: "all", organization: "all", sort: "recent" }}
 			>
-				{translate(text({ en: "Leaderboard", hi: "रैंकिंग" }))}
+				{translate(
+					text({
+						en: "Public grievances",
+						hi: "सार्वजनिक शिकायतें",
+					}),
+				)}
 			</Link>
 			<Link
 				className={publicLinkClass}
-				to="/public-grievances"
-				search={{
-					q: "",
-					status: "all",
-					organization: "all",
-					sort: "recent",
-				}}
+				to="/leaderboard"
+				search={{ group: "central", compare: "" }}
 			>
-				{translate(text({ en: "Public grievances", hi: "सार्वजनिक शिकायतें" }))}
-			</Link>
-			<Link className={publicLinkClass} to="/methodology">
-				{translate(text({ en: "Methodology", hi: "कार्यप्रणाली" }))}
+				{translate(text({ en: "Performance", hi: "प्रदर्शन" }))}
 			</Link>
 			<Link className={publicLinkClass} to="/about">
 				{translate(text({ en: "About", hi: "परिचय" }))}
 			</Link>
-			<Link className={publicLinkClass} to="/" hash="how-it-works">
-				{translate(text({ en: "How it works", hi: "यह कैसे काम करता है" }))}
-			</Link>
-			<Link className={publicLinkClass} to="/privacy">
-				{translate(text({ en: "Privacy", hi: "गोपनीयता" }))}
+			<Link className={publicLinkClass} to="/methodology">
+				{translate(
+					text({
+						en: "How scores work",
+						hi: "स्कोर कैसे बनते हैं",
+					}),
+				)}
 			</Link>
 		</>
 	);
 }
 
-function PublicShell({
-	children,
-	home = false,
-}: Readonly<{ children: ReactNode; home?: boolean }>) {
+function PublicShell({ children }: Readonly<{ children: ReactNode }>) {
 	const { text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
-	const headerScrolled = useHeaderScrolled();
 
 	return (
-		<div
-			className={`min-h-screen bg-[var(--paper)] ${home ? "bg-[radial-gradient(ellipse_90%_52rem_at_0%_0%,rgba(21,89,199,0.2)_0%,rgba(65,128,216,0.09)_38%,transparent_72%)] bg-no-repeat" : ""}`}
-		>
-			<header
-				className="glass-navbar sticky top-0 z-40 bg-transparent"
-				data-scrolled={headerScrolled}
-			>
-				<div className="mx-auto flex min-h-16 w-full max-w-[1280px] items-center gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8">
+		<div className="min-h-screen bg-[var(--cream)]">
+			<header className="glass-navbar sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--cream)_92%,transparent)] backdrop-blur-xl">
+				<div className="mx-auto flex min-h-[72px] w-full max-w-[1440px] items-center gap-2 px-3 sm:gap-3 sm:px-7 lg:px-10">
 					<Link
 						className="inline-flex shrink-0 text-inherit no-underline"
 						to="/"
@@ -179,7 +145,10 @@ function PublicShell({
 					<nav
 						className="ml-auto hidden items-center gap-7 lg:flex"
 						aria-label={translate(
-							text({ en: "Public navigation", hi: "सार्वजनिक नेविगेशन" }),
+							text({
+								en: "Public pages",
+								hi: "सार्वजनिक पृष्ठ",
+							}),
 						)}
 					>
 						<PublicLinks />
@@ -187,22 +156,47 @@ function PublicShell({
 					<div className="ml-auto flex items-center gap-2 lg:ml-6">
 						<LanguageControl />
 						<Link
-							className="inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-lg border border-[var(--blue-700)] bg-[var(--blue-700)] px-3 text-sm font-semibold text-white no-underline transition-colors hover:border-[var(--blue-900)] hover:bg-[var(--blue-900)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-300)] sm:px-4"
-							to={session?.user ? "/services" : "/login"}
-							search={session?.user ? { q: "" } : { redirect: "/services" }}
+							className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center whitespace-nowrap rounded-lg border border-[var(--action)] bg-[var(--action)] px-0 text-sm font-bold text-white no-underline transition-colors hover:bg-[var(--action-hover)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)] sm:px-4"
+							to={session?.user ? "/dashboard" : "/login"}
+							search={session?.user ? undefined : { redirect: "/dashboard" }}
+							aria-label={translate(
+								session?.user
+									? text({
+											en: "Open my workspace",
+											hi: "मेरा कार्यस्थल खोलें",
+										})
+									: text({ en: "Sign in", hi: "साइन इन" }),
+							)}
 						>
-							{session?.user
-								? translate(text({ en: "Workspace", hi: "कार्यस्थल" }))
-								: translate(text({ en: "Sign in", hi: "साइन इन" }))}
+							{session?.user ? (
+								<Gauge className="sm:hidden" size={18} aria-hidden="true" />
+							) : (
+								<LogIn className="sm:hidden" size={18} aria-hidden="true" />
+							)}
+							<span className="hidden sm:inline">
+								{session?.user
+									? translate(
+											text({
+												en: "My workspace",
+												hi: "मेरा कार्यस्थल",
+											}),
+										)
+									: translate(text({ en: "Sign in", hi: "साइन इन" }))}
+							</span>
 						</Link>
 						<details className="group relative lg:hidden">
-							<summary className="grid size-10 cursor-pointer list-none place-items-center rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--blue-900)] marker:content-none focus-visible:outline-3 focus-visible:outline-[var(--blue-200)]">
-								<Menu size={18} aria-hidden="true" />
+							<summary className="grid size-11 cursor-pointer list-none place-items-center rounded-lg border border-[var(--line-strong)] bg-[var(--paper)] text-[var(--ink)] marker:content-none focus-visible:outline-3 focus-visible:outline-[var(--highlight)]">
+								<Menu size={19} aria-hidden="true" />
 								<span className="sr-only">
-									{translate(text({ en: "Open menu", hi: "मेनू खोलें" }))}
+									{translate(
+										text({
+											en: "Open menu",
+											hi: "मेनू खोलें",
+										}),
+									)}
 								</span>
 							</summary>
-							<nav className="absolute right-0 top-12 grid min-w-52 gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] p-5 shadow-[0_18px_45px_rgba(16,24,40,0.12)]">
+							<nav className="absolute right-0 top-14 grid min-w-60 gap-5 rounded-lg border border-[var(--line-strong)] bg-[var(--paper)] p-5 shadow-xl">
 								<PublicLinks />
 							</nav>
 						</details>
@@ -210,27 +204,33 @@ function PublicShell({
 				</div>
 			</header>
 
-			<main className="min-h-[calc(100vh-240px)]" data-assistant-page-content>
+			<main
+				className="min-h-[calc(100vh-300px)] pb-32"
+				data-assistant-page-content
+			>
 				{children}
 			</main>
 
-			<footer className="bg-[var(--paper)] pb-8 pt-16">
-				<div className="mx-auto flex w-full max-w-[1280px] flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-					<div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+			<footer className="border-t-2 border-[var(--ink)] bg-[var(--paper)] pb-32 pt-12">
+				<div className="mx-auto grid w-full max-w-[1440px] gap-8 px-5 sm:px-7 lg:grid-cols-[1fr_auto] lg:items-end lg:px-10">
+					<div>
 						<BrandLogo />
-						<p className="m-0 max-w-[420px] text-sm leading-6 text-[var(--ink-muted)]">
+						<p className="mt-4 max-w-[520px] text-sm leading-6 text-[var(--ink-muted)]">
 							{translate(
 								text({
-									en: "Describe the issue once. Keep every response and decision in one place.",
-									hi: "समस्या एक बार बताएँ। हर जवाब और निर्णय को एक जगह रखें।",
+									en: "Describe the problem once. Keep every reply and decision in one place.",
+									hi: "समस्या एक बार बताएं। हर जवाब और निर्णय एक ही जगह रखें।",
 								}),
 							)}
 						</p>
 					</div>
 					<nav
-						className="flex flex-wrap items-center gap-x-6 gap-y-3"
+						className="flex flex-wrap gap-x-6 gap-y-3"
 						aria-label={translate(
-							text({ en: "Legal information", hi: "कानूनी जानकारी" }),
+							text({
+								en: "Legal information",
+								hi: "कानूनी जानकारी",
+							}),
 						)}
 					>
 						<Link className={publicLinkClass} to="/terms">
@@ -249,170 +249,159 @@ function PublicShell({
 	);
 }
 
+const navItems = [
+	{
+		to: "/dashboard",
+		label: text({ en: "Dashboard", hi: "मुख्य पृष्ठ" }),
+		icon: Gauge,
+	},
+	{
+		to: "/services",
+		label: text({
+			en: "Start a grievance",
+			hi: "शिकायत शुरू करें",
+		}),
+		icon: FilePlus2,
+		search: { q: "" },
+	},
+	{
+		to: "/drafts",
+		label: text({ en: "Drafts", hi: "मसौदे" }),
+		icon: FileClock,
+	},
+	{
+		to: "/grievances",
+		label: text({
+			en: "My grievances",
+			hi: "मेरी शिकायतें",
+		}),
+		icon: ClipboardList,
+	},
+] as const;
+
 function WorkspaceShell({
 	children,
 	pathname,
 }: Readonly<{ children: ReactNode; pathname: string }>) {
 	const { text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
-	const headerScrolled = useHeaderScrolled();
-	const title = pathname.startsWith("/drafts")
-		? text({ en: "Saved drafts", hi: "सहेजे गए मसौदे" })
-		: pathname.startsWith("/grievances")
-			? text({ en: "My grievances", hi: "मेरी शिकायतें" })
-			: pathname.startsWith("/continuation")
-				? text({ en: "Continue your request", hi: "अपना अनुरोध जारी रखें" })
-				: text({ en: "File a grievance", hi: "शिकायत दर्ज करें" });
+	const title = pathname.startsWith("/dashboard")
+		? text({
+				en: "Your dashboard",
+				hi: "आपका मुख्य पृष्ठ",
+			})
+		: pathname.startsWith("/drafts")
+			? text({
+					en: "Saved drafts",
+					hi: "सहेजे गए मसौदे",
+				})
+			: pathname.startsWith("/grievances")
+				? text({
+						en: "My grievances",
+						hi: "मेरी शिकायतें",
+					})
+				: text({
+						en: "Start a grievance",
+						hi: "शिकायत शुरू करें",
+					});
 
 	return (
-		<SidebarProvider
-			defaultOpen
-			style={
-				{
-					"--sidebar-width": "14.5rem",
-					"--sidebar-width-icon": "4.25rem",
-				} as CSSProperties
-			}
-		>
+		<SidebarProvider defaultOpen className="min-h-screen bg-[var(--cream)]">
 			<Sidebar
 				collapsible="icon"
 				className="border-[var(--sidebar-border)] bg-[var(--sidebar)]"
 			>
-				<SidebarHeader className="h-16 flex-row items-center px-3 py-0 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
+				<SidebarHeader className="border-b border-[var(--sidebar-border)] p-4 group-data-[collapsible=icon]:p-2">
 					<Link
-						className="flex min-h-10 items-center gap-3 overflow-hidden text-[var(--blue-950)] no-underline group-data-[collapsible=icon]:justify-center"
 						to="/"
+						className="flex items-center justify-center text-[var(--ink)] no-underline"
+						aria-label="UGAAP home"
 					>
-						<BrandLogo compact />
-						<span className="whitespace-nowrap text-sm font-extrabold tracking-[0.12em] group-data-[collapsible=icon]:hidden">
-							UGAAP
+						<span className="group-data-[collapsible=icon]:hidden">
+							<BrandLogo />
+						</span>
+						<span className="hidden group-data-[collapsible=icon]:inline-flex">
+							<BrandLogo variant="mark" />
 						</span>
 					</Link>
 				</SidebarHeader>
+
 				<SidebarContent>
-					<SidebarGroup className="px-2 py-4">
-						<SidebarGroupLabel>
+					<SidebarGroup className="p-3">
+						<SidebarGroupLabel className="px-2 text-[var(--ink-muted)]">
 							{translate(text({ en: "Your work", hi: "आपका काम" }))}
 						</SidebarGroupLabel>
 						<SidebarGroupContent>
-							<SidebarMenu className="gap-1.5">
-								<SidebarMenuItem>
-									<SidebarMenuButton
-										asChild
-										isActive={pathname.startsWith("/services")}
-										tooltip={translate(
-											text({ en: "New grievance", hi: "नई शिकायत" }),
-										)}
-										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--sidebar-accent)] data-[active=true]:text-[var(--blue-900)]"
-									>
-										<Link to="/services" search={{ q: "" }}>
-											<FilePlus2 aria-hidden="true" />
-											<span>
-												{translate(
-													text({ en: "New grievance", hi: "नई शिकायत" }),
-												)}
-											</span>
-										</Link>
-									</SidebarMenuButton>
-								</SidebarMenuItem>
-								<SidebarMenuItem>
-									<SidebarMenuButton
-										asChild
-										isActive={pathname.startsWith("/drafts")}
-										tooltip={translate(text({ en: "Drafts", hi: "मसौदे" }))}
-										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--sidebar-accent)] data-[active=true]:text-[var(--blue-900)]"
-									>
-										<Link to="/drafts">
-											<FileClock aria-hidden="true" />
-											<span>
-												{translate(text({ en: "Drafts", hi: "मसौदे" }))}
-											</span>
-										</Link>
-									</SidebarMenuButton>
-								</SidebarMenuItem>
-								<SidebarMenuItem>
-									<SidebarMenuButton
-										asChild
-										isActive={pathname.startsWith("/grievances")}
-										tooltip={translate(
-											text({ en: "My grievances", hi: "मेरी शिकायतें" }),
-										)}
-										className="h-11 rounded-lg px-3 data-[active=true]:bg-[var(--sidebar-accent)] data-[active=true]:text-[var(--blue-900)]"
-									>
-										<Link to="/grievances">
-											<ClipboardList aria-hidden="true" />
-											<span>
-												{translate(
-													text({ en: "My grievances", hi: "मेरी शिकायतें" }),
-												)}
-											</span>
-										</Link>
-									</SidebarMenuButton>
-								</SidebarMenuItem>
-								<SidebarMenuItem>
-									<SidebarMenuButton
-										asChild
-										tooltip={translate(
-											text({ en: "Public home", hi: "मुखपृष्ठ" }),
-										)}
-										className="h-11 rounded-lg px-3"
-									>
-										<Link to="/">
-											<Home aria-hidden="true" />
-											<span>
-												{translate(text({ en: "Public home", hi: "मुखपृष्ठ" }))}
-											</span>
-										</Link>
-									</SidebarMenuButton>
-								</SidebarMenuItem>
+							<SidebarMenu>
+								{navItems.map((item) => {
+									const Icon = item.icon;
+									const isActive =
+										pathname === item.to ||
+										(item.to !== "/dashboard" &&
+											pathname.startsWith(`${item.to}/`));
+
+									return (
+										<SidebarMenuItem key={item.to}>
+											<SidebarMenuButton
+												asChild
+												isActive={isActive}
+												tooltip={translate(item.label)}
+												className="text-[var(--ink-muted)] hover:bg-[var(--sidebar-accent)] hover:text-[var(--ink)] data-[active=true]:bg-[var(--highlight)] data-[active=true]:text-[var(--ink)]"
+											>
+												<Link
+													to={item.to}
+													search={"search" in item ? item.search : undefined}
+												>
+													<Icon size={19} aria-hidden="true" />
+													<span>{translate(item.label)}</span>
+												</Link>
+											</SidebarMenuButton>
+										</SidebarMenuItem>
+									);
+								})}
 							</SidebarMenu>
 						</SidebarGroupContent>
 					</SidebarGroup>
 				</SidebarContent>
-				<SidebarFooter className="p-2.5">
-					<SidebarMenu>
-						<SidebarMenuItem>
-							<SidebarMenuButton
-								size="lg"
-								className="h-12 rounded-lg px-2.5"
-								tooltip={session?.user.name || session?.user.email || "Citizen"}
-							>
-								<span className="grid size-8 shrink-0 place-items-center rounded-full bg-[var(--blue-100)] text-xs font-extrabold text-[var(--blue-900)]">
-									{(session?.user.name || session?.user.email || "C")
-										.slice(0, 1)
-										.toUpperCase()}
-								</span>
-								<span className="min-w-0 truncate text-xs font-semibold">
-									{session?.user.name ||
-										session?.user.email ||
-										translate(text({ en: "Citizen", hi: "नागरिक" }))}
-								</span>
-							</SidebarMenuButton>
-						</SidebarMenuItem>
-						<SidebarMenuItem>
-							<SignOutButton />
-						</SidebarMenuItem>
-					</SidebarMenu>
+
+				<SidebarFooter className="border-t border-[var(--sidebar-border)] p-3">
+					<p className="truncate px-2 text-sm font-bold text-[var(--ink)] group-data-[collapsible=icon]:hidden">
+						{session?.user.name ||
+							session?.user.email ||
+							translate(text({ en: "Citizen", hi: "नागरिक" }))}
+					</p>
+					<SignOutButton />
 				</SidebarFooter>
-				<SidebarRail />
 			</Sidebar>
 
-			<SidebarInset className="min-w-0 bg-[var(--paper)]">
-				<header
-					className="glass-navbar sticky top-0 z-30 bg-transparent"
-					data-scrolled={headerScrolled}
-				>
-					<div className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-7">
+			<SidebarInset className="min-w-0 bg-[var(--cream)]">
+				<header className="sticky top-0 z-30 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--cream)_94%,transparent)] backdrop-blur-xl">
+					<div className="mx-auto flex min-h-[72px] w-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-7 lg:px-10">
 						<div className="flex min-w-0 items-center gap-3">
-							<SidebarTrigger className="size-10 rounded-lg text-[var(--blue-900)] hover:bg-[var(--blue-50)]" />
-							<span className="truncate text-sm font-semibold text-[var(--ink)]">
+							<SidebarTrigger className="size-10 shrink-0 rounded-lg border border-[var(--line-strong)] text-[var(--ink)] hover:bg-[var(--blue-50)]" />
+							<span className="truncate text-base font-extrabold text-[var(--ink)]">
 								{translate(title)}
 							</span>
 						</div>
-						<LanguageControl />
+						<div className="flex items-center gap-2">
+							<Link
+								to="/"
+								className="hidden min-h-11 items-center gap-2 text-sm font-bold text-[var(--ink-muted)] no-underline hover:text-[var(--action)] sm:inline-flex"
+							>
+								<Home size={17} aria-hidden="true" />
+								{translate(
+									text({
+										en: "Public home",
+										hi: "सार्वजनिक पृष्ठ",
+									}),
+								)}
+							</Link>
+							<LanguageControl />
+						</div>
 					</div>
 				</header>
-				<div className="w-full pb-80" data-assistant-page-content>
+
+				<div className="w-full pb-44 md:pb-32" data-assistant-page-content>
 					{children}
 				</div>
 			</SidebarInset>

@@ -244,7 +244,7 @@ function PublicGrievanceFeed() {
 
 			{items.length ? (
 				<section
-					className="columns-1 gap-6 md:columns-2 xl:columns-3"
+					className="border-t-2 border-[var(--ink)]"
 					aria-label={text({
 						en: "Public grievance posts",
 						hi: "सार्वजनिक शिकायत पोस्ट",
@@ -253,10 +253,10 @@ function PublicGrievanceFeed() {
 					{items.map((grievance) => (
 						<article
 							key={grievance.publicId}
-							className="mb-6 inline-block w-full break-inside-avoid overflow-hidden rounded-2xl border border-[var(--line-strong)] bg-white p-5 align-top shadow-[0_8px_28px_rgba(15,47,104,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--blue-300)] hover:shadow-[0_14px_34px_rgba(15,47,104,0.13)]"
+							className="grid gap-5 border-b border-[var(--line-strong)] py-7 md:grid-cols-[13rem_minmax(0,1fr)_auto] md:items-start md:gap-8"
 						>
 							<header className="flex items-start gap-3">
-								<span className="grid size-11 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[var(--blue-100)] to-[var(--blue-200)] text-[var(--blue-900)] ring-2 ring-white">
+								<span className="grid size-11 shrink-0 place-items-center border border-[var(--line-strong)] bg-[var(--highlight)] text-[var(--ink)]">
 									<Building2 size={20} aria-hidden="true" />
 								</span>
 								<div className="min-w-0 flex-1">
@@ -285,30 +285,32 @@ function PublicGrievanceFeed() {
 								</div>
 							</header>
 
-							<p className="mt-4 whitespace-pre-wrap text-[0.98rem] leading-7 text-[var(--ink)]">
-								{grievance.summary}
-							</p>
-							<div className="mt-4 flex flex-wrap gap-2">
-								<PublicStatus status={grievance.status} />
-								<span className="rounded-full border border-[var(--line)] bg-slate-50 px-2.5 py-1 text-xs font-semibold text-[var(--ink-muted)]">
-									#
-									{grievance.categoryPath.at(-1)?.replaceAll(/\s+/g, "") ||
-										"grievance"}
-								</span>
-							</div>
-							{grievance.broadLocation ? (
-								<p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-[var(--ink-muted)]">
-									<MapPin size={14} aria-hidden="true" />
-									{grievance.broadLocation}
+							<div>
+								<p className="whitespace-pre-wrap text-[0.98rem] leading-7 text-[var(--ink)]">
+									{grievance.summary}
 								</p>
-							) : null}
-							<footer className="mt-5 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
+								<div className="mt-4 flex flex-wrap gap-2">
+									<PublicStatus status={grievance.status} />
+									<span className="rounded-full border border-[var(--line)] bg-[var(--paper)] px-2.5 py-1 text-xs font-semibold text-[var(--ink-muted)]">
+										#
+										{grievance.categoryPath.at(-1)?.replaceAll(/\s+/g, "") ||
+											"grievance"}
+									</span>
+								</div>
+								{grievance.broadLocation ? (
+									<p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-[var(--ink-muted)]">
+										<MapPin size={14} aria-hidden="true" />
+										{grievance.broadLocation}
+									</p>
+								) : null}
+							</div>
+							<footer className="flex items-center justify-between gap-3 md:flex-col md:items-end">
 								<span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ink-muted)]">
 									<MessageCircle size={15} aria-hidden="true" />
 									{grievance.updateCount} {text({ en: "updates", hi: "अपडेट" })}
 								</span>
 								<Link
-									className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-3 text-sm font-bold text-[var(--blue-800)] no-underline hover:bg-[var(--blue-50)] hover:text-[var(--blue-950)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--blue-700)]"
+									className="inline-flex min-h-10 items-center gap-1.5 text-sm font-bold text-[var(--action)] no-underline hover:text-[var(--action-hover)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--action)]"
 									to="/public-grievances/$publicId"
 									params={{ publicId: grievance.publicId }}
 								>

@@ -35,7 +35,7 @@ function DraftsScreen() {
 					})}
 				</p>
 			) : (
-				<ul className="mt-8 grid gap-2">
+				<ul className="mt-8 border-t-2 border-[var(--ink)]">
 					{drafts.map((item) => {
 						const form = item.form;
 						const authority = item.organization;
@@ -57,10 +57,13 @@ function DraftsScreen() {
 							</div>
 						);
 						return (
-							<li key={item.draft.id}>
+							<li
+								key={item.draft.id}
+								className="border-b border-[var(--line-strong)]"
+							>
 								{authority && form ? (
 									<Link
-										className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4 no-underline transition-[border-color,background-color] hover:border-[var(--blue-300)] hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+										className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-2 py-5 no-underline transition-colors hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action)]"
 										to="/services/$authoritySlug"
 										params={{
 											authoritySlug: authority.slug,
@@ -84,9 +87,7 @@ function DraftsScreen() {
 										</span>
 									</Link>
 								) : (
-									<div className="rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-4">
-										{details}
-									</div>
+									<div className="px-2 py-5">{details}</div>
 								)}
 							</li>
 						);

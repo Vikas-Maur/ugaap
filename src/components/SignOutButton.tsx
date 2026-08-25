@@ -5,7 +5,6 @@ import { toast } from "sonner";
 
 import { text, useI18n } from "../features/i18n/i18n";
 import { authClient } from "../lib/auth-client";
-import { SidebarMenuButton } from "./ui/sidebar";
 
 function formatSignOutError(error: unknown, fallback: string) {
 	return error instanceof Error ? error.message : fallback;
@@ -45,18 +44,18 @@ export function SignOutButton() {
 	});
 
 	return (
-		<SidebarMenuButton
+		<button
+			type="button"
 			onClick={() => signOutMutation.mutate()}
 			disabled={signOutMutation.isPending}
-			tooltip={translate(text({ en: "Sign out", hi: "साइन आउट" }))}
-			className="h-10 rounded-lg px-3"
+			className="inline-flex min-h-10 w-full items-center gap-2 rounded-lg px-3 text-sm font-bold text-[var(--ink-muted)] transition-colors hover:bg-[var(--paper)] hover:text-[var(--action)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)] disabled:cursor-wait disabled:opacity-60 group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:[&>span]:hidden"
 		>
-			<LogOut aria-hidden="true" />
+			<LogOut size={17} aria-hidden="true" />
 			<span>
 				{signOutMutation.isPending
 					? translate(text({ en: "Signing out…", hi: "साइन आउट हो रहा है…" }))
 					: translate(text({ en: "Sign out", hi: "साइन आउट" }))}
 			</span>
-		</SidebarMenuButton>
+		</button>
 	);
 }

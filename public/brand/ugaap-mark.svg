@@ -1,18 +1,14 @@
 <svg width="184" height="48" viewBox="0 0 184 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">UGAAP</title>
-  <desc id="desc">A blue civic route wheel beside the UGAAP wordmark</desc>
-  <defs>
-    <linearGradient id="wheel" x1="7" y1="5" x2="41" y2="43" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2472EB"/>
-      <stop offset="1" stop-color="#08295F"/>
-    </linearGradient>
-  </defs>
-  <circle cx="24" cy="24" r="20" fill="url(#wheel)"/>
-  <circle cx="24" cy="24" r="12.25" stroke="#C9DCFF" stroke-width="1.5"/>
-  <path d="M24 4V12M44 24H36M24 44V36M4 24H12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <path d="M9.86 9.86L15.52 15.52M38.14 9.86L32.48 15.52M38.14 38.14L32.48 32.48M9.86 38.14L15.52 32.48" stroke="#91B9FF" stroke-width="1.5" stroke-linecap="round"/>
-  <circle cx="24" cy="24" r="4.5" fill="white"/>
-  <circle cx="24" cy="24" r="1.7" fill="#155BD7"/>
-  <path d="M53 9V39" stroke="#B7C5D8"/>
-  <text x="67" y="31" fill="#061B42" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" letter-spacing="1.4">UGAAP</text>
+  <desc id="desc">A warm route wheel beside the UGAAP wordmark</desc>
+  <circle cx="24" cy="24" r="20" fill="#F2B51D"/>
+  <circle cx="24" cy="24" r="13" fill="#FFF8E7" stroke="#8B3A18" stroke-width="2"/>
+  <circle cx="24" cy="24" r="4" fill="#C9572D"/>
+  <g stroke="#8B3A18" stroke-width="2" stroke-linecap="round">
+    <path d="M24 4V11"/><path d="M44 24H37"/><path d="M24 44V37"/><path d="M4 24H11"/>
+    <path d="M9.9 9.9l5 5"/><path d="M38.1 9.9l-5 5"/><path d="M38.1 38.1l-5-5"/><path d="M9.9 38.1l5-5"/>
+  </g>
+  <path d="M20 24h8m0 0-3-3m3 3-3 3" stroke="#FFFDF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M53 9V39" stroke="#CDB39A"/>
+  <text x="67" y="31" fill="#2A180F" font-family="Anek, Noto Sans, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="1.4">UGAAP</text>
 </svg>

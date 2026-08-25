@@ -297,7 +297,7 @@ function GrievanceDetailScreen() {
 						{grievance.attachments.map((attachment) => (
 							<li
 								key={attachment.id}
-								className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-[var(--line)] py-4"
+								className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-[var(--line)] py-4 last:border-b-0"
 							>
 								<a
 									className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
@@ -359,7 +359,7 @@ function GrievanceDetailScreen() {
 			</section>
 
 			<section
-				className="border-t-2 border-[var(--blue-700)] py-8"
+				className="border-t border-[var(--line-strong)] py-8"
 				aria-labelledby="public-copy-title"
 			>
 				<p className="page-eyebrow">
@@ -504,29 +504,35 @@ function GrievanceDetailScreen() {
 										hi: "केवल जिला, राज्य या क्षेत्र लिखें। पता या पिन कोड न लिखें।",
 									})}
 								</p>
-								<input
-									id="public-broad-location"
-									className="field-control mt-2 max-w-lg"
-									value={broadLocation}
-									maxLength={120}
-									onChange={(event) => setBroadLocation(event.target.value)}
-								/>
-								<button
-									className="action-secondary mt-4"
-									type="button"
-									disabled={pendingAction !== null}
-									onClick={generatePublicationPreview}
-								>
-									{pendingAction === "publication-preview"
-										? text({
-												en: "Preparing preview...",
-												hi: "पूर्वावलोकन तैयार हो रहा है...",
-											})
-										: text({
-												en: "Prepare redacted preview",
-												hi: "संपादित पूर्वावलोकन तैयार करें",
-											})}
-								</button>
+								<div className="mt-2 flex max-w-3xl flex-col gap-3 sm:flex-row sm:items-start">
+									<input
+										id="public-broad-location"
+										className="field-control min-w-0 flex-1"
+										value={broadLocation}
+										maxLength={120}
+										placeholder={text({
+											en: "e.g. Pune, Maharashtra",
+											hi: "उदा. पुणे, महाराष्ट्र",
+										})}
+										onChange={(event) => setBroadLocation(event.target.value)}
+									/>
+									<button
+										className="action-secondary shrink-0"
+										type="button"
+										disabled={pendingAction !== null}
+										onClick={generatePublicationPreview}
+									>
+										{pendingAction === "publication-preview"
+											? text({
+													en: "Preparing preview...",
+													hi: "पूर्वावलोकन तैयार हो रहा है...",
+												})
+											: text({
+													en: "Prepare redacted preview",
+													hi: "संपादित पूर्वावलोकन तैयार करें",
+												})}
+									</button>
+								</div>
 							</>
 						)}
 					</div>
@@ -543,7 +549,7 @@ function GrievanceDetailScreen() {
 			) : null}
 
 			<section
-				className="border-t-2 border-[var(--blue-700)] pt-8"
+				className="mt-10 border-t border-[var(--line-strong)] pt-8"
 				aria-labelledby="next-step-title"
 			>
 				<h2
@@ -734,7 +740,7 @@ function Detail({
 	preserveWhitespace?: boolean;
 }) {
 	return (
-		<div className="grid gap-1 border-b border-[var(--line)] py-4 sm:grid-cols-[minmax(10rem,0.4fr)_1fr] sm:gap-5">
+		<div className="grid gap-1 border-b border-[var(--line)] py-4 last:border-b-0 sm:grid-cols-[minmax(10rem,0.4fr)_1fr] sm:gap-5">
 			<dt className="text-sm font-bold text-[var(--ink-muted)]">{label}</dt>
 			<dd
 				className={

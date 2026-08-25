@@ -11,6 +11,8 @@ export type CatalogueAuthority = {
 	id: string;
 	name: string;
 	slug: string;
+	categoryCount: number;
+	formCount: number;
 };
 
 export type CatalogueDirectory = {
@@ -376,8 +378,8 @@ function fuzzyTokenScore(
 	if (
 		candidateTokens.some(
 			(candidate) =>
-				candidate.length >= 4 &&
-				queryToken.length >= 4 &&
+				candidate.length >= 3 &&
+				queryToken.length >= 3 &&
 				(candidate.startsWith(queryToken) || queryToken.startsWith(candidate)),
 		)
 	)
@@ -392,6 +394,22 @@ function fuzzyTokenScore(
 	)
 		return 10;
 	return 0;
+}
+
+function authorityMatchesQuery(
+	authority: string,
+	queryTokens: string[],
+): boolean {
+	const authorityTokens = uniqueTokens(authority);
+	return queryTokens.every((queryToken) => {
+		const alternatives = [queryToken, ...(searchAliases[queryToken] ?? [])].map(
+			normalizeSearchText,
+		);
+		return alternatives.some(
+			(alternative) =>
+				alternative && fuzzyTokenScore(alternative, authorityTokens) > 0,
+		);
+	});
 }
 
 function scoreSearchEntry(
@@ -451,6 +469,11 @@ export async function searchCatalogue(
 		(token) => !searchStopWords.has(token),
 	);
 	if (!queryTokens.length) return [];
+	const matchedAuthoritySlugs = new Set(
+		entries
+			.filter((entry) => authorityMatchesQuery(entry.authority, queryTokens))
+			.map((entry) => entry.authoritySlug),
+	);
 	const ranked = entries
 		.map((item) => ({
 			item,
@@ -470,14 +493,33 @@ export async function searchCatalogue(
 				left.item.entry.id.localeCompare(right.item.entry.id),
 		);
 	const topScore = ranked[0]?.score;
-	return ranked
+	const strongestTextMatches = ranked
 		.filter((match) => topScore === undefined || match.score >= topScore - 35)
-		.slice(0, options.limit ?? 30)
-		.map(({ item }) => ({
-			...item.entry,
-			authorityName: item.authorityName,
-			authoritySlug: item.authoritySlug,
-		}));
+		.map((match) => match.item);
+	const authorityExpansion = entries
+		.filter((entry) => matchedAuthoritySlugs.has(entry.authoritySlug))
+		.sort(
+			(left, right) =>
+				left.authorityName.localeCompare(right.authorityName) ||
+				left.entry.categoryPath
+					.join("/")
+					.localeCompare(right.entry.categoryPath.join("/")) ||
+				left.entry.title.localeCompare(right.entry.title),
+		)
+		.slice(0, Math.ceil((options.limit ?? 30) / 2));
+	const ordered = new Map<string, PreparedSearchEntry>();
+	for (const item of [
+		...strongestTextMatches,
+		...authorityExpansion,
+		...ranked.map((match) => match.item),
+	]) {
+		if (!ordered.has(item.entry.id)) ordered.set(item.entry.id, item);
+	}
+	return [...ordered.values()].slice(0, options.limit ?? 30).map((item) => ({
+		...item.entry,
+		authorityName: item.authorityName,
+		authoritySlug: item.authoritySlug,
+	}));
 }
 
 export function findForm(chunk: AuthorityChunk, formId: string) {
