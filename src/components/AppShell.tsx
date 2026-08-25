@@ -57,7 +57,7 @@ export function AppShell({ children }: Readonly<{ children: ReactNode }>) {
 					<PublicShell>{children}</PublicShell>
 				)}
 			</div>
-			<AssistantEntry home={pathname === "/"} workspace={isWorkspace} />
+			<AssistantEntry />
 		</>
 	);
 }

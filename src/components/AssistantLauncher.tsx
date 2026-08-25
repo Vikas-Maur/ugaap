@@ -120,12 +120,7 @@ function canonicalFormDestination(authoritySlug: string, formId: string) {
 	return `/services/${encodeURIComponent(authoritySlug)}?${search.toString()}`;
 }
 
-export function AssistantLauncher({
-	workspace = false,
-}: {
-	home?: boolean;
-	workspace?: boolean;
-}) {
+export function AssistantLauncher() {
 	const { language, text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
 	const navigate = useNavigate();
@@ -916,7 +911,7 @@ export function AssistantLauncher({
 
 			<form
 				onSubmit={(event) => void submit(event)}
-				className={`assistant-dock fixed inset-x-3 z-40 mx-auto max-w-[920px] rounded-xl border-2 border-[var(--action)] bg-[var(--paper)] px-3 py-2 shadow-[0_14px_45px_rgba(42,24,15,0.2)] sm:inset-x-6 sm:px-4 ${workspace ? "bottom-[4.65rem] md:bottom-4" : "bottom-4"}`}
+				className="assistant-dock px-3 py-2 sm:px-4"
 			>
 				<div className="flex items-center gap-2">
 					<button

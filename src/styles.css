@@ -236,6 +236,26 @@
 	animation: voice-bar 820ms ease-in-out infinite;
 }
 
+.assistant-dock {
+	position: fixed;
+	inset-inline: 0.75rem;
+	bottom: max(1rem, env(safe-area-inset-bottom));
+	z-index: 40;
+	width: auto;
+	max-width: 57.5rem;
+	margin-inline: auto;
+	border: 2px solid var(--action);
+	border-radius: 0.75rem;
+	background: var(--paper);
+	box-shadow: 0 14px 45px rgba(42, 24, 15, 0.2);
+}
+
+@media (min-width: 640px) {
+	.assistant-dock {
+		inset-inline: 1.5rem;
+	}
+}
+
 .glass-navbar {
 	isolation: isolate;
 }

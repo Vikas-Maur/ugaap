@@ -11,6 +11,7 @@ import {
 	type DashboardGrievance,
 	getCitizenDashboard,
 } from "#/features/dashboard/functions";
+import { statusBadgeClass } from "#/features/grievances/status-badge";
 import { useI18n } from "#/features/i18n/i18n";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
@@ -243,7 +244,7 @@ function GrievanceRows({
 							</span>
 						</span>
 						<span className="inline-flex items-center gap-2 text-sm font-extrabold text-[var(--action-hover)]">
-							<span className="status-pill border-[var(--action)] bg-[var(--highlight-soft)] text-[var(--action-hover)]">
+							<span className={`status-pill ${statusBadgeClass(item.status)}`}>
 								{statusLabel(item.status)}
 							</span>
 							{actionLabel ?? relativeDate(item.updatedAt)}
