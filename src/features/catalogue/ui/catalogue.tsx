@@ -156,12 +156,18 @@ export function DirectoryBrowser({
 	const [hasMore, setHasMore] = useState(false);
 	const searchRequest = useRef(0);
 	const normalizedQuery = inputQuery.trim();
+	const previousNormalizedQuery = useRef(normalizedQuery);
 
 	useEffect(() => {
 		setInputQuery(query);
+	}, [query]);
+
+	useEffect(() => {
+		if (previousNormalizedQuery.current === normalizedQuery) return;
+		previousNormalizedQuery.current = normalizedQuery;
 		setPage(1);
 		setSearchResults([]);
-	}, [query]);
+	}, [normalizedQuery]);
 
 	useEffect(() => {
 		let active = true;
@@ -269,9 +275,15 @@ export function DirectoryBrowser({
 						autoComplete="off"
 						value={inputQuery}
 						onChange={(event) => {
-							setInputQuery(event.target.value);
-							setPage(1);
-							setSearchResults([]);
+							const nextQuery = event.target.value;
+							if (!nextQuery.trim() && normalizedQuery) {
+								onSearchCommit({ q: undefined });
+							}
+							if (nextQuery.trim() !== normalizedQuery) {
+								setPage(1);
+								setSearchResults([]);
+							}
+							setInputQuery(nextQuery);
 						}}
 						onBlur={() => onSearchCommit({ q: normalizedQuery || undefined })}
 						onKeyDown={(event) => {
