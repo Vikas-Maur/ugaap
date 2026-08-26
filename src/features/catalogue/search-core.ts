@@ -104,36 +104,36 @@ const stopWords = new Set([
 	"से",
 ]);
 
-const aliases: Record<string, string[]> = {
-	aadhaar: ["आधार", "adhar", "uidai"],
-	adhar: ["aadhaar", "आधार", "uidai"],
-	आधार: ["aadhaar", "adhar", "uidai"],
-	bank: ["banking", "बैंक", "khata", "खाता"],
-	banking: ["bank", "बैंक", "khata", "खाता"],
-	बैंक: ["bank", "banking", "khata", "खाता"],
-	bijli: ["electricity", "power", "बिजली"],
-	बिजली: ["electricity", "power", "bijli"],
-	electricity: ["power", "bijli", "बिजली"],
-	gas: ["lpg", "गैस", "cylinder", "सिलेंडर"],
-	गैस: ["gas", "lpg", "cylinder", "सिलेंडर"],
-	internet: ["broadband", "data", "इंटरनेट", "net"],
-	broadband: ["internet", "data", "इंटरनेट", "net"],
-	mobile: ["phone", "telecom", "मोबाइल", "फोन"],
-	pani: ["water", "पानी", "jal", "जल"],
-	पानी: ["water", "pani", "jal", "जल"],
-	water: ["pani", "पानी", "jal", "जल"],
-	passport: ["पासपोर्ट", "yatra", "यात्रा"],
-	पासपोर्ट: ["passport", "yatra", "यात्रा"],
-	pension: ["पेंशन", "retirement", "सेवानिवृत्ति"],
-	पेंशन: ["pension", "retirement", "सेवानिवृत्ति"],
-	rail: ["railway", "train", "रेल", "रेलवे", "gaadi", "गाड़ी"],
-	railway: ["rail", "train", "रेल", "रेलवे", "gaadi", "गाड़ी"],
-	train: ["rail", "railway", "रेल", "रेलवे", "gaadi", "गाड़ी"],
-	रेल: ["rail", "railway", "train", "रेलवे", "gaadi", "गाड़ी"],
-	refund: ["वापसी", "wapasi", "money back", "पैसे वापस"],
-	delay: ["late", "pending", "देर", "vilamb", "विलंब"],
-	fraud: ["scam", "धोखा", "dhokha", "जालसाजी"],
-};
+const aliasGroups = [
+	["aadhaar", "आधार", "adhar", "uidai"],
+	["bank", "banking", "बैंक", "khata", "खाता"],
+	["electricity", "power", "bijli", "बिजली"],
+	["gas", "lpg", "गैस", "cylinder", "सिलेंडर"],
+	["internet", "broadband", "data", "इंटरनेट", "net"],
+	["mobile", "phone", "telecom", "मोबाइल", "फोन"],
+	["water", "pani", "पानी", "jal", "जल"],
+	["passport", "पासपोर्ट", "yatra", "यात्रा"],
+	["pension", "पेंशन", "retirement", "सेवानिवृत्ति"],
+	["rail", "railway", "train", "रेल", "रेलवे", "gaadi", "गाड़ी"],
+	["refund", "वापसी", "wapasi", "money back", "पैसे वापस"],
+	["delay", "late", "pending", "देर", "vilamb", "विलंब"],
+	["fraud", "scam", "धोखा", "dhokha", "जालसाजी"],
+] as const;
+
+function createAliasLookup(
+	groups: readonly (readonly string[])[],
+): Record<string, string[]> {
+	const lookup: Record<string, string[]> = {};
+	for (const group of groups) {
+		for (const term of group) {
+			if (lookup[term]) throw new Error(`Search alias appears twice: ${term}`);
+			lookup[term] = group.filter((candidate) => candidate !== term);
+		}
+	}
+	return lookup;
+}
+
+const aliases = createAliasLookup(aliasGroups);
 
 const oramaSchema = {
 	id: "string",

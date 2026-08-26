@@ -8,6 +8,7 @@ import {
 	assertSearchArtifact,
 	buildSearchDocuments,
 	createSearchEngine,
+	expandSearchQuery,
 	normalizeSearchText,
 	restoreSearchEngine,
 	runCatalogueSearch,
@@ -29,6 +30,12 @@ test("normalization preserves mixed Indian-language text and identifiers", () =>
 	assert.equal(normalizeSearchText("  मेरी ५G / PAN समस्या  "), "मेरी 5g pan समस्या");
 });
 
+test("concept aliases expand in every direction", () => {
+	assert.equal(expandSearchQuery("धोखा"), "धोखा fraud scam dhokha जालसाजी");
+	assert.equal(expandSearchQuery("जालसाजी"), "जालसाजी fraud scam धोखा dhokha");
+	assert.equal(expandSearchQuery("वापसी"), "वापसी refund wapasi money back पैसे वापस");
+});
+
 test("persisted index has the same top results as a fresh index", async () => {
 	const { artifact, bytes, documents } = await fixtures();
 	const fresh = await createSearchEngine(documents);
@@ -40,6 +47,27 @@ test("persisted index has the same top results as a fresh index", async () => {
 			runCatalogueSearch(restored, artifact.documentCount, request, artifact.catalogueChecksum),
 		]);
 		assert.deepEqual(restoredResult.results.map((item) => item.id), freshResult.results.map((item) => item.id), query);
+	}
+});
+
+test("Hindi aliases find fraud forms like English and Romanized queries", async () => {
+	const { artifact, bytes } = await fixtures();
+	const restored = restoreSearchEngine(JSON.parse(bytes.toString("utf8")));
+	const queries = ["fraud", "dhokha", "धोखा", "जालसाजी"];
+	const results = await Promise.all(
+		queries.map((query) =>
+			runCatalogueSearch(
+				restored,
+				artifact.documentCount,
+				{ query, page: 1, pageSize: 10 },
+				artifact.catalogueChecksum,
+			),
+		),
+	);
+	const englishResultIds = new Set(results[0].results.map((item) => item.id));
+	for (const result of results) {
+		assert.ok(result.total > 0);
+		assert.ok(result.results.some((item) => englishResultIds.has(item.id)));
 	}
 });
 
