@@ -332,7 +332,7 @@ function loadPreparedSearchIndex(): Promise<PreparedSearchEntry[]> {
 				const category = normalizeSearchText(entry.categoryPath.join(" "));
 				const authority = normalizeSearchText(authorityName);
 				const terms = normalizeSearchText(
-					`${entry.aliases} ${entry.keywords} ${entry.phrases} ${entry.fieldLabels} ${entry.optionLabels}`,
+					`${entry.aliases} ${entry.keywords} ${entry.phrases} ${entry.fieldLabels}`,
 				);
 				return {
 					entry,

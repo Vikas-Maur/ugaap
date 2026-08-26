@@ -12,7 +12,7 @@ import type {
 	SearchIndexArtifact,
 } from "./schema";
 
-export const SEARCH_SCHEMA_VERSION = 3 as const;
+export const SEARCH_SCHEMA_VERSION = 4 as const;
 export const ORAMA_VERSION = "3.1.18" as const;
 export const DEFAULT_SEARCH_PAGE_SIZE = 20;
 export const MAX_SEARCH_PAGE_SIZE = 20;
@@ -148,7 +148,6 @@ const oramaSchema = {
 	keywords: "string",
 	phrases: "string",
 	fieldLabels: "string",
-	optionLabels: "string",
 } as const;
 
 export type CatalogueSearchEngine = ReturnType<
@@ -232,7 +231,6 @@ export function buildSearchDocuments(
 			while (root?.parentId && categoryById.has(root.parentId))
 				root = categoryById.get(root.parentId);
 			const fieldLabels = form.fields.map((field) => field.label);
-			const optionLabels = form.fields.flatMap((field) => field.options ?? []);
 			documents.push({
 				id: form.id,
 				authorityId: chunk.authority.id,
@@ -246,12 +244,10 @@ export function buildSearchDocuments(
 					form.title,
 					...form.categoryPath,
 					...fieldLabels,
-					...optionLabels,
 				]),
 				keywords: form.heading ?? "",
 				phrases: `file complaint about ${form.categoryPath.join(" ")}`,
 				fieldLabels: fieldLabels.join(" "),
-				optionLabels: optionLabels.join(" "),
 			});
 		}
 	}
@@ -278,7 +274,6 @@ function indexDocument(document: SearchDocument): OramaIndexDocument {
 		keywords: normalizeSearchText(document.keywords),
 		phrases: normalizeSearchText(document.phrases),
 		fieldLabels: normalizeSearchText(document.fieldLabels),
-		optionLabels: normalizeSearchText(document.optionLabels),
 	};
 }
 
@@ -383,7 +378,6 @@ export async function runCatalogueSearch(
 						"authorityName",
 						"phrases",
 						"fieldLabels",
-						"optionLabels",
 					],
 					boost: {
 						title: 10,
@@ -393,7 +387,6 @@ export async function runCatalogueSearch(
 						authorityName: 4,
 						phrases: 3,
 						fieldLabels: 2,
-						optionLabels: 1,
 					},
 					tolerance: 0,
 					threshold: 0,
@@ -458,7 +451,6 @@ export async function runCatalogueSearch(
 				"authorityName",
 				"phrases",
 				"fieldLabels",
-				"optionLabels",
 			],
 			boost: {
 				title: 10,
@@ -468,7 +460,6 @@ export async function runCatalogueSearch(
 				authorityName: 4,
 				phrases: 3,
 				fieldLabels: 2,
-				optionLabels: 1,
 			},
 			tolerance: 1,
 			threshold: 0,

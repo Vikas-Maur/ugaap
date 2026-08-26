@@ -95,14 +95,13 @@ export type SearchDocument = {
 	keywords: string;
 	phrases: string;
 	fieldLabels: string;
-	optionLabels: string;
 };
 
 /** @deprecated Use SearchDocument. Kept while old catalogue consumers migrate. */
 export type SearchEntry = SearchDocument;
 
 export type SearchIndexArtifact = {
-	schemaVersion: 3;
+	schemaVersion: 4;
 	oramaVersion: "3.1.18";
 	catalogueChecksum: string;
 	enrichmentChecksum: string;

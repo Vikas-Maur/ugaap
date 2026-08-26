@@ -90,6 +90,7 @@ test("the search index contains each active form once and no navigation records"
 		new Set(activeFormIds),
 	);
 	assert.ok(documents.every((document) => !("kind" in document)));
+	assert.ok(documents.every((document) => !("optionLabels" in document)));
 	assert.ok(
 		chunks.every((chunk) =>
 			chunk.forms.every((form) => !("pathname" in form)),
