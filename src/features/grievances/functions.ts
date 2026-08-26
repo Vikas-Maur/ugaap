@@ -37,6 +37,11 @@ const replySchema = registrationIdSchema
 const feedbackSchema = registrationIdSchema
 	.extend({
 		score: z.number().int().min(1).max(5),
+		resolutionAssessment: z.enum([
+			"resolved",
+			"partially_resolved",
+			"not_resolved",
+		]),
 		comment: z.string().trim().max(4_000).optional(),
 	})
 	.strict();
@@ -356,7 +361,12 @@ export type GrievanceDetail = {
 		metadata: Record<string, JsonValue> | null;
 		createdAt: string;
 	}>;
-	feedback: { score: number; comment: string | null; createdAt: string } | null;
+	feedback: {
+		score: number;
+		resolutionAssessment: "resolved" | "partially_resolved" | "not_resolved";
+		comment: string | null;
+		createdAt: string;
+	} | null;
 	appeal: {
 		reason: string;
 		status: string;
@@ -746,6 +756,7 @@ export const getGrievance = createServerFn({ method: "GET" })
 			feedback: feedbackRow
 				? {
 						score: feedbackRow.score,
+						resolutionAssessment: feedbackRow.resolutionAssessment,
 						comment: feedbackRow.comment,
 						createdAt: feedbackRow.createdAt.toISOString(),
 					}
@@ -952,6 +963,7 @@ export const submitFeedback = createServerFn({ method: "POST" })
 					grievanceId: row.id,
 					userId: context.session.user.id,
 					score: data.score,
+					resolutionAssessment: data.resolutionAssessment,
 					comment: data.comment || null,
 				})
 				.onConflictDoNothing({ target: feedback.grievanceId })
@@ -963,7 +975,10 @@ export const submitFeedback = createServerFn({ method: "POST" })
 				actorType: "citizen",
 				actorUserId: context.session.user.id,
 				message: "Resolution feedback received.",
-				metadata: { score: data.score },
+				metadata: {
+					score: data.score,
+					resolutionAssessment: data.resolutionAssessment,
+				},
 			});
 			return { ok: true as const, score: created.score };
 		});

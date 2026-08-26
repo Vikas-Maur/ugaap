@@ -177,6 +177,23 @@ export const appealStatus = pgEnum("appeal_status", [
 	"rejected",
 ]);
 
+export const appealDecisionOutcome = pgEnum("appeal_decision_outcome", [
+	"original_decision_upheld",
+	"original_decision_modified",
+	"original_decision_overturned",
+]);
+
+export const citizenResolutionAssessment = pgEnum(
+	"citizen_resolution_assessment",
+	["resolved", "partially_resolved", "not_resolved"],
+);
+
+export const accountabilitySourceKind = pgEnum("accountability_source_kind", [
+	"synthetic",
+	"official",
+	"imported",
+]);
+
 export const organization = pgTable(
 	"organization",
 	{
@@ -495,6 +512,9 @@ export const feedback = pgTable(
 			.notNull()
 			.references(() => user.id, { onDelete: "restrict" }),
 		score: integer("score").notNull(),
+		resolutionAssessment: citizenResolutionAssessment(
+			"resolution_assessment",
+		).notNull(),
 		comment: text("comment"),
 		createdAt: timestamp("created_at", { withTimezone: true })
 			.defaultNow()
@@ -522,6 +542,8 @@ export const appeal = pgTable(
 			.references(() => user.id, { onDelete: "restrict" }),
 		reason: text("reason").notNull(),
 		status: appealStatus("status").default("filed").notNull(),
+		decisionOutcome: appealDecisionOutcome("decision_outcome"),
+		resolvedAt: timestamp("resolved_at", { withTimezone: true }),
 		resolution: text("resolution"),
 		createdAt: timestamp("created_at", { withTimezone: true })
 			.defaultNow()
@@ -534,6 +556,18 @@ export const appeal = pgTable(
 	(table) => [
 		uniqueIndex("appeal_grievance_uidx").on(table.grievanceId),
 		index("appeal_user_created_idx").on(table.userId, table.createdAt),
+		index("appeal_outcome_resolved_idx").on(
+			table.decisionOutcome,
+			table.resolvedAt,
+		),
+		check(
+			"appeal_decision_pair_chk",
+			sql`(${table.decisionOutcome} is null) = (${table.resolvedAt} is null)`,
+		),
+		check(
+			"appeal_decision_status_chk",
+			sql`${table.decisionOutcome} is null or ${table.status} = 'resolved'`,
+		),
 	],
 );
 
@@ -641,40 +675,76 @@ export const publicGrievanceEvent = pgTable(
 	],
 );
 
-export const performanceSnapshot = pgTable(
-	"performance_snapshot",
+export const accountabilityMetricSnapshot = pgTable(
+	"accountability_metric_snapshot",
 	{
 		id: uuid("id").defaultRandom().primaryKey(),
 		organizationId: uuid("organization_id")
 			.notNull()
 			.references(() => organization.id, { onDelete: "cascade" }),
+		categoryNodeId: uuid("category_node_id").references(() => categoryNode.id, {
+			onDelete: "cascade",
+		}),
+		metricKey: text("metric_key").notNull(),
+		metricVersion: text("metric_version").notNull(),
+		windowDays: integer("window_days").notNull(),
 		windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
 		windowEnd: timestamp("window_end", { withTimezone: true }).notNull(),
-		rawMetrics: jsonb("raw_metrics").$type<Record<string, number>>().notNull(),
-		compositeScore: numeric("composite_score", {
-			precision: 7,
+		value: numeric("value", {
+			precision: 14,
 			scale: 4,
 		}).notNull(),
-		grade: text("grade").notNull(),
 		sampleSize: integer("sample_size").notNull(),
+		numerator: integer("numerator"),
+		denominator: integer("denominator"),
+		eligible: boolean("eligible").notNull(),
+		supportingMetrics: jsonb("supporting_metrics")
+			.$type<Record<string, number | null>>()
+			.notNull()
+			.default({}),
+		sourceKind: accountabilitySourceKind("source_kind").notNull(),
 		createdAt: timestamp("created_at", { withTimezone: true })
 			.defaultNow()
 			.notNull(),
 	},
 	(table) => [
-		uniqueIndex("performance_snapshot_org_window_uidx").on(
+		unique("accountability_metric_snapshot_scope_uidx")
+			.on(
+				table.organizationId,
+				table.categoryNodeId,
+				table.metricKey,
+				table.metricVersion,
+				table.windowDays,
+				table.windowStart,
+				table.windowEnd,
+			)
+			.nullsNotDistinct(),
+		index("accountability_metric_ranking_idx").on(
+			table.metricKey,
+			table.windowDays,
+			table.windowEnd,
+			table.eligible,
+			table.value,
 			table.organizationId,
-			table.windowStart,
+		),
+		index("accountability_metric_org_trend_idx").on(
+			table.organizationId,
+			table.metricKey,
+			table.windowDays,
 			table.windowEnd,
 		),
-		index("performance_snapshot_window_idx").on(
-			table.windowStart,
+		index("accountability_metric_category_idx").on(
+			table.categoryNodeId,
+			table.metricKey,
 			table.windowEnd,
-			table.organizationId,
 		),
 		check(
-			"performance_snapshot_window_chk",
-			sql`${table.windowEnd} > ${table.windowStart}`,
+			"accountability_metric_window_chk",
+			sql`${table.windowEnd} > ${table.windowStart} and ${table.windowDays} > 0`,
+		),
+		check(
+			"accountability_metric_sample_chk",
+			sql`${table.sampleSize} >= 0 and (${table.numerator} is null or ${table.numerator} >= 0) and (${table.denominator} is null or ${table.denominator} >= 0)`,
 		),
 	],
 );
@@ -803,7 +873,7 @@ export const organizationRelations = relations(
 		grievances: many(grievance),
 		publicGrievances: many(publicGrievance),
 		publicationPreviews: many(publicationPreview),
-		performanceSnapshots: many(performanceSnapshot),
+		accountabilitySnapshots: many(accountabilityMetricSnapshot),
 	}),
 );
 
@@ -821,6 +891,21 @@ export const categoryNodeRelations = relations(
 		}),
 		children: many(categoryNode, { relationName: "category_ancestry" }),
 		forms: many(formDefinition),
+		accountabilitySnapshots: many(accountabilityMetricSnapshot),
+	}),
+);
+
+export const accountabilityMetricSnapshotRelations = relations(
+	accountabilityMetricSnapshot,
+	({ one }) => ({
+		organization: one(organization, {
+			fields: [accountabilityMetricSnapshot.organizationId],
+			references: [organization.id],
+		}),
+		category: one(categoryNode, {
+			fields: [accountabilityMetricSnapshot.categoryNodeId],
+			references: [categoryNode.id],
+		}),
 	}),
 );
 
