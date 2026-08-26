@@ -12,7 +12,7 @@ export const Route = createFileRoute("/public-grievances/$publicId")({
 
 function PublicGrievanceDetail() {
 	const grievance = Route.useLoaderData();
-	const { text } = useI18n();
+	const { language, text } = useI18n();
 	return (
 		<main className="page-shell">
 			<Link
@@ -22,6 +22,7 @@ function PublicGrievanceDetail() {
 					q: "",
 					status: "all",
 					organization: "all",
+					category: "all",
 					sort: "recent",
 				}}
 			>
@@ -80,7 +81,7 @@ function PublicGrievanceDetail() {
 					/>
 					<Detail
 						label={text({ en: "Published", hi: "प्रकाशित" })}
-						value={formatDateTime(grievance.publishedAt)}
+						value={formatDateTime(grievance.publishedAt, language)}
 					/>
 				</dl>
 			</section>
@@ -114,7 +115,7 @@ function PublicGrievanceDetail() {
 								<PublicStatus status={event.status} />
 							</div>
 							<p className="mt-1 text-xs font-medium text-[var(--ink-muted)]">
-								{formatDateTime(event.occurredAt)}
+								{formatDateTime(event.occurredAt, language)}
 							</p>
 						</li>
 					))}
@@ -133,11 +134,11 @@ function Detail({ label, value }: { label: string; value: string }) {
 	);
 }
 
-function formatDateTime(value: string) {
+function formatDateTime(value: string, language: "en" | "hi") {
 	const date = new Date(value);
 	return Number.isNaN(date.getTime())
 		? value
-		: new Intl.DateTimeFormat(undefined, {
+		: new Intl.DateTimeFormat(language === "hi" ? "hi-IN" : "en-IN", {
 				dateStyle: "medium",
 				timeStyle: "short",
 			}).format(date);

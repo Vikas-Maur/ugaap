@@ -16,7 +16,7 @@ const CATALOGUE_DIR = join(ROOT, "public", "catalogue", "authorities");
 const SEED_NAMESPACE = "ugaap:p0.3:synthetic-seed:v1";
 const BASE_TIME = new Date("2026-08-23T12:00:00.000Z");
 const DAY = 24 * 60 * 60 * 1000;
-const INSERT_CHUNK_SIZE = 100;
+const INSERT_CHUNK_SIZE = 300;
 // Better Auth scrypt hash for the intentionally public DEMO_MODE password "admin".
 const DEMO_PASSWORD_HASH = "3dab4e02313f06c356bd8bc16bfdd4f1:68b298325ea07802fe052c0c6e662257fdf4fc46f3ad5121b7090f1ea95eefd3de8fa241e09e73cd14c9988d118f4d7071c31b551de57d74e04d2a33743c6a09";
 
@@ -544,14 +544,13 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 		"in_review",
 		"acknowledged",
 		"needs_information",
-		"action_taken",
+		"appeal_resolved",
 		"appeal_resolved",
 	];
-	let publicSequence = publicGrievances.length;
 	for (const [organizationIndex, organization] of organizations.entries()) {
 		const organizationForms = activeFormsByOrganization.get(organization.id);
 		if (!organizationForms?.length) continue;
-		for (let caseIndex = 0; caseIndex < 72; caseIndex += 1) {
+		for (let caseIndex = 0; caseIndex < 120; caseIndex += 1) {
 			const form = organizationForms[caseIndex % organizationForms.length];
 			if (!form) continue;
 			const daysAgo = 2 + ((caseIndex * 5 + organizationIndex * 11) % 358);
@@ -673,12 +672,11 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 				});
 			}
 			if (grievance.publicConsent === "opted_in") {
-				publicSequence += 1;
 				const topics = ["service request delay", "document processing issue", "public facility maintenance", "benefit application follow-up", "local office response"];
 				publicGrievances.push({
 					id: deterministicUuid(`public:${caseKey}`),
 					grievanceId,
-					publicId: `SYN-PUBLIC-${String(publicSequence).padStart(4, "0")}`,
+					publicId: `SYN-PUBLIC-${digest(caseKey).slice(0, 12).toUpperCase()}`,
 					summary: `A resident reported a ${topics[(caseIndex + organizationIndex) % topics.length]} and requested an update from the responsible authority. Identifying details have been removed.`,
 					categoryPath,
 					organizationId: organization.id,
@@ -745,6 +743,7 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 			windowEnd,
 		});
 		for (const metric of metrics) {
+			if (categoryNodeId !== null && metric.sampleSize === 0) continue;
 			const scopeKey = categoryNodeId ?? "authority";
 			snapshots.push({
 				id: deterministicUuid(`accountability:${organization.slug}:${scopeKey}:${metric.metricKey}:${windowDays}:${windowEnd.toISOString()}`),
@@ -823,6 +822,7 @@ function validateSeedData(data: SeedData, chunks: AuthorityChunk[]): void {
 	if (data.publicGrievances.length < 100 || data.publicGrievances.some((item) => !item.synthetic || /@|\\+91|account|phone/i.test(item.summary))) throw new Error("Missing redacted public synthetic examples");
 	if (data.publicEvents.length < data.publicGrievances.length) throw new Error("Each public synthetic example needs a safe status timeline");
 	if (uniqueCount(data.organizations.map((item) => item.id)) !== data.organizations.length || uniqueCount(data.forms.map((item) => item.id)) !== data.forms.length || uniqueCount(data.grievances.map((item) => item.id)) !== data.grievances.length) throw new Error("Seed contains duplicate deterministic IDs");
+	if (uniqueCount(data.publicGrievances.map((item) => item.publicId)) !== data.publicGrievances.length) throw new Error("Seed contains duplicate public IDs");
 	if (data.feedback.some((item) => !item.resolutionAssessment)) throw new Error("Every feedback response must include a resolution assessment");
 	if (data.appeals.some((item) => (item.status === "resolved") !== Boolean(item.decisionOutcome && item.resolvedAt))) throw new Error("Resolved appeal decisions need an outcome and resolution timestamp");
 	for (const organization of data.organizations) {
@@ -883,6 +883,7 @@ async function applySeed(data: SeedData): Promise<void> {
 		for (const rows of chunkRows(data.appeals)) await tx.insert(dbSchema.appeal).values(rows).onConflictDoUpdate({ target: dbSchema.appeal.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, reason: sql`excluded.reason`, status: sql`excluded.status`, decisionOutcome: sql`excluded.decision_outcome`, resolvedAt: sql`excluded.resolved_at`, resolution: sql`excluded.resolution`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.publicGrievances)) await tx.insert(dbSchema.publicGrievance).values(rows).onConflictDoUpdate({ target: dbSchema.publicGrievance.id, set: { grievanceId: sql`excluded.grievance_id`, publicId: sql`excluded.public_id`, summary: sql`excluded.summary`, categoryPath: sql`excluded.category_path`, organizationId: sql`excluded.organization_id`, status: sql`excluded.status`, broadLocation: sql`excluded.broad_location`, synthetic: sql`excluded.synthetic`, publishedAt: sql`excluded.published_at`, withdrawnAt: sql`excluded.withdrawn_at`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.publicEvents)) await tx.insert(dbSchema.publicGrievanceEvent).values(rows).onConflictDoUpdate({ target: dbSchema.publicGrievanceEvent.id, set: { publicGrievanceId: sql`excluded.public_grievance_id`, sourceEventId: sql`excluded.source_event_id`, status: sql`excluded.status`, label: sql`excluded.label`, occurredAt: sql`excluded.occurred_at` } });
+		await tx.delete(dbSchema.accountabilityMetricSnapshot).where(eq(dbSchema.accountabilityMetricSnapshot.sourceKind, "synthetic"));
 		for (const rows of chunkRows(data.snapshots)) await tx.insert(dbSchema.accountabilityMetricSnapshot).values(rows).onConflictDoUpdate({ target: dbSchema.accountabilityMetricSnapshot.id, set: { organizationId: sql`excluded.organization_id`, categoryNodeId: sql`excluded.category_node_id`, metricKey: sql`excluded.metric_key`, metricVersion: sql`excluded.metric_version`, windowDays: sql`excluded.window_days`, windowStart: sql`excluded.window_start`, windowEnd: sql`excluded.window_end`, value: sql`excluded.value`, sampleSize: sql`excluded.sample_size`, numerator: sql`excluded.numerator`, denominator: sql`excluded.denominator`, eligible: sql`excluded.eligible`, supportingMetrics: sql`excluded.supporting_metrics`, sourceKind: sql`excluded.source_kind`, createdAt: sql`excluded.created_at` } });
 	});
 }

@@ -96,7 +96,13 @@ function PublicLinks() {
 			<Link
 				className={publicLinkClass}
 				to="/public-grievances"
-				search={{ q: "", status: "all", organization: "all", sort: "recent" }}
+				search={{
+					q: "",
+					status: "all",
+					organization: "all",
+					category: "all",
+					sort: "recent",
+				}}
 			>
 				{translate(
 					text({
@@ -109,7 +115,6 @@ function PublicLinks() {
 				className={publicLinkClass}
 				to="/accountability"
 				search={{
-					metric: "first_response_hours",
 					group: "central",
 					windowDays: 90,
 				}}

@@ -142,7 +142,6 @@ function MethodologyPage() {
 				className="inline-flex items-center gap-2 text-sm font-bold text-[var(--blue-800)] underline-offset-4 hover:underline"
 				to="/accountability"
 				search={{
-					metric: "first_response_hours",
 					group: "central",
 					windowDays: 90,
 				}}

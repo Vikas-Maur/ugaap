@@ -69,7 +69,7 @@ export const ACCOUNTABILITY_METRICS = {
 			"Share of open grievances that have remained open for more than 30 days.",
 		unit: "percent",
 		direction: "lower",
-		minimumSample: 20,
+		minimumSample: 10,
 	},
 	appeal_overturn_rate: {
 		group: "appeals",
@@ -79,7 +79,7 @@ export const ACCOUNTABILITY_METRICS = {
 			"Share of decided appeals that overturned the original grievance decision.",
 		unit: "percent",
 		direction: "lower",
-		minimumSample: 10,
+		minimumSample: 5,
 	},
 } as const;
 

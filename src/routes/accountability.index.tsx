@@ -2,12 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, ArrowUp, Minus } from "lucide-react";
 import type { ReactNode } from "react";
 import { z } from "zod";
-
+import {
+	formatMetric,
+	supportingMetricSummary,
+} from "#/features/accountability/format";
 import { getAccountabilityOverview } from "#/features/accountability/functions";
-import { ACCOUNTABILITY_METRIC_KEYS } from "#/features/accountability/metrics";
 
 const searchSchema = z.object({
-	metric: z.enum(ACCOUNTABILITY_METRIC_KEYS).catch("first_response_hours"),
 	group: z.enum(["central", "state"]).catch("central"),
 	windowDays: z.union([z.literal(30), z.literal(90), z.literal(365)]).catch(90),
 });
@@ -40,67 +41,22 @@ function AccountabilityOverview() {
 		<main className="page-shell pb-32">
 			<header className="border-b-2 border-[var(--blue-700)] pb-8">
 				<p className="page-eyebrow">Public accountability</p>
-				<h1 className="page-title mt-2">
-					Authority performance, measure by measure
-				</h1>
+				<h1 className="page-title mt-2">Compare every performance measure</h1>
 				<p className="page-intro max-w-4xl">
-					Compare response time, resolution time, citizen outcomes, backlog, and
-					appeal decisions. Each measure has its own ranking, evidence
-					threshold, and trend.
+					Response, resolution, citizen outcomes, backlog, and appeal results
+					are shown together. Each column still has its own rank and evidence
+					threshold.
 				</p>
 			</header>
 
 			{data.methodology.synthetic ? (
 				<p className="border-b border-violet-300 bg-violet-50 px-4 py-3 text-sm font-semibold leading-6 text-violet-950">
-					Demo data: these results are generated from synthetic grievance
-					histories and do not describe real government performance.
+					Demo data: these results come from synthetic grievance histories and
+					do not describe real government performance.
 				</p>
 			) : null}
 
-			<section
-				className="border-b border-[var(--line-strong)] py-7"
-				aria-labelledby="measure-heading"
-			>
-				<div className="grid gap-7 lg:grid-cols-[13rem_minmax(0,1fr)]">
-					<div>
-						<h2
-							id="measure-heading"
-							className="text-sm font-extrabold uppercase tracking-[0.08em] text-[var(--blue-950)]"
-						>
-							Choose a measure
-						</h2>
-						<p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-							Rankings are never blended into one opaque score.
-						</p>
-					</div>
-					<div className="space-y-5">
-						{metricGroups.map((group) => (
-							<div
-								key={group.key}
-								className="grid gap-2 sm:grid-cols-[9rem_minmax(0,1fr)] sm:items-start"
-							>
-								<p className="pt-2 text-xs font-bold uppercase tracking-wide text-[var(--ink-muted)]">
-									{group.label}
-								</p>
-								<div className="flex flex-wrap gap-x-5 gap-y-1">
-									{group.metrics.map((metric) => (
-										<Link
-											key={metric.key}
-											className={`border-b-2 px-1 py-2 text-sm font-bold no-underline ${search.metric === metric.key ? "border-[var(--blue-700)] text-[var(--blue-950)]" : "border-transparent text-[var(--ink-muted)] hover:text-[var(--blue-800)]"}`}
-											to="/accountability"
-											search={{ ...search, metric: metric.key }}
-										>
-											{metric.shortLabel}
-										</Link>
-									))}
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
-
-			<div className="flex flex-wrap items-end justify-between gap-5 border-b border-[var(--line)] py-6">
+			<div className="flex flex-wrap items-end justify-between gap-5 border-b border-[var(--line-strong)] py-6">
 				<nav className="flex gap-7" aria-label="Authority group">
 					<FilterLink
 						active={search.group === "central"}
@@ -129,63 +85,67 @@ function AccountabilityOverview() {
 				</nav>
 			</div>
 
-			<section className="py-8" aria-labelledby="ranking-title">
+			<section className="py-8" aria-labelledby="comparison-heading">
 				<div className="flex flex-wrap items-end justify-between gap-4">
 					<div>
-						<p className="page-eyebrow">Selected measure</p>
+						<p className="page-eyebrow">Side-by-side results</p>
 						<h2
-							id="ranking-title"
+							id="comparison-heading"
 							className="mt-2 text-3xl font-bold text-[var(--blue-950)]"
 						>
-							{data.metric.label}
+							Authority comparison matrix
 						</h2>
-						<p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--ink-muted)]">
-							{data.metric.description}
-						</p>
 					</div>
-					<p className="text-xs font-semibold text-[var(--ink-muted)]">
-						Minimum sample: {data.methodology.minimumSample}
+					<p className="max-w-xl text-xs leading-5 text-[var(--ink-muted)]">
+						A rank appears only when the authority meets that column’s sample
+						threshold. Scroll the matrix horizontally on smaller screens.
 					</p>
 				</div>
 
 				<div className="mt-6 overflow-x-auto border-y border-[var(--line-strong)]">
-					<table className="w-full min-w-[840px] border-collapse text-left text-sm">
-						<thead className="bg-[var(--blue-50)] text-xs uppercase tracking-[0.06em] text-[var(--ink-muted)]">
+					<table className="w-full min-w-[1680px] border-collapse text-left text-sm">
+						<thead className="bg-[var(--blue-50)] align-bottom text-[var(--ink-muted)]">
 							<tr>
-								<th className="w-20 px-4 py-3" scope="col">
-									Rank
+								<th
+									className="sticky left-0 z-20 min-w-72 border-r border-[var(--line-strong)] bg-[var(--blue-50)] px-4 py-4"
+									scope="col"
+								>
+									<span className="text-xs font-extrabold uppercase tracking-[0.07em]">
+										Authority
+									</span>
 								</th>
-								<th className="min-w-72 px-4 py-3" scope="col">
-									Authority
-								</th>
-								<th className="px-4 py-3" scope="col">
-									{data.metric.shortLabel}
-								</th>
-								<th className="px-4 py-3" scope="col">
-									Sample
-								</th>
-								<th className="px-4 py-3" scope="col">
-									Previous window
-								</th>
-								<th className="px-4 py-3" scope="col">
-									Change
-								</th>
+								{data.metrics.map((metric) => (
+									<th
+										key={metric.key}
+										className="min-w-44 border-l border-[var(--line)] px-4 py-4"
+										scope="col"
+									>
+										<span className="block text-[0.65rem] font-bold uppercase tracking-wide text-[var(--blue-700)]">
+											{groupLabels[metric.group]}
+										</span>
+										<span className="mt-1 block text-sm font-extrabold leading-5 text-[var(--blue-950)]">
+											{metric.shortLabel}
+										</span>
+										<span className="mt-2 block text-[0.68rem] font-medium normal-case leading-4">
+											{metric.direction === "lower"
+												? "Lower is better"
+												: "Higher is better"}{" "}
+											· min n={metric.minimumSample}
+										</span>
+									</th>
+								))}
 							</tr>
 						</thead>
 						<tbody>
 							{data.entries.map((entry) => (
 								<tr
 									key={entry.id}
-									className="border-t border-[var(--line)] hover:bg-[var(--blue-50)]/55"
+									className="group border-t border-[var(--line)] align-top hover:bg-[var(--blue-50)]/55"
 								>
-									<td className="px-4 py-4 font-extrabold tabular-nums text-[var(--blue-950)]">
-										{entry.rank ?? (
-											<span className="text-xs font-semibold text-[var(--ink-muted)]">
-												Not ranked
-											</span>
-										)}
-									</td>
-									<th className="px-4 py-4" scope="row">
+									<th
+										className="sticky left-0 z-10 border-r border-[var(--line-strong)] bg-[var(--paper)] px-4 py-5 group-hover:bg-[var(--blue-50)]"
+										scope="row"
+									>
 										<Link
 											className="font-bold text-[var(--blue-950)] underline-offset-4 hover:underline"
 											to="/accountability/authorities/$authoritySlug"
@@ -197,30 +157,19 @@ function AccountabilityOverview() {
 										<span className="mt-1 block text-xs font-normal text-[var(--ink-muted)]">
 											{entry.jurisdiction}
 										</span>
-										{!entry.current.eligible ? (
-											<span className="mt-1 block text-xs font-bold text-amber-800">
-												Insufficient evidence for a rank
-											</span>
-										) : null}
 									</th>
-									<td className="px-4 py-4 text-base font-extrabold tabular-nums text-[var(--blue-900)]">
-										{formatMetric(entry.current.value, data.metric.unit)}
-									</td>
-									<td className="px-4 py-4 tabular-nums">
-										{entry.current.sampleSize}
-									</td>
-									<td className="px-4 py-4 tabular-nums text-[var(--ink-muted)]">
-										{entry.previousValue === null
-											? "Not available"
-											: formatMetric(entry.previousValue, data.metric.unit)}
-									</td>
-									<td className="px-4 py-4">
-										<Change
-											value={entry.change}
-											direction={data.metric.direction}
-											unit={data.metric.unit}
-										/>
-									</td>
+									{data.metrics.map((definition) => {
+										const metric = entry.metrics.find(
+											(item) => item.key === definition.key,
+										);
+										return (
+											<MetricCell
+												key={definition.key}
+												metric={metric}
+												definition={definition}
+											/>
+										);
+									})}
 								</tr>
 							))}
 						</tbody>
@@ -233,10 +182,47 @@ function AccountabilityOverview() {
 				) : null}
 			</section>
 
+			<section
+				className="border-t border-[var(--line-strong)] py-8"
+				aria-labelledby="measure-guide"
+			>
+				<h2
+					id="measure-guide"
+					className="text-2xl font-bold text-[var(--blue-950)]"
+				>
+					What the columns measure
+				</h2>
+				<div className="mt-5 grid border-y border-[var(--line)] md:grid-cols-2 xl:grid-cols-5">
+					{metricGroups.map((group, index) => (
+						<div
+							key={group.key}
+							className={`border-b border-[var(--line)] px-4 py-5 xl:border-b-0 ${index > 0 ? "md:border-l" : ""}`}
+						>
+							<h3 className="font-extrabold text-[var(--blue-950)]">
+								{group.label}
+							</h3>
+							<ul className="mt-3 space-y-3">
+								{group.metrics.map((metric) => (
+									<li
+										key={metric.key}
+										className="text-xs leading-5 text-[var(--ink-muted)]"
+									>
+										<span className="font-bold text-[var(--blue-900)]">
+											{metric.shortLabel}.
+										</span>{" "}
+										{metric.description}
+									</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</section>
+
 			<footer className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--line-strong)] py-8">
 				<p className="max-w-3xl text-sm leading-6 text-[var(--ink-muted)]">
-					Ranks only compare authorities that meet this measure’s sample
-					threshold. Unranked results remain visible.
+					There is no overall rank. A strong response-time result cannot hide
+					weak citizen outcomes or a high appeal overturn rate.
 				</p>
 				<Link
 					className="inline-flex items-center gap-2 text-sm font-bold text-[var(--blue-800)] underline-offset-4 hover:underline"
@@ -246,6 +232,51 @@ function AccountabilityOverview() {
 				</Link>
 			</footer>
 		</main>
+	);
+}
+
+type OverviewData = Awaited<ReturnType<typeof getAccountabilityOverview>>;
+type OverviewMetric = OverviewData["entries"][number]["metrics"][number];
+type MetricDefinition = OverviewData["metrics"][number];
+
+function MetricCell({
+	metric,
+	definition,
+}: {
+	metric: OverviewMetric | undefined;
+	definition: MetricDefinition;
+}) {
+	if (!metric || metric.current.sampleSize === 0)
+		return (
+			<td className="border-l border-[var(--line)] px-4 py-5 text-xs text-[var(--ink-muted)]">
+				No data
+			</td>
+		);
+	return (
+		<td className="border-l border-[var(--line)] px-4 py-5 tabular-nums">
+			<span className="block text-base font-extrabold text-[var(--blue-900)]">
+				{formatMetric(metric.current.value, definition.unit)}
+			</span>
+			<span
+				className={`mt-1 block text-xs font-bold ${metric.rank ? "text-[var(--blue-800)]" : "text-amber-800"}`}
+			>
+				{metric.rank ? `Rank ${metric.rank}` : "Not ranked"} · n=
+				{metric.current.sampleSize}
+			</span>
+			<span className="mt-2 block text-[0.68rem] text-[var(--ink-muted)]">
+				{supportingMetricSummary(
+					metric.current.supportingMetrics,
+					definition.unit,
+				)}
+			</span>
+			<span className="mt-2 block">
+				<Change
+					value={metric.change}
+					direction={definition.direction}
+					unit={definition.unit}
+				/>
+			</span>
+		</td>
 	);
 }
 
@@ -269,14 +300,6 @@ function FilterLink({
 	);
 }
 
-function formatMetric(value: number, unit: string) {
-	if (unit === "percent") return `${value.toFixed(1)}%`;
-	if (unit === "rating") return `${value.toFixed(2)} / 5`;
-	if (unit === "hours") return `${value.toFixed(1)} h`;
-	if (unit === "days") return `${value.toFixed(1)} d`;
-	return value.toFixed(2);
-}
-
 function Change({
 	value,
 	direction,
@@ -288,24 +311,24 @@ function Change({
 }) {
 	if (value === null)
 		return (
-			<span className="text-xs text-[var(--ink-muted)]">Not available</span>
+			<span className="text-[0.68rem] text-[var(--ink-muted)]">
+				No prior period
+			</span>
 		);
 	if (value === 0)
 		return (
-			<span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--ink-muted)]">
-				<Minus size={14} aria-hidden="true" /> No change
+			<span className="inline-flex items-center gap-1 text-[0.68rem] font-bold text-[var(--ink-muted)]">
+				<Minus size={12} aria-hidden="true" /> No change
 			</span>
 		);
 	const improved = direction === "lower" ? value < 0 : value > 0;
 	const Icon = value > 0 ? ArrowUp : ArrowDown;
 	return (
 		<span
-			className={`inline-flex items-center gap-1 text-xs font-bold ${improved ? "text-emerald-800" : "text-red-800"}`}
+			className={`inline-flex items-center gap-1 text-[0.68rem] font-bold ${improved ? "text-emerald-800" : "text-red-800"}`}
 		>
-			<Icon size={14} aria-hidden="true" />
+			<Icon size={12} aria-hidden="true" />
 			{formatMetric(Math.abs(value), unit)} {improved ? "better" : "worse"}
 		</span>
 	);
 }
-
-export { formatMetric };

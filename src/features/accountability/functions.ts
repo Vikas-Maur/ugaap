@@ -15,7 +15,6 @@ import {
 	type AccountabilityMetricKey,
 } from "./metrics";
 
-const metricSchema = z.enum(ACCOUNTABILITY_METRIC_KEYS);
 const windowDaysSchema = z.union([
 	z.literal(30),
 	z.literal(90),
@@ -23,7 +22,6 @@ const windowDaysSchema = z.union([
 ]);
 const overviewSchema = z
 	.object({
-		metric: metricSchema,
 		group: z.enum(["central", "state"]),
 		windowDays: windowDaysSchema,
 	})
@@ -86,7 +84,6 @@ export const getAccountabilityOverview = createServerFn({ method: "GET" })
 			)
 			.where(
 				and(
-					eq(accountabilityMetricSnapshot.metricKey, data.metric),
 					eq(accountabilityMetricSnapshot.windowDays, data.windowDays),
 					eq(
 						accountabilityMetricSnapshot.metricVersion,
@@ -98,81 +95,105 @@ export const getAccountabilityOverview = createServerFn({ method: "GET" })
 			)
 			.orderBy(
 				asc(organization.id),
+				asc(accountabilityMetricSnapshot.metricKey),
 				desc(accountabilityMetricSnapshot.windowEnd),
 			);
 
-		const byOrganization = new Map<string, Array<(typeof rows)[number]>>();
+		const byOrganization = new Map<
+			string,
+			{
+				organization: Organization;
+				byMetric: Map<AccountabilityMetricKey, Array<(typeof rows)[number]>>;
+			}
+		>();
 		for (const row of rows) {
 			if (rankingGroup(row.organization) !== data.group) continue;
-			const items = byOrganization.get(row.organization.id) ?? [];
+			const metricKey = row.snapshot.metricKey as AccountabilityMetricKey;
+			if (!ACCOUNTABILITY_METRIC_KEYS.includes(metricKey)) continue;
+			const authority = byOrganization.get(row.organization.id) ?? {
+				organization: row.organization,
+				byMetric: new Map(),
+			};
+			const items = authority.byMetric.get(metricKey) ?? [];
 			items.push(row);
-			byOrganization.set(row.organization.id, items);
+			authority.byMetric.set(metricKey, items);
+			byOrganization.set(row.organization.id, authority);
 		}
 
-		const definition = ACCOUNTABILITY_METRICS[data.metric];
-		const entries = [...byOrganization.values()].flatMap((items) => {
-			const current = items[0];
-			if (!current) return [];
-			const previous = items.find(
-				(item) =>
-					item.snapshot.windowEnd.getTime() ===
-					current.snapshot.windowStart.getTime(),
-			);
-			return [
-				{
-					id: current.organization.id,
-					slug: current.organization.slug,
-					name: current.organization.name,
-					type: current.organization.type,
-					jurisdiction: current.organization.jurisdiction,
-					current: serializeSnapshot(current.snapshot),
-					previousValue: previous ? Number(previous.snapshot.value) : null,
-					change: previous
-						? Math.round(
-								(Number(current.snapshot.value) -
-									Number(previous.snapshot.value)) *
-									100,
-							) / 100
-						: null,
-				},
-			];
-		});
+		const entries = [...byOrganization.values()]
+			.map(({ organization: authority, byMetric }) => ({
+				id: authority.id,
+				slug: authority.slug,
+				name: authority.name,
+				type: authority.type,
+				jurisdiction: authority.jurisdiction,
+				metrics: ACCOUNTABILITY_METRIC_KEYS.flatMap((metricKey) => {
+					const snapshots = byMetric.get(metricKey) ?? [];
+					const current = snapshots[0];
+					if (!current) return [];
+					const previous = snapshots.find(
+						(item) =>
+							item.snapshot.windowEnd.getTime() ===
+							current.snapshot.windowStart.getTime(),
+					);
+					return [
+						{
+							key: metricKey,
+							current: serializeSnapshot(current.snapshot),
+							previousValue:
+								previous && previous.snapshot.sampleSize > 0
+									? Number(previous.snapshot.value)
+									: null,
+							change:
+								previous &&
+								current.snapshot.sampleSize > 0 &&
+								previous.snapshot.sampleSize > 0
+									? Math.round(
+											(Number(current.snapshot.value) -
+												Number(previous.snapshot.value)) *
+												100,
+										) / 100
+									: null,
+							rank: null as number | null,
+						},
+					];
+				}),
+			}))
+			.filter((entry) =>
+				entry.metrics.some((metric) => metric.current.sampleSize > 0),
+			)
+			.sort((left, right) => left.name.localeCompare(right.name));
 
-		const eligible = entries
-			.filter((entry) => entry.current.eligible)
-			.sort((left, right) => {
-				const difference =
-					definition.direction === "lower"
-						? left.current.value - right.current.value
-						: right.current.value - left.current.value;
-				return difference || left.name.localeCompare(right.name);
-			});
-		const rankById = new Map(
-			eligible.map((entry, index) => [entry.id, index + 1]),
-		);
-		const ranked = entries
-			.sort((left, right) => {
-				const leftRank = rankById.get(left.id);
-				const rightRank = rankById.get(right.id);
-				if (leftRank && rightRank) return leftRank - rightRank;
-				if (leftRank) return -1;
-				if (rightRank) return 1;
-				return left.name.localeCompare(right.name);
-			})
-			.map((entry) => ({ ...entry, rank: rankById.get(entry.id) ?? null }));
+		for (const metricKey of ACCOUNTABILITY_METRIC_KEYS) {
+			const definition = ACCOUNTABILITY_METRICS[metricKey];
+			const ranked = entries
+				.flatMap((entry) => {
+					const metric = entry.metrics.find((item) => item.key === metricKey);
+					return metric?.current.eligible ? [{ entry, metric }] : [];
+				})
+				.sort((left, right) => {
+					const difference =
+						definition.direction === "lower"
+							? left.metric.current.value - right.metric.current.value
+							: right.metric.current.value - left.metric.current.value;
+					return difference || left.entry.name.localeCompare(right.entry.name);
+				});
+			for (const [index, item] of ranked.entries())
+				item.metric.rank = index + 1;
+		}
 
 		return {
-			entries: ranked,
-			metric: { key: data.metric, ...definition },
+			entries,
 			metrics: ACCOUNTABILITY_METRIC_KEYS.map((key) => ({
 				key,
 				...ACCOUNTABILITY_METRICS[key],
 			})),
 			methodology: {
 				metricVersion: ACCOUNTABILITY_METRIC_VERSION,
-				minimumSample: definition.minimumSample,
-				synthetic: ranked.some(
-					(entry) => entry.current.sourceKind === "synthetic",
+				synthetic: entries.some((entry) =>
+					entry.metrics.some(
+						(metric) => metric.current.sourceKind === "synthetic",
+					),
 				),
 			},
 		};

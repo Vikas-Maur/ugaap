@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { z } from "zod";
-
+import {
+	formatMetric,
+	supportingMetricSummary,
+} from "#/features/accountability/format";
 import { getAuthorityAccountabilityProfile } from "#/features/accountability/functions";
-import { formatMetric } from "./accountability.index";
 
 const searchSchema = z.object({
 	windowDays: z.union([z.literal(30), z.literal(90), z.literal(365)]).catch(90),
@@ -48,7 +50,6 @@ function AuthorityProfile() {
 				className="inline-flex items-center gap-2 text-sm font-bold text-[var(--blue-800)] underline-offset-4 hover:underline"
 				to="/accountability"
 				search={{
-					metric: "first_response_hours",
 					group:
 						data.authority.type === "state" ||
 						data.authority.type === "state_department"
@@ -111,13 +112,27 @@ function AuthorityProfile() {
 									</h3>
 								</div>
 								<p className="text-2xl font-extrabold tabular-nums text-[var(--blue-800)]">
-									{formatMetric(metric.current.value, metric.unit)}
+									{metric.current.sampleSize > 0
+										? formatMetric(metric.current.value, metric.unit)
+										: "No data"}
 								</p>
 							</div>
 							<p className="mt-2 text-xs leading-5 text-[var(--ink-muted)]">
 								{metric.description}
 							</p>
-							<Trend values={metric.trend.map((point) => point.value)} />
+							<p className="mt-2 text-xs font-semibold text-[var(--blue-900)]">
+								{metric.current.sampleSize > 0
+									? supportingMetricSummary(
+											metric.current.supportingMetrics,
+											metric.unit,
+										)
+									: "No observations in this window"}
+							</p>
+							<Trend
+								values={metric.trend
+									.filter((point) => point.sampleSize > 0)
+									.map((point) => point.value)}
+							/>
 							<div className="mt-3 flex items-center justify-between text-xs font-semibold text-[var(--ink-muted)]">
 								<span>Sample {metric.current.sampleSize}</span>
 								<span>
