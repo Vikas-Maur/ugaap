@@ -5415,7 +5415,7 @@
       "sourcePath": "financial-services-banking-division/pension-related/other-pension-related/form.json"
     }
   ],
-  "checksum": "ac94045ed9d510c4cd0b423c069f8ba8687aebe9ad3e8278f63790dba73e2d4e",
+  "checksum": "3e708bde1bf2a8c9134130dabb5bfa074073501d5651e481637b32ecc2711ac2",
   "forms": [
     {
       "active": true,
@@ -5444,7 +5444,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-administrative-matters-bc-csp-vendor-related-matters",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/administrative-matters/bc-csp-vendor-related-matters/form.json",
       "title": "BC/CSP/Vendor related matters",
       "version": 2
@@ -5476,7 +5475,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-administrative-matters-opening-of-new-branches",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/administrative-matters/opening-of-new-branches/form.json",
       "title": "Opening of New Branches",
       "version": 2
@@ -5508,7 +5506,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-administrative-matters-other-adminstrative-matters",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/administrative-matters/other-adminstrative-matters/form.json",
       "title": "Other Adminstrative Matters",
       "version": 2
@@ -5592,7 +5589,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-administrative-matters-vacation-of-premises-non-renewal-of-lease-agreement",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/administrative-matters/vacation-of-premises/non-renewal-of-lease-agreement/form.json",
       "title": "Non-renewal of Lease Agreement",
       "version": 2
@@ -5676,7 +5672,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-administrative-matters-vacation-of-premises-non-vacation-of-premises",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/administrative-matters/vacation-of-premises/non-vacation-of-premises/form.json",
       "title": "Non-vacation of premises",
       "version": 2
@@ -5780,7 +5775,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-credit-debit-atm-cards-related-delay-non-reversal-of-failed-transactions",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/credit-debit-atm-cards-related/delay-non-reversal-of-failed-transactions/form.json",
       "title": "Delay/Non-reversal of failed transactions",
       "version": 2
@@ -5870,7 +5864,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-credit-debit-atm-cards-related-levy-of-penal-interest",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/credit-debit-atm-cards-related/levy-of-penal-interest/form.json",
       "title": "Levy of Penal Interest",
       "version": 2
@@ -5960,7 +5953,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-credit-debit-atm-cards-related-levy-of-service-charges",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/credit-debit-atm-cards-related/levy-of-service-charges/form.json",
       "title": "Levy of Service Charges",
       "version": 2
@@ -6050,7 +6042,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-credit-debit-atm-cards-related-non-functioning-of-atm",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/credit-debit-atm-cards-related/non-functioning-of-atm/form.json",
       "title": "Non-functioning of ATM",
       "version": 2
@@ -6140,7 +6131,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-credit-debit-atm-cards-related-non-issuance-of-atm-pin",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/credit-debit-atm-cards-related/non-issuance-of-atm-pin/form.json",
       "title": "Non-issuance of ATM pin",
       "version": 2
@@ -6230,7 +6220,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-credit-debit-atm-cards-related-non-issuance-of-credit-debit-atm-cards",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/credit-debit-atm-cards-related/non-issuance-of-credit-debit-atm-cards/form.json",
       "title": "Non-issuance of Credit/Debit/ATM cards",
       "version": 2
@@ -6320,7 +6309,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-credit-debit-atm-cards-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/credit-debit-atm-cards-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -6410,7 +6398,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-acceptance-of-cash",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/acceptance-of-cash/form.json",
       "title": "Acceptance of cash",
       "version": 2
@@ -6500,7 +6487,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-account-debit-freeze",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/account-debit-freeze/form.json",
       "title": "Account/Debit freeze",
       "version": 2
@@ -6591,7 +6577,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-bank-locker-related-demand-of-fixed-deposit",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/bank-locker-related/demand-of-fixed-deposit/form.json",
       "title": "Demand of Fixed Deposit",
       "version": 2
@@ -6682,7 +6667,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-bank-locker-related-non-availability-of-locker",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/bank-locker-related/non-availability-of-locker/form.json",
       "title": "Non-availability of locker",
       "version": 2
@@ -6773,7 +6757,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-bank-locker-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/bank-locker-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -6864,7 +6847,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-bank-locker-related-problem-in-locker-operation",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/bank-locker-related/problem-in-locker-operation/form.json",
       "title": "Problem in Locker operation",
       "version": 2
@@ -6955,7 +6937,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-bank-locker-related-unauthorised-break-opening-of-locker",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/bank-locker-related/unauthorised-break-opening-of-locker/form.json",
       "title": "Unauthorised break opening of locker",
       "version": 2
@@ -7045,7 +7026,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-cibil-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/cibil-related/form.json",
       "title": "CIBIL Related",
       "version": 2
@@ -7135,7 +7115,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-dbt-related-issue",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/dbt-related-issue/form.json",
       "title": "DBT Related issue",
       "version": 2
@@ -7225,7 +7204,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-delay-in-service",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/delay-in-service/form.json",
       "title": "Delay in Service",
       "version": 2
@@ -7315,7 +7293,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-digital-payment",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/digital-payment/form.json",
       "title": "Digital Payment",
       "version": 2
@@ -7405,7 +7382,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-draft-banker-cheque-cheque-passbook-account-statement-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/draft-banker-cheque-cheque-passbook-account-statement-related/form.json",
       "title": "Draft/Banker Cheque/cheque /passbook/account statement related",
       "version": 2
@@ -7495,7 +7471,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-fastag-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/fastag-related/form.json",
       "title": "Fastag related",
       "version": 2
@@ -7585,7 +7560,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-frequent-failure-of-banks-server",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/frequent-failure-of-banks-server/form.json",
       "title": "Frequent Failure of Banks server",
       "version": 2
@@ -7675,7 +7649,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-kyc-aadhar-updation-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/kyc-aadhar-updation-related/form.json",
       "title": "KYC /Aadhar updation related",
       "version": 2
@@ -7765,7 +7738,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-mobile-banking",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/mobile-banking/form.json",
       "title": "Mobile Banking",
       "version": 2
@@ -7855,7 +7827,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-nomination-related-issue",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/nomination-related-issue/form.json",
       "title": "Nomination Related issue",
       "version": 2
@@ -7945,7 +7916,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-non-compliance-with-standing-instruction-of-the-customers",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/non-compliance-with-standing-instruction-of-the-customers/form.json",
       "title": "Non compliance with standing instruction of the customers",
       "version": 2
@@ -8035,7 +8005,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-non-opening-delay-in-opening-of-new-accounts",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/non-opening-delay-in-opening-of-new-accounts/form.json",
       "title": "Non-opening/delay in opening of new accounts",
       "version": 2
@@ -8125,7 +8094,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-non-settlement-delay-in-settlement-of-deceased-account",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/non-settlement-delay-in-settlement-of-deceased-account/form.json",
       "title": "Non settlement/delay in settlement of Deceased Account",
       "version": 2
@@ -8215,7 +8183,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-non-transfer-delay-in-transfer-of-accounts-from-one-office-to-another",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/non-transfer-delay-in-transfer-of-accounts-from-one-office-to-another/form.json",
       "title": "Non-transfer/Delay in transfer of accounts from one office to another",
       "version": 2
@@ -8305,7 +8272,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-other-customer-sevices",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/other-customer-sevices/form.json",
       "title": "Other customer sevices",
       "version": 2
@@ -8395,7 +8361,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-recurring-fixed-term-deposit-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/recurring-fixed-term-deposit-related/form.json",
       "title": "Recurring/ Fixed Term Deposit related",
       "version": 2
@@ -8486,7 +8451,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-service-charges-related-annual-maintenance-charges-on-credit-debit-atm-cards",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/service-charges-related/annual-maintenance-charges-on-credit-debit-atm-cards/form.json",
       "title": "Annual Maintenance charges on Credit/Debit/ATM cards",
       "version": 2
@@ -8577,7 +8541,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-service-charges-related-loan-processing-charges",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/service-charges-related/loan-processing-charges/form.json",
       "title": "Loan processing Charges",
       "version": 2
@@ -8668,7 +8631,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-service-charges-related-non-maintenance-of-minimum-balance",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/service-charges-related/non-maintenance-of-minimum-balance/form.json",
       "title": "Non-maintenance of Minimum Balance",
       "version": 2
@@ -8759,7 +8721,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-service-charges-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/service-charges-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -8849,7 +8810,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-customer-service-related-tds-tax-related-complaints",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/customer-service-related/tds-tax-related-complaints/form.json",
       "title": "TDS/Tax related complaints",
       "version": 2
@@ -8881,7 +8841,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-employee-services-related-promotion",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/employee-services-related/promotion/form.json",
       "title": "Promotion",
       "version": 2
@@ -8913,7 +8872,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-employee-services-related-recruitment-compassionate-appointment-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/employee-services-related/recruitment-compassionate-appointment-related/form.json",
       "title": "Recruitment/ Compassionate appointment Related",
       "version": 2
@@ -8945,7 +8903,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-employee-services-related-salary-allowances-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/employee-services-related/salary-allowances-related/form.json",
       "title": "Salary/ Allowances related",
       "version": 2
@@ -9035,7 +8992,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-fraud-atm",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/fraud/atm/form.json",
       "title": "ATM",
       "version": 2
@@ -9118,7 +9074,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-fraud-credit-debit-card-pos",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/fraud/credit-debit-card-pos/form.json",
       "title": "Credit/ Debit card/POS",
       "version": 2
@@ -9201,7 +9156,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-fraud-cyber-fraud",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/fraud/cyber-fraud/form.json",
       "title": "Cyber Fraud",
       "version": 2
@@ -9284,7 +9238,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-fraud-loan-frauds",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/fraud/loan-frauds/form.json",
       "title": "Loan Frauds",
       "version": 2
@@ -9367,7 +9320,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-fraud-mis-selling-cross-selling-of-products",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/fraud/mis-selling-cross-selling-of-products/form.json",
       "title": "Mis selling/Cross selling of products",
       "version": 2
@@ -9457,7 +9409,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-fraud-upi-mobile-internet-banking",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/fraud/upi-mobile-internet-banking/form.json",
       "title": "UPI/ Mobile/ Internet banking",
       "version": 2
@@ -9548,7 +9499,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-other-government-schemes-related-pmay-pmegp-pmsvanidhi-state-government-employment-schemes-etc-bank-issues-pertaining-to-financial-schemes",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/other-government-schemes-related-pmay-pmegp-pmsvanidhi-state-government-employme/bank-issues-pertaining-to-financial-schemes/form.json",
       "title": "Bank issues pertaining to financial schemes",
       "version": 2
@@ -9639,7 +9589,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jan-dhan-yojna-pmjdy-related-delay-in-settlement-of-death-claim",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jan-dhan-yojna-pmjdy-related/delay-in-settlement-of-death-claim/form.json",
       "title": "Delay in Settlement of Death Claim",
       "version": 2
@@ -9730,7 +9679,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jan-dhan-yojna-pmjdy-related-delay-non-opening-of-account",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jan-dhan-yojna-pmjdy-related/delay-non-opening-of-account/form.json",
       "title": "Delay/Non-opening of Account",
       "version": 2
@@ -9821,7 +9769,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jan-dhan-yojna-pmjdy-related-levy-of-service-charges",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jan-dhan-yojna-pmjdy-related/levy-of-service-charges/form.json",
       "title": "Levy of Service Charges",
       "version": 2
@@ -9912,7 +9859,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jan-dhan-yojna-pmjdy-related-non-issue-of-rupay-atm-card",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jan-dhan-yojna-pmjdy-related/non-issue-of-rupay-atm-card/form.json",
       "title": "Non-issue of Rupay/ATM card",
       "version": 2
@@ -10003,7 +9949,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jan-dhan-yojna-pmjdy-related-non-sanctioning-of-od-limit",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jan-dhan-yojna-pmjdy-related/non-sanctioning-of-od-limit/form.json",
       "title": "Non-sanctioning of OD Limit",
       "version": 2
@@ -10094,7 +10039,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jan-dhan-yojna-pmjdy-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jan-dhan-yojna-pmjdy-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -10185,7 +10129,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jeevan-jyoti-yojna-delay-non-settlement-of-claims",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jeevan-jyoti-yojna/delay-non-settlement-of-claims/form.json",
       "title": "Delay/non settlement of claims",
       "version": 2
@@ -10276,7 +10219,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jeevan-jyoti-yojna-unauthorised-deduction-of-premium",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jeevan-jyoti-yojna/unauthorised-deduction-of-premium/form.json",
       "title": "unauthorised deduction of premium",
       "version": 2
@@ -10367,7 +10309,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jeevan-suraksha-yojana-delay-non-settlement-of-claims",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jeevan-suraksha-yojana/delay-non-settlement-of-claims/form.json",
       "title": "Delay/non settlement of claims",
       "version": 2
@@ -10458,7 +10399,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-jeevan-suraksha-yojana-unauthorised-deduction-of-premium",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-jeevan-suraksha-yojana/unauthorised-deduction-of-premium/form.json",
       "title": "unauthorised deduction of premium",
       "version": 2
@@ -10549,7 +10489,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-mudra-yojana-pmmy-related-delay-non-sanctioning-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-mudra-yojana-pmmy-related/delay-non-sanctioning-of-loan/form.json",
       "title": "Delay / Non-sanctioning of Loan",
       "version": 2
@@ -10640,7 +10579,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-mudra-yojana-pmmy-related-demand-of-coollateral-security",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-mudra-yojana-pmmy-related/demand-of-coollateral-security/form.json",
       "title": "Demand of Coollateral Security",
       "version": 2
@@ -10731,7 +10669,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-pradhan-mantri-mudra-yojana-pmmy-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/pradhan-mantri-mudra-yojana-pmmy-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -10822,7 +10759,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-stand-up-india-related-delay-non-sanctioning-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/stand-up-india-related/delay-non-sanctioning-of-loan/form.json",
       "title": "Delay/Non-sanctioning of Loan",
       "version": 2
@@ -10913,7 +10849,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-stand-up-india-related-demand-of-collateral-security",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/stand-up-india-related/demand-of-collateral-security/form.json",
       "title": "Demand of Collateral Security",
       "version": 2
@@ -11004,7 +10939,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc-stand-up-india-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/government-schemes-related-pmay-pmegp-pmjdy-pmmy-etc/stand-up-india-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -11102,7 +11036,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-agriculture-kisan-credit-card-loan-delay-non-sanctioning-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/agriculture-kisan-credit-card-loan/delay-non-sanctioning-of-loan/form.json",
       "title": "Delay/Non-sanctioning of Loan",
       "version": 2
@@ -11200,7 +11133,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-agriculture-kisan-credit-card-loan-fasal-bima-yojana-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/agriculture-kisan-credit-card-loan/fasal-bima-yojana-related/form.json",
       "title": "Fasal Bima Yojana Related",
       "version": 2
@@ -11298,7 +11230,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-agriculture-kisan-credit-card-loan-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/agriculture-kisan-credit-card-loan/others/form.json",
       "title": "Others",
       "version": 2
@@ -11396,7 +11327,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-agriculture-kisan-credit-card-loan-waiver-of-agricultural-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/agriculture-kisan-credit-card-loan/waiver-of-agricultural-loan/form.json",
       "title": "Waiver of Agricultural Loan",
       "version": 2
@@ -11494,7 +11424,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-delay-in-sanction-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/delay-in-sanction-of-loan/form.json",
       "title": "Delay in sanction of Loan",
       "version": 2
@@ -11592,7 +11521,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-demand-of-collateral-security",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/demand-of-collateral-security/form.json",
       "title": "Demand of Collateral Security",
       "version": 2
@@ -11690,7 +11618,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-non-adherence-to-fair-practices",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/non-adherence-to-fair-practices/form.json",
       "title": "Non adherence to fair practices",
       "version": 2
@@ -11788,7 +11715,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-non-performing-assets",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/non-performing-assets/form.json",
       "title": "Non Performing Assets",
       "version": 2
@@ -11886,7 +11812,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-non-receipt-of-subsidy",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/non-receipt-of-subsidy/form.json",
       "title": "Non-receipt of Subsidy",
       "version": 2
@@ -11984,7 +11909,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-one-time-settlement-waiver-of-loan-restructuring",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/one-time-settlement-waiver-of-loan-restructuring/form.json",
       "title": "One Time Settlement/ Waiver of Loan/Restructuring",
       "version": 2
@@ -12082,7 +12006,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -12180,7 +12103,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-sarfaesi-act",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/sarfaesi-act/form.json",
       "title": "SARFAESI Act",
       "version": 2
@@ -12278,7 +12200,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-education-loan-related-short-non-sanctioning-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/education-loan-related/short-non-sanctioning-of-loan/form.json",
       "title": "Short/Non-sanctioning of Loan",
       "version": 2
@@ -12376,7 +12297,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-demand-of-collateral-security",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/demand-of-collateral-security/form.json",
       "title": "Demand of Collateral Security",
       "version": 2
@@ -12474,7 +12394,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-non-adherence-to-fair-practices",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/non-adherence-to-fair-practices/form.json",
       "title": "Non adherence to fair practices",
       "version": 2
@@ -12572,7 +12491,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-non-performing-assets",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/non-performing-assets/form.json",
       "title": "Non Performing Assets",
       "version": 2
@@ -12670,7 +12588,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-non-receipt-of-subsidy",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/non-receipt-of-subsidy/form.json",
       "title": "Non-receipt of Subsidy",
       "version": 2
@@ -12768,7 +12685,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-one-time-settlement-waiver-of-loan-restructuring",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/one-time-settlement-waiver-of-loan-restructuring/form.json",
       "title": "One Time Settlement/ Waiver of Loan/Restructuring",
       "version": 2
@@ -12866,7 +12782,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -12964,7 +12879,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-processing-charges-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/processing-charges-related/form.json",
       "title": "Processing Charges related",
       "version": 2
@@ -13062,7 +12976,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-sarfaesi-act",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/sarfaesi-act/form.json",
       "title": "SARFAESI Act",
       "version": 2
@@ -13160,7 +13073,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-housing-loan-related-short-non-sanctioning-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/housing-loan-related/short-non-sanctioning-of-loan/form.json",
       "title": "Short/ Non-sanctioning of Loan",
       "version": 2
@@ -13258,7 +13170,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-delay-in-sanction-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/delay-in-sanction-of-loan/form.json",
       "title": "Delay in sanction of Loan",
       "version": 2
@@ -13356,7 +13267,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-demand-of-collateral-security",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/demand-of-collateral-security/form.json",
       "title": "Demand of Collateral Security",
       "version": 2
@@ -13454,7 +13364,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-non-adherence-to-fair-practices",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/non-adherence-to-fair-practices/form.json",
       "title": "Non adherence to fair practices",
       "version": 2
@@ -13552,7 +13461,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-non-performing-assets",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/non-performing-assets/form.json",
       "title": "Non Performing Assets",
       "version": 2
@@ -13650,7 +13558,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-non-receipt-of-subsidy",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/non-receipt-of-subsidy/form.json",
       "title": "Non-receipt of Subsidy",
       "version": 2
@@ -13748,7 +13655,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-one-time-settlement-waiver-of-loan-restructuring",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/one-time-settlement-waiver-of-loan-restructuring/form.json",
       "title": "One Time Settlement/ Waiver of Loan/Restructuring",
       "version": 2
@@ -13846,7 +13752,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-others",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/others/form.json",
       "title": "Others",
       "version": 2
@@ -13944,7 +13849,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-sarfaesi-act",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/sarfaesi-act/form.json",
       "title": "SARFAESI Act",
       "version": 2
@@ -14042,7 +13946,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-msme-loan-related-short-non-sanctioning-of-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/msme-loan-related/short-non-sanctioning-of-loan/form.json",
       "title": "Short/Non-sanctioning of Loan",
       "version": 2
@@ -14139,7 +14042,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-loan-related-other-loans",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/loan-related/other-loans/form.json",
       "title": "Other Loans",
       "version": 2
@@ -14222,7 +14124,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-misbehaviour-corruption-harassment-atrocities-against-corruption-by-bank-staff",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/misbehaviour-corruption-harassment-atrocities-against/corruption-by-bank-staff/form.json",
       "title": "Corruption by Bank Staff",
       "version": 2
@@ -14305,7 +14206,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-misbehaviour-corruption-harassment-atrocities-against-harrassment-by-bank-staff",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/misbehaviour-corruption-harassment-atrocities-against/harrassment-by-bank-staff/form.json",
       "title": "Harrassment by Bank Staff",
       "version": 2
@@ -14388,7 +14288,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-misbehaviour-corruption-harassment-atrocities-against-misbehaviour-by-bank-staff",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/misbehaviour-corruption-harassment-atrocities-against/misbehaviour-by-bank-staff/form.json",
       "title": "Misbehaviour by Bank Staff",
       "version": 2
@@ -14419,7 +14318,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-non-banking-finance-company-nbfc-other-than-housing-finance-companies-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/non-banking-finance-company-nbfc-other-than-housing-finance-companies-related/form.json",
       "title": "Non Banking Finance Company (NBFC) other than Housing Finance Companies Related",
       "version": 2
@@ -14509,7 +14407,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-atal-pension-yojna-nps",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/atal-pension-yojna-nps/form.json",
       "title": "Atal Pension Yojna/NPS",
       "version": 2
@@ -14599,7 +14496,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-delay-non-transfer-of-pension-account",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/delay-non-transfer-of-pension-account/form.json",
       "title": "Delay/Non-transfer of pension Account",
       "version": 2
@@ -14689,7 +14585,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-excess-recovery-less-payment-of-pension",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/excess-recovery-less-payment-of-pension/form.json",
       "title": "Excess Recovery/ Less payment of Pension",
       "version": 2
@@ -14779,7 +14674,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-non-commencement-of-pension-family-pension",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/non-commencement-of-pension-family-pension/form.json",
       "title": "Non-commencement of Pension/Family Pension",
       "version": 2
@@ -14869,7 +14763,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-non-payment-of-revised-pension-arrears",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/non-payment-of-revised-pension-arrears/form.json",
       "title": "Non-payment of revised pension/arrears",
       "version": 2
@@ -14959,7 +14852,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-non-restoration-of-commuted-pension",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/non-restoration-of-commuted-pension/form.json",
       "title": "Non-restoration of Commuted Pension",
       "version": 2
@@ -15049,7 +14941,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-non-sanction-of-pension-loan",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/non-sanction-of-pension-loan/form.json",
       "title": "Non-sanction of Pension Loan",
       "version": 2
@@ -15139,7 +15030,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-non-submission-of-life-certificate",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/non-submission-of-life-certificate/form.json",
       "title": "Non-submission of Life Certificate",
       "version": 2
@@ -15229,7 +15119,6 @@
       ],
       "heading": null,
       "id": "form-financial-services-banking-division-pension-related-other-pension-related",
-      "pathname": "/V7/NewGrievance/Index/REVBQkQ%3d",
       "sourcePath": "financial-services-banking-division/pension-related/other-pension-related/form.json",
       "title": "Other Pension related",
       "version": 2

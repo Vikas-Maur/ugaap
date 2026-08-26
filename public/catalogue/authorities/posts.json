@@ -6972,7 +6972,7 @@
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/pli-rpli-technical-issues-including-online-transaction-failure/form.json"
     }
   ],
-  "checksum": "659d347146e45b96ad4f590d17e6777ae5def28b6212df524bc9cdcf41bf56ab",
+  "checksum": "6c4264c6cbede8651e23d95c631980479b69d9dc62322b883a70e189d2a6b6b2",
   "forms": [
     {
       "active": true,
@@ -7011,7 +7011,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-aadhaar-seva-kendra-related-aadhaar-service-not-available",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/aadhaar-seva-kendra-related/aadhaar-service-not-available/form.json",
       "title": "Aadhaar Service not available",
       "version": 2
@@ -7043,7 +7042,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-aadhaar-seva-kendra-related-door-step-service-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/aadhaar-seva-kendra-related/door-step-service-related/form.json",
       "title": "Door step service related",
       "version": 1
@@ -7085,7 +7083,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-aadhaar-seva-kendra-related-excess-charges",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/aadhaar-seva-kendra-related/excess-charges/form.json",
       "title": "Excess charges",
       "version": 2
@@ -7127,7 +7124,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-digital-life-certificate-jeevan-pramaan-denial-of-service-by-post-office",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/digital-life-certificate-jeevan-pramaan/denial-of-service-by-post-office/form.json",
       "title": "Denial of Service by Post Office",
       "version": 2
@@ -7169,7 +7165,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-digital-life-certificate-jeevan-pramaan-door-step-service-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/digital-life-certificate-jeevan-pramaan/door-step-service-related/form.json",
       "title": "Door step service related",
       "version": 2
@@ -7201,7 +7196,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-e-post-not-printing",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/e-post/not-printing/form.json",
       "title": "Not printing",
       "version": 1
@@ -7243,7 +7237,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-epost-portal-services-related-e-ipo-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/epost-portal-services-related/e-ipo-related/form.json",
       "title": "e-IPO Related",
       "version": 2
@@ -7285,7 +7278,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-epost-portal-services-related-epost-portal-not-working",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/epost-portal-services-related/epost-portal-not-working/form.json",
       "title": "epost Portal not working",
       "version": 1
@@ -7317,7 +7309,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-epost-portal-services-related-other-product-related-ganga-jal-national-flag-etc",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/epost-portal-services-related/other-product-related-ganga-jal-national-flag-etc/form.json",
       "title": "Other Product related (Ganga Jal, National Flag, Etc.)",
       "version": 1
@@ -7359,7 +7350,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-epost-portal-services-related-philately-product-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/epost-portal-services-related/philately-product-related/form.json",
       "title": "Philately Product Related",
       "version": 2
@@ -7391,7 +7381,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-india-post-passenger-reservation-system-prs-excess-charges",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/india-post-passenger-reservation-system-prs/excess-charges/form.json",
       "title": "Excess charges",
       "version": 1
@@ -7433,7 +7422,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-india-post-passenger-reservation-system-prs-prs-facility-not-available",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/india-post-passenger-reservation-system-prs/prs-facility-not-available/form.json",
       "title": "PRS facility not available",
       "version": 2
@@ -7465,7 +7453,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-passport-office-seva-kendra-popsk-related-delay-in-processing-or-not-processing",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/passport-office-seva-kendra-popsk-related/delay-in-processing-or-not-processing/form.json",
       "title": "Delay in processing or not processing",
       "version": 1
@@ -7507,7 +7494,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-passport-office-seva-kendra-popsk-related-gaps-in-service",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/passport-office-seva-kendra-popsk-related/gaps-in-service/form.json",
       "title": "Gaps in Service",
       "version": 2
@@ -7539,7 +7525,6 @@
       ],
       "heading": null,
       "id": "form-posts-citizen-services-related-passport-office-seva-kendra-popsk-related-lack-of-basic-amenities",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/citizen-services-related/passport-office-seva-kendra-popsk-related/lack-of-basic-amenities/form.json",
       "title": "Lack of basic amenities",
       "version": 1
@@ -7588,7 +7573,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -7637,7 +7621,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-damage-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/damage-of-article/form.json",
       "title": "Damage of article",
       "version": 2
@@ -7686,7 +7669,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -7718,7 +7700,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 1
@@ -7760,7 +7741,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-gst-non-filing-issue",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/gst-non-filing-issue/form.json",
       "title": "GST Non filing issue",
       "version": 2
@@ -7809,7 +7789,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -7858,7 +7837,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -7907,7 +7885,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-contractual-registered-insured-cod-non-payment-of-cod-amount",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-contractual-registered-insured-cod/non-payment-of-cod-amount/form.json",
       "title": "Non payment of COD Amount",
       "version": 2
@@ -7947,7 +7924,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-retail-registered-insured-cod-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -7979,7 +7955,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-retail-registered-insured-cod-damage-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/damage-of-article/form.json",
       "title": "Damage of article",
       "version": 1
@@ -8028,7 +8003,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-retail-registered-insured-cod-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -8077,7 +8051,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-retail-registered-insured-cod-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 2
@@ -8126,7 +8099,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-retail-registered-insured-cod-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -8175,7 +8147,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-retail-registered-insured-cod-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -8224,7 +8195,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-india-post-parcel-retail-registered-insured-cod-non-payment-of-cod-amount",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/india-post-parcel-retail-registered-insured-cod/non-payment-of-cod-amount/form.json",
       "title": "Non payment of COD Amount",
       "version": 2
@@ -8273,7 +8243,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-letter-registered-insured-cod-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/letter-registered-insured-cod/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -8322,7 +8291,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-letter-registered-insured-cod-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/letter-registered-insured-cod/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -8354,7 +8322,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-letter-registered-insured-cod-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/letter-registered-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 1
@@ -8403,7 +8370,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-letter-registered-insured-cod-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/letter-registered-insured-cod/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -8452,7 +8418,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-letter-registered-insured-cod-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/letter-registered-insured-cod/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -8501,7 +8466,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-letter-registered-insured-cod-non-payment-of-cod-amount",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/letter-registered-insured-cod/non-payment-of-cod-amount/form.json",
       "title": "Non payment of COD Amount",
       "version": 2
@@ -8550,7 +8514,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-magazine-post-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/magazine-post/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -8599,7 +8562,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-magazine-post-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/magazine-post/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -8648,7 +8610,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-magazine-post-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/magazine-post/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -8697,7 +8658,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-magazine-post-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/magazine-post/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -8746,7 +8706,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-post-card-book-post-periodical-post-registered-newspapers-post-card-book-post-periodical-post-registered-newspapers-inland-letter-card-ordinary-letter-delay-non-delivery-loss-of-contents-false-delivery-remarks",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/post-card-book-post-periodical-post-registered-newspapers/post-card-book-post-periodical-post-registered-newspapers-inland-letter-card-ord/form.json",
       "title": "Post Card/Book Post/Periodical Post/Registered Newspapers/Inland Letter Card/Ordinary Letter-Delay/Non Delivery/Loss of Contents /False delivery remarks",
       "version": 2
@@ -8795,7 +8754,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-letters-insured-cod-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-letters-insured-cod/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -8844,7 +8802,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-letters-insured-cod-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-letters-insured-cod/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -8893,7 +8850,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-letters-insured-cod-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-letters-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 2
@@ -8942,7 +8898,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-letters-insured-cod-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-letters-insured-cod/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -8991,7 +8946,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-letters-insured-cod-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-letters-insured-cod/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -9040,7 +8994,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-letters-insured-cod-non-payment-of-cod-amount",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-letters-insured-cod/non-payment-of-cod-amount/form.json",
       "title": "Non payment of COD Amount",
       "version": 2
@@ -9089,7 +9042,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-parcel-registered-insured-cod-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -9138,7 +9090,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-parcel-registered-insured-cod-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -9170,7 +9121,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-parcel-registered-insured-cod-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 1
@@ -9219,7 +9169,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-parcel-registered-insured-cod-gst-non-filing-issue-only-for-contractual-customers",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/gst-non-filing-issue-only-for-contractual-customers/form.json",
       "title": "GST Non filing issue( only for Contractual customers)",
       "version": 2
@@ -9251,7 +9200,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-parcel-registered-insured-cod-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 1
@@ -9283,7 +9231,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-parcel-registered-insured-cod-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 1
@@ -9332,7 +9279,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-speed-post-parcel-registered-insured-cod-non-payment-of-cod-amount",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/speed-post-parcel-registered-insured-cod/non-payment-of-cod-amount/form.json",
       "title": "Non payment of COD Amount",
       "version": 2
@@ -9364,7 +9310,6 @@
       ],
       "heading": null,
       "id": "form-posts-domestic-mails-parcel-services-related-tariff-gst-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/domestic-mails-parcel-services-related/tariff-gst-related/form.json",
       "title": "Tariff /GST Related",
       "version": 2
@@ -9406,7 +9351,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-compassionate-appointment",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/compassionate-appointment/form.json",
       "title": "Compassionate Appointment",
       "version": 2
@@ -9448,7 +9392,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-departmental-exams",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/departmental-exams/form.json",
       "title": "Departmental Exams",
       "version": 2
@@ -9490,7 +9433,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-disciplinary-action-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/disciplinary-action-related/form.json",
       "title": "Disciplinary Action Related",
       "version": 2
@@ -9532,7 +9474,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-pay-fixation-macp-tbop-etc",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/pay-fixation-macp-tbop-etc/form.json",
       "title": "Pay Fixation/MACP/TBOP etc.",
       "version": 2
@@ -9574,7 +9515,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-payment-of-salary-allowances-arrears",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/payment-of-salary-allowances-arrears/form.json",
       "title": "Payment of Salary/Allowances/Arrears",
       "version": 2
@@ -9616,7 +9556,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-provident-fund",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/provident-fund/form.json",
       "title": "Provident Fund",
       "version": 2
@@ -9658,7 +9597,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-recruitment-exam-related-issues",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/recruitment-exam-related-issues/form.json",
       "title": "Recruitment/Exam related issues",
       "version": 2
@@ -9700,7 +9638,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-removed-retrenched-employee",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/removed-retrenched-employee/form.json",
       "title": "Removed/Retrenched Employee",
       "version": 2
@@ -9742,7 +9679,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-employee-service-matters-transfer-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/employee-service-matters/transfer-related/form.json",
       "title": "Transfer Related",
       "version": 2
@@ -9773,7 +9709,6 @@
       ],
       "heading": null,
       "id": "form-posts-employee-services-related-gramin-dak-sevak-gramin-dak-seva-matters-gds-service-matters",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/employee-services-related-gramin-dak-sevak/gramin-dak-seva-matters-gds-service-matters/form.json",
       "title": "Gramin Dak Seva Matters (GDS) Service Matters",
       "version": 1
@@ -9822,7 +9757,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-atm-card-related-atm-card-blocking",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/atm-card-related/atm-card-blocking/form.json",
       "title": "ATM Card Blocking",
       "version": 2
@@ -9864,7 +9798,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-atm-card-related-atm-card-transactions",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/atm-card-related/atm-card-transactions/form.json",
       "title": "ATM Card Transactions",
       "version": 1
@@ -9913,7 +9846,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-atm-card-related-atm-related-fraud",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/atm-card-related/atm-related-fraud/form.json",
       "title": "ATM related Fraud",
       "version": 2
@@ -9962,7 +9894,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-atm-card-related-pin-issue-re-issue-of-debit-card",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/atm-card-related/pin-issue-re-issue-of-debit-card/form.json",
       "title": "PIN Issue/Re-issue of Debit Card",
       "version": 2
@@ -10011,7 +9942,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-e-banking-and-m-banking-account-closure",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/e-banking-and-m-banking/account-closure/form.json",
       "title": "Account Closure",
       "version": 2
@@ -10060,7 +9990,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-e-banking-and-m-banking-login-password-issue",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/e-banking-and-m-banking/login-password-issue/form.json",
       "title": "Login/Password Issue",
       "version": 2
@@ -10109,7 +10038,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-e-banking-and-m-banking-server-issue",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/e-banking-and-m-banking/server-issue/form.json",
       "title": "Server Issue",
       "version": 2
@@ -10158,7 +10086,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-e-banking-and-m-banking-transactions-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/e-banking-and-m-banking/transactions-related/form.json",
       "title": "Transactions Related",
       "version": 2
@@ -10190,7 +10117,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-indian-postal-order-ipo-related-extension-of-validity",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/indian-postal-order-ipo-related/extension-of-validity/form.json",
       "title": "Extension of Validity",
       "version": 1
@@ -10222,7 +10148,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-indian-postal-order-ipo-related-non-availability",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/indian-postal-order-ipo-related/non-availability/form.json",
       "title": "Non-Availability",
       "version": 1
@@ -10271,7 +10196,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-indian-postal-order-ipo-related-non-encashment",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/indian-postal-order-ipo-related/non-encashment/form.json",
       "title": "Non-encashment",
       "version": 2
@@ -10302,7 +10226,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-mnrega-account",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/mnrega-account/form.json",
       "title": "MNREGA Account",
       "version": 1
@@ -10351,7 +10274,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-money-order-delay-in-payment-of-money-order",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/money-order/delay-in-payment-of-money-order/form.json",
       "title": "Delay in payment of Money Order",
       "version": 2
@@ -10400,7 +10322,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-money-order-non-payment-of-money-order",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/money-order/non-payment-of-money-order/form.json",
       "title": "Non payment of Money Order",
       "version": 2
@@ -10449,7 +10370,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-money-order-wrong-payment-of-money-order",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/money-order/wrong-payment-of-money-order/form.json",
       "title": "Wrong payment of Money Order",
       "version": 2
@@ -10480,7 +10400,6 @@
       ],
       "heading": null,
       "id": "form-posts-financial-scheme-related-saving-bank-public-provident-fund-account-recurring-deposit-monthly-income-scheme-sukanya-samriddhi-senior-citizen-savings-scheme-time-deposit-kisan-vikas-patra-national-saving-certificates-mahila-samman-savings-certificate-pm-cares-scheme-other-small-saving-scheme",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/financial-scheme-related/saving-bank-public-provident-fund-account-recurring-deposit-monthly-income-schem/form.json",
       "title": "Saving Bank (Public Provident Fund Account/ Recurring Deposit/ Monthly Income Scheme/ Sukanya Samriddhi/ Senior Citizen Savings Scheme/ Time Deposit/ Kisan Vikas Patra/National Saving Certificates/Mahila Samman Savings Certificate/PM CARES Scheme / Other Small Saving Scheme)",
       "version": 1
@@ -10510,7 +10429,6 @@
       ],
       "heading": null,
       "id": "form-posts-india-post-website-portal-related-issues",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/india-post-website-portal-related-issues/form.json",
       "title": "India Post Website/Portal related issues",
       "version": 1
@@ -10559,7 +10477,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-air-parcels-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/air-parcels/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -10591,7 +10508,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-air-parcels-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/air-parcels/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 1
@@ -10640,7 +10556,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-air-parcels-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/air-parcels/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 2
@@ -10689,7 +10604,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-air-parcels-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/air-parcels/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -10738,7 +10652,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-air-parcels-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/air-parcels/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -10787,7 +10700,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-air-parcels-wrong-non-booking-of-international-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/air-parcels/wrong-non-booking-of-international-article/form.json",
       "title": "Wrong/Non booking of International Article",
       "version": 2
@@ -10836,7 +10748,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-express-mail-service-ems-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/express-mail-service-ems/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -10885,7 +10796,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-express-mail-service-ems-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/express-mail-service-ems/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -10934,7 +10844,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-express-mail-service-ems-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/express-mail-service-ems/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 2
@@ -10983,7 +10892,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-express-mail-service-ems-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/express-mail-service-ems/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -11032,7 +10940,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-express-mail-service-ems-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/express-mail-service-ems/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -11081,7 +10988,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-express-mail-service-ems-wrong-non-booking-of-international-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/express-mail-service-ems/wrong-non-booking-of-international-article/form.json",
       "title": "Wrong/Non booking of International Article",
       "version": 2
@@ -11130,7 +11036,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-international-tracked-packet-service-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 2
@@ -11162,7 +11067,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-international-tracked-packet-service-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 1
@@ -11211,7 +11115,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-international-tracked-packet-service-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 2
@@ -11260,7 +11163,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-international-tracked-packet-service-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -11309,7 +11211,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-international-tracked-packet-service-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -11351,7 +11252,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-international-tracked-packet-service-wrong-non-booking-of-international-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/international-tracked-packet-service/wrong-non-booking-of-international-article/form.json",
       "title": "Wrong/Non booking of International Article",
       "version": 1
@@ -11383,7 +11283,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-letters-registered-insured-abstraction-of-contents",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/letters-registered-insured/abstraction-of-contents/form.json",
       "title": "Abstraction of contents",
       "version": 1
@@ -11432,7 +11331,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-letters-registered-insured-delay-in-delivery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/letters-registered-insured/delay-in-delivery/form.json",
       "title": "Delay in delivery",
       "version": 2
@@ -11481,7 +11379,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-letters-registered-insured-fake-non-updation-of-delivery-remarks-scan",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/letters-registered-insured/fake-non-updation-of-delivery-remarks-scan/form.json",
       "title": "Fake/ Non-updation of Delivery remarks/scan",
       "version": 2
@@ -11530,7 +11427,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-letters-registered-insured-loss-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/letters-registered-insured/loss-of-article/form.json",
       "title": "Loss of article",
       "version": 2
@@ -11579,7 +11475,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-letters-registered-insured-non-delivery-of-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/letters-registered-insured/non-delivery-of-article/form.json",
       "title": "Non delivery of article",
       "version": 2
@@ -11628,7 +11523,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-letters-registered-insured-wrong-non-booking-of-international-article",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/letters-registered-insured/wrong-non-booking-of-international-article/form.json",
       "title": "Wrong/Non booking of International Article",
       "version": 2
@@ -11660,7 +11554,6 @@
       ],
       "heading": null,
       "id": "form-posts-international-mails-and-parcel-services-related-tariff-gst-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/international-mails-and-parcel-services-related/tariff-gst-related/form.json",
       "title": "Tariff /GST Related",
       "version": 2
@@ -11702,7 +11595,6 @@
       ],
       "heading": null,
       "id": "form-posts-misbehaviour-corruption-harassment-atrocities-against-differently-abled",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/misbehaviour-corruption-harassment/atrocities-against/differently-abled/form.json",
       "title": "Differently Abled",
       "version": 2
@@ -11744,7 +11636,6 @@
       ],
       "heading": null,
       "id": "form-posts-misbehaviour-corruption-harassment-atrocities-against-minorities",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/misbehaviour-corruption-harassment/atrocities-against/minorities/form.json",
       "title": "Minorities",
       "version": 2
@@ -11776,7 +11667,6 @@
       ],
       "heading": null,
       "id": "form-posts-misbehaviour-corruption-harassment-atrocities-against-sc-st-obc",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/misbehaviour-corruption-harassment/atrocities-against/sc-st-obc/form.json",
       "title": "SC/ST/OBC",
       "version": 1
@@ -11808,7 +11698,6 @@
       ],
       "heading": null,
       "id": "form-posts-misbehaviour-corruption-harassment-atrocities-against-women",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/misbehaviour-corruption-harassment/atrocities-against/women/form.json",
       "title": "Women",
       "version": 1
@@ -11840,7 +11729,6 @@
       ],
       "heading": null,
       "id": "form-posts-misbehaviour-corruption-harassment-corruption",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/misbehaviour-corruption-harassment/corruption/form.json",
       "title": "Corruption",
       "version": 2
@@ -11871,7 +11759,6 @@
       ],
       "heading": null,
       "id": "form-posts-misbehaviour-corruption-harassment-misbehavior-harassment-by-staff",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/misbehaviour-corruption-harassment/misbehavior-harassment-by-staff/form.json",
       "title": "Misbehavior/Harassment by staff",
       "version": 1
@@ -11919,7 +11806,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-adding-beneficiary-in-ppo",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/adding-beneficiary-in-ppo/form.json",
       "title": "Adding beneficiary in PPO",
       "version": 2
@@ -11960,7 +11846,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-delay-in-pension",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/delay-in-pension/form.json",
       "title": "Delay in Pension",
       "version": 2
@@ -12008,7 +11893,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-grant-of-ops-in-lieu-of-nps",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/grant-of-ops-in-lieu-of-nps/form.json",
       "title": "Grant of OPS in lieu of NPS",
       "version": 2
@@ -12056,7 +11940,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-interest-on-delayed-payment-of-pensionary-benefits",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/interest-on-delayed-payment-of-pensionary-benefits/form.json",
       "title": "Interest on delayed payment of pensionary benefits",
       "version": 2
@@ -12104,7 +11987,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-non-payment-of-pensionary-benefits",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/non-payment-of-pensionary-benefits/form.json",
       "title": "Non payment of pensionary benefits",
       "version": 2
@@ -12152,7 +12034,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-nps-unified-pension-scheme-related",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/nps-unified-pension-scheme-related/form.json",
       "title": "NPS/Unified Pension Scheme related",
       "version": 2
@@ -12200,7 +12081,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-revision-of-pension",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/revision-of-pension/form.json",
       "title": "Revision of Pension",
       "version": 2
@@ -12248,7 +12128,6 @@
       ],
       "heading": null,
       "id": "form-posts-pension-related-wrong-calculation-of-pension",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/pension-related/wrong-calculation-of-pension/form.json",
       "title": "Wrong calculation of Pension",
       "version": 2
@@ -12289,7 +12168,6 @@
       ],
       "heading": null,
       "id": "form-posts-philately-related-non-availability-of-philately-stamps-stationery",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/philately-related/non-availability-of-philately-stamps-stationery/form.json",
       "title": "Non availability of Philately Stamps/Stationery",
       "version": 2
@@ -12320,7 +12198,6 @@
       ],
       "heading": null,
       "id": "form-posts-philately-related-other-issues-related-to-philately",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/philately-related/other-issues-related-to-philately/form.json",
       "title": "Other Issues related to philately",
       "version": 1
@@ -12361,7 +12238,6 @@
       ],
       "heading": null,
       "id": "form-posts-philately-related-philatelic-deposit-account",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/philately-related/philatelic-deposit-account/form.json",
       "title": "Philatelic Deposit Account",
       "version": 2
@@ -12392,7 +12268,6 @@
       ],
       "heading": null,
       "id": "form-posts-philately-related-stamp-release-policy-matters",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/philately-related/stamp-release-policy-matters/form.json",
       "title": "Stamp Release (Policy Matters)",
       "version": 1
@@ -12433,7 +12308,6 @@
       ],
       "heading": null,
       "id": "form-posts-post-office-building-land-related-amenities-in-post-office",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/post-office-building-land-related/amenities-in-post-office/form.json",
       "title": "Amenities in Post Office",
       "version": 2
@@ -12474,7 +12348,6 @@
       ],
       "heading": null,
       "id": "form-posts-post-office-building-land-related-encroachment-of-po-land",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/post-office-building-land-related/encroachment-of-po-land/form.json",
       "title": "Encroachment of PO Land",
       "version": 2
@@ -12515,7 +12388,6 @@
       ],
       "heading": null,
       "id": "form-posts-post-office-building-land-related-increase-in-rent",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/post-office-building-land-related/increase-in-rent/form.json",
       "title": "Increase in Rent",
       "version": 2
@@ -12556,7 +12428,6 @@
       ],
       "heading": null,
       "id": "form-posts-post-office-building-land-related-renewal-of-lease-deed",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/post-office-building-land-related/renewal-of-lease-deed/form.json",
       "title": "Renewal of Lease Deed",
       "version": 2
@@ -12597,7 +12468,6 @@
       ],
       "heading": null,
       "id": "form-posts-post-office-building-land-related-vacation-of-po-building",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/post-office-building-land-related/vacation-of-po-building/form.json",
       "title": "Vacation of PO Building",
       "version": 2
@@ -12628,7 +12498,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-change-of-address",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/change-of-address/form.json",
       "title": "Change of Address",
       "version": 1
@@ -12659,7 +12528,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-change-of-nomination",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/change-of-nomination/form.json",
       "title": "Change of Nomination",
       "version": 1
@@ -12707,7 +12575,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-delay-in-disbursement-of-loan-on-policy",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/delay-in-disbursement-of-loan-on-policy/form.json",
       "title": "Delay in disbursement of Loan on Policy",
       "version": 2
@@ -12738,7 +12605,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-delay-in-payment-of-surrender-value",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/delay-in-payment-of-surrender-value/form.json",
       "title": "Delay in payment of surrender value",
       "version": 1
@@ -12769,7 +12635,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-delay-in-revival-of-policy",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/delay-in-revival-of-policy/form.json",
       "title": "Delay in revival of policy",
       "version": 1
@@ -12817,7 +12682,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-delay-in-transfer-of-original-case-file",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/delay-in-transfer-of-original-case-file/form.json",
       "title": "Delay in transfer of original case file",
       "version": 2
@@ -12865,7 +12729,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-issue-in-payment-of-death-claim-with-without-nomination",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/issue-in-payment-of-death-claim-with-without-nomination/form.json",
       "title": "Issue in payment of death claim with / without nomination",
       "version": 2
@@ -12913,7 +12776,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-issue-of-acceptance-letter-passbook-policy-bond",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/issue-of-acceptance-letter-passbook-policy-bond/form.json",
       "title": "Issue of acceptance Letter/Passbook/Policy Bond",
       "version": 2
@@ -12944,7 +12806,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-non-conversion-delay-in-conversion-of-policy",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/non-conversion-delay-in-conversion-of-policy/form.json",
       "title": "Non-conversion/ Delay in conversion of Policy",
       "version": 1
@@ -12992,7 +12853,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-non-payment-delay-in-payment-of-maturity-value-survival-benefit-paid-up-value-of-policy",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/non-payment-delay-in-payment-of-maturity-value-survival-benefit-paid-up-value-of/form.json",
       "title": "Non-payment/Delay in payment of maturity value/ Survival Benefit/Paid up value of policy",
       "version": 2
@@ -13023,7 +12883,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-pli-rpli-miscellaneous",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/pli-rpli-miscellaneous/form.json",
       "title": "PLI/RPLI Miscellaneous",
       "version": 1
@@ -13071,7 +12930,6 @@
       ],
       "heading": null,
       "id": "form-posts-postal-life-insurance-rural-postal-life-insurance-pli-rpli-technical-issues-including-online-transaction-failure",
-      "pathname": "/V7/NewGrievance/Index/RFBPU1Q%3d",
       "sourcePath": "posts/postal-life-insurance-rural-postal-life-insurance/pli-rpli-technical-issues-including-online-transaction-failure/form.json",
       "title": "PLI/RPLI Technical issues including Online Transaction Failure",
       "version": 2

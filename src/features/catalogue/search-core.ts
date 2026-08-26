@@ -248,7 +248,7 @@ export function buildSearchDocuments(
 					...fieldLabels,
 					...optionLabels,
 				]),
-				keywords: `${form.heading ?? ""} ${form.pathname}`,
+				keywords: form.heading ?? "",
 				phrases: `file complaint about ${form.categoryPath.join(" ")}`,
 				fieldLabels: fieldLabels.join(" "),
 				optionLabels: optionLabels.join(" "),

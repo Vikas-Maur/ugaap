@@ -14,7 +14,7 @@ type CompilerOptions = {
 }
 
 type SourceRecord = { sourcePath: string; relativePath: string; capture: Capture }
-type MutableCategory = CatalogueCategory & { sourceFields: CaptureField[]; sourcePath?: string; heading: string | null; pathname: string }
+type MutableCategory = CatalogueCategory & { sourceFields: CaptureField[]; sourcePath?: string; heading: string | null }
 
 const defaultRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 const DEFAULT_CAPTURES = join(defaultRoot, 'local-research', 'cpgrams-form-catalogue', 'captures')
@@ -125,7 +125,7 @@ function createCategory(authorityId: string, path: string[]): MutableCategory {
   const authoritySlug = authorityId.replace(/^authority-/, '')
   const slugPath = path.map(slugify)
   const id = `category-${authoritySlug}-${slugPath.join('-')}`
-  return { id, authorityId, parentId: null, name: path[path.length - 1] ?? 'Uncategorized', slug: slugPath.at(-1) ?? 'uncategorized', path, children: [], navigationOptions: [], formCapable: false, sourceFields: [], heading: null, pathname: '' }
+  return { id, authorityId, parentId: null, name: path[path.length - 1] ?? 'Uncategorized', slug: slugPath.at(-1) ?? 'uncategorized', path, children: [], navigationOptions: [], formCapable: false, sourceFields: [], heading: null }
 }
 
 function addCategory(categories: Map<string, MutableCategory>, authorityId: string, path: string[]): MutableCategory {
@@ -147,7 +147,7 @@ function addCategory(categories: Map<string, MutableCategory>, authorityId: stri
 }
 
 function sortedCategories(categories: Map<string, MutableCategory>): CatalogueCategory[] {
-  return [...categories.values()].map(({ sourceFields: _sourceFields, heading: _heading, pathname: _pathname, ...category }) => ({ ...category, children: [...category.children].sort() })).sort((a, b) => a.id.localeCompare(b.id))
+  return [...categories.values()].map(({ sourceFields: _sourceFields, heading: _heading, ...category }) => ({ ...category, children: [...category.children].sort() })).sort((a, b) => a.id.localeCompare(b.id))
 }
 
 function formTitle(path: string[], heading: string | null): string {
@@ -177,13 +177,18 @@ function buildForm(record: SourceRecord, authority: { name: string; slug: string
   const categoryPath = category.path
   const categoryId = category.id
   const id = `form-${authority.slug}-${categoryPath.map(slugify).join('-')}`
-  const form: CatalogueForm = { id, version: 1, authorityId: `authority-${authority.slug}`, categoryId, categoryPath, title: formTitle(categoryPath, record.capture.snapshot.heading), heading: record.capture.snapshot.heading, pathname: record.capture.snapshot.pathname, fields, sourcePath: record.relativePath, checksum: '', active: true }
+  const form: CatalogueForm = { id, version: 1, authorityId: `authority-${authority.slug}`, categoryId, categoryPath, title: formTitle(categoryPath, record.capture.snapshot.heading), heading: record.capture.snapshot.heading, fields, sourcePath: record.relativePath, checksum: '', active: true }
   form.checksum = formContentChecksum(form)
   return form
 }
 
+function withoutLegacyPathname(form: CatalogueForm): CatalogueForm {
+  const { pathname: _pathname, ...current } = form as CatalogueForm & { pathname?: unknown }
+  return current
+}
+
 function formContentChecksum(form: CatalogueForm): string {
-  return checksum({ ...form, version: 1, active: true, checksum: undefined })
+  return checksum({ ...withoutLegacyPathname(form), version: 1, active: true, checksum: undefined })
 }
 
 function addNavigationOptions(category: MutableCategory, capture: Capture): void {
@@ -228,7 +233,6 @@ function compileArtifacts(records: SourceRecord[], errors: Array<{ sourcePath: s
     category.sourceFields.push(...record.capture.snapshot.fields.filter((field) => !isNavigationField(field)))
     category.sourcePath = record.relativePath
     category.heading = record.capture.snapshot.heading
-    category.pathname = record.capture.snapshot.pathname
     bucket.records.push({ record, category })
   }
   const chunks: Record<string, AuthorityChunk> = {}
@@ -337,7 +341,7 @@ function applyHistoricalState(artifacts: { manifest: CatalogueManifest; chunks: 
   for (const [slug, oldChunk] of Object.entries(previous)) {
     const chunk = artifacts.chunks[slug]
     if (!chunk) {
-      artifacts.chunks[slug] = { ...oldChunk, forms: oldChunk.forms.map((form) => ({ ...form, active: false })) }
+      artifacts.chunks[slug] = { ...oldChunk, forms: oldChunk.forms.map((form) => ({ ...withoutLegacyPathname(form), active: false })) }
       continue
     }
     const currentIds = new Set(chunk.forms.map((form) => form.id))
@@ -345,15 +349,16 @@ function applyHistoricalState(artifacts: { manifest: CatalogueManifest; chunks: 
     for (const form of chunk.forms) {
       const old = oldById.get(form.id)
       if (!old) continue
-      if (formContentChecksum(form) === old.checksum) {
+      const currentChecksum = formContentChecksum(form)
+      if (currentChecksum === old.checksum || currentChecksum === formContentChecksum(old)) {
         form.version = old.version
         form.checksum = old.checksum
       } else {
         form.version = (old.version ?? 1) + 1
-        form.checksum = formContentChecksum(form)
+        form.checksum = currentChecksum
       }
     }
-    for (const old of oldChunk.forms) if (!currentIds.has(old.id)) chunk.forms.push({ ...old, active: false })
+    for (const old of oldChunk.forms) if (!currentIds.has(old.id)) chunk.forms.push({ ...withoutLegacyPathname(old), active: false })
   }
 }
 

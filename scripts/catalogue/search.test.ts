@@ -76,6 +76,13 @@ test("the search index contains each active form once and no navigation records"
 	const activeFormIds = chunks.flatMap((chunk) =>
 		chunk.forms.filter((form) => form.active).map((form) => form.id),
 	);
+	const headings = new Map(
+		chunks.flatMap((chunk) =>
+			chunk.forms
+				.filter((form) => form.active)
+				.map((form) => [form.id, form.heading ?? ""] as const),
+		),
+	);
 	assert.equal(documents.length, activeFormIds.length);
 	assert.equal(new Set(documents.map((document) => document.id)).size, documents.length);
 	assert.deepEqual(
@@ -83,6 +90,16 @@ test("the search index contains each active form once and no navigation records"
 		new Set(activeFormIds),
 	);
 	assert.ok(documents.every((document) => !("kind" in document)));
+	assert.ok(
+		chunks.every((chunk) =>
+			chunk.forms.every((form) => !("pathname" in form)),
+		),
+	);
+	assert.ok(
+		documents.every(
+			(document) => document.keywords === headings.get(document.id),
+		),
+	);
 });
 
 test("PAN correction search returns one canonical form result", async () => {

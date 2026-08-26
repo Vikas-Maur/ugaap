@@ -20,9 +20,10 @@ export const captureSnapshotSchema = z
 		categoryPath: z.array(z.string()),
 		fields: z.array(captureFieldSchema),
 		heading: z.string().nullable(),
-		pathname: z.string(),
+		pathname: z.unknown().optional(),
 	})
-	.strict();
+	.strict()
+	.transform(({ pathname: _pathname, ...snapshot }) => snapshot);
 
 export const captureSchema = z
 	.object({
@@ -54,7 +55,6 @@ export type CatalogueForm = {
 	categoryPath: string[];
 	title: string;
 	heading: string | null;
-	pathname: string;
 	fields: CatalogueField[];
 	sourcePath: string;
 	checksum: string;

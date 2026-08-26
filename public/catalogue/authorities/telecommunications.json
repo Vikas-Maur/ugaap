@@ -4542,7 +4542,7 @@
       "sourcePath": "telecommunications/wpc-related-spectrum-licensing-satellite-related/wpc-related/wpc-permission-related/form.json"
     }
   ],
-  "checksum": "d7ea99dbdb796421e6c63f38b835bdde53631e7842546051886fed92dba3261d",
+  "checksum": "cc572deb974c4c47e8fe37bfb5eb782c0a6b84ad7f0a3c07531bbb98a3417b28",
   "forms": [
     {
       "active": true,
@@ -4569,7 +4569,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-broadband-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/broadband-related/form.json",
       "title": "Broadband Related",
       "version": 1
@@ -4599,7 +4598,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-employee-services-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/employee-services-related/form.json",
       "title": "Employee Services Related",
       "version": 1
@@ -4656,7 +4654,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-billing-related-ll-incorrect-billing-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/billing-related-ll/incorrect-billing-ll/form.json",
       "title": "Incorrect billing (LL)",
       "version": 2
@@ -4688,7 +4685,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-billing-related-ll-non-receipt-of-bills-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/billing-related-ll/non-receipt-of-bills-ll/form.json",
       "title": "Non receipt of bills (LL)",
       "version": 1
@@ -4720,7 +4716,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-billing-related-ll-post-surrender-bill-generation-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/billing-related-ll/post-surrender-bill-generation-ll/form.json",
       "title": "Post surrender bill generation (LL)",
       "version": 1
@@ -4776,7 +4771,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-delay-in-disconnection-closure-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/delay-in-disconnection-closure-ll/form.json",
       "title": "Delay in disconnection/ closure (LL)",
       "version": 2
@@ -4832,7 +4826,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-denial-of-rent-rebate-during-fault-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/denial-of-rent-rebate-during-fault-ll/form.json",
       "title": "Denial of rent rebate during fault (LL)",
       "version": 2
@@ -4889,7 +4882,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-new-telephone-connection-shifting-change-of-name-or-address-change-of-name-address-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/new-telephone-connection-shifting-change-of-name-or-address/change-of-name-address-ll/form.json",
       "title": "Change of Name / Address (LL)",
       "version": 2
@@ -4946,7 +4938,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-new-telephone-connection-shifting-change-of-name-or-address-delay-in-new-connection-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/new-telephone-connection-shifting-change-of-name-or-address/delay-in-new-connection-ll/form.json",
       "title": "Delay in New Connection (LL)",
       "version": 2
@@ -5003,7 +4994,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-new-telephone-connection-shifting-change-of-name-or-address-delay-in-shifting-of-existing-connection-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/new-telephone-connection-shifting-change-of-name-or-address/delay-in-shifting-of-existing-connection-ll/form.json",
       "title": "Delay in Shifting of existing connection (LL)",
       "version": 2
@@ -5059,7 +5049,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-security-refund-ll",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/security-refund-ll/form.json",
       "title": "Security Refund (LL)",
       "version": 2
@@ -5115,7 +5104,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-landline-related-telephone-faulty-dead",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/landline-related/telephone-faulty-dead/form.json",
       "title": "Telephone Faulty / Dead",
       "version": 2
@@ -5145,7 +5133,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-misbehaviour-corruption-harassment-financial-irregularities",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/misbehaviour-corruption-harassment-financial-irregularities/form.json",
       "title": "Misbehaviour/ Corruption/ Harassment/ Financial irregularities",
       "version": 1
@@ -5177,7 +5164,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-activation-deactivation-of-value-added-services-vas-activated-without-consent",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/activation-deactivation-of-value-added-services-vas/activated-without-consent/form.json",
       "title": "Activated without consent",
       "version": 1
@@ -5232,7 +5218,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-activation-deactivation-of-value-added-services-vas-ott-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/activation-deactivation-of-value-added-services-vas/ott-related/form.json",
       "title": "OTT related",
       "version": 2
@@ -5287,7 +5272,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-activation-deactivation-of-value-added-services-vas-refund-for-wrong-activation",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/activation-deactivation-of-value-added-services-vas/refund-for-wrong-activation/form.json",
       "title": "Refund for wrong activation",
       "version": 2
@@ -5342,7 +5326,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-activation-deactivation-of-value-added-services-vas-unable-to-deactivate",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/activation-deactivation-of-value-added-services-vas/unable-to-deactivate/form.json",
       "title": "Unable to deactivate",
       "version": 2
@@ -5397,7 +5380,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-activation-deactivation-of-value-added-services-vas-wrong-activation",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/activation-deactivation-of-value-added-services-vas/wrong-activation/form.json",
       "title": "Wrong activation",
       "version": 2
@@ -5452,7 +5434,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-call-related-call-drop",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/call-related/call-drop/form.json",
       "title": "Call drop",
       "version": 2
@@ -5484,7 +5465,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-call-related-call-set-up-delay-failure",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/call-related/call-set-up-delay-failure/form.json",
       "title": "Call set up delay/ Failure",
       "version": 1
@@ -5539,7 +5519,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-call-related-cross-connection",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/call-related/cross-connection/form.json",
       "title": "Cross connection",
       "version": 2
@@ -5594,7 +5573,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-call-related-one-way-audio-echo",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/call-related/one-way-audio-echo/form.json",
       "title": "One way Audio/ Echo",
       "version": 2
@@ -5649,7 +5627,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-call-related-poor-voice-quality",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/call-related/poor-voice-quality/form.json",
       "title": "Poor Voice quality",
       "version": 2
@@ -5681,7 +5658,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-data-speed-related-consistently-low-data-speed",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/data-speed-related/consistently-low-data-speed/form.json",
       "title": "Consistently low data speed",
       "version": 1
@@ -5713,7 +5689,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-data-speed-related-frequent-4g-5g-fallback",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/data-speed-related/frequent-4g-5g-fallback/form.json",
       "title": "Frequent 4G-5G fallback",
       "version": 1
@@ -5768,7 +5743,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-data-speed-related-irregular-data-speed",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/data-speed-related/irregular-data-speed/form.json",
       "title": "Irregular Data Speed",
       "version": 2
@@ -5823,7 +5797,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-fraud-cyber-security-blocking-unblocking-of-sim-card",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/blocking-unblocking-of-sim-card/form.json",
       "title": "Blocking / Unblocking of SIM Card",
       "version": 2
@@ -5878,7 +5851,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-fraud-cyber-security-cyber-fraud-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/cyber-fraud-related/form.json",
       "title": "Cyber Fraud related",
       "version": 2
@@ -5933,7 +5905,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-fraud-cyber-security-digital-arrest-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/digital-arrest-related/form.json",
       "title": "Digital arrest related",
       "version": 2
@@ -5965,7 +5936,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-fraud-cyber-security-malicious-link-sms",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/malicious-link-sms/form.json",
       "title": "Malicious link / SMS",
       "version": 1
@@ -6020,7 +5990,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-fraud-cyber-security-sim-swap-fraud",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/sim-swap-fraud/form.json",
       "title": "SIM SWAP fraud",
       "version": 2
@@ -6075,7 +6044,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-fraud-cyber-security-unaurhorized-sim-transfer",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/unaurhorized-sim-transfer/form.json",
       "title": "Unaurhorized SIM transfer",
       "version": 2
@@ -6130,7 +6098,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-fraud-cyber-security-unauthorized-port-in-port-out",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/fraud-cyber-security/unauthorized-port-in-port-out/form.json",
       "title": "Unauthorized Port In / Port Out",
       "version": 2
@@ -6161,7 +6128,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-mobile-handset-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/mobile-handset-related/form.json",
       "title": "Mobile Handset related",
       "version": 1
@@ -6193,7 +6159,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-mobile-number-portability-mnp-related-arbitrary-rejection",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/mobile-number-portability-mnp-related/arbitrary-rejection/form.json",
       "title": "Arbitrary rejection",
       "version": 1
@@ -6225,7 +6190,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-mobile-number-portability-mnp-related-delay-in-port-out",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/mobile-number-portability-mnp-related/delay-in-port-out/form.json",
       "title": "Delay in port out",
       "version": 1
@@ -6280,7 +6244,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-mobile-number-portability-mnp-related-delay-in-sim-activation-mnp",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/mobile-number-portability-mnp-related/delay-in-sim-activation-mnp/form.json",
       "title": "Delay in SIM activation (MNP)",
       "version": 2
@@ -6335,7 +6298,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-mobile-number-portability-mnp-related-kyc-issue-mnp",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/mobile-number-portability-mnp-related/kyc-issue-mnp/form.json",
       "title": "KYC Issue (MNP)",
       "version": 2
@@ -6390,7 +6352,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-mobile-number-portability-mnp-related-upc-not-generated",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/mobile-number-portability-mnp-related/upc-not-generated/form.json",
       "title": "UPC not generated",
       "version": 2
@@ -6445,7 +6406,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-5g-frequent-network-outage-5g",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-5g/frequent-network-outage-5g/form.json",
       "title": "Frequent Network Outage (5G)",
       "version": 2
@@ -6500,7 +6460,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-5g-improper-network-coverage-5g",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-5g/improper-network-coverage-5g/form.json",
       "title": "Improper Network Coverage (5G)",
       "version": 2
@@ -6555,7 +6514,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-5g-no-network-coverage-5g",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-5g/no-network-coverage-5g/form.json",
       "title": "No Network coverage (5G)",
       "version": 2
@@ -6630,7 +6588,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-5g-no-network-coverage-of-any-service-provider-5g",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-5g/no-network-coverage-of-any-service-provider-5g/form.json",
       "title": "No Network coverage of any service provider (5G)",
       "version": 2
@@ -6685,7 +6642,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-indoor-frequent-network-outage-indoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-indoor/frequent-network-outage-indoor/form.json",
       "title": "Frequent Network Outage ( Indoor)",
       "version": 2
@@ -6740,7 +6696,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-indoor-improper-network-coverage-indoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-indoor/improper-network-coverage-indoor/form.json",
       "title": "Improper Network Coverage ( Indoor)",
       "version": 2
@@ -6795,7 +6750,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-indoor-no-network-coverage-indoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-indoor/no-network-coverage-indoor/form.json",
       "title": "No Network coverage (Indoor)",
       "version": 2
@@ -6870,7 +6824,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-indoor-no-network-coverage-of-any-service-provider-indoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-indoor/no-network-coverage-of-any-service-provider-indoor/form.json",
       "title": "No Network coverage of any service provider (Indoor)",
       "version": 2
@@ -6925,7 +6878,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-outoor-frequent-network-outage-outoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-outoor/frequent-network-outage-outoor/form.json",
       "title": "Frequent Network Outage (Outoor)",
       "version": 2
@@ -6980,7 +6932,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-outoor-improper-network-coverage-outoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-outoor/improper-network-coverage-outoor/form.json",
       "title": "Improper Network Coverage (Outoor)",
       "version": 2
@@ -7055,7 +7006,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-outoor-no-network-coverage-of-any-service-provider-outdoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-outoor/no-network-coverage-of-any-service-provider-outdoor/form.json",
       "title": "No Network coverage of any service provider (Outdoor)",
       "version": 2
@@ -7110,7 +7060,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-network-coverage-outoor-no-network-coverage-outoor",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/network-coverage-outoor/no-network-coverage-outoor/form.json",
       "title": "No Network coverage (Outoor)",
       "version": 2
@@ -7165,7 +7114,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-postpaid-related-billing-address-issue-mobile-postpaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/postpaid-related/billing-address-issue-mobile-postpaid/form.json",
       "title": "Billing address issue ( Mobile Postpaid)",
       "version": 2
@@ -7220,7 +7168,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-postpaid-related-billing-related-mobile-postpaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/postpaid-related/billing-related-mobile-postpaid/form.json",
       "title": "Billing related ( Mobile Postpaid)",
       "version": 2
@@ -7275,7 +7222,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-postpaid-related-security-deposit-refund-mobile-postpaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/postpaid-related/security-deposit-refund-mobile-postpaid/form.json",
       "title": "Security Deposit refund ( Mobile Postpaid)",
       "version": 2
@@ -7330,7 +7276,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-postpaid-related-tariff-plan-related-mobile-postpaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/postpaid-related/tariff-plan-related-mobile-postpaid/form.json",
       "title": "Tariff plan related (Mobile Postpaid)",
       "version": 2
@@ -7362,7 +7307,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-prepaid-related-arbitrary-balance-deduction",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/prepaid-related/arbitrary-balance-deduction/form.json",
       "title": "Arbitrary balance deduction",
       "version": 1
@@ -7417,7 +7361,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-prepaid-related-recharge-issue-prepaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/prepaid-related/recharge-issue-prepaid/form.json",
       "title": "Recharge Issue (Prepaid)",
       "version": 2
@@ -7472,7 +7415,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-prepaid-related-tariff-plan-related-prepaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/prepaid-related/tariff-plan-related-prepaid/form.json",
       "title": "Tariff plan related (Prepaid)",
       "version": 2
@@ -7527,7 +7469,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-prepaid-related-validity-issue-prepaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/prepaid-related/validity-issue-prepaid/form.json",
       "title": "Validity Issue (Prepaid)",
       "version": 2
@@ -7582,7 +7523,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-roaming-related-international-roaming-charging-tariff-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/roaming-related/international-roaming-charging-tariff-related/form.json",
       "title": "International roaming charging/Tariff related",
       "version": 2
@@ -7637,7 +7577,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-roaming-related-international-roaming-not-working",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/roaming-related/international-roaming-not-working/form.json",
       "title": "International roaming not working",
       "version": 2
@@ -7692,7 +7631,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-roaming-related-national-roaming-related-issue",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/roaming-related/national-roaming-related-issue/form.json",
       "title": "National roaming related issue",
       "version": 2
@@ -7747,7 +7685,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-activation-re-activation-issue",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/activation-re-activation-issue/form.json",
       "title": "Activation/ Re-activation issue",
       "version": 2
@@ -7802,7 +7739,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-blocking-of-sim-card",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/blocking-of-sim-card/form.json",
       "title": "Blocking of SIM card",
       "version": 2
@@ -7857,7 +7793,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-deactivation-issue",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/deactivation-issue/form.json",
       "title": "Deactivation issue",
       "version": 2
@@ -7912,7 +7847,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-e-sim-issue",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/e-sim-issue/form.json",
       "title": "e-SIM issue",
       "version": 2
@@ -7967,7 +7901,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-kyc-issue-sim-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/kyc-issue-sim-related/form.json",
       "title": "KYC Issue (SIM related)",
       "version": 2
@@ -8022,7 +7955,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-replacement-of-faulty-lost-sim-card",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/replacement-of-faulty-lost-sim-card/form.json",
       "title": "Replacement of faulty / Lost SIM Card",
       "version": 2
@@ -8077,7 +8009,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-sim-binding-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/sim-binding-related/form.json",
       "title": "SIM binding related",
       "version": 2
@@ -8125,7 +8056,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sim-card-related-sim-conversion-issue-prepaid-postpaid",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sim-card-related/sim-conversion-issue-prepaid-postpaid/form.json",
       "title": "SIM Conversion issue (Prepaid / Postpaid)",
       "version": 2
@@ -8180,7 +8110,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sms-related-unable-to-receive-otp",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sms-related/unable-to-receive-otp/form.json",
       "title": "Unable to receive OTP",
       "version": 2
@@ -8235,7 +8164,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-sms-related-unable-to-send-receive-sms",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/sms-related/unable-to-send-receive-sms/form.json",
       "title": "Unable to send / receive SMS",
       "version": 2
@@ -8267,7 +8195,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-ucc-spam-related-dnd-violation",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/ucc-spam-related/dnd-violation/form.json",
       "title": "DND violation",
       "version": 1
@@ -8322,7 +8249,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-ucc-spam-related-promotional-calls",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/ucc-spam-related/promotional-calls/form.json",
       "title": "Promotional calls",
       "version": 2
@@ -8377,7 +8303,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-ucc-spam-related-spam-calls-messages",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/ucc-spam-related/spam-calls-messages/form.json",
       "title": "Spam calls/ Messages",
       "version": 2
@@ -8432,7 +8357,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-mobile-related-ucc-spam-related-ucc-received-from-individual-number",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/mobile-related/ucc-spam-related/ucc-received-from-individual-number/form.json",
       "title": "UCC received from individual Number",
       "version": 2
@@ -8462,7 +8386,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-pension-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/pension-related/form.json",
       "title": "Pension Related",
       "version": 1
@@ -8492,7 +8415,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-tender-vendor-gem-issue",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/tender-vendor-gem-issue/form.json",
       "title": "Tender/ Vendor/ GeM Issue",
       "version": 1
@@ -8522,7 +8444,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-tower-radiation-issues-infrastructure-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/tower-radiation-issues-infrastructure-related/form.json",
       "title": "Tower/ radiation Issues/ Infrastructure related",
       "version": 1
@@ -8554,7 +8475,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-wpc-related-spectrum-licensing-satellite-related-satellite-communication-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/wpc-related-spectrum-licensing-satellite-related/satellite-communication-related/form.json",
       "title": "Satellite Communication related",
       "version": 2
@@ -8594,7 +8514,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-wpc-related-spectrum-licensing-satellite-related-wpc-related-licensing-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/wpc-related-spectrum-licensing-satellite-related/wpc-related/licensing-related/form.json",
       "title": "Licensing related",
       "version": 2
@@ -8634,7 +8553,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-wpc-related-spectrum-licensing-satellite-related-wpc-related-mobile-jammer-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/wpc-related-spectrum-licensing-satellite-related/wpc-related/mobile-jammer-related/form.json",
       "title": "Mobile Jammer related",
       "version": 2
@@ -8674,7 +8592,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-wpc-related-spectrum-licensing-satellite-related-wpc-related-spectrum-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/wpc-related-spectrum-licensing-satellite-related/wpc-related/spectrum-related/form.json",
       "title": "Spectrum related",
       "version": 2
@@ -8706,7 +8623,6 @@
       ],
       "heading": null,
       "id": "form-telecommunications-wpc-related-spectrum-licensing-satellite-related-wpc-related-wpc-permission-related",
-      "pathname": "/V7/NewGrievance/Index/RE9URUw%3d",
       "sourcePath": "telecommunications/wpc-related-spectrum-licensing-satellite-related/wpc-related/wpc-permission-related/form.json",
       "title": "WPC permission related",
       "version": 1
