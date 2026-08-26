@@ -5,7 +5,13 @@ import type {
 	CatalogueForm,
 	CatalogueIndex,
 	SearchEntry,
+	SearchIndexArtifact,
 } from "./schema";
+import type {
+	CatalogueSearchRequest,
+	CatalogueSearchResponse,
+} from "./search-core";
+import { buildSearchDocuments } from "./search-core";
 
 export type CatalogueAuthority = {
 	id: string;
@@ -21,8 +27,7 @@ export type CatalogueDirectory = {
 };
 
 export type CatalogueSearchResult = SearchEntry & {
-	authorityName: string;
-	authoritySlug: string;
+	score?: number;
 	form?: CatalogueForm;
 };
 
@@ -183,8 +188,17 @@ export function loadAuthorityChunk(slug: string): Promise<AuthorityChunk> {
 
 function loadSearchIndex(): Promise<SearchEntry[]> {
 	if (!searchIndexPromise) {
-		searchIndexPromise = readJson<SearchEntry[]>(
-			`${CATALOGUE_ROOT}/search-index.json`,
+		searchIndexPromise = Promise.all([
+			readJson<SearchIndexArtifact>(`${CATALOGUE_ROOT}/search-index.json`),
+			loadCatalogueDirectory(),
+		]).then(async ([_artifact, directory]) =>
+			buildSearchDocuments(
+				await Promise.all(
+					directory.authorities.map((authority) =>
+						loadAuthorityChunk(authority.slug),
+					),
+				),
+			),
 		);
 	}
 	return searchIndexPromise;
@@ -317,7 +331,9 @@ function loadPreparedSearchIndex(): Promise<PreparedSearchEntry[]> {
 				const title = normalizeSearchText(entry.title);
 				const category = normalizeSearchText(entry.categoryPath.join(" "));
 				const authority = normalizeSearchText(authorityName);
-				const terms = normalizeSearchText(entry.terms);
+				const terms = normalizeSearchText(
+					`${entry.aliases} ${entry.keywords} ${entry.phrases} ${entry.fieldLabels} ${entry.optionLabels}`,
+				);
 				return {
 					entry,
 					authorityName,
@@ -462,7 +478,7 @@ function scoreSearchEntry(
 	return score + Math.round((matchedTokens / queryTokens.length) * 40);
 }
 
-export async function searchCatalogue(
+export async function searchCatalogueLegacy(
 	query: string,
 	options: { limit?: number } = {},
 ): Promise<CatalogueSearchResult[]> {
@@ -525,6 +541,74 @@ export async function searchCatalogue(
 		authorityName: item.authorityName,
 		authoritySlug: item.authoritySlug,
 	}));
+}
+
+type SearchWorkerResponse = {
+	id: number;
+	result?: CatalogueSearchResponse;
+	error?: string;
+};
+
+let searchWorker: Worker | undefined;
+let nextSearchRequestId = 0;
+const pendingSearches = new Map<
+	number,
+	{
+		resolve: (result: CatalogueSearchResponse) => void;
+		reject: (error: Error) => void;
+	}
+>();
+
+function getSearchWorker(): Worker {
+	assertBrowser();
+	if (searchWorker) return searchWorker;
+	searchWorker = new Worker(new URL("./search-worker.ts", import.meta.url), {
+		type: "module",
+	});
+	searchWorker.addEventListener(
+		"message",
+		(event: MessageEvent<SearchWorkerResponse>) => {
+			const pending = pendingSearches.get(event.data.id);
+			if (!pending) return;
+			pendingSearches.delete(event.data.id);
+			if (event.data.result) pending.resolve(event.data.result);
+			else {
+				console.error("Catalogue search failed:", event.data.error);
+				pending.reject(new Error(event.data.error ?? "Search failed."));
+			}
+		},
+	);
+	searchWorker.addEventListener("error", (event) => {
+		console.error("Catalogue search worker stopped:", event.message);
+		for (const pending of pendingSearches.values())
+			pending.reject(new Error("The local search worker stopped."));
+		pendingSearches.clear();
+		searchWorker = undefined;
+	});
+	return searchWorker;
+}
+
+export function searchCataloguePage(
+	request: CatalogueSearchRequest,
+): Promise<CatalogueSearchResponse> {
+	const worker = getSearchWorker();
+	const id = ++nextSearchRequestId;
+	return new Promise((resolve, reject) => {
+		pendingSearches.set(id, { resolve, reject });
+		worker.postMessage({ id, request });
+	});
+}
+
+export async function searchCatalogue(
+	query: string,
+	options: { limit?: number } = {},
+): Promise<CatalogueSearchResult[]> {
+	const response = await searchCataloguePage({
+		query,
+		page: 1,
+		pageSize: Math.min(options.limit ?? 20, 20),
+	});
+	return response.results;
 }
 
 export function findForm(chunk: AuthorityChunk, formId: string) {

@@ -2,7 +2,10 @@ import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { dirname, join, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { captureSchema, type Capture, type CaptureField, type AuthorityChunk, type CatalogueCategory, type CatalogueField, type CatalogueForm, type CatalogueIndex, type CatalogueManifest, type CatalogueWarning, type SearchEntry } from '../../src/features/catalogue/schema.ts'
+import { persist } from '@orama/plugin-data-persistence'
+import { buildSearchDocuments, createSearchEngine, ORAMA_VERSION, SEARCH_SCHEMA_VERSION } from '../../src/features/catalogue/search-core.ts'
+import { searchEnrichmentSchema } from '../../src/features/catalogue/search-enrichment.ts'
+import { captureSchema, type Capture, type CaptureField, type AuthorityChunk, type CatalogueCategory, type CatalogueField, type CatalogueForm, type CatalogueIndex, type CatalogueManifest, type CatalogueWarning, type SearchDocument, type SearchIndexArtifact } from '../../src/features/catalogue/schema.ts'
 
 type CompilerOptions = {
   capturesDir?: string
@@ -212,7 +215,7 @@ async function parseSources(capturesDir: string): Promise<{ records: SourceRecor
   return { records, errors, sourceCount: paths.length }
 }
 
-function compileArtifacts(records: SourceRecord[], errors: Array<{ sourcePath: string; message: string }>, sourceCount: number): { manifest: CatalogueManifest; chunks: Record<string, AuthorityChunk>; searchIndex: SearchEntry[] } {
+function compileArtifacts(records: SourceRecord[], errors: Array<{ sourcePath: string; message: string }>, sourceCount: number): { manifest: CatalogueManifest; chunks: Record<string, AuthorityChunk>; searchIndex: SearchDocument[] } {
   const authorities = new Map<string, { name: string; slug: string; categories: Map<string, MutableCategory>; records: Array<{ record: SourceRecord; category: MutableCategory }> }>()
   const warnings: CatalogueWarning[] = []
   for (const record of records) {
@@ -229,7 +232,7 @@ function compileArtifacts(records: SourceRecord[], errors: Array<{ sourcePath: s
     bucket.records.push({ record, category })
   }
   const chunks: Record<string, AuthorityChunk> = {}
-  const searchIndex: SearchEntry[] = []
+  const searchIndex: SearchDocument[] = []
   for (const bucket of [...authorities.values()].sort((a, b) => a.slug.localeCompare(b.slug))) {
     const forms: CatalogueForm[] = []
     for (const item of bucket.records.sort((a, b) => a.category.id.localeCompare(b.category.id))) {
@@ -240,7 +243,6 @@ function compileArtifacts(records: SourceRecord[], errors: Array<{ sourcePath: s
       item.category.formCapable = true
       item.category.formId = form.id
       forms.push(form)
-      searchIndex.push({ id: form.id, authorityId: form.authorityId, categoryId: form.categoryId, title: form.title, categoryPath: form.categoryPath, terms: [bucket.name, ...form.categoryPath, form.title, ...form.fields.flatMap((field) => [field.label, ...(field.options ?? [])])].join(' ').toLocaleLowerCase() })
     }
     const chunk: AuthorityChunk = { schemaVersion: 1, authority: { id: `authority-${bucket.slug}`, name: bucket.name, slug: bucket.slug }, categories: sortedCategories(bucket.categories), forms: forms.sort((a, b) => a.id.localeCompare(b.id)), checksum: '' }
     chunk.checksum = checksum({ ...chunk, checksum: undefined })
@@ -276,18 +278,41 @@ async function readPreviousChunks(outputDir: string): Promise<Record<string, Aut
   return previous
 }
 
-function refreshArtifacts(artifacts: { manifest: CatalogueManifest; chunks: Record<string, AuthorityChunk>; searchIndex: SearchEntry[] }): void {
+function refreshArtifacts(artifacts: { manifest: CatalogueManifest; chunks: Record<string, AuthorityChunk>; searchIndex: SearchDocument[] }): void {
   for (const chunk of Object.values(artifacts.chunks)) {
     chunk.forms.sort((a, b) => a.id.localeCompare(b.id))
     chunk.checksum = checksum({ ...chunk, checksum: undefined })
   }
-  artifacts.searchIndex = Object.values(artifacts.chunks).flatMap((chunk) => chunk.forms.filter((form) => form.active).map((form) => ({ id: form.id, authorityId: chunk.authority.id, categoryId: form.categoryId, title: form.title, categoryPath: form.categoryPath, terms: [chunk.authority.name, ...form.categoryPath, form.title, ...form.fields.flatMap((field) => [field.label, ...(field.options ?? [])])].join(' ').toLocaleLowerCase() }))).sort((a, b) => a.id.localeCompare(b.id))
+  artifacts.searchIndex = buildSearchDocuments(Object.values(artifacts.chunks))
   const authorities = Object.fromEntries(Object.entries(artifacts.chunks).sort(([a], [b]) => a.localeCompare(b)).map(([slug, chunk]) => [slug, chunk.checksum]))
   const searchIndex = checksum(artifacts.searchIndex)
   artifacts.manifest.organizationCount = Object.keys(artifacts.chunks).length
   artifacts.manifest.categoryCount = Object.values(artifacts.chunks).reduce((count, chunk) => count + chunk.categories.length, 0)
   artifacts.manifest.formCount = Object.values(artifacts.chunks).reduce((count, chunk) => count + chunk.forms.filter((form) => form.active).length, 0)
   artifacts.manifest.checksums = { authorities, searchIndex, catalogue: checksum({ chunks: authorities, searchIndex, sourceCount: artifacts.manifest.sourceCount, errors: artifacts.manifest.errors }) }
+}
+
+async function applySearchEnrichment(outputDir: string, artifacts: { manifest: CatalogueManifest; searchIndex: SearchDocument[] }): Promise<string> {
+  const authorityEntries = Object.entries(artifacts.manifest.checksums.authorities).sort(([a], [b]) => a.localeCompare(b))
+  const sourceChecksum = createHash('sha256').update(JSON.stringify(authorityEntries)).digest('hex')
+  let parsed: ReturnType<typeof searchEnrichmentSchema.safeParse> | undefined
+  try { parsed = searchEnrichmentSchema.safeParse(JSON.parse(await readFile(join(outputDir, 'search-enrichment.json'), 'utf8'))) } catch { parsed = undefined }
+  if (!parsed?.success || parsed.data.sourceChecksum !== sourceChecksum) {
+    if (parsed?.success) console.warn('Ignoring stale catalogue search enrichment; run pnpm catalogue:enrich to refresh it.')
+    return 'deterministic-v1'
+  }
+  const byId = new Map(parsed.data.items.map((item) => [item.id, item]))
+  for (const document of artifacts.searchIndex) {
+    const enrichment = byId.get(document.id)
+    if (!enrichment) continue
+    document.aliases = [...new Set([document.aliases, ...enrichment.aliases])].join(' ')
+    document.keywords = [...new Set([document.keywords, ...enrichment.keywords])].join(' ')
+    document.phrases = [...new Set([document.phrases, ...enrichment.phrases])].join(' ')
+  }
+  const searchIndex = checksum(artifacts.searchIndex)
+  artifacts.manifest.checksums.searchIndex = searchIndex
+  artifacts.manifest.checksums.catalogue = checksum({ chunks: artifacts.manifest.checksums.authorities, searchIndex, sourceCount: artifacts.manifest.sourceCount, errors: artifacts.manifest.errors })
+  return checksum(parsed.data)
 }
 
 function buildCatalogueIndex(artifacts: { manifest: CatalogueManifest; chunks: Record<string, AuthorityChunk> }): CatalogueIndex {
@@ -352,12 +377,35 @@ export async function compileCatalogue(options: CompilerOptions = {}): Promise<{
   const previous = await readPreviousChunks(outputDir)
   applyHistoricalState(artifacts, previous)
   refreshArtifacts(artifacts)
+  const enrichmentChecksum = await applySearchEnrichment(outputDir, artifacts)
   const catalogueIndex = buildCatalogueIndex(artifacts)
+  const searchEngine = await createSearchEngine(artifacts.searchIndex)
+  const persisted = await persist(searchEngine, 'json', 'node')
+  const persistedBytes = typeof persisted === 'string'
+    ? Buffer.from(persisted)
+    : Buffer.isBuffer(persisted)
+      ? persisted
+      : Buffer.from(new Uint8Array(persisted))
+  const searchArtifact: SearchIndexArtifact = {
+    schemaVersion: SEARCH_SCHEMA_VERSION,
+    oramaVersion: ORAMA_VERSION,
+    catalogueChecksum: artifacts.manifest.checksums.catalogue,
+    enrichmentChecksum,
+    documentCount: artifacts.searchIndex.length,
+    asset: 'search-index.data.json',
+    assetChecksum: createHash('sha256').update(persistedBytes).digest('hex'),
+  }
   const differences: string[] = []
   if (!options.check) { await ensureDirectory(outputDir); await ensureDirectory(join(outputDir, 'authorities')) }
-  const writes: Array<[string, unknown]> = [[join(outputDir, 'index.json'), catalogueIndex], [join(outputDir, 'manifest.json'), artifacts.manifest], [join(outputDir, 'search-index.json'), artifacts.searchIndex]]
+  const writes: Array<[string, unknown]> = [[join(outputDir, 'index.json'), catalogueIndex], [join(outputDir, 'manifest.json'), artifacts.manifest], [join(outputDir, 'search-index.json'), searchArtifact]]
   for (const [slug, chunk] of Object.entries(artifacts.chunks)) writes.push([join(outputDir, 'authorities', `${slug}.json`), chunk])
   for (const [path, value] of writes) await writeOrCheck(path, value, options.check ?? false, differences)
+  const binaryPath = join(outputDir, 'search-index.data.json')
+  const previousBinary = await readFile(binaryPath).catch(() => undefined)
+  if (!previousBinary || !previousBinary.equals(persistedBytes)) {
+    differences.push(binaryPath)
+    if (!options.check) await writeFile(binaryPath, persistedBytes)
+  }
   return { manifest: artifacts.manifest, differences }
 }
 

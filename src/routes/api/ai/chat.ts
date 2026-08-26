@@ -14,15 +14,19 @@ import {
 	assistantChatRequestSchema,
 	assistantTurnSchema,
 } from "#/features/assistant/schema";
-import { findAssistantCandidates } from "#/features/assistant/server-catalogue";
+import {
+	findAssistantCandidates,
+	searchCatalogueServer,
+} from "#/features/assistant/server-catalogue";
+import { searchGrievanceCatalogueDef } from "#/features/assistant/tools";
 import {
 	assertSameOrigin,
 	enforceRateLimit,
 	privateAiHeaders,
 	requestRateLimitKey,
 } from "#/server/ai/guard";
-import { createAiTelemetry } from "#/server/ai/telemetry";
 import { configuredTextModel, hasConfiguredTextModel } from "#/server/ai/model";
+import { createAiTelemetry } from "#/server/ai/telemetry";
 import { getSessionFromRequest } from "#/server/auth/middleware";
 
 function latestUserText(messages: Array<Record<string, unknown>>) {
@@ -141,6 +145,42 @@ export const Route = createFileRoute("/api/ai/chat")({
 				const candidateById = new Map(
 					candidates.map((candidate) => [candidate.formId, candidate]),
 				);
+				const origin = new URL(request.url).origin;
+				const searchTool = searchGrievanceCatalogueDef.server(
+					async (searchRequest) => {
+						const result = await searchCatalogueServer(origin, searchRequest);
+						for (const hit of result.results) {
+							candidateById.set(hit.id, {
+								formId: hit.id,
+								authoritySlug: hit.authoritySlug,
+								authorityName: hit.authorityName,
+								title: hit.title,
+								categoryPath: hit.categoryPath,
+							});
+						}
+						return {
+							normalizedQuery: result.normalizedQuery,
+							indexVersion: result.indexVersion,
+							results: result.results.map((hit) => ({
+								id: hit.id,
+								authoritySlug: hit.authoritySlug,
+								authorityName: hit.authorityName,
+								categoryId: hit.categoryId,
+								title: hit.title,
+								categoryPath: hit.categoryPath,
+							})),
+							total: result.total,
+							page: result.page,
+							pageSize: result.pageSize,
+							hasMore: result.hasMore,
+							facets: result.facets,
+							status: result.results.length
+								? ("found" as const)
+								: ("not-found" as const),
+							catalogueOnly: true as const,
+						};
+					},
+				);
 				const currentFieldById = new Map(
 					parsed.data.forwardedProps.currentForm?.fields.map((field) => [
 						field.id,
@@ -217,6 +257,7 @@ export const Route = createFileRoute("/api/ai/chat")({
 						}),
 					],
 					outputSchema: constrainedTurnSchema,
+					tools: [searchTool],
 					stream: true,
 					abortController,
 					modelOptions: { temperature: 0.2, maxOutputTokens: 1_200 },

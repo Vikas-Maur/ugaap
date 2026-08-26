@@ -42,7 +42,7 @@ import {
 import {
 	findForm,
 	loadAuthorityChunk,
-	searchCatalogue,
+	searchCataloguePage,
 } from "#/features/catalogue/client";
 import { text, useI18n } from "#/features/i18n/i18n";
 import { authClient } from "#/lib/auth-client";
@@ -261,17 +261,27 @@ export function AssistantLauncher() {
 	}, [chatState.final]);
 
 	const liveTools = useMemo(() => {
-		const searchTool = searchGrievanceCatalogueDef.client(async ({ query }) => {
-			const results = await searchCatalogue(query, { limit: 5 });
+		const searchTool = searchGrievanceCatalogueDef.client(async (request) => {
+			const response = await searchCataloguePage(request);
 			return {
-				results: results.map((result) => ({
-					formId: result.id,
+				normalizedQuery: response.normalizedQuery,
+				indexVersion: response.indexVersion,
+				results: response.results.map((result) => ({
+					id: result.id,
 					authoritySlug: result.authoritySlug,
 					authorityName: result.authorityName,
+					categoryId: result.categoryId,
 					title: result.title,
 					categoryPath: result.categoryPath,
 				})),
-				status: results.length ? ("found" as const) : ("not-found" as const),
+				total: response.total,
+				page: response.page,
+				pageSize: response.pageSize,
+				hasMore: response.hasMore,
+				facets: response.facets,
+				status: response.results.length
+					? ("found" as const)
+					: ("not-found" as const),
 				catalogueOnly: true as const,
 			};
 		});
@@ -356,7 +366,7 @@ export function AssistantLauncher() {
 				`Detect the language of every citizen utterance from its grammar and majority language. Reply in English when they speak English. Reply in simple natural Hindi when they speak Hindi or Hinglish. Indian names and official or legal terms such as Aadhaar, benami, pension, PAN, and ministry inside an English utterance do not make it Hindi. Do not use the website's ${language === "hi" ? "Hindi" : "English"} interface setting to choose the reply language.`,
 				"Keep replies short and conversational. Never invent a grievance form or government action.",
 				"UGAAP's cached grievance catalogue and PAGE_CONTENT are your only sources. Never browse, search, recommend, or claim to visit an external government, municipal, ministry, or department website.",
-				"Always call search_grievance_catalogue before naming a route. If the first search has no results and the responsible UGAAP authority or topic is clear, make at most one final catalogue search using that authority or topic with 'miscellaneous' or 'others'. Use a catch-all only when it belongs to that same authority and topic.",
+				"Always call search_grievance_catalogue before naming a route. Refine the English issue keywords or use authority/category filters when needed. If hasMore is true and the likely result is not shown, request the next page. Use a catch-all only when it belongs to the same clearly responsible authority and topic.",
 				"If the direct and catch-all catalogue searches do not find a route, plainly admit that it is not available in the current UGAAP catalogue and stop. Do not continue searching, promise to search later, or direct the citizen to an external site.",
 				"Open a form only after the citizen explicitly asks to continue.",
 				"Filing and form filling require manual sign-in. Never submit a grievance or claim it was submitted.",

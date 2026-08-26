@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import {
 	type CatalogueSearchResult,
 	MIN_CATALOGUE_QUERY_LENGTH,
-	searchCatalogue,
+	searchCataloguePage,
 } from "../features/catalogue/client";
 import { text, useI18n } from "../features/i18n/i18n";
 
@@ -30,9 +30,13 @@ export function AssistantComposer() {
 
 		setSearching(true);
 		setNotice("");
-		searchCatalogue(normalizedQuery, { limit: 3 })
-			.then((results) => {
-				if (requestSequence.current === request) setSuggestions(results);
+		searchCataloguePage({
+			query: normalizedQuery,
+			pageSize: 3,
+		})
+			.then((response) => {
+				if (requestSequence.current === request)
+					setSuggestions(response.results);
 			})
 			.catch(() => {
 				if (requestSequence.current !== request) return;

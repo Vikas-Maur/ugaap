@@ -82,13 +82,33 @@ export type AuthorityChunk = {
 	checksum: string;
 };
 
-export type SearchEntry = {
+export type SearchDocument = {
 	id: string;
 	authorityId: string;
-	categoryId: string;
+	authoritySlug: string;
+	authorityName: string;
+	categoryId: string | null;
+	rootCategoryId: string | null;
 	title: string;
 	categoryPath: string[];
-	terms: string;
+	aliases: string;
+	keywords: string;
+	phrases: string;
+	fieldLabels: string;
+	optionLabels: string;
+};
+
+/** @deprecated Use SearchDocument. Kept while old catalogue consumers migrate. */
+export type SearchEntry = SearchDocument;
+
+export type SearchIndexArtifact = {
+	schemaVersion: 3;
+	oramaVersion: "3.1.18";
+	catalogueChecksum: string;
+	enrichmentChecksum: string;
+	documentCount: number;
+	asset: "search-index.data.json";
+	assetChecksum: string;
 };
 
 export type CatalogueWarning = {

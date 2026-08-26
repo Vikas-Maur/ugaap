@@ -4,20 +4,24 @@ import { AuthorityPage } from "#/features/catalogue/ui/catalogue";
 
 export const Route = createFileRoute("/services/$authoritySlug/")({
 	validateSearch: (search: Record<string, unknown>) => ({
-		form: isSafeCatalogueFormId(search.form) ? search.form : undefined,
+		...(isSafeCatalogueFormId(search.form) ? { form: search.form } : {}),
+		...(isSafeCatalogueFormId(search.category)
+			? { category: search.category }
+			: {}),
 		review: search.review === true || search.review === "true",
-		draft: isUuid(search.draft) ? search.draft : undefined,
+		...(isUuid(search.draft) ? { draft: search.draft } : {}),
 	}),
 	component: AuthorityRoute,
 });
 
 function AuthorityRoute() {
 	const { authoritySlug } = Route.useParams();
-	const { form, review, draft } = Route.useSearch();
+	const { form, category, review, draft } = Route.useSearch();
 	return (
 		<AuthorityPage
 			slug={authoritySlug}
 			formId={form}
+			categoryId={category}
 			review={review}
 			draftId={draft}
 		/>

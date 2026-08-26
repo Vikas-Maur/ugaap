@@ -1,16 +1,50 @@
 import { toolDefinition } from "@tanstack/ai";
 import { z } from "zod";
 
-import { assistantCandidateSchema, extractedFieldSchema } from "./schema";
+import { extractedFieldSchema } from "./schema";
+
+export const assistantSearchResultSchema = z
+	.object({
+		id: z.string().min(1).max(240),
+		authoritySlug: z.string().regex(/^[a-z0-9-]+$/),
+		authorityName: z.string().min(1).max(240),
+		categoryId: z.string().max(240).nullable(),
+		title: z.string().min(1).max(320),
+		categoryPath: z.array(z.string().max(240)).max(16),
+	})
+	.strict();
 
 export const searchGrievanceCatalogueDef = toolDefinition({
 	name: "search_grievance_catalogue",
 	description:
 		"Search the real cached UGAAP grievance catalogue. Use this before naming or opening a grievance route.",
-	inputSchema: z.object({ query: z.string().min(2).max(500) }).strict(),
+	inputSchema: z
+		.object({
+			query: z.string().min(2).max(500),
+			authoritySlugs: z
+				.array(z.string().regex(/^[a-z0-9-]+$/))
+				.max(12)
+				.optional(),
+			categoryIds: z.array(z.string().min(1).max(240)).max(20).optional(),
+			page: z.number().int().min(1).max(100).default(1),
+			pageSize: z.number().int().min(1).max(20).default(10),
+		})
+		.strict(),
 	outputSchema: z
 		.object({
-			results: z.array(assistantCandidateSchema).max(5),
+			normalizedQuery: z.string(),
+			indexVersion: z.string(),
+			results: z.array(assistantSearchResultSchema).max(20),
+			total: z.number().int().min(0),
+			page: z.number().int().min(1),
+			pageSize: z.number().int().min(1).max(20),
+			hasMore: z.boolean(),
+			facets: z
+				.object({
+					authorities: z.record(z.string(), z.number().int().min(0)),
+					categories: z.record(z.string(), z.number().int().min(0)),
+				})
+				.strict(),
 			status: z.enum(["found", "not-found"]),
 			catalogueOnly: z.literal(true),
 		})

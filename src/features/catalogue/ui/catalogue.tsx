@@ -51,7 +51,7 @@ import {
 	loadAuthorityChunk,
 	loadCatalogueDirectory,
 	MIN_CATALOGUE_QUERY_LENGTH,
-	searchCatalogue,
+	searchCataloguePage,
 } from "../client";
 import {
 	type AttachmentState,
@@ -138,10 +138,10 @@ function submissionErrorText(error: unknown) {
 
 export function DirectoryBrowser({
 	query,
-	onQueryCommit,
+	onSearchCommit,
 }: {
 	query: string;
-	onQueryCommit: (query: string) => void;
+	onSearchCommit: (search: { q?: string }) => void;
 }) {
 	const { text: translate } = useI18n();
 	const [directory, setDirectory] = useState<CatalogueDirectory | null>(null);
@@ -151,11 +151,16 @@ export function DirectoryBrowser({
 		[],
 	);
 	const [searching, setSearching] = useState(false);
+	const [page, setPage] = useState(1);
+	const [total, setTotal] = useState(0);
+	const [hasMore, setHasMore] = useState(false);
 	const searchRequest = useRef(0);
 	const normalizedQuery = inputQuery.trim();
 
 	useEffect(() => {
 		setInputQuery(query);
+		setPage(1);
+		setSearchResults([]);
 	}, [query]);
 
 	useEffect(() => {
@@ -190,9 +195,25 @@ export function DirectoryBrowser({
 		}
 		setSearching(true);
 		setError(null);
-		searchCatalogue(normalizedQuery)
-			.then((results) => {
-				if (searchRequest.current === request) setSearchResults(results);
+		searchCataloguePage({
+			query: normalizedQuery,
+			page,
+			pageSize: 20,
+		})
+			.then((response) => {
+				if (searchRequest.current !== request) return;
+				setSearchResults((current) =>
+					page === 1
+						? response.results
+						: [
+								...current,
+								...response.results.filter(
+									(result) => !current.some((item) => item.id === result.id),
+								),
+							],
+				);
+				setTotal(response.total);
+				setHasMore(response.hasMore);
 			})
 			.catch(() => {
 				if (searchRequest.current !== request) return;
@@ -208,11 +229,11 @@ export function DirectoryBrowser({
 			.finally(() => {
 				if (searchRequest.current === request) setSearching(false);
 			});
-	}, [normalizedQuery, translate]);
+	}, [normalizedQuery, page, translate]);
 
 	const clearSearch = () => {
 		setInputQuery("");
-		onQueryCommit("");
+		onSearchCommit({ q: undefined });
 	};
 	const hasSearchQuery = normalizedQuery.length >= MIN_CATALOGUE_QUERY_LENGTH;
 	const needsMoreCharacters =
@@ -247,8 +268,12 @@ export function DirectoryBrowser({
 						type="search"
 						autoComplete="off"
 						value={inputQuery}
-						onChange={(event) => setInputQuery(event.target.value)}
-						onBlur={() => onQueryCommit(normalizedQuery)}
+						onChange={(event) => {
+							setInputQuery(event.target.value);
+							setPage(1);
+							setSearchResults([]);
+						}}
+						onBlur={() => onSearchCommit({ q: normalizedQuery || undefined })}
 						onKeyDown={(event) => {
 							if (event.key === "Escape") clearSearch();
 						}}
@@ -296,7 +321,6 @@ export function DirectoryBrowser({
 							)}
 				</p>
 			</search>
-
 			{error ? (
 				<p
 					className="border-l-4 border-red-700 bg-red-50 px-4 py-3 text-red-900"
@@ -310,6 +334,9 @@ export function DirectoryBrowser({
 					query={normalizedQuery}
 					results={searchResults}
 					searching={searching}
+					total={total}
+					hasMore={hasMore}
+					onLoadMore={() => setPage((current) => current + 1)}
 				/>
 			) : (
 				<AuthorityList directory={directory} />
@@ -399,10 +426,16 @@ function SearchResults({
 	query,
 	results,
 	searching,
+	total,
+	hasMore,
+	onLoadMore,
 }: {
 	query: string;
 	results: CatalogueSearchResult[];
 	searching: boolean;
+	total: number;
+	hasMore: boolean;
+	onLoadMore: () => void;
 }) {
 	const { text: translate } = useI18n();
 	return (
@@ -424,7 +457,7 @@ function SearchResults({
 				<p className="text-sm font-medium text-slate-600">
 					{translate(
 						text({
-							en: `${results.length} matches`,
+							en: `${total} matches`,
 							hi: `${results.length} परिणाम`,
 						}),
 					)}
@@ -458,7 +491,12 @@ function SearchResults({
 							className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-[var(--line)] px-3 py-5 last:border-b-0 transition-colors hover:bg-[var(--blue-50)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action)] sm:px-5"
 							key={result.id}
 							to="/services/$authoritySlug"
-							search={{ form: result.id, review: false, draft: undefined }}
+							search={{
+								form: result.id,
+								category: undefined,
+								review: false,
+								draft: undefined,
+							}}
 							params={{
 								authoritySlug: result.authoritySlug,
 							}}
@@ -492,6 +530,8 @@ function SearchResults({
 						</Link>
 					))}
 				</div>
+			) : searching ? (
+				<p className="py-6 text-slate-700">Searching the local catalogue...</p>
 			) : (
 				<p className="py-6 text-slate-700">
 					{translate(
@@ -502,6 +542,18 @@ function SearchResults({
 					)}
 				</p>
 			)}
+			{hasMore ? (
+				<button
+					type="button"
+					onClick={onLoadMore}
+					disabled={searching}
+					className="mt-5 border border-blue-700 px-5 py-3 text-sm font-bold text-blue-800 hover:bg-blue-50 disabled:opacity-50"
+				>
+					{searching
+						? "Loading…"
+						: `Load 20 more (${results.length} of ${total})`}
+				</button>
+			) : null}
 		</section>
 	);
 }
@@ -680,6 +732,25 @@ function categorySelectionForForm(
 	return path;
 }
 
+function categorySelectionForCategory(
+	chunk: AuthorityChunk,
+	categoryId: string | undefined,
+): string[] {
+	if (!categoryId) return [];
+	const categoryById = new Map(
+		chunk.categories.map((category) => [category.id, category]),
+	);
+	const path: string[] = [];
+	let category = categoryById.get(categoryId);
+	while (category) {
+		path.unshift(category.id);
+		category = category.parentId
+			? categoryById.get(category.parentId)
+			: undefined;
+	}
+	return path;
+}
+
 function categoryLevels(chunk: AuthorityChunk, selectedIds: string[]) {
 	const levels: Array<{
 		options: CatalogueCategory[];
@@ -706,11 +777,13 @@ function categoryLevels(chunk: AuthorityChunk, selectedIds: string[]) {
 export function AuthorityPage({
 	slug,
 	formId,
+	categoryId,
 	review,
 	draftId,
 }: {
 	slug: string;
 	formId?: string;
+	categoryId?: string;
 	review: boolean;
 	draftId?: string;
 }) {
@@ -719,7 +792,10 @@ export function AuthorityPage({
 	const [chunk, setChunk] = useState<AuthorityChunk | null>(null);
 	const [error, setError] = useState<string | null>(null);
 	const [selectedIds, setSelectedIds] = useState<string[]>([]);
-	const manualUrlUpdate = useRef<{ formId: string | undefined } | null>(null);
+	const manualUrlUpdate = useRef<{
+		formId: string | undefined;
+		categoryId: string | undefined;
+	} | null>(null);
 	useEffect(() => {
 		let active = true;
 		setChunk(null);
@@ -745,13 +821,20 @@ export function AuthorityPage({
 
 	useEffect(() => {
 		if (!chunk) return;
-		if (manualUrlUpdate.current?.formId === formId) {
+		if (
+			manualUrlUpdate.current?.formId === formId &&
+			manualUrlUpdate.current?.categoryId === categoryId
+		) {
 			manualUrlUpdate.current = null;
 			return;
 		}
 		manualUrlUpdate.current = null;
-		setSelectedIds(categorySelectionForForm(chunk, formId));
-	}, [chunk, formId]);
+		setSelectedIds(
+			formId
+				? categorySelectionForForm(chunk, formId)
+				: categorySelectionForCategory(chunk, categoryId),
+		);
+	}, [chunk, formId, categoryId]);
 
 	if (error)
 		return (
@@ -794,17 +877,19 @@ export function AuthorityPage({
 	const selectCategory = (level: number, categoryId: string) => {
 		const nextIds = [...selectedIds.slice(0, level), categoryId];
 		const category = chunk.categories.find((item) => item.id === categoryId);
+		if (!category) return;
 		const nextForm =
-			category?.formCapable && category.formId
+			category.formCapable && category.formId
 				? findForm(chunk, category.formId)
 				: undefined;
 		setSelectedIds(nextIds);
-		manualUrlUpdate.current = { formId: nextForm?.id };
+		manualUrlUpdate.current = { formId: nextForm?.id, categoryId: category.id };
 		void navigate({
 			to: "/services/$authoritySlug",
 			params: { authoritySlug: chunk.authority.slug },
 			search: {
 				form: nextForm?.id,
+				category: category.id,
 				review: false,
 				draft: undefined,
 			},

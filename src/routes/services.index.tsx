@@ -1,5 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
-
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { DirectoryBrowser } from "#/features/catalogue/ui/catalogue";
 
 export const Route = createFileRoute("/services/")({
@@ -10,19 +9,17 @@ export const Route = createFileRoute("/services/")({
 });
 
 function ServicesDirectory() {
-	const { q } = Route.useSearch();
+	const search = Route.useSearch();
+	const navigate = useNavigate({ from: Route.fullPath });
 	return (
 		<DirectoryBrowser
-			query={q}
-			onQueryCommit={(query) => {
-				const url = new URL(window.location.href);
-				if (query) url.searchParams.set("q", query);
-				else url.searchParams.delete("q");
-				window.history.replaceState(
-					window.history.state,
-					"",
-					`${url.pathname}${url.search}${url.hash}`,
-				);
+			query={search.q}
+			onSearchCommit={(next) => {
+				void navigate({
+					search: { q: next.q ?? "" },
+					replace: true,
+					resetScroll: false,
+				});
 			}}
 		/>
 	);
