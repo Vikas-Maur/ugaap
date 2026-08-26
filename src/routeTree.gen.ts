@@ -12,8 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccountabilityRouteImport } from './routes/accountability'
 import { Route as CookiesRouteImport } from './routes/cookies'
-import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -23,12 +23,14 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AuthenticatedContinuationRouteImport } from './routes/_authenticated/continuation'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDraftsRouteImport } from './routes/_authenticated/drafts'
+import { Route as AccountabilityIndexRouteImport } from './routes/accountability.index'
 import { Route as PublicGrievancesIndexRouteImport } from './routes/public-grievances/index'
 import { Route as PublicGrievancesPublicIdRouteImport } from './routes/public-grievances/$publicId'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesAuthoritySlugRouteImport } from './routes/services.$authoritySlug'
 import { Route as AuthenticatedGrievancesIndexRouteImport } from './routes/_authenticated/grievances/index'
 import { Route as AuthenticatedGrievancesRegistrationIdRouteImport } from './routes/_authenticated/grievances/$registrationId'
+import { Route as AccountabilityAuthoritiesAuthoritySlugRouteImport } from './routes/accountability.authorities.$authoritySlug'
 import { Route as ApiAiChatRouteImport } from './routes/api/ai/chat'
 import { Route as ApiAiRealtimeTokenRouteImport } from './routes/api/ai/realtime-token'
 import { Route as ApiAttachmentsAttachmentIdRouteImport } from './routes/api/attachments/$attachmentId'
@@ -50,14 +52,14 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountabilityRoute = AccountabilityRouteImport.update({
+  id: '/accountability',
+  path: '/accountability',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CookiesRoute = CookiesRouteImport.update({
   id: '/cookies',
   path: '/cookies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LeaderboardRoute = LeaderboardRouteImport.update({
-  id: '/leaderboard',
-  path: '/leaderboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -106,6 +108,11 @@ const AuthenticatedDraftsRoute = AuthenticatedDraftsRouteImport.update({
   path: '/drafts',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AccountabilityIndexRoute = AccountabilityIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AccountabilityRoute,
+} as any)
 const PublicGrievancesIndexRoute = PublicGrievancesIndexRouteImport.update({
   id: '/public-grievances/',
   path: '/public-grievances/',
@@ -138,6 +145,12 @@ const AuthenticatedGrievancesRegistrationIdRoute =
     id: '/grievances/$registrationId',
     path: '/grievances/$registrationId',
     getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AccountabilityAuthoritiesAuthoritySlugRoute =
+  AccountabilityAuthoritiesAuthoritySlugRouteImport.update({
+    id: '/authorities/$authoritySlug',
+    path: '/authorities/$authoritySlug',
+    getParentRoute: () => AccountabilityRoute,
   } as any)
 const ApiAiChatRoute = ApiAiChatRouteImport.update({
   id: '/api/ai/chat',
@@ -176,8 +189,8 @@ const ServicesAuthoritySlugFormFormIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/accountability': typeof AccountabilityRouteWithChildren
   '/cookies': typeof CookiesRoute
-  '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
   '/methodology': typeof MethodologyRoute
   '/privacy': typeof PrivacyRoute
@@ -189,9 +202,11 @@ export interface FileRoutesByFullPath {
   '/drafts': typeof AuthenticatedDraftsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
+  '/accountability/': typeof AccountabilityIndexRoute
   '/public-grievances/': typeof PublicGrievancesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
+  '/accountability/authorities/$authoritySlug': typeof AccountabilityAuthoritiesAuthoritySlugRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
@@ -204,7 +219,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/cookies': typeof CookiesRoute
-  '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
   '/methodology': typeof MethodologyRoute
   '/privacy': typeof PrivacyRoute
@@ -214,9 +228,11 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/drafts': typeof AuthenticatedDraftsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
+  '/accountability': typeof AccountabilityIndexRoute
   '/public-grievances': typeof PublicGrievancesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
+  '/accountability/authorities/$authoritySlug': typeof AccountabilityAuthoritiesAuthoritySlugRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
@@ -230,8 +246,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/about': typeof AboutRoute
+  '/accountability': typeof AccountabilityRouteWithChildren
   '/cookies': typeof CookiesRoute
-  '/leaderboard': typeof LeaderboardRoute
   '/login': typeof LoginRoute
   '/methodology': typeof MethodologyRoute
   '/privacy': typeof PrivacyRoute
@@ -243,9 +259,11 @@ export interface FileRoutesById {
   '/_authenticated/drafts': typeof AuthenticatedDraftsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
+  '/accountability/': typeof AccountabilityIndexRoute
   '/public-grievances/': typeof PublicGrievancesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/_authenticated/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
+  '/accountability/authorities/$authoritySlug': typeof AccountabilityAuthoritiesAuthoritySlugRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
@@ -259,8 +277,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/accountability'
     | '/cookies'
-    | '/leaderboard'
     | '/login'
     | '/methodology'
     | '/privacy'
@@ -272,9 +290,11 @@ export interface FileRouteTypes {
     | '/drafts'
     | '/public-grievances/$publicId'
     | '/services/$authoritySlug'
+    | '/accountability/'
     | '/public-grievances/'
     | '/services/'
     | '/grievances/$registrationId'
+    | '/accountability/authorities/$authoritySlug'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
     | '/api/attachments/$attachmentId'
@@ -287,7 +307,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/cookies'
-    | '/leaderboard'
     | '/login'
     | '/methodology'
     | '/privacy'
@@ -297,9 +316,11 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/drafts'
     | '/public-grievances/$publicId'
+    | '/accountability'
     | '/public-grievances'
     | '/services'
     | '/grievances/$registrationId'
+    | '/accountability/authorities/$authoritySlug'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
     | '/api/attachments/$attachmentId'
@@ -312,8 +333,8 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/about'
+    | '/accountability'
     | '/cookies'
-    | '/leaderboard'
     | '/login'
     | '/methodology'
     | '/privacy'
@@ -325,9 +346,11 @@ export interface FileRouteTypes {
     | '/_authenticated/drafts'
     | '/public-grievances/$publicId'
     | '/services/$authoritySlug'
+    | '/accountability/'
     | '/public-grievances/'
     | '/services/'
     | '/_authenticated/grievances/$registrationId'
+    | '/accountability/authorities/$authoritySlug'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
     | '/api/attachments/$attachmentId'
@@ -341,8 +364,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   AboutRoute: typeof AboutRoute
+  AccountabilityRoute: typeof AccountabilityRouteWithChildren
   CookiesRoute: typeof CookiesRoute
-  LeaderboardRoute: typeof LeaderboardRoute
   LoginRoute: typeof LoginRoute
   MethodologyRoute: typeof MethodologyRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -380,18 +403,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accountability': {
+      id: '/accountability'
+      path: '/accountability'
+      fullPath: '/accountability'
+      preLoaderRoute: typeof AccountabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cookies': {
       id: '/cookies'
       path: '/cookies'
       fullPath: '/cookies'
       preLoaderRoute: typeof CookiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/leaderboard': {
-      id: '/leaderboard'
-      path: '/leaderboard'
-      fullPath: '/leaderboard'
-      preLoaderRoute: typeof LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -457,6 +480,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDraftsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/accountability/': {
+      id: '/accountability/'
+      path: '/'
+      fullPath: '/accountability/'
+      preLoaderRoute: typeof AccountabilityIndexRouteImport
+      parentRoute: typeof AccountabilityRoute
+    }
     '/public-grievances/': {
       id: '/public-grievances/'
       path: '/public-grievances'
@@ -498,6 +528,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/grievances/$registrationId'
       preLoaderRoute: typeof AuthenticatedGrievancesRegistrationIdRouteImport
       parentRoute: typeof AuthenticatedRoute
+    }
+    '/accountability/authorities/$authoritySlug': {
+      id: '/accountability/authorities/$authoritySlug'
+      path: '/authorities/$authoritySlug'
+      fullPath: '/accountability/authorities/$authoritySlug'
+      preLoaderRoute: typeof AccountabilityAuthoritiesAuthoritySlugRouteImport
+      parentRoute: typeof AccountabilityRoute
     }
     '/api/ai/chat': {
       id: '/api/ai/chat'
@@ -565,6 +602,21 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
   AuthenticatedRouteChildren,
 )
 
+interface AccountabilityRouteChildren {
+  AccountabilityIndexRoute: typeof AccountabilityIndexRoute
+  AccountabilityAuthoritiesAuthoritySlugRoute: typeof AccountabilityAuthoritiesAuthoritySlugRoute
+}
+
+const AccountabilityRouteChildren: AccountabilityRouteChildren = {
+  AccountabilityIndexRoute: AccountabilityIndexRoute,
+  AccountabilityAuthoritiesAuthoritySlugRoute:
+    AccountabilityAuthoritiesAuthoritySlugRoute,
+}
+
+const AccountabilityRouteWithChildren = AccountabilityRoute._addFileChildren(
+  AccountabilityRouteChildren,
+)
+
 interface ServicesAuthoritySlugRouteChildren {
   ServicesAuthoritySlugIndexRoute: typeof ServicesAuthoritySlugIndexRoute
   ServicesAuthoritySlugFormFormIdRoute: typeof ServicesAuthoritySlugFormFormIdRoute
@@ -598,8 +650,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   AboutRoute: AboutRoute,
+  AccountabilityRoute: AccountabilityRouteWithChildren,
   CookiesRoute: CookiesRoute,
-  LeaderboardRoute: LeaderboardRoute,
   LoginRoute: LoginRoute,
   MethodologyRoute: MethodologyRoute,
   PrivacyRoute: PrivacyRoute,
@@ -616,12 +668,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

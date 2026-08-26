@@ -1,202 +1,163 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { text, useI18n } from "../features/i18n/i18n";
+
 import {
-	MINIMUM_CLOSED_CASES,
-	MINIMUM_RATINGS,
+	ACCOUNTABILITY_METRIC_KEYS,
+	ACCOUNTABILITY_METRIC_VERSION,
+	ACCOUNTABILITY_METRICS,
 	SATISFACTION_PRIOR_MEAN,
-	SATISFACTION_PRIOR_RATINGS,
-} from "../features/leaderboard/scoring";
+	SATISFACTION_PRIOR_RESPONSES,
+} from "#/features/accountability/metrics";
 
 export const Route = createFileRoute("/methodology")({
 	component: MethodologyPage,
 });
 
 function MethodologyPage() {
-	const { text: translate } = useI18n();
-	const components = [
-		{
-			weight: "30%",
-			name: translate(text({ en: "Timely resolution", hi: "समय पर समाधान" })),
-			detail: translate(
-				text({
-					en: "The share of closed cases completed within the 30-day prototype target. Reopened cases reduce this component.",
-					hi: "30 दिन के प्रोटोटाइप लक्ष्य के भीतर बंद मामलों का हिस्सा। दोबारा खुले मामले इस अंक को घटाते हैं।",
-				}),
-			),
-		},
-		{
-			weight: "25%",
-			name: translate(text({ en: "Citizen satisfaction", hi: "नागरिक संतुष्टि" })),
-			detail: translate(
-				text({
-					en: `The average 1-to-5 rating, adjusted toward ${SATISFACTION_PRIOR_MEAN.toFixed(1)} stars using a ${SATISFACTION_PRIOR_RATINGS}-rating Bayesian prior.`,
-					hi: `औसत 1 से 5 रेटिंग, जिसे ${SATISFACTION_PRIOR_MEAN.toFixed(1)} स्टार और ${SATISFACTION_PRIOR_RATINGS} रेटिंग के बेयज़ियन पूर्व मान से समायोजित किया जाता है।`,
-				}),
-			),
-		},
-		{
-			weight: "20%",
-			name: translate(
-				text({ en: "Backlog health", hi: "लंबित मामलों की स्थिति" }),
-			),
-			detail: translate(
-				text({
-					en: "The share of open cases that has not crossed the 30-day prototype target. Older unresolved cases reduce the score.",
-					hi: "खुले मामलों का वह हिस्सा जिसने 30 दिन का लक्ष्य पार नहीं किया है। पुराने अनसुलझे मामले अंक घटाते हैं।",
-				}),
-			),
-		},
-		{
-			weight: "15%",
-			name: translate(text({ en: "Appeal quality", hi: "अपील गुणवत्ता" })),
-			detail: translate(
-				text({
-					en: "The share of decided appeals that did not overturn the original resolution. A citizen appeal upheld against that resolution reduces the score.",
-					hi: "निर्णीत अपीलों का वह हिस्सा जिसमें मूल समाधान नहीं पलटा गया। नागरिक के पक्ष में स्वीकार अपील अंक घटाती है।",
-				}),
-			),
-		},
-		{
-			weight: "10%",
-			name: translate(
-				text({ en: "Communication transparency", hi: "संचार पारदर्शिता" }),
-			),
-			detail: translate(
-				text({
-					en: "The share of cases with at least one meaningful progress update after submission.",
-					hi: "जमा होने के बाद कम से कम एक उपयोगी प्रगति अपडेट वाले मामलों का हिस्सा।",
-				}),
-			),
-		},
-	];
-
 	return (
 		<main className="page-shell pb-32">
-			<header className="border-b border-[var(--line-strong)] pb-8">
-				<p className="page-eyebrow">
-					{translate(
-						text({
-							en: "Accountability methodology",
-							hi: "जवाबदेही कार्यप्रणाली",
-						}),
-					)}
-				</p>
-				<h1 className="page-title">
-					{translate(
-						text({
-							en: "How leaderboard scores are calculated",
-							hi: "रैंकिंग अंक कैसे निकाले जाते हैं",
-						}),
-					)}
+			<header className="border-b-2 border-[var(--blue-700)] pb-8">
+				<p className="page-eyebrow">Accountability methodology</p>
+				<h1 className="page-title mt-2">
+					What each measure says, and what it does not
 				</h1>
-				<p className="page-intro max-w-3xl">
-					{translate(
-						text({
-							en: "The formula is fixed, the raw inputs are shown, and organizations with too little evidence do not receive a rank.",
-							hi: "सूत्र तय है, मूल आंकड़े दिखाए जाते हैं और कम प्रमाण वाले संगठनों को रैंक नहीं दी जाती।",
-						}),
-					)}
+				<p className="page-intro max-w-4xl">
+					There is no composite performance score. Authorities are compared
+					separately on response, resolution, citizen outcomes, backlog, and
+					appeal decisions.
 				</p>
 			</header>
 
-			<section className="py-10" aria-labelledby="formula-heading">
-				<h2
-					id="formula-heading"
-					className="text-2xl font-bold text-[var(--blue-950)]"
-				>
-					{translate(text({ en: "Weighted formula", hi: "भारित सूत्र" }))}
-				</h2>
-				<div className="mt-5 border-y border-[var(--line-strong)]">
-					{components.map((component) => (
-						<div
-							key={component.name}
-							className="grid gap-2 border-t border-[var(--line)] px-2 py-5 first:border-t-0 sm:grid-cols-[5rem_14rem_1fr] sm:gap-5 sm:px-4"
-						>
-							<p className="text-xl font-extrabold text-[var(--blue-800)]">
-								{component.weight}
-							</p>
-							<h3 className="font-bold text-[var(--blue-950)]">
-								{component.name}
-							</h3>
-							<p className="text-sm leading-6 text-[var(--ink-muted)]">
-								{component.detail}
-							</p>
-						</div>
-					))}
+			<section className="py-10" aria-labelledby="measure-definitions">
+				<div className="flex flex-wrap items-baseline justify-between gap-3">
+					<h2
+						id="measure-definitions"
+						className="text-2xl font-bold text-[var(--blue-950)]"
+					>
+						Measure definitions
+					</h2>
+					<p className="text-xs font-semibold text-[var(--ink-muted)]">
+						Method version {ACCOUNTABILITY_METRIC_VERSION}
+					</p>
+				</div>
+				<div className="mt-6 border-y border-[var(--line-strong)]">
+					{ACCOUNTABILITY_METRIC_KEYS.map((key) => {
+						const metric = ACCOUNTABILITY_METRICS[key];
+						return (
+							<article
+								key={key}
+								className="grid gap-3 border-t border-[var(--line)] px-3 py-6 first:border-t-0 md:grid-cols-[15rem_1fr_12rem] md:gap-7 md:px-4"
+							>
+								<div>
+									<p className="text-xs font-bold uppercase tracking-wide text-[var(--ink-muted)]">
+										{metric.group.replaceAll("_", " ")}
+									</p>
+									<h3 className="mt-1 font-bold text-[var(--blue-950)]">
+										{metric.label}
+									</h3>
+								</div>
+								<p className="text-sm leading-6 text-[var(--ink-muted)]">
+									{metric.description}
+								</p>
+								<dl className="grid grid-cols-2 gap-3 text-xs md:grid-cols-1">
+									<div>
+										<dt className="font-bold text-[var(--blue-950)]">
+											Better result
+										</dt>
+										<dd className="mt-1 text-[var(--ink-muted)]">
+											{metric.direction === "lower"
+												? "Lower value"
+												: "Higher value"}
+										</dd>
+									</div>
+									<div>
+										<dt className="font-bold text-[var(--blue-950)]">
+											Ranking threshold
+										</dt>
+										<dd className="mt-1 text-[var(--ink-muted)]">
+											{metric.minimumSample} observations
+										</dd>
+									</div>
+								</dl>
+							</article>
+						);
+					})}
+				</div>
+			</section>
+
+			<section className="grid gap-10 border-t border-[var(--line-strong)] py-10 lg:grid-cols-2">
+				<div>
+					<h2 className="text-xl font-bold text-[var(--blue-950)]">
+						Citizen ratings
+					</h2>
+					<p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
+						The arithmetic average and rating spread are published. The ranking
+						measure uses a Bayesian adjustment toward {SATISFACTION_PRIOR_MEAN}{" "}
+						out of 5 with a prior weight of {SATISFACTION_PRIOR_RESPONSES}{" "}
+						responses, so a handful of extreme ratings cannot dominate the
+						table.
+					</p>
+					<p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
+						Dissatisfaction is the share of ratings scored 1 or 2. It is
+						separate from the citizen’s direct answer about whether the
+						grievance was resolved.
+					</p>
+				</div>
+				<div>
+					<h2 className="text-xl font-bold text-[var(--blue-950)]">
+						Appeals and citizen resolution
+					</h2>
+					<p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
+						Appeal status tracks the workflow: filed, under review, resolved, or
+						rejected. A resolved appeal also records whether the original
+						decision was upheld, modified, or overturned.
+					</p>
+					<p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
+						A citizen can mark the result resolved, partially resolved, or not
+						resolved. This assessment remains distinct from both the star rating
+						and the department’s closure status.
+					</p>
 				</div>
 			</section>
 
 			<section
-				className="grid gap-10 border-t border-[var(--line)] py-10 lg:grid-cols-2"
-				aria-label="Ranking rules"
+				className="grid gap-8 border-t border-[var(--line)] py-10 md:grid-cols-3"
+				aria-label="Data safeguards"
 			>
-				<div>
-					<h2 className="text-xl font-bold text-[var(--blue-950)]">
-						{translate(
-							text({ en: "Eligibility and grades", hi: "पात्रता और ग्रेड" }),
-						)}
-					</h2>
-					<p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
-						{translate(
-							text({
-								en: `An organization needs ${MINIMUM_CLOSED_CASES} closed cases and ${MINIMUM_RATINGS} ratings in the rolling 90-day window. Below either threshold, the leaderboard shows "Insufficient data".`,
-								hi: `90 दिनों में संगठन के पास ${MINIMUM_CLOSED_CASES} बंद मामले और ${MINIMUM_RATINGS} रेटिंग होनी चाहिए। किसी भी सीमा से नीचे "अपर्याप्त डेटा" दिखाया जाता है।`,
-							}),
-						)}
-					</p>
-					<dl className="mt-5 grid grid-cols-2 border-y border-[var(--line)] text-sm">
-						<GradeRule grade="A" range="80 to 100" />
-						<GradeRule grade="B" range="65 to 79.99" />
-						<GradeRule grade="C" range="50 to 64.99" />
-						<GradeRule grade="D" range="Below 50" />
-					</dl>
-				</div>
-				<div>
-					<h2 className="text-xl font-bold text-[var(--blue-950)]">
-						{translate(
-							text({
-								en: "One official case, counted once",
-								hi: "एक आधिकारिक मामला, एक बार गिना गया",
-							}),
-						)}
-					</h2>
-					<p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
-						{translate(
-							text({
-								en: "The snapshot reads the official grievance dataset. Private cases and cases with public redacted copies contribute to the same organization totals. Publishing creates a visibility-controlled copy, so it never increases the denominator or gives a case extra weight.",
-								hi: "स्नैपशॉट आधिकारिक शिकायत डेटा पढ़ता है। निजी मामले और सार्वजनिक संपादित प्रति वाले मामले एक ही संगठन के कुल में जुड़ते हैं। प्रकाशन केवल दृश्यता नियंत्रित प्रति बनाता है, इसलिए कुल संख्या नहीं बढ़ती।",
-							}),
-						)}
-					</p>
-					<p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
-						{translate(
-							text({
-								en: "Current prototype snapshots are synthetic methodology-demo data. The interface labels them as synthetic and must not be read as claims about real authorities.",
-								hi: "वर्तमान प्रोटोटाइप स्नैपशॉट कृत्रिम कार्यप्रणाली डेमो डेटा हैं। इन्हें वास्तविक प्राधिकरणों के प्रदर्शन का दावा न समझें।",
-							}),
-						)}
-					</p>
-				</div>
+				<Rule
+					title="Fixed windows"
+					detail="Every result identifies a 30-day, 90-day, or one-year reporting window. Trends compare stored, versioned snapshots."
+				/>
+				<Rule
+					title="Evidence before rank"
+					detail="Values remain visible below the sample threshold, but the authority receives no rank for that measure."
+				/>
+				<Rule
+					title="No double counting"
+					detail="A public redacted copy does not create another official grievance or increase any denominator."
+				/>
 			</section>
 
 			<Link
 				className="inline-flex items-center gap-2 text-sm font-bold text-[var(--blue-800)] underline-offset-4 hover:underline"
-				to="/leaderboard"
-				search={{ group: "central", compare: "" }}
+				to="/accountability"
+				search={{
+					metric: "first_response_hours",
+					group: "central",
+					windowDays: 90,
+				}}
 			>
-				{translate(text({ en: "Open the leaderboard", hi: "रैंकिंग खोलें" }))}
-				<ArrowRight size={16} aria-hidden="true" />
+				Open accountability rankings <ArrowRight size={16} aria-hidden="true" />
 			</Link>
 		</main>
 	);
 }
 
-function GradeRule({ grade, range }: { grade: string; range: string }) {
+function Rule({ title, detail }: { title: string; detail: string }) {
 	return (
-		<div className="border-b border-l border-[var(--line)] p-4 first:border-l-0">
-			<dt className="font-extrabold text-[var(--blue-900)]">Grade {grade}</dt>
-			<dd className="mt-1 text-[var(--ink-muted)]">{range}</dd>
-		</div>
+		<article className="border-l-4 border-[var(--blue-600)] pl-4">
+			<h2 className="font-bold text-[var(--blue-950)]">{title}</h2>
+			<p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">{detail}</p>
+		</article>
 	);
 }
