@@ -1,0 +1,131 @@
+{
+  "capturedAt": "2026-08-26T11:57:53.970Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Empowerment of Persons with Disabilities",
+    "categoryPath": [
+      "Policy and Act related Matter",
+      "Policy Related Matter",
+      "Respect for difference and acceptance of persons with disabilities as part of human diversity and humanity"
+    ],
+    "fields": [
+      {
+        "id": "DisabilityCertificate_UDIDCard",
+        "name": "DisabilityCertificate/UDIDCard",
+        "label": null,
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Disability Certificate/ UDID Card",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "DocumentsofClaim",
+        "name": "DocumentsofClaim",
+        "label": "Documents of Claim",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Documents of Claim",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "OtherSupportingDocuments",
+        "name": "OtherSupportingDocuments",
+        "label": "Other Supporting Documents",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Other Supporting Documents",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Policy and Act related Matter",
+          "Scholarship Scheme for SwDs",
+          "Deendayal Disabled Rehabilitation Scheme",
+          "District Disability Rehabilitation Centres",
+          "Chief Commissioner for Persons with Disabilities",
+          "National Institute",
+          "National Handicapped Finance and Development Corporation",
+          "Artificial Limbs Manufacturing Corporation of India",
+          "Scheme of Assistance to Disabled Persons for Purchase and Fitting of Aids and Appliances ADIP Scheme)",
+          "National Awards For The Empowerment Of Persons With Disabilities"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "The Rehabilitation Council of India Act, 1992,",
+          "The National Trust Act",
+          "Policy Related Matter",
+          "Schemes for Implementation of Right of Persons with Disabilities Act 2016 SIPDA"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Violation of Rules Provisions",
+          "Respect /Dignity/ individual autonomy including the freedom to make one's own Choices or independence of persons",
+          "Discrimination",
+          "Full and effective participation and inclusion in society",
+          "Respect for difference and acceptance of persons with disabilities as part of human diversity and humanity",
+          "Equality of opportunity",
+          "Equality between men and women",
+          "Respect for the evolving capacities of children with disabilities and respect for the right of children with disabilities to preserve their identities",
+          "Harrasment",
+          "Policy Matter",
+          "Other",
+          "Accessibility"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EQUY="
+  }
+}

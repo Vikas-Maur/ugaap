@@ -1,0 +1,69 @@
+{
+  "capturedAt": "2026-08-26T11:28:29.612Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Miscellaneous Issues",
+      "Works"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Local Audit",
+          "Works",
+          "Other DAD related",
+          "Border Road Related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "MES related matters",
+          "MAP",
+          "Rent & Allied Charges",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

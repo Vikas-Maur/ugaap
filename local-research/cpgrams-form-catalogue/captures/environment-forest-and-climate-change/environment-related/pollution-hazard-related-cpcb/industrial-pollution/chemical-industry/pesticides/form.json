@@ -1,0 +1,160 @@
+{
+  "capturedAt": "2026-08-26T12:01:06.401Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Environment, Forest and Climate Change",
+    "categoryPath": [
+      "Environment related",
+      "Pollution/Hazard related (CPCB)",
+      "Industrial pollution",
+      "Chemical Industry",
+      "Pesticides"
+    ],
+    "fields": [
+      {
+        "id": "Address",
+        "name": "Address",
+        "label": "Address",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Address",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative and service matter related",
+          "Environment related",
+          "Forest and trees related",
+          "Forest Research and Training related",
+          "Indian Forest Service (IFS) related",
+          "National Afforestation and Eco- Development Board (NAEB) related",
+          "Wildlife related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Clean Technology",
+          "Climate Change",
+          "Conservation and Survey",
+          "Environment Education",
+          "Environment Clearance and related issues",
+          "Wetlands",
+          "Ozone Cell",
+          "Research in Environment (RE)",
+          "Pollution/Hazard related (CPCB)"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Air pollution",
+          "Industrial pollution",
+          "Urban Pollution Control",
+          "Waste Management",
+          "Water Quality Management",
+          "Air Lab (Ambient, Source and Air Toxic)",
+          "Trace Organic",
+          "Water and Waste Water Lab",
+          "Instrumentation",
+          "Biological Lab",
+          "Environment Training Unit (ETU)",
+          "Administration and Establishment related"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Chemical Industry",
+          "Energy and Metallurgical",
+          "Agro Based",
+          "Animal Products",
+          "Small Scale Industries (SSI)",
+          "Industrial Pollution Coordination",
+          "Industrial Clusters and Enforcement"
+        ]
+      },
+      {
+        "id": "Category_6",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Chloralkali",
+          "Dyes and Dye Intermediate",
+          "Fertilizer",
+          "Oil Refineries",
+          "Pesticides",
+          "Petro-Chemicals",
+          "Pharmaceuticals",
+          "Paints and Enamel",
+          "All industries of Chemical in nature (Organic and In-organic)",
+          "Copper",
+          "Zinc"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9FQUY="
+  }
+}

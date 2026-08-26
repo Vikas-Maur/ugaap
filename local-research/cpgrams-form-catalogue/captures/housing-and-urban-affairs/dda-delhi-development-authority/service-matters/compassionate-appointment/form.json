@@ -1,0 +1,159 @@
+{
+  "capturedAt": "2026-08-26T06:49:41.442Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Housing and Urban Affairs",
+    "categoryPath": [
+      "DDA (Delhi Development Authority)",
+      "Service Matters",
+      "Compassionate appointment"
+    ],
+    "fields": [
+      {
+        "id": "EmployeeId",
+        "name": "EmployeeId",
+        "label": "Employee ID",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Employee ID",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CurrentPosition",
+        "name": "CurrentPosition",
+        "label": "Current Posting",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Current Posting",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Designation",
+        "name": "Designation",
+        "label": "Designation of the Employee",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Designation of the Employee",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "DDA (Delhi Development Authority)",
+          "Directorate of Estates",
+          "Principal Accounts Office",
+          "TCPO (Town and Country Planning Organisation)",
+          "NCRPB (National Capital Region Planning Board)",
+          "HPL (Hindustan Prefab Ltd.)",
+          "HUDCO (Housing and Urban Development Corporation)",
+          "NBO (National Buildings Organisation)",
+          "NCHFI (National Cooperative Housing Federation of India)",
+          "CGEWHO (Central Government Employee Welfare Housing Organisation)",
+          "NCRTC (National Capital Region Transport Corporation Ltd)",
+          "DUAC (Delhi Urban Arts Commission)",
+          "BMTPC (Building Materials & Technology Promotion Council )",
+          "Rajghat Samadhi Committee",
+          "GISO (Government of India Stationery Office)",
+          "NIUA (National Institute of Urban Affairs)",
+          "Department of Publication",
+          "DMRC (Delhi Metro Rail Corporation)",
+          "Schemes, Programs & Other Divisions under MoHUA",
+          "Directorate of Printing",
+          "NBCC",
+          "L&DO",
+          "CPWD",
+          "Delhi Division"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Land Related (DDA)",
+          "Flats/Housing Related (DDA)",
+          "Service Matters",
+          "Exam and recruitment",
+          "Pension and Settlement Benefit",
+          "Encroachment",
+          "Unauthorised Construction - Flat Related",
+          "Unauthorized Construction - Others",
+          "PM UDAY (Pradhan Mantri Unauthorised Colonies in Delhi Awas Adhikar Yojana) Scheme Related",
+          "Civic Issues (Development Areas only)",
+          "Park Related",
+          "Physical Possession - Flat/Plot",
+          "Sports",
+          "Master plan/zonal plan/land use/FAR etc",
+          "Land Pooling",
+          "Allegation of Corruption",
+          "Medical Reimbursement Related",
+          "Others/Misc/Suggestions"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pay Fixation",
+          "Pay and Allowances",
+          "ACP/MACP or any other financial upgradation",
+          "Promotion related",
+          "Reservation issues",
+          "Retirement",
+          "Posting and transfer",
+          "Compassionate appointment",
+          "Staff Quarter related (This will routed to DD (Nazarat)",
+          "Allegation of malpractice/corrution/harassment etc",
+          "Sexual Harassment",
+          "Others"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9VUkQ%3d"
+  }
+}

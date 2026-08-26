@@ -1,0 +1,90 @@
+{
+  "capturedAt": "2026-08-26T11:24:42.594Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Pension",
+      "Pension",
+      "Pension Disbursement"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension",
+          "Gratuity",
+          "Commutation",
+          "Fixed Medical Allowance",
+          "Gallantry Awards",
+          "Ex Gratial Lump sum Compensation"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension Initiation",
+          "Pension Sanction",
+          "Pension Disbursement",
+          "Revision of Pension",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Army",
+          "Air Force",
+          "Navy",
+          "Defence Civilian",
+          "DAD"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

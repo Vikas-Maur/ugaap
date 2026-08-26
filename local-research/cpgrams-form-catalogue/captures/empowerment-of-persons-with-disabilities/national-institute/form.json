@@ -1,0 +1,59 @@
+{
+  "capturedAt": "2026-08-26T11:58:41.546Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Empowerment of Persons with Disabilities",
+    "categoryPath": [
+      "National Institute"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Policy and Act related Matter",
+          "Scholarship Scheme for SwDs",
+          "Deendayal Disabled Rehabilitation Scheme",
+          "District Disability Rehabilitation Centres",
+          "Chief Commissioner for Persons with Disabilities",
+          "National Institute",
+          "National Handicapped Finance and Development Corporation",
+          "Artificial Limbs Manufacturing Corporation of India",
+          "Scheme of Assistance to Disabled Persons for Purchase and Fitting of Aids and Appliances ADIP Scheme)",
+          "National Awards For The Empowerment Of Persons With Disabilities"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pt Deendayal Upadhyaya National Institute for Persons with Physical Disabilities PDUNIPPD Delhi",
+          "Swami Vivekanand National Institute of Rehabilitation Training and Research SVNIRTAR Cuttack",
+          "National Institute for Locomotor Disabilities NILD Kolkata",
+          "National Institute for the Empowerment of Persons with Visual Disabilities NIEPVD Dehradun",
+          "Ali Yavar Jung National Institute of Speech and Hearing Disabilities AYJNISHD Mumbai",
+          "National Institute for the Empowerment of Persons with Intellectual Disabilities NIEPID Secunderabad",
+          "National Institute for Empowerment of Persons with Multiple Disabilities NIEPMD Chennai",
+          "Indian Sign Language Training and Research Centre, New Delhi",
+          "National Institute of Mental Health Rehabilitation NIMHR Sehore Madhya Pradesh"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EQUY="
+  }
+}

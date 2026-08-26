@@ -1,0 +1,178 @@
+{
+  "capturedAt": "2026-08-26T12:08:20.581Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "ESM Welfare Scheme Related",
+      "ECHS Related",
+      "Policy Related",
+      "Contractual Staff: ECHS PC"
+    ],
+    "fields": [
+      {
+        "id": "ServiceNo",
+        "name": "ServiceNo",
+        "label": "Service No. of ESM",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Service No. of ESM",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "EsmLocation",
+        "name": "EsmLocation",
+        "label": "Armed Forces where ESM served",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Armed Forces where ESM served",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "LastRank",
+        "name": "LastRank",
+        "label": "Rank Last Held",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Rank Last Held",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "EchsNo",
+        "name": "EchsNo",
+        "label": "ECHS Membership No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter ECHS Membership No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RegMobile",
+        "name": "RegMobile",
+        "label": "Registered Mobile No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Registered Mobile No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ParentPolyclinic",
+        "name": "ParentPolyclinic",
+        "label": "Parent Polyclinic",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Parent Polyclinic",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "ECHS Related",
+          "Grant of Financial Assistance",
+          "Penury Grant",
+          "PM Scholarship Scheme",
+          "Self Employment Scheme",
+          "Welfare Scheme of Kendriya Sainik Board",
+          "Other Schemes"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Membership Related",
+          "ECHS Card Related",
+          "Medical Services",
+          "Reimbursement of Medical Claim",
+          "Administrative Issues",
+          "Contractual Employment",
+          "Policy Related"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Membership",
+          "Contribution",
+          "Contractual Staff: ECHS PC",
+          "ECHS Polyclinics",
+          "Medical Services and Procedures",
+          "Reimbursement of Medical Claim",
+          "ECHS Card",
+          "Discipline",
+          "Misc Issues"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

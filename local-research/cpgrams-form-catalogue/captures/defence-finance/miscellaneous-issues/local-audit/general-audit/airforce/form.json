@@ -1,0 +1,108 @@
+{
+  "capturedAt": "2026-08-26T11:28:16.282Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Miscellaneous Issues",
+      "Local Audit",
+      "General Audit",
+      "AirForce"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Local Audit",
+          "Works",
+          "Other DAD related",
+          "Border Road Related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Audit of Service Book",
+          "General Audit",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Army",
+          "AirForce",
+          "Navy",
+          "DAD",
+          "Defence Civilian"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

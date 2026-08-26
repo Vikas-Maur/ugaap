@@ -1,0 +1,104 @@
+{
+  "capturedAt": "2026-08-26T11:17:30.130Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Pay & Allowance",
+      "Pay",
+      "Issues related to LPC-Cum-DATA Sheet"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pay",
+          "Allowances",
+          "TA/DA",
+          "LTC",
+          "CEA/Hostel Subsidy",
+          "Medical",
+          "NPS"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Discrepency in Basic Pay",
+          "Discrepency in Increment",
+          "Grant of MACP/ACP",
+          "Stepping up issue",
+          "Non- adjustment of Part II order",
+          "Non receipt of Pay/Salary",
+          "Recovery of Pay",
+          "Issues related to LPC-Cum-DATA Sheet",
+          "Non -receipt of post discharge Claim",
+          "Deputaion pay issue",
+          "Option Form on Promotion for Pay Fixation",
+          "Leave Encashment issues",
+          "Service book Matters",
+          "AGIF contribution Issue",
+          "Income Tax Related matters",
+          "Pay Production",
+          "PLI Maturity issue",
+          "PLI Contribution issue",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Army",
+          "Airforce",
+          "Navy",
+          "DAD"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

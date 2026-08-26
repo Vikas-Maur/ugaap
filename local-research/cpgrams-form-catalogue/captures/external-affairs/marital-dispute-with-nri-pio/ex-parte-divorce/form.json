@@ -1,0 +1,74 @@
+{
+  "capturedAt": "2026-08-26T12:13:36.442Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "External Affairs",
+    "categoryPath": [
+      "Marital Dispute with NRI/PIO",
+      "Ex-Parte Divorce"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Death Compensation not paid while being employed",
+          "Imprisonment due to illegal Stay in foreign country",
+          "Transportation of Mortal remains",
+          "Seafarers",
+          "Whereabouts Unknown",
+          "Passport Application Related",
+          "Delay in issuance Police Clearance Certificate Application",
+          "Delay in Issuance of Surrender Certificate",
+          "Marital Dispute with NRI/PIO",
+          "Student Related (Grievances of indian students abroad)",
+          "NRI/PIO Related issues",
+          "Illegal Agent Related",
+          "Others (Attestation / Apostille / GEP / Indian Community Welfare Fund (ICWF) Related / Pravasi Bharatiya Bima Yojana (PBBY) Related etc.) (Subject not covered under above Categories)"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Domestic Violence/ Dowry Harassment",
+          "Desertion/ Abandonment",
+          "Maintence Amount Not Received",
+          "Ex-Parte Divorce",
+          "Grievances of Indian Spouse residing Abroad"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "If the accused holds Indian Passport",
+          "If the accused does not hold Indian Passport"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUVBUEQ="
+  }
+}

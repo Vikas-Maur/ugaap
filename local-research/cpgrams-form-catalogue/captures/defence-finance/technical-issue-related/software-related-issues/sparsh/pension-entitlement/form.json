@@ -1,0 +1,183 @@
+{
+  "capturedAt": "2026-08-26T11:14:29.543Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Technical Issue Related",
+      "Software related issues",
+      "SPARSH",
+      "Pension entitlement"
+    ],
+    "fields": [
+      {
+        "id": "ArmyNoServNoPerNo",
+        "name": "ArmyNoServNoPerNo",
+        "label": "Army Number/Service No/Personal Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Army Number/Service No/Personal Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RankDesig",
+        "name": "RankDesig",
+        "label": "Rank / Designation",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Rank / Designation",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "NameUnitFormation",
+        "name": "NameUnitFormation",
+        "label": "Name of unit / formation",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Name of  unit / formation",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Software related issues",
+          "IT procurement related issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "DOLPHIN",
+          "TULIP",
+          "Defence pension portal(defence pension.gov.in) & mobile app: Non displaying of pension information on defence pension portal and mobile app",
+          "Ashraya",
+          "Suvigya",
+          "SPARSH",
+          "Suvinay",
+          "Others",
+          "Payment related",
+          "Other technical issues - Mode of procurement /category etc."
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension disbursement",
+          "Pension documentation",
+          "Pension entitlement",
+          "Pension software related technical issues"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CDAPCDA",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a CDA-PCDA",
+          "CDA(Army), Meerut",
+          "CDA (IDS)",
+          "CDA Air Force New Delhi",
+          "CDA Chennai",
+          "CDA CSD Mumbai",
+          "CDA funds Meerut",
+          "CDA GUWAHATI",
+          "CDA PATNA",
+          "CDA PD Meerut",
+          "CDA R and D Banglore",
+          "CDA R and D Hyderabad",
+          "CDA Training Pune",
+          "CDA(Navy/Coast Guard)",
+          "CDA, JABALPUR",
+          "CDA, Secunderabad",
+          "PCA FYS Kolkata",
+          "PCDA (CC), LUCKNOW",
+          "PCDA (WC) Chandigarh",
+          "PCDA AF Dehradun",
+          "PCDA New Delhi",
+          "PCDA O Pune",
+          "PCDA R and D New Delhi",
+          "PCDA SWC Jaipur",
+          "PCDA(Navy)",
+          "PCDA(NC) Jammu",
+          "PR. CDA PENSION Allahabad",
+          "Pr.CDA Bengaluru",
+          "Principal CDA (BR)",
+          "Principal CDA (SC), Pune"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "capturedAt": "2026-08-26T09:50:03.282Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Coal",
+    "categoryPath": [
+      "Clean Coal Technolgy (CCT) related",
+      "The Fertilizer Corporation of India Limited FCIL",
+      "Singareni Colleries Company Ltd."
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Coal Block Related",
+          "Sustainability and Development Projects Related",
+          "Coal Production Monitoring and Distribution",
+          "Nominated Authority",
+          "Economic Affairs Section",
+          "IFD Division",
+          "Estabilishment Division and BA sections",
+          "Statistical Division Related",
+          "Clean Coal Technolgy (CCT) related",
+          "Mine Plan and Safety Related",
+          "Personnel and Administration",
+          "Corporate Affairs",
+          "Corporate Social Responsibility and Employee Welfare",
+          "Vigilance",
+          "Parliament",
+          "Coal Mine Provident Fund",
+          "Finance Related(cash section)",
+          "Land Infrastructure Development Related",
+          "International Cooperation",
+          "Technical",
+          "Materials Management and sales related",
+          "Security related",
+          "Medical related",
+          "Civil and Administration related",
+          "Others",
+          "Environment Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "under ground Coal",
+          "Coal Bed and Mine Mathane related",
+          "Matter related to exploration and detailed drilling",
+          "National Mineral Exploration Trust",
+          "Make in India Initiatives",
+          "The Fertilizer Corporation of India Limited FCIL",
+          "Explosive applicaion based technologies",
+          "Policy on Washery Rejects",
+          "Standing Committee on Coal and Steel"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Ministry of Coal",
+          "coal india ltd",
+          "Singareni Colleries Company Ltd.",
+          "Neyveli Lignite Ltd"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUNPQUw="
+  }
+}

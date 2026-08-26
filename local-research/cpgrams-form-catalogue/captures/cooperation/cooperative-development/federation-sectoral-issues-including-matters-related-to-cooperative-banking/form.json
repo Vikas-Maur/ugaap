@@ -1,0 +1,69 @@
+{
+  "capturedAt": "2026-08-26T10:07:01.484Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Cooperation",
+    "categoryPath": [
+      "Cooperative Development",
+      "Federation/ Sectoral issues including matters related to Cooperative Banking"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Central Registrar and Cooperative Society",
+          "Cooperative Development",
+          "Administration and CET",
+          "Primary Agriculture Cooperative Society PACS",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "National Cooperative Development Corporation",
+          "Federation/ Sectoral issues including matters related to Cooperative Banking",
+          "Coordination of cooperation activities in all sectors"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DT1A="
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "capturedAt": "2026-08-26T07:24:58.413Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Financial Services (Insurance Division)",
+    "categoryPath": [
+      "General Insurance Claim Related",
+      "Other Claims related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Agricultural Insurance",
+          "Life Insurance Claim Related",
+          "General Insurance Claim Related",
+          "Customer Service Related",
+          "Government Schemes Related",
+          "Administrative Matters",
+          "Misbehaviour/Corruption/Harassment",
+          "Misselling",
+          "Private insurance Companies"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Health Insurance",
+          "Vehicle Insurance",
+          "Other Claims related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Fire Insurance",
+          "Marine Insurance",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBSUQ%3d"
+  }
+}

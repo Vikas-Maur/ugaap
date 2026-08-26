@@ -1,0 +1,109 @@
+{
+  "capturedAt": "2026-08-26T07:10:14.836Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Personnel and Training",
+    "categoryPath": [
+      "Policy Related",
+      "Recruitment to Central Civil Posts and Services",
+      "Age Limit for recruitment"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Union Public Service Commission (UPSC)",
+          "Misbehaviour/ Corruption / Harassment",
+          "All India Services",
+          "Policy Related",
+          "Appointment Related",
+          "DoP&T Employee Services Related",
+          "Administrative Matters (Institutes under DoP&T)",
+          "Reservation Matters in posts and services of Central Government pertaining to",
+          "Training Matters",
+          "Vigilance/Disciplinary Matters",
+          "State Reorganisation (Allocation of State Cadre Employees)",
+          "Retraining and Redeployment Division",
+          "CBI Investigation",
+          "Service Matters of CBI Officer",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "AIS (PAR) / AIS (CR) / Immovable Property Returns Rules",
+          "Cadre Review of Central Services / Central Group 'A' Civil Services",
+          "Central Civil Services (Leave) Rules 1972",
+          "Framing / Amendment of Recruitment / Service Rules",
+          "Recruitment to Central Civil Posts and Services",
+          "Condition of Service of Central Government Employees",
+          "Modified Flexible Complementing Scheme (MFCS)",
+          "Vigilance Administration (CVC)",
+          "Performance Appraisal (APAR) Related",
+          "Public Enterprises Selection Board",
+          "RTI Act",
+          "Verification of character and antecedents on first appointment",
+          "Recruitment/Examination related issue",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Conduct of Recruitment Examination and related issues",
+          "Age Limit for recruitment",
+          "Forwarding of Applications",
+          "Pre-Appointment Conditions and Formalities",
+          "Conditions for Special types of recruitment (e.g. compassionate appointment, incentives for meritorious sportspersons etc.)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9QQVQ%3d"
+  }
+}

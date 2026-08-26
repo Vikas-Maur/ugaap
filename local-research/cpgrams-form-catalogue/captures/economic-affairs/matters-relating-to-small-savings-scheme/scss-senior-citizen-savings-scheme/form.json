@@ -1,0 +1,94 @@
+{
+  "capturedAt": "2026-08-26T11:43:37.866Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Economic Affairs",
+    "categoryPath": [
+      "Matters relating to Small Savings Scheme",
+      "SCSS - Senior Citizen Savings Scheme"
+    ],
+    "fields": [
+      {
+        "id": "AccountHolderName_AccountNumber_Bank_PostOfficeDetails_Dateofopening_DateofBirth",
+        "name": "AccountHolderName,AccountNumber,Bank/PostOfficeDetails,Dateofopening,DateofBirth",
+        "label": null,
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Account Holder Name, Account Number, Bank/Post Office Details, Date of opening, Date of Birth",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administration Related",
+          "Vigilance Matters",
+          "Indian Economic Service (IES) Cadre related Matters",
+          "Investment Related Matters",
+          "Small Savings Scheme Agent Related matters",
+          "Investment in Other Bonds",
+          "Foreign Exchange Management Act (FEMA)",
+          "SEBI / SAT administrative matters",
+          "Coin related Matters",
+          "Currency related matters",
+          "SPMCIL (CPSE) related matters",
+          "Miscellaneous Matters",
+          "Matters relating to Small Savings Scheme",
+          "Matters relating to Securities Market"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "PPF- Public Provident Fund",
+          "SCSS - Senior Citizen Savings Scheme",
+          "SSY- Sukanya Samriddhi Yojana",
+          "MIA- National Savings Monthly Income Account Scheme",
+          "KVP- Kisan Vikas Patra",
+          "NSC- National Savings Certificate",
+          "NSRD- National Savings Recurring Deposit Scheme",
+          "NSTD- National Savings Time Deposit",
+          "POSA- Post office Savings Account"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9FQUY="
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "capturedAt": "2026-08-26T12:04:11.438Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Environment, Forest and Climate Change",
+    "categoryPath": [
+      "National Afforestation and Eco- Development Board (NAEB) related",
+      "Livelihood matters of forest based communities."
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative and service matter related",
+          "Environment related",
+          "Forest and trees related",
+          "Forest Research and Training related",
+          "Indian Forest Service (IFS) related",
+          "National Afforestation and Eco- Development Board (NAEB) related",
+          "Wildlife related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "National Afforestation Programme (NAP)",
+          "Grants-in-aid to Green India Mission",
+          "Joint Forest Management (JFM), Forest Development Agencies",
+          "Nodal Division of the Ministry for Agro forestry/ Farm Forestry/ Social Forestry",
+          "Biofuels",
+          "20Point Programme",
+          "Communication (Training, Workshop, publication) related to above programmes",
+          "Monitoring and Evaluation of NAEB programmes",
+          "National bank for Agriculture and rural Development (NABARD) watershed Development Fund.",
+          "Livelihood matters of forest based communities.",
+          "Miscellaneous issues on afforestation, biofuels, HFMs, GIM, 20 Point Programme, Parliament matters, etc.",
+          "Forest Development Agency (FDA) projects of all States and UTs (NAEB / GIM)",
+          "Thrust Areas- Coastal Shelter Belt Plantations, Bamboo and Medicinal Plants",
+          "Desert and Desertification including UN Convention to Combat Desertification (UNCCD)",
+          "Eco Development Forces Scheme (Eco Task)",
+          "Indira Priyadarshini Vriksha Mitra (IPVM) Awards",
+          "13th Finance Commission Grants of NAEB",
+          "Regional Centre of NAEB",
+          "Forest Villages"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9FQUY="
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "capturedAt": "2026-08-26T11:56:49.195Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Electronics & Information Technology",
+    "categoryPath": [
+      "NIC State Projects",
+      "SIO-Haryana"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Establishment/Service Matters",
+          "Corruption",
+          "Purchase/Procurement",
+          "Information Technology Act 2000/Cyber Security",
+          "Digital Services (CSC/MyGov/NeGD/NIC)",
+          "Digital Transactions/UPI Transactions",
+          "Projects/Schemes/Policies",
+          "Internet Governance/IP/DNS",
+          "Start-Ups Support Initiatives",
+          "Personal Data Protection Bill, 2019",
+          "Electronics Manufacturing/ Semi Conductor Policies",
+          "Official Language Act, 1963/Official Language Rules, 1976",
+          "National Language Translation Mission and BHASHINI",
+          "IT/ITeS",
+          "Personal Identity Documents Related",
+          "OTHERS",
+          "NIC State Projects",
+          "eCommerce"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "SIO - Andaman And Nicobar",
+          "SIO-Andhra Pradesh",
+          "SIO-Arunachal Pradesh",
+          "SIO-Assam",
+          "SIO-Bihar",
+          "SIO-Chandigarh",
+          "SIO-Chhattisgarh",
+          "SIO-Goa",
+          "SIO-Gujarat",
+          "SIO-Haryana",
+          "SIO-Himachal Pradesh",
+          "SIO-Jammu And Kashmir",
+          "SIO-Jharkhand",
+          "SIO-Karnataka",
+          "SIO-Kerala",
+          "SIO-Ladakh",
+          "SIO-Lakshadweep",
+          "SIO-Madhya Pradesh",
+          "SIO-Maharashtra",
+          "SIO-Manipur",
+          "SIO-Meghalaya",
+          "SIO-Mizoram",
+          "SIO-Nagaland",
+          "SIO-Odisha",
+          "SIO-Puducherry",
+          "SIO-Punjab",
+          "SIO-Rajasthan",
+          "SIO-Sikkim",
+          "SIO-Tamil Nadu",
+          "SIO-Telangana",
+          "SIO-Tripura",
+          "SIO-Uttarakhand",
+          "SIO-Uttar Pradesh",
+          "SIO-West Bengal"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUlOSVQ="
+  }
+}

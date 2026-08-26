@@ -1,0 +1,102 @@
+{
+  "capturedAt": "2026-08-26T09:36:04.314Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Employee Service Related",
+      "Training"
+    ],
+    "fields": [
+      {
+        "id": "State",
+        "name": "State",
+        "label": "State",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter State",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Jurisdiction",
+        "name": "Jurisdiction",
+        "label": "Jurisdiction of the complainant (Zone, Commissionerate, Division)",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Jurisdiction of the complainant (Zone, Commissionerate, Division)",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "GSTIN",
+        "name": "GSTIN",
+        "label": "GSTIN",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter GSTIN",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Appointment on compassionatory ground",
+          "Pay & Allowances",
+          "Training",
+          "Promotion related matters",
+          "Transfer/Posting/Deputation",
+          "Reservation related"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

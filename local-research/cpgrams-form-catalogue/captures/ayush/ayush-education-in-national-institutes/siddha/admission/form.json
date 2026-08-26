@@ -1,0 +1,140 @@
+{
+  "capturedAt": "2026-08-26T07:36:51.644Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ayush",
+    "categoryPath": [
+      "Ayush Education in National Institutes",
+      "Siddha",
+      "Admission"
+    ],
+    "fields": [
+      {
+        "id": "RollNo",
+        "name": "RollNo",
+        "label": "Roll No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Roll No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "DOB",
+        "name": "DOB",
+        "label": "Date Of Birth",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Date Of Birth",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CourseName",
+        "name": "CourseName",
+        "label": "Name Of Course",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name Of Course",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospital Related",
+          "Ayush Schemes",
+          "College Permission & Admission",
+          "Ayush Education in National Institutes",
+          "Ayush Research",
+          "Ayush Drugs Policy",
+          "Covid- 19",
+          "Matters relating to the Employees of Ministry of Ayush and its Organizations",
+          "Lab & Pharmocopeia",
+          "Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Ayurveda",
+          "Homoeopathy",
+          "Unani",
+          "Siddha",
+          "Sowa Rigpa"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Admission",
+          "Lack of Facilities",
+          "Internship allowance",
+          "Hostel",
+          "Irregularities",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "AyushInstitute",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Ayush Institute",
+          "National Institute of Siddha, Tamil Nadu"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/QVlVU0g="
+  }
+}

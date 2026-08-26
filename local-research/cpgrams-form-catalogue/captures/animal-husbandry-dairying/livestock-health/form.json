@@ -1,0 +1,41 @@
+{
+  "capturedAt": "2026-08-26T07:31:33.190Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Animal Husbandry, Dairying",
+    "categoryPath": [
+      "Livestock Health"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee Services Related",
+          "Pension Related",
+          "Trade Related",
+          "Cattle Related",
+          "Dairy Related",
+          "National Livestock Mission",
+          "Livestock Health",
+          "Livestock Census and Integrated Sample Survey Related",
+          "Misbehaviour/Corruption/Harassment/Vigilance/APAR",
+          "National Dairy Develoment Board",
+          "Veterninary Council of India",
+          "Animal Wefare Board of India",
+          "Centre of Excellance for Animal Husbandry",
+          "Animal Quarntine and Certification Services"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BSEQ="
+  }
+}

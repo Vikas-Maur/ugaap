@@ -1,0 +1,74 @@
+{
+  "capturedAt": "2026-08-26T12:03:45.662Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Environment, Forest and Climate Change",
+    "categoryPath": [
+      "Forest Research and Training related",
+      "Training of Forest Range Officers"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative and service matter related",
+          "Environment related",
+          "Forest and trees related",
+          "Forest Research and Training related",
+          "Indian Forest Service (IFS) related",
+          "National Afforestation and Eco- Development Board (NAEB) related",
+          "Wildlife related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Training of IFS/SFS officers",
+          "Forestry Education",
+          "Training of IFS officers abroad and other approved Technical Cooperation Training programmes",
+          "Forestry training of foreigners in India",
+          "Training of Forest Range Officers"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9FQUY="
+  }
+}

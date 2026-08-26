@@ -1,0 +1,164 @@
+{
+  "capturedAt": "2026-08-26T11:15:01.889Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "GeM- Payment Related",
+      "Air Force"
+    ],
+    "fields": [
+      {
+        "id": "GemContractNoDate",
+        "name": "GemContractNoDate",
+        "label": "GeM Contract no. and Date (With copy of contract)",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter GeM Contract no. and Date (With copy of contract)",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BuyerOrgEmailId",
+        "name": "BuyerOrgEmailId",
+        "label": "Buyers organization/ Email ID",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Buyers organization/ Email ID",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ContractAmount",
+        "name": "ContractAmount",
+        "label": "Contract Amount",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Contract Amount",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PayingAuthEmail",
+        "name": "PayingAuthEmail",
+        "label": "Paying Authority and Email",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Paying Authority and Email",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CRACCert",
+        "name": "CRACCert",
+        "label": "CRAC Certificate",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter CRAC Certificate",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Army",
+          "Navy",
+          "Air Force",
+          "Defence Civilian",
+          "DAD"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CDAPCDA",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a CDA-PCDA (Dropdown)",
+          "CDA(Army), Meerut",
+          "CDA (IDS)",
+          "CDA Air Force New Delhi",
+          "CDA Chennai",
+          "CDA CSD Mumbai",
+          "CDA funds Meerut",
+          "CDA GUWAHATI",
+          "CDA PATNA",
+          "CDA PD Meerut",
+          "CDA R and D Banglore",
+          "CDA R and D Hyderabad",
+          "CDA Training Pune",
+          "CDA(Navy/Coast Guard)",
+          "CDA, JABALPUR",
+          "CDA, Secunderabad",
+          "PCA FYS Kolkata",
+          "PCDA (CC), LUCKNOW",
+          "PCDA (WC) Chandigarh",
+          "PCDA AF Dehradun",
+          "PCDA New Delhi",
+          "PCDA O Pune",
+          "PCDA R and D New Delhi",
+          "PCDA SWC Jaipur",
+          "PCDA(Navy)",
+          "PCDA(NC) Jammu",
+          "PR. CDA PENSION Allahabad",
+          "Pr.CDA Bengaluru",
+          "Principal CDA (BR)",
+          "Principal CDA (SC), Pune"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

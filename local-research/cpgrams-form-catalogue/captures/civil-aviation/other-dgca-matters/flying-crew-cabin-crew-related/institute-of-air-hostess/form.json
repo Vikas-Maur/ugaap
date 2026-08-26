@@ -1,0 +1,105 @@
+{
+  "capturedAt": "2026-08-26T09:45:01.056Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "Other DGCA matters",
+      "Flying Crew / Cabin Crew related",
+      "Institute of Air Hostess"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Aerodrome Licencing related",
+          "Air Operator Permit of NSOP, SOP and SCO related",
+          "Corruption allegation",
+          "Aicraft Safety related",
+          "Drone / RPAS related",
+          "Aircraft Maintenance Engineer (AME) related",
+          "Pilot issues",
+          "Domestic Aircraft Airworthiness related",
+          "CAR 147,145 and 147 Basic related",
+          "Regulation / Rules / Dangerous Goods related",
+          "Flying Training School / Institute related",
+          "Flying Crew / Cabin Crew related",
+          "Environment related issues",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Flying crew / Cabin Crew related",
+          "Institute of Air Hostess",
+          "Training related"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

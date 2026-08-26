@@ -1,0 +1,100 @@
+{
+  "capturedAt": "2026-08-26T09:36:45.564Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Information/Clarification / Policy Related",
+      "Multilateral Trade Agreements"
+    ],
+    "fields": [
+      {
+        "id": "GstinIec",
+        "name": "GstinIec",
+        "label": "GSTIN/ IEC",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter GSTIN/ IEC",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Drawback/ Rebate",
+          "EOU/ SEZ/ STP/EHTP",
+          "SWIFT",
+          "Procedure of import, export and trans-shipment",
+          "IGST / Custom Duty Refund",
+          "Classification",
+          "TFA/ WTO/WCO",
+          "Anti-dumping, Countervailing & Safeguard Rule",
+          "Notification of Customs Act,1972",
+          "Valuation",
+          "Foreign Post Office",
+          "Courier imports and exports",
+          "Multilateral Trade Agreements",
+          "Land Customs Stations",
+          "GST Policy",
+          "Tax rate on goods",
+          "Tax rate on services",
+          "Central Excise Policy",
+          "Service Tax Policy",
+          "GST Investigations",
+          "Customs Investigations & smuggling",
+          "Draft Audit Paras/Audit paras, PAC Reports",
+          "Civil Appeals before the Supreme Court against the order of CESTAT",
+          "National Green Tribunal matters"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "capturedAt": "2026-08-26T11:58:54.871Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Empowerment of Persons with Disabilities",
+    "categoryPath": [
+      "National Handicapped Finance and Development Corporation",
+      "Loan Assistance"
+    ],
+    "fields": [
+      {
+        "id": "DisabilityCertificate_UDIDCard",
+        "name": "DisabilityCertificate/UDIDCard",
+        "label": null,
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Disability Certificate/ UDID Card",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "OthersSupportingDocuments",
+        "name": "OthersSupportingDocuments",
+        "label": "Others Supporting Documents",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Others Supporting Documents",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Policy and Act related Matter",
+          "Scholarship Scheme for SwDs",
+          "Deendayal Disabled Rehabilitation Scheme",
+          "District Disability Rehabilitation Centres",
+          "Chief Commissioner for Persons with Disabilities",
+          "National Institute",
+          "National Handicapped Finance and Development Corporation",
+          "Artificial Limbs Manufacturing Corporation of India",
+          "Scheme of Assistance to Disabled Persons for Purchase and Fitting of Aids and Appliances ADIP Scheme)",
+          "National Awards For The Empowerment Of Persons With Disabilities"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Loan Assistance",
+          "Skill Training",
+          "Awareness Creation and Marketing Support"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EQUY="
+  }
+}

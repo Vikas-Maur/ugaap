@@ -1,0 +1,76 @@
+{
+  "capturedAt": "2026-08-26T12:09:46.008Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Expenditure",
+    "categoryPath": [
+      "Salary and allowance revision",
+      "Judiciary"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Allowance",
+          "Salary and allowance revision",
+          "Pay related Matters",
+          "Pension/ Retirement",
+          "Indian Cost Account Service",
+          "Payment",
+          "Indian Civil Accounts Service",
+          "Pay Upgradation",
+          "Creation of posts",
+          "Cadre Review",
+          "Policy matters of Expenses",
+          "Administrative matters",
+          "Government Rules",
+          "Procurement",
+          "Funds to Schemes",
+          "Finance Commission",
+          "Other Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Judiciary",
+          "Legislative",
+          "Honorarium to members in boards/commissions/panels etc."
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Serving judges of Supreme Court",
+          "Serving judges of High Court"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9FWFA="
+  }
+}

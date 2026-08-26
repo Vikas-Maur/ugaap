@@ -1,0 +1,118 @@
+{
+  "capturedAt": "2026-08-26T07:33:06.705Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Atomic Energy",
+    "categoryPath": [
+      "Personal Claims and Entitlements",
+      "PERSONAL MATTER IN SERVICE"
+    ],
+    "fields": [
+      {
+        "id": "SERVICEMATTERSCOUNTINGOFPASTSERVICERESERVATIONTRANSFERHARASSMENTCLAIMSPAYFIXATIONCPF-GPFCOURTMATTEROSSTAFFACPMACPLEAVETRAVELLALLOWANCEALLOWANCESLTC",
+        "name": "SERVICEMATTERSCOUNTINGOFPASTSERVICERESERVATIONTRANSFERHARASSMENTCLAIMSPAYFIXATIONCPF-GPFCOURTMATTEROSSTAFFACPMACPLEAVETRAVELLALLOWANCEALLOWANCESLTC",
+        "label": "SERVICE MATTERS COUNTING OF PAST SERVICE RESERVATION TRANSFER HARASSMENT CLAIMS PAY FIXATION CPF - GPF COURT MATTER OS STAFF ACP MACP LEAVE TRAVELL ALLOWANCE ALLOWANCES LTC",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter SERVICE MATTERS   COUNTING OF PAST SERVICE  RESERVATION  TRANSFER  HARASSMENT  CLAIMS  PAY FIXATION  CPF - GPF  COURT MATTER OS STAFF  ACP MACP  LEAVE  TRAVELL ALLOWANCE  ALLOWANCES  LTC",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "REPEATED GRIEVANCE",
+          "Quality Of Service/Civic Amenities - Others",
+          "Employee Related - Service Matter",
+          "Harassment/Atrocities Against - Others",
+          "Other Central Government Related - Others",
+          "Police - Others",
+          "Harassment/Atrocities Against - SC/ST",
+          "Suggestion",
+          "Allegation Of Corruption/Malpractices - Others",
+          "State Government Related - Others",
+          "Employee Related - Pension",
+          "COVID-19 Related issues",
+          "Website Updating Issues",
+          "Transfer Related Grievance",
+          "Sexual Harassment",
+          "Setting up of Nuclear Facilities",
+          "Security Issues of DAE Installations",
+          "Reservation in Services",
+          "Radiation Medicine and Licence",
+          "Purchase and Stores Procedure",
+          "Public Awareness on Radiation and Nuclear Energy",
+          "Promotion Matters",
+          "PRIS",
+          "PERSONAL MATTER",
+          "Personal Claims and Entitlements",
+          "Pension and Gratuity",
+          "Pay Fixation Related Issues",
+          "Nuclear Treaty with Other Countries",
+          "Nuclear Energy and Atomic Minerals Policy",
+          "New Pension Scheme",
+          "LTC Grievances",
+          "Leave Rules",
+          "General",
+          "Disciplinary Cases",
+          "Deptl. Accommodation Grievances",
+          "Departmental Canteen Services",
+          "CPF GPF Matter",
+          "Complaint against Officers and Unit Functioning",
+          "Civil Works and Contract",
+          "CHSS Medical Facility",
+          "Appointment and Recruitment",
+          "CR/APAR",
+          "ACP MACP",
+          "NCSC",
+          "PWD",
+          "EX-SERVICE MAN"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "PERSONAL MATTER IN SERVICE"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REFUT00="
+  }
+}

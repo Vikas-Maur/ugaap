@@ -1,0 +1,217 @@
+{
+  "capturedAt": "2026-08-26T06:53:23.077Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Housing and Urban Affairs",
+    "categoryPath": [
+      "Directorate of Estates",
+      "Holiday Homes",
+      "Booking",
+      "Rebooking – after two hours"
+    ],
+    "fields": [
+      {
+        "id": "Name",
+        "name": "Name",
+        "label": "Complainant Name",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Complainant Name",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ResidentialAddress",
+        "name": "ResidentialAddress",
+        "label": "Residential Address",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Residential Address",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "OfficeAddress",
+        "name": "OfficeAddress",
+        "label": "Office Address",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Office Address",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RegNo",
+        "name": "RegNo",
+        "label": null,
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Reg. No. (Old & New, if applicable)",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AANNo",
+        "name": "AANNo",
+        "label": null,
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter AAN No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Email",
+        "name": "Email",
+        "label": "Registered Email Id",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Registered Email Id",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "MobileNo",
+        "name": "MobileNo",
+        "label": "Registered Mobile No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Registered Mobile No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "HouseDetails",
+        "name": "HouseDetails",
+        "label": "Allotted / Occupied House Details.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Allotted / Occupied House Details.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "DDA (Delhi Development Authority)",
+          "Directorate of Estates",
+          "Principal Accounts Office",
+          "TCPO (Town and Country Planning Organisation)",
+          "NCRPB (National Capital Region Planning Board)",
+          "HPL (Hindustan Prefab Ltd.)",
+          "HUDCO (Housing and Urban Development Corporation)",
+          "NBO (National Buildings Organisation)",
+          "NCHFI (National Cooperative Housing Federation of India)",
+          "CGEWHO (Central Government Employee Welfare Housing Organisation)",
+          "NCRTC (National Capital Region Transport Corporation Ltd)",
+          "DUAC (Delhi Urban Arts Commission)",
+          "BMTPC (Building Materials & Technology Promotion Council )",
+          "Rajghat Samadhi Committee",
+          "GISO (Government of India Stationery Office)",
+          "NIUA (National Institute of Urban Affairs)",
+          "Department of Publication",
+          "DMRC (Delhi Metro Rail Corporation)",
+          "Schemes, Programs & Other Divisions under MoHUA",
+          "Directorate of Printing",
+          "NBCC",
+          "L&DO",
+          "CPWD",
+          "Delhi Division"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Service Matters & Pension Related",
+          "Allotment Related-Delhi",
+          "GPOA/ Shops related",
+          "Holiday Homes",
+          "GPRA (Regions)",
+          "GPOA",
+          "General Section Related",
+          "Policy Matter relating to GPRA and Public Premises(Eviction of Unauthorised Occupation)Act and Rules 1971.",
+          "Subletting related",
+          "Out of Turn allotment",
+          "Vigilance",
+          "Computer",
+          "Eviction",
+          "Court Case",
+          "Rent Related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Booking",
+          "Refund",
+          "Complaints",
+          "Eligibility for booking",
+          "Booking charges"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Booking failure",
+          "Problem in payment module",
+          "Rebooking – after two hours"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9VUkQ%3d"
+  }
+}

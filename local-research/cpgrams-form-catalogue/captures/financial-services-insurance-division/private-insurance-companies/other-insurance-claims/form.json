@@ -1,0 +1,78 @@
+{
+  "capturedAt": "2026-08-26T07:25:59.044Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Financial Services (Insurance Division)",
+    "categoryPath": [
+      "Private insurance Companies",
+      "Other insurance claims"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Agricultural Insurance",
+          "Life Insurance Claim Related",
+          "General Insurance Claim Related",
+          "Customer Service Related",
+          "Government Schemes Related",
+          "Administrative Matters",
+          "Misbehaviour/Corruption/Harassment",
+          "Misselling",
+          "Private insurance Companies"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Agricultural Insurance claims",
+          "Life Insurance/Annuity claims",
+          "Health Insurance/TPA claims",
+          "Vehicle Insurance claims",
+          "Policy Renewal",
+          "Misselling/ Misrepresentation by Agents/ surveyors",
+          "Other insurance claims",
+          "Other Customer Service"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBSUQ%3d"
+  }
+}

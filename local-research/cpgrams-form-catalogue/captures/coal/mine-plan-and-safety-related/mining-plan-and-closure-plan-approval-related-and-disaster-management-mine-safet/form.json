@@ -1,0 +1,223 @@
+{
+  "capturedAt": "2026-08-26T09:50:26.617Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Coal",
+    "categoryPath": [
+      "Mine Plan and Safety Related",
+      "Mining plan and closure plan approval related and Disaster management, mine safety, fire safety"
+    ],
+    "fields": [
+      {
+        "id": "CoalandLigniteBlocks",
+        "name": "CoalandLigniteBlocks",
+        "label": "Coal and Lignite Blocks",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Coal and Lignite Blocks",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AllocationandAuction",
+        "name": "AllocationandAuction",
+        "label": "Allocation and Auction",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Allocation and Auction",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Sustainibility",
+        "name": "Sustainibility",
+        "label": "Sustainibility",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Sustainibility",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CoalProductionandDistribution",
+        "name": "CoalProductionandDistribution",
+        "label": "Coal Production and Distribution",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Coal  Production and Distribution",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AppointmentRelated",
+        "name": "AppointmentRelated",
+        "label": "Appointment Related",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Appointment Related",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ServiceMattersandWelfare",
+        "name": "ServiceMattersandWelfare",
+        "label": "Service Matters and Welfare",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Service Matters and Welfare",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "QualityandGradingofCoal",
+        "name": "QualityandGradingofCoal",
+        "label": "Quality and Grading of Coal",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Quality and Grading of Coal",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CoalControllerOrganisationRelated",
+        "name": "CoalControllerOrganisationRelated",
+        "label": "Coal Controller Organisation Related",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Coal Controller Organisation Related",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "MiningPlanRelatedMatters",
+        "name": "MiningPlanRelatedMatters",
+        "label": "Mining Plan Related Matters",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Mining Plan Related Matters",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CMPFO",
+        "name": "CMPFO",
+        "label": "CMPFO",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter CMPFO",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "DemandSupplyandForecasting",
+        "name": "DemandSupplyandForecasting",
+        "label": "Demand Supply and Forecasting",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Demand Supply and Forecasting",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BoardLevelAppointments",
+        "name": "BoardLevelAppointments",
+        "label": "Board Level Appointments",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Board Level Appointments",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CentralSectorSchemes",
+        "name": "CentralSectorSchemes",
+        "label": "Central Sector Schemes",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Central Sector Schemes",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Coal Block Related",
+          "Sustainability and Development Projects Related",
+          "Coal Production Monitoring and Distribution",
+          "Nominated Authority",
+          "Economic Affairs Section",
+          "IFD Division",
+          "Estabilishment Division and BA sections",
+          "Statistical Division Related",
+          "Clean Coal Technolgy (CCT) related",
+          "Mine Plan and Safety Related",
+          "Personnel and Administration",
+          "Corporate Affairs",
+          "Corporate Social Responsibility and Employee Welfare",
+          "Vigilance",
+          "Parliament",
+          "Coal Mine Provident Fund",
+          "Finance Related(cash section)",
+          "Land Infrastructure Development Related",
+          "International Cooperation",
+          "Technical",
+          "Materials Management and sales related",
+          "Security related",
+          "Medical related",
+          "Civil and Administration related",
+          "Others",
+          "Environment Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Mining plan and closure plan approval related and Disaster management, mine safety, fire safety",
+          "Work relating to Jharia-Raniganj Master Plan",
+          "Central Sector Schemes Related and Coal Conservation and Development related",
+          "Customs duty related",
+          "Tribal SubPlan(TSP) related",
+          "Quality and Grading of Coal and Others"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUNPQUw="
+  }
+}

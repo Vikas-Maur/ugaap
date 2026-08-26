@@ -1,0 +1,181 @@
+{
+  "capturedAt": "2026-08-26T07:20:02.822Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Health & Family Welfare",
+    "categoryPath": [
+      "CGHS Health Centres",
+      "Medical Reimbursement Claims",
+      "Other"
+    ],
+    "fields": [
+      {
+        "id": "AckNo",
+        "name": "AckNo",
+        "label": "Acknowledgement No./ WC Diary No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Acknowledgement No./ WC Diary No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BenId",
+        "name": "BenId",
+        "label": "Ben Id",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Ben Id",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AmountClaimed",
+        "name": "AmountClaimed",
+        "label": "Amount Claimed",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Amount Claimed",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "CghsId",
+        "name": "CghsId",
+        "label": "CGHS Beneficiary ID",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter CGHS Beneficiary ID",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospitals",
+          "Medicines",
+          "CGHS Health Centres",
+          "Medical Education",
+          "Financial Assistance for Medical Treatment",
+          "Health Schemes",
+          "Public Health",
+          "Food Regulation",
+          "Online Health Services",
+          "Policy Matters",
+          "MoHFW Employee Related",
+          "Other",
+          "Private Insurance"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Hospital Services",
+          "Non-availability of Medicines",
+          "Poor Infrastructure",
+          "CGHS Cards",
+          "Medical Reimbursement Claims",
+          "Employee Related",
+          "Allegation of corruption",
+          "Suggestions",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Request for full reimbursement",
+          "Delay in settlement of claims",
+          "Deductions are more",
+          "Other"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CghsCenter",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Location of CGHS centre",
+          "Ahmedabad",
+          "Allahabad",
+          "Bangalore",
+          "Bhopal",
+          "Bhubaneswar",
+          "Chandigarh",
+          "Chennai",
+          "Dehradun",
+          "Guwahati",
+          "Hyderabad",
+          "Jabalpur",
+          "Jaipur",
+          "Kanpur",
+          "Kolkata",
+          "Lucknow",
+          "Meerut",
+          "Mumbai",
+          "Nagpur",
+          "New Delhi (Central Zone)",
+          "New Delhi (East Zone)",
+          "New Delhi (North Zone)",
+          "New Delhi (South Zone)",
+          "Patna",
+          "Pune",
+          "Ranchi",
+          "Shillong",
+          "Trivendrum"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REhMVEg%3d"
+  }
+}

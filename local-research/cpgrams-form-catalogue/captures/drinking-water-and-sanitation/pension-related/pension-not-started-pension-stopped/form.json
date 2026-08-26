@@ -1,0 +1,80 @@
+{
+  "capturedAt": "2026-08-26T11:41:04.340Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Drinking Water and Sanitation",
+    "categoryPath": [
+      "Pension Related",
+      "Pension Not Started/Pension Stopped"
+    ],
+    "fields": [
+      {
+        "id": "PpoNo",
+        "name": "PpoNo",
+        "label": "PPO Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter PPO Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Jal Jeevan Mission related(Rural)",
+          "Swachh Bharat Mission related(Rural)",
+          "Misbehaviour/Corruption/Harassment",
+          "Pension Related",
+          "Employee Services Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension Not Started/Pension Stopped",
+          "Revision of Pension",
+          "Miscalculation in Pension",
+          "Adding beneficiary in PPO"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EV1M="
+  }
+}

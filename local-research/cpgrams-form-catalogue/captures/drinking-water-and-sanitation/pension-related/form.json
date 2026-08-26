@@ -1,0 +1,49 @@
+{
+  "capturedAt": "2026-08-26T11:41:02.971Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Drinking Water and Sanitation",
+    "categoryPath": [
+      "Pension Related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Jal Jeevan Mission related(Rural)",
+          "Swachh Bharat Mission related(Rural)",
+          "Misbehaviour/Corruption/Harassment",
+          "Pension Related",
+          "Employee Services Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension Not Started/Pension Stopped",
+          "Revision of Pension",
+          "Miscalculation in Pension",
+          "Adding beneficiary in PPO"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EV1M="
+  }
+}

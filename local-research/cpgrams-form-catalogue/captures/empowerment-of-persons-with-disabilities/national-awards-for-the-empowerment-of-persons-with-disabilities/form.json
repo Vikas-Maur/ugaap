@@ -1,0 +1,55 @@
+{
+  "capturedAt": "2026-08-26T11:59:11.456Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Empowerment of Persons with Disabilities",
+    "categoryPath": [
+      "National Awards For The Empowerment Of Persons With Disabilities"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Policy and Act related Matter",
+          "Scholarship Scheme for SwDs",
+          "Deendayal Disabled Rehabilitation Scheme",
+          "District Disability Rehabilitation Centres",
+          "Chief Commissioner for Persons with Disabilities",
+          "National Institute",
+          "National Handicapped Finance and Development Corporation",
+          "Artificial Limbs Manufacturing Corporation of India",
+          "Scheme of Assistance to Disabled Persons for Purchase and Fitting of Aids and Appliances ADIP Scheme)",
+          "National Awards For The Empowerment Of Persons With Disabilities"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Recommendation",
+          "Status of Consideration",
+          "Various Clarification",
+          "Guidelines for National Award",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EQUY="
+  }
+}

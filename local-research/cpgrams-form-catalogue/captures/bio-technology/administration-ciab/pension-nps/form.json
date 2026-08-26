@@ -1,0 +1,93 @@
+{
+  "capturedAt": "2026-08-26T09:33:56.995Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Bio Technology",
+    "categoryPath": [
+      "Administration CIAB",
+      "Pension/NPS"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Establishment",
+          "Administration",
+          "Vigilance",
+          "Finance",
+          "Any Others",
+          "Schemes Related",
+          "HRD Schemes",
+          "Administration NIAB",
+          "Administration NABI",
+          "Administration CDFD",
+          "Administration NBRC",
+          "Administration ILS",
+          "Administration NII",
+          "Administration NCCS",
+          "Administration BIBCOL",
+          "Administration IVCOL",
+          "Administration BIRAC",
+          "Administration IBSD",
+          "Administration NIPGR",
+          "Administration RGCB",
+          "Administration THSTI",
+          "Administration RCB",
+          "Administration NIBMG",
+          "Administration CIAB",
+          "Administration inStem"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Recruitment",
+          "Pension/NPS",
+          "Service Matters",
+          "Purchase and Store",
+          "Outsourcing",
+          "Harassment cases",
+          "Corruption/Malpractices"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REJJT1Q="
+  }
+}

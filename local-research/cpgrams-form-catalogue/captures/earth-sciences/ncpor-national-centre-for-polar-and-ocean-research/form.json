@@ -1,0 +1,64 @@
+{
+  "capturedAt": "2026-08-26T11:41:51.705Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Earth Sciences",
+    "categoryPath": [
+      "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee related (MoES)",
+          "Others (MoES)",
+          "SAGE (Seismology and Geosciences)",
+          "Polar expedition (PACER)",
+          "Research, Education, Training and Outreach (REACHOUT)",
+          "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+          "Atmospheric, Climate Science and Services (ACROSS)",
+          "Deep Ocean Mission (DOM)",
+          "NCMRWF (National Centre for Medium Range Forecasting)",
+          "NCS (National Center for Seismology)",
+          "INCOIS (Indian National Centre for Ocean Information Services)",
+          "NIOT (National Institute of Ocean Technology)",
+          "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+          "IITM (Indian Institute of Tropical Meteorology)",
+          "CMLRE (Centre for Marine Living Resources and Ecology)",
+          "NCESS (National Centre for Earth Science Studies)",
+          "IMD (India Meteorological Department)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9DTkQ="
+  }
+}

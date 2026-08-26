@@ -1,0 +1,73 @@
+{
+  "capturedAt": "2026-08-26T07:35:24.245Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ayush",
+    "categoryPath": [
+      "Ayush Schemes",
+      "Central Sector Scheme"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospital Related",
+          "Ayush Schemes",
+          "College Permission & Admission",
+          "Ayush Education in National Institutes",
+          "Ayush Research",
+          "Ayush Drugs Policy",
+          "Covid- 19",
+          "Matters relating to the Employees of Ministry of Ayush and its Organizations",
+          "Lab & Pharmocopeia",
+          "Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Centrally Sponsered Scheme",
+          "Central Sector Scheme"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Champion Sector Scheme",
+          "National Medcine Plant Board",
+          "International Cooperation",
+          "Ayurgyan",
+          "Information, Education and Communication (IEC)",
+          "Ayurswasthya",
+          "Ayush Oushadhi Gunvatta Evum Uttapadan Sanvardhan Yojana (AOGUSY)"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/QVlVU0g="
+  }
+}

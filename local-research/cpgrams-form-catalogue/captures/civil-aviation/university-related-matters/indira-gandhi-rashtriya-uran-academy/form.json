@@ -1,0 +1,71 @@
+{
+  "capturedAt": "2026-08-26T09:42:36.658Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "University Related Matters",
+      "Indira Gandhi Rashtriya Uran Academy."
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Indira Gandhi Rashtriya Uran Academy.",
+          "Rajiv Gandhi National Aviation University"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Admission Related",
+          "Student Related"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

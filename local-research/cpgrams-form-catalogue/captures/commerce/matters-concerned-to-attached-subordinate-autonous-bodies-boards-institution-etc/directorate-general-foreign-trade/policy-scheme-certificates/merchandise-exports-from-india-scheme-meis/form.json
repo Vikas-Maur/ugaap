@@ -1,0 +1,145 @@
+{
+  "capturedAt": "2026-08-26T10:02:50.392Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Commerce",
+    "categoryPath": [
+      "Matters concerned to Attached/Subordinate/Autonous Bodies/Boards/ Institution etc.",
+      "Directorate General Foreign Trade",
+      "Policy/Scheme/Certificates",
+      "Merchandise Exports from India Scheme(MEIS)"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Export-Import related",
+          "Employee Service Related (Main Secretariat only)",
+          "Pension Related",
+          "Matters concerned to Attached/Subordinate/Autonous Bodies/Boards/ Institution etc.",
+          "Misbehavior/ Corruption/ Harrassment (Main Secretariat only)",
+          "Administrative Matters Department of Commerce"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Agricultural and Processed Food Products Export Development Authority",
+          "Coffee Board",
+          "Directorate General of Commercial Intelligence and Statistics",
+          "Directorate General Foreign Trade",
+          "Directorate General of Trade Remedies",
+          "ECGC Ltd",
+          "Exports Inspection Council of India",
+          "Government e- Marketplace",
+          "India Trade Promotion Organisation",
+          "Indian Institute of Foreign Trade",
+          "Indian Institute of Packaging",
+          "Marine Products Export Development Authority",
+          "MMTC Limited",
+          "PEC Limited",
+          "Rubber Board",
+          "Spices Board",
+          "Tea Board",
+          "The State Trading Corporation of India",
+          "Tobacco Board",
+          "Special Economic Zone(SEZ) related matters"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Export and Import",
+          "Policy/Scheme/Certificates",
+          "Administrative Matters",
+          "Trade Complaints- QCTD (Quality Control and Trade disputes)",
+          "EGTF",
+          "Policy Relaxation Committee- Exemption from Foreign Trade Policy/Handbook of Procedures",
+          "EPCG Committee- Nexus with Capital Goods (CG) and benefits under EPCG Schemes",
+          "Norms Committees Fixations of Norms",
+          "Inter-Ministerial Committee for Pre-Shipment Inspection Agency (PSIA)",
+          "MWG Meeting for SCOMET Items",
+          "Exim Facilitation Committee for import of Restricted Items"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Advance Authorization (AA)",
+          "Export Promotion Capital Goods (EPCG) Scheme",
+          "Duty Free Import Authorization (DFIA)",
+          "Districts as Export Hubs (DEH)",
+          "Merchandise Exports from India Scheme(MEIS)",
+          "Service Export from India Scheme (SEIS)",
+          "Status Holder Certificate Scheme",
+          "Niryat Bandhu Scheme (NBS)",
+          "Interest Equalization Scheme (IES)",
+          "Diamond Imprest Authorization (DIA) Scheme",
+          "Drawback (Deemed Exports) Scheme",
+          "Pre-shipment inspection Certificate (PSIC)",
+          "Pre-shipment Inspection Agency (PSIA)",
+          "Registration-cum-Membership Certificate (RCMC)",
+          "Export Oriented Unit (EOU)",
+          "Deemed Exports",
+          "Certificate of Origin",
+          "IEC",
+          "Refund of Duties and Taxes on Exported Products (RoDTEP)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9DT00="
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "capturedAt": "2026-08-26T09:34:37.953Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Indirect Taxes Related",
+      "Central Goods and Service Tax, Central Excise, Service Tax",
+      "Reward"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Central Goods and Service Tax, Central Excise, Service Tax",
+          "Customs",
+          "Systems/Portal Related Issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Registration/cancellation and revocation of GST",
+          "E-way Bill related problem",
+          "Returns",
+          "Input Tax Credit related issues",
+          "Refund and rebate related issue",
+          "Trans 1 related matters",
+          "SVLDRS (Sabka Vishwas Legacy Dispute Resolution Scheme) related",
+          "Anti - Profiteeing",
+          "Delay in adjudication / order / appeals",
+          "Reward"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "CUSTOMS",
+          "GST",
+          "DIRECTORATES"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

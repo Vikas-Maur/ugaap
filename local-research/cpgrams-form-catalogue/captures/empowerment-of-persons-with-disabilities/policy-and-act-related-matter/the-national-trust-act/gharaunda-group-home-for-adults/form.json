@@ -1,0 +1,119 @@
+{
+  "capturedAt": "2026-08-26T11:57:40.820Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Empowerment of Persons with Disabilities",
+    "categoryPath": [
+      "Policy and Act related Matter",
+      "The National Trust Act",
+      "Gharaunda (Group Home for Adults)"
+    ],
+    "fields": [
+      {
+        "id": "DisabilityCertificate_UDIDCard",
+        "name": "DisabilityCertificate/UDIDCard",
+        "label": null,
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Disability Certificate/ UDID Card",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "OthersSupportingDocuments",
+        "name": "OthersSupportingDocuments",
+        "label": "Others Supporting Documents",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Others Supporting Documents",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Policy and Act related Matter",
+          "Scholarship Scheme for SwDs",
+          "Deendayal Disabled Rehabilitation Scheme",
+          "District Disability Rehabilitation Centres",
+          "Chief Commissioner for Persons with Disabilities",
+          "National Institute",
+          "National Handicapped Finance and Development Corporation",
+          "Artificial Limbs Manufacturing Corporation of India",
+          "Scheme of Assistance to Disabled Persons for Purchase and Fitting of Aids and Appliances ADIP Scheme)",
+          "National Awards For The Empowerment Of Persons With Disabilities"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "The Rehabilitation Council of India Act, 1992,",
+          "The National Trust Act",
+          "Policy Related Matter",
+          "Schemes for Implementation of Right of Persons with Disabilities Act 2016 SIPDA"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Disha Early Intervention and School Readiness Scheme for 0-10 years",
+          "VIKAAS Day Care Scheme",
+          "Disha-cum Vikaas Scheme (Day Care)",
+          "Samarth (Respite Care Residential Scheme)",
+          "Gharaunda (Group Home for Adults)",
+          "Badhte Kadam Awareness Community Interaction and Innovative Project Scheme",
+          "Niramaya Health Insurance Scheme",
+          "Violation of Rules Provisions",
+          "Registration of Organizations",
+          "Other"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EQUY="
+  }
+}

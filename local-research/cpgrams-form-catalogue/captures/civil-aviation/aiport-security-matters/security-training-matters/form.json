@@ -1,0 +1,84 @@
+{
+  "capturedAt": "2026-08-26T09:46:22.832Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "Aiport Security matters",
+      "Security Training matters"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Harassment of Security Staff",
+          "Security clearance of employees",
+          "Security Programme",
+          "Security Facility at aiport",
+          "Airline staff related matters",
+          "Security banned/removed items",
+          "E-Sahaj related matters",
+          "Security Clearance of entitities",
+          "Vigilance Matters",
+          "Security Equipment",
+          "Airport Entry Permit (AEP)",
+          "Security Training matters"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in issue certificate",
+          "Non receipt of",
+          "Not getting seat for training",
+          "Non –compliance of regulations by ASTI",
+          "Expiree of validation of certificate"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

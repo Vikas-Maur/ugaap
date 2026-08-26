@@ -1,0 +1,87 @@
+{
+  "capturedAt": "2026-08-26T11:40:26.149Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Drinking Water and Sanitation",
+    "categoryPath": [
+      "Jal Jeevan Mission related(Rural)",
+      "Water Accessibility Related",
+      "Pipeline and Infrastructure"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Jal Jeevan Mission related(Rural)",
+          "Swachh Bharat Mission related(Rural)",
+          "Misbehaviour/Corruption/Harassment",
+          "Pension Related",
+          "Employee Services Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Water Availability Related",
+          "Water Quality Related",
+          "Water Accessibility Related",
+          "Functional Household tap Connection Related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pipeline and Infrastructure",
+          "Supply Related",
+          "Others issues related to functional household tap connection"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EV1M="
+  }
+}

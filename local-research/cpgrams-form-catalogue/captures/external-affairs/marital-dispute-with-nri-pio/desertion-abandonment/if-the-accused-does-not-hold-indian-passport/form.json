@@ -1,0 +1,121 @@
+{
+  "capturedAt": "2026-08-26T12:13:30.694Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "External Affairs",
+    "categoryPath": [
+      "Marital Dispute with NRI/PIO",
+      "Desertion/ Abandonment",
+      "If the accused does not hold Indian Passport"
+    ],
+    "fields": [
+      {
+        "id": "JurisdictionDetails",
+        "name": "JurisdictionDetails",
+        "label": "Jurisdiction of Foreign Country (Contact details, Address of Foreign country of Spouse)",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Jurisdiction of Foreign Country (Contact details, Address of Foreign country of Spouse)",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Death Compensation not paid while being employed",
+          "Imprisonment due to illegal Stay in foreign country",
+          "Transportation of Mortal remains",
+          "Seafarers",
+          "Whereabouts Unknown",
+          "Passport Application Related",
+          "Delay in issuance Police Clearance Certificate Application",
+          "Delay in Issuance of Surrender Certificate",
+          "Marital Dispute with NRI/PIO",
+          "Student Related (Grievances of indian students abroad)",
+          "NRI/PIO Related issues",
+          "Illegal Agent Related",
+          "Others (Attestation / Apostille / GEP / Indian Community Welfare Fund (ICWF) Related / Pravasi Bharatiya Bima Yojana (PBBY) Related etc.) (Subject not covered under above Categories)"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Domestic Violence/ Dowry Harassment",
+          "Desertion/ Abandonment",
+          "Maintence Amount Not Received",
+          "Ex-Parte Divorce",
+          "Grievances of Indian Spouse residing Abroad"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "If the accused holds Indian Passport",
+          "If the accused does not hold Indian Passport"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "AnnexureType",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Mission / Passport Office / Division",
+          "Mission",
+          "Passport Office (RPO)",
+          "Division"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUVBUEQ="
+  }
+}

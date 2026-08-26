@@ -1,0 +1,96 @@
+{
+  "capturedAt": "2026-08-26T07:26:27.353Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Agriculture and Farmers Welfare",
+    "categoryPath": [
+      "PMKISAN related issues",
+      "Delay in receiving benefit",
+      "Marked ineligible/ hold payment/ dead incorrectly"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "PMKISAN related issues",
+          "Crops, Pulses, Plants and Seeds related issues",
+          "Other Scheme Related",
+          "Matters Related to Farmers Welfare (MSP, Price Support System, Agriculture Marketing)",
+          "Policy and Trade related",
+          "Employees Services Related",
+          "Pension related",
+          "Natural Clamity Draught related issues",
+          "Machinery and Technology issues",
+          "Organic farming and fertilizers issues",
+          "Misbehaviour/ Harassment/ Corruption",
+          "Miscellaneous Matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Technical Issues with PMKISAN Portal",
+          "Delay in approval by State government",
+          "Delay in receiving benefit",
+          "Ineligible beneficiaries getting benefits",
+          "Non receipt of feedback from State Governments"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Marked ineligible/ hold payment/ dead incorrectly",
+          "Aaadhar seeded with bank account but not receiving benefits",
+          "Benefits received in wrong account",
+          "Benefits to other family members"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BQUM="
+  }
+}

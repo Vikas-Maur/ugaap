@@ -1,0 +1,120 @@
+{
+  "capturedAt": "2026-08-26T11:30:45.947Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Production",
+    "categoryPath": [
+      "Vendor",
+      "Vendor related complaints"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Service Matter",
+          "Pension Matters",
+          "Land Issues",
+          "Workplace matters related to Harassment",
+          "Vendor",
+          "Customer",
+          "Firm's Quality Assurance Inspection related",
+          "Legal Matter/Judiciary",
+          "Implementation of Schemes",
+          "Allegation of Corruption/ Malpractices",
+          "Miscellaneous Matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Payment related",
+          "Supply order related",
+          "Registration related",
+          "Vendor selection related",
+          "Earnest money deposit (EMD) related",
+          "Bank guarantee related",
+          "Vendor related complaints",
+          "Non-payment to supplier against order placed"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "DdproOffice",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Wing/Division/Office",
+          "Aerospace Division",
+          "Defence Exhibition Organisation",
+          "Directorate General of Aeronautical Quality Assurance (DGAQA)",
+          "Hindustan Aeronautics Limited (HAL)",
+          "Defence Industries Production Division (DIP)",
+          "Directorate of Planning & Coordination",
+          "DOMW Division",
+          "Bharat Earth Movers Limited (BEML)",
+          "Director (Aerospace-I)",
+          "Director (Plg & Coordination)",
+          "Directorate General of Quality Assurance (DGQA)",
+          "Directorate of Ordnance (Coordination & Services) and new DPSUs (erstwhile OFB)",
+          "Personnel Division-1",
+          "Personnel Division-2",
+          "Prod. Division",
+          "Quality Assurance (QA) Division",
+          "Vigilance Division",
+          "Garden Reach Shipbuilders Limited (GRSE)",
+          "Goa Shipyard Limited (GSL)",
+          "Hindustan Shipyard Limited (HSL)",
+          "Mazagon Dock Shipbuilders Limited (MDL)",
+          "Mishra Dhatu Nigam Limited (MIDHANI)",
+          "Naval System (NS) Division",
+          "Bharat Dynamics Limited (BDL)",
+          "Bharat Electronics Limited (BEL)",
+          "Directorate of Standardisation",
+          "Electronic System Division"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERQUk8="
+  }
+}

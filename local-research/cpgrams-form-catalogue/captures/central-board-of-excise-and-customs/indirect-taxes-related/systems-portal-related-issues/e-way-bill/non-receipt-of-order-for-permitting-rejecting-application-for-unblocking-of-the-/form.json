@@ -1,0 +1,127 @@
+{
+  "capturedAt": "2026-08-26T09:35:37.972Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Indirect Taxes Related",
+      "Systems/Portal Related Issues",
+      "E-Way Bill",
+      "Non-Receipt of Order for permitting / rejecting application for unblocking of the facility for generation of EWay Bill (EWB-06) even after generation of the same in the system."
+    ],
+    "fields": [
+      {
+        "id": "Detasils",
+        "name": "Detasils",
+        "label": "Jurisdiction/ GSTIN/ SSO Id/ ARN or CRN Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Jurisdiction/ GSTIN/ SSO Id/ ARN or CRN Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Central Goods and Service Tax, Central Excise, Service Tax",
+          "Customs",
+          "Systems/Portal Related Issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Bank Account details at ICEGATE",
+          "Portal/Technical Issue",
+          "DGFT - License issues at ICEGATE",
+          "Payment at ICEGATE",
+          "Exports/Imports related issues at ICEGATE",
+          "GSTN/GSTIN related Issues at ICEGATE",
+          "IGST Refund /Drawback issues related to ICEGATE",
+          "RBI – IDPMS & EDPMS Issues at ICEGATE",
+          "User Registration at ICEGATE",
+          "SCMTR issues at ICEGATE",
+          "Registration",
+          "Refund",
+          "Appeals",
+          "E-Way Bill",
+          "Non-Receipt of Order for Acceptance/ Rejection of application for deferred payment/ payment in installments (DRC-21) even after generation of the same in the system.",
+          "Unable to view documents attached to notice/ order etc even after generation of the same in the system.",
+          "Data Mismatch Between CBIC and CBDT",
+          "PFMS (Public Financial Management System)"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Non-Receipt of PH (Personal Hearing) notice even after generation of the same in the system.",
+          "Non-Receipt of Order for permitting / rejecting application for unblocking of the facility for generation of EWay Bill (EWB-06) even after generation of the same in the system."
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

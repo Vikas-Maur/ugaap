@@ -1,0 +1,180 @@
+{
+  "capturedAt": "2026-08-26T09:35:48.161Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Indirect Taxes Related",
+      "Systems/Portal Related Issues",
+      "PFMS (Public Financial Management System)",
+      "DIRECTORATES"
+    ],
+    "fields": [
+      {
+        "id": "State",
+        "name": "State",
+        "label": "State",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter State",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Jurisdiction",
+        "name": "Jurisdiction",
+        "label": "Jurisdiction of the complainant (Zone, Commissionerate, Division)",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Jurisdiction of the complainant (Zone, Commissionerate, Division)",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "GSTIN",
+        "name": "GSTIN",
+        "label": "GSTIN",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter GSTIN",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Central Goods and Service Tax, Central Excise, Service Tax",
+          "Customs",
+          "Systems/Portal Related Issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Bank Account details at ICEGATE",
+          "Portal/Technical Issue",
+          "DGFT - License issues at ICEGATE",
+          "Payment at ICEGATE",
+          "Exports/Imports related issues at ICEGATE",
+          "GSTN/GSTIN related Issues at ICEGATE",
+          "IGST Refund /Drawback issues related to ICEGATE",
+          "RBI – IDPMS & EDPMS Issues at ICEGATE",
+          "User Registration at ICEGATE",
+          "SCMTR issues at ICEGATE",
+          "Registration",
+          "Refund",
+          "Appeals",
+          "E-Way Bill",
+          "Non-Receipt of Order for Acceptance/ Rejection of application for deferred payment/ payment in installments (DRC-21) even after generation of the same in the system.",
+          "Unable to view documents attached to notice/ order etc even after generation of the same in the system.",
+          "Data Mismatch Between CBIC and CBDT",
+          "PFMS (Public Financial Management System)"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "CUSTOMS",
+          "GST",
+          "DIRECTORATES"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CbicRegion",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Region",
+          "Dte General of Analytics and Risk Management",
+          "Directorate General of Audit, Customs & Central Excise",
+          "Directorate General of Central Excise Intelligence",
+          "Directorate General of Revenue Intelligence",
+          "Directorate General of Export Promotion",
+          "Directorate General of Human Resource Development",
+          "Directorate General of Performance Management",
+          "Directorate General of NACEN",
+          "Directorate General of Safeguards",
+          "Directorate General of GST",
+          "Directorate General of Systems & Data Management",
+          "Directorate General of Valuation",
+          "Directorate General of Vigilance",
+          "Directorate of International Customs",
+          "Directorate of Legal Affairs",
+          "Directorate of Logistics",
+          "Directorate General of Tax Payer Services",
+          "Directorate of Central Revenues Control Laboratories",
+          "Directorate General of Anti Profiteeing"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

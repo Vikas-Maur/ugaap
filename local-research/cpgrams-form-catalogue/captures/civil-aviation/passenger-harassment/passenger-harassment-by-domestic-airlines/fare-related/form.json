@@ -1,0 +1,130 @@
+{
+  "capturedAt": "2026-08-26T09:42:55.812Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "Passenger harassment",
+      "Passenger Harassment by Domestic Airlines",
+      "Fare related"
+    ],
+    "fields": [
+      {
+        "id": "PNRNo",
+        "name": "PNRNo",
+        "label": "PNR Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter PNR Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Passenger Harassment by Domestic Airlines",
+          "Passenger Harassment by Foreign Airlines",
+          "Passenger Harassment by Helicopter Operators / Non scheduled Operators"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Fare related",
+          "Refund related",
+          "Flight Problem",
+          "Baggage related",
+          "Customer Service",
+          "Persons with Disability related",
+          "Staff behaviour related",
+          "Catering related",
+          "Others passenger related issues"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "Airline",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Airline",
+          "Air Asia",
+          "Go Air",
+          "IndiGo",
+          "Spicejet",
+          "Star jet",
+          "Trujet",
+          "Vistara"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

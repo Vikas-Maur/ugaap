@@ -1,0 +1,48 @@
+{
+  "capturedAt": "2026-08-26T12:07:09.242Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "Resettlement Issues"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Petrol Pump and other entitlements",
+          "State Government Related"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

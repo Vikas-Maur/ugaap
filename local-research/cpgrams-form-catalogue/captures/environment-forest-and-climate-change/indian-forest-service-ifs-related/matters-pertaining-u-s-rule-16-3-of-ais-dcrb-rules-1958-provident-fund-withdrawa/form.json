@@ -1,0 +1,79 @@
+{
+  "capturedAt": "2026-08-26T12:03:52.648Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Environment, Forest and Climate Change",
+    "categoryPath": [
+      "Indian Forest Service (IFS) related",
+      "Matters pertaining u/s Rule 16(3) of AIS (DCRB) Rules, 1958, Provident Fund withdrawal of IFS officers on deputation, settlement of post-retirement benefits of the officers on central deputation under CSS of MoEFCC, payment of dues under CGEGIS on retirement."
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative and service matter related",
+          "Environment related",
+          "Forest and trees related",
+          "Forest Research and Training related",
+          "Indian Forest Service (IFS) related",
+          "National Afforestation and Eco- Development Board (NAEB) related",
+          "Wildlife related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "All matter pertaining to empanelment, CSS of DoPT and MoEFCC, Inter Cadre matter and deputation of IFS officers in foreign bodies, corporations etc.",
+          "All matters pertaining to APAR, AIPR and Civil list.",
+          "Cadre Clearance for purposes other than deputation.",
+          "Establishment matters such as ex-India leave, LTC, pay fixation etc.",
+          "Matters pertaining u/s Rule 16(3) of AIS (DCRB) Rules, 1958, Provident Fund withdrawal of IFS officers on deputation, settlement of post-retirement benefits of the officers on central deputation under CSS of MoEFCC, payment of dues under CGEGIS on retirement.",
+          "Cadre review of State Service Officers, confirmation in the grade of IFS, select list for promotion quota and Year of allotment, review cases of IFS officers.",
+          "Framing of Rules and General Policy for commercial employment of retired IFS Officers",
+          "Miscellaneous matters related to IFS Officers",
+          "All matter pertaining to AGMUT Cadre.",
+          "IFS Entrance Exam Scheme and amendment"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9FQUY="
+  }
+}

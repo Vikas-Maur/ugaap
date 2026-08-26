@@ -1,0 +1,76 @@
+{
+  "capturedAt": "2026-08-26T07:28:18.553Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Agriculture and Farmers Welfare",
+    "categoryPath": [
+      "Organic farming and fertilizers issues",
+      "Organic Farming and fertilizers issues"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "PMKISAN related issues",
+          "Crops, Pulses, Plants and Seeds related issues",
+          "Other Scheme Related",
+          "Matters Related to Farmers Welfare (MSP, Price Support System, Agriculture Marketing)",
+          "Policy and Trade related",
+          "Employees Services Related",
+          "Pension related",
+          "Natural Clamity Draught related issues",
+          "Machinery and Technology issues",
+          "Organic farming and fertilizers issues",
+          "Misbehaviour/ Harassment/ Corruption",
+          "Miscellaneous Matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Soil Health Card (SHC) and Soil Health Management",
+          "Paramparagat Krishi Vikas Yojana",
+          "Organic Farming and fertilizers issues"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BQUM="
+  }
+}

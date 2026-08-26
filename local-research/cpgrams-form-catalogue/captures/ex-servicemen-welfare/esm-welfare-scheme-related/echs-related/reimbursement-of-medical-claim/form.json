@@ -1,0 +1,93 @@
+{
+  "capturedAt": "2026-08-26T12:07:51.467Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "ESM Welfare Scheme Related",
+      "ECHS Related",
+      "Reimbursement of Medical Claim"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "ECHS Related",
+          "Grant of Financial Assistance",
+          "Penury Grant",
+          "PM Scholarship Scheme",
+          "Self Employment Scheme",
+          "Welfare Scheme of Kendriya Sainik Board",
+          "Other Schemes"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Membership Related",
+          "ECHS Card Related",
+          "Medical Services",
+          "Reimbursement of Medical Claim",
+          "Administrative Issues",
+          "Contractual Employment",
+          "Policy Related"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Clarification on NMI Cases",
+          "Partial/Non Receipt of Med Claim",
+          "Erroneous deduction of Med Claim",
+          "Issue of EIR",
+          "Misc Issues"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

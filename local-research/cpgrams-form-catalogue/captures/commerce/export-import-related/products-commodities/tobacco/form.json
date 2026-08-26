@@ -1,0 +1,103 @@
+{
+  "capturedAt": "2026-08-26T10:01:39.705Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Commerce",
+    "categoryPath": [
+      "Export-Import related",
+      "Products/Commodities",
+      "Tobacco"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Export-Import related",
+          "Employee Service Related (Main Secretariat only)",
+          "Pension Related",
+          "Matters concerned to Attached/Subordinate/Autonous Bodies/Boards/ Institution etc.",
+          "Misbehavior/ Corruption/ Harrassment (Main Secretariat only)",
+          "Administrative Matters Department of Commerce"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Products/Commodities",
+          "Forign Trade Territory-wise",
+          "Trade related- Rules of Origin",
+          "Services"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Agriculture",
+          "Chemical and Allied Products",
+          "Coffee",
+          "Electronics and Computer Software",
+          "Engineering",
+          "Gems and Jewellery",
+          "Leather and Sports Goods & Toys",
+          "Marine Products",
+          "Mineral & Ores",
+          "Other Products",
+          "Overseas Projects and Services",
+          "Pharmaceuticals",
+          "Rubber",
+          "Services",
+          "Spices",
+          "Tea",
+          "Textiles",
+          "Tobacco"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9DT00="
+  }
+}

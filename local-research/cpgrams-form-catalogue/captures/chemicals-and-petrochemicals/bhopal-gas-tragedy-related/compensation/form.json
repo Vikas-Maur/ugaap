@@ -1,0 +1,72 @@
+{
+  "capturedAt": "2026-08-26T09:38:11.594Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Chemicals and Petrochemicals",
+    "categoryPath": [
+      "Bhopal Gas Tragedy related",
+      "Compensation"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Chemical Related",
+          "Petrochemical Related",
+          "Public Sector Undertakings (PSUs) related",
+          "Autonomous Bodies (ABs) related",
+          "Bhopal Gas Tragedy related",
+          "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+          "Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Rehabilition Matters/Issues",
+          "Welfare Matters",
+          "Compensation",
+          "Others"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9DUEM="
+  }
+}

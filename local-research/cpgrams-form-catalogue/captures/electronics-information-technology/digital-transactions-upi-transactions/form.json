@@ -1,0 +1,45 @@
+{
+  "capturedAt": "2026-08-26T11:55:03.300Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Electronics & Information Technology",
+    "categoryPath": [
+      "Digital Transactions/UPI Transactions"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Establishment/Service Matters",
+          "Corruption",
+          "Purchase/Procurement",
+          "Information Technology Act 2000/Cyber Security",
+          "Digital Services (CSC/MyGov/NeGD/NIC)",
+          "Digital Transactions/UPI Transactions",
+          "Projects/Schemes/Policies",
+          "Internet Governance/IP/DNS",
+          "Start-Ups Support Initiatives",
+          "Personal Data Protection Bill, 2019",
+          "Electronics Manufacturing/ Semi Conductor Policies",
+          "Official Language Act, 1963/Official Language Rules, 1976",
+          "National Language Translation Mission and BHASHINI",
+          "IT/ITeS",
+          "Personal Identity Documents Related",
+          "OTHERS",
+          "NIC State Projects",
+          "eCommerce"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUlOSVQ="
+  }
+}

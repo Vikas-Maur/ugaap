@@ -1,0 +1,104 @@
+{
+  "capturedAt": "2026-08-26T11:54:13.009Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Electronics & Information Technology",
+    "categoryPath": [
+      "Establishment/Service Matters",
+      "Recruitment related",
+      "Promotion"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Establishment/Service Matters",
+          "Corruption",
+          "Purchase/Procurement",
+          "Information Technology Act 2000/Cyber Security",
+          "Digital Services (CSC/MyGov/NeGD/NIC)",
+          "Digital Transactions/UPI Transactions",
+          "Projects/Schemes/Policies",
+          "Internet Governance/IP/DNS",
+          "Start-Ups Support Initiatives",
+          "Personal Data Protection Bill, 2019",
+          "Electronics Manufacturing/ Semi Conductor Policies",
+          "Official Language Act, 1963/Official Language Rules, 1976",
+          "National Language Translation Mission and BHASHINI",
+          "IT/ITeS",
+          "Personal Identity Documents Related",
+          "OTHERS",
+          "NIC State Projects",
+          "eCommerce"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Recruitment related",
+          "Pension Related",
+          "Medical Reimbursement Claim",
+          "Establishment Matters",
+          "S and T Policies",
+          "Disciplinary Matters",
+          "Sexual Harassment Cases",
+          "Training",
+          "Posting/Transfer",
+          "eHRMS Related",
+          "Implementation of e-Office"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Recruitment Examination",
+          "Contractual/Outsourced Recruitment",
+          "Regular Appointment",
+          "Job on Compassionate Grounds",
+          "Promotion"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Regular/In-situ",
+          "MACP Scheme"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUlOSVQ="
+  }
+}

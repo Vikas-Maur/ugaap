@@ -1,0 +1,112 @@
+{
+  "capturedAt": "2026-08-26T11:13:07.563Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence",
+    "categoryPath": [
+      "Employee Services Related",
+      "Administrative matters related to Military Hospitals"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Defence Land and Cantonment Board related",
+          "Border Roads Organization",
+          "Canteen Stores Depot related",
+          "Training and Education related issues in Defence Institutes(NCC/ Rashtriya Military School/ Rashtriya Indian Military College/ Sainik Schools)",
+          "Secretariat Establishment matters",
+          "Military Hospital",
+          "Capital Procurement in Armed Forces related",
+          "Ceremonials ( Independence /Republic Day)",
+          "Vigilance related matters (MES and BRO)",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Promotion",
+          "Appointment/Recruitment",
+          "Transfer",
+          "Seniority",
+          "Pay Fixation/Pay and arrears/allowances",
+          "Deputation",
+          "Leave related",
+          "Compassionate Appointment",
+          "Extension in service",
+          "Administrative matters related to Military Hospitals"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "ModefService",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Select Service",
+          "Armed Forces HQ Service (AFHQ)",
+          "Central Secretariat Service (CSS)/ Central Secretariat Stenographers' Service (CSSS)",
+          "Army Base Workshop",
+          "EME (Civilian)",
+          "Remount & Veterinary Corp/ Military Farms (civilian)",
+          "Canteen Stores Department (CSD) Employees",
+          "Cantonment Board Employees",
+          "General Reserve Engineering Force (GREF)",
+          "Indian Coast Guard",
+          "Indian Defence Estate Service (IDES)",
+          "Indian Naval Armament Service/ Material Management Service/ Naval Civilian",
+          "Military Engineering Service (Civilian) including Surveyor Cadre, Architect Cadre and Barrack and Stores Cadre",
+          "Military Nursing Service/ Army Dental Corps / Army Medical Corp",
+          "NCC Employees (excluding Armed Forces personnel)",
+          "Rashtriya Indian Military College (RIMC) / Rashtriya Military Schools (RMS)",
+          "Sainik Schools"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9ERUY="
+  }
+}

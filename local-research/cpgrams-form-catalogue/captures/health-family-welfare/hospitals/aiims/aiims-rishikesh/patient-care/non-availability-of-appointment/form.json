@@ -1,0 +1,195 @@
+{
+  "capturedAt": "2026-08-26T07:15:43.402Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Health & Family Welfare",
+    "categoryPath": [
+      "Hospitals",
+      "AIIMS",
+      "AIIMS Rishikesh",
+      "Patient Care",
+      "Non-availability of appointment"
+    ],
+    "fields": [
+      {
+        "id": "Uhid",
+        "name": "Uhid",
+        "label": "UHID",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter UHID",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Department",
+        "name": "Department",
+        "label": "Department",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Department",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Address",
+        "name": "Address",
+        "label": "Postal Address",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Postal Address",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Email",
+        "name": "Email",
+        "label": "E-mail ID",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter E-mail ID",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PhoneNo",
+        "name": "PhoneNo",
+        "label": "Phone No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Phone No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospitals",
+          "Medicines",
+          "CGHS Health Centres",
+          "Medical Education",
+          "Financial Assistance for Medical Treatment",
+          "Health Schemes",
+          "Public Health",
+          "Food Regulation",
+          "Online Health Services",
+          "Policy Matters",
+          "MoHFW Employee Related",
+          "Other",
+          "Private Insurance"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "AIIMS",
+          "RML Hospital",
+          "Safdarjung Hospital",
+          "LHMC & Smt. S.K. Hospital",
+          "KalavatiSaran Hospital",
+          "Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry",
+          "Postgraduate Institute of Medical Education and Research, Chandigarh",
+          "North East Institutions",
+          "Other Hospitals"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "AIIMS New Delhi",
+          "AIIMS Bhubaneswar",
+          "AIIMS Jodhpur",
+          "AIIMS Patna",
+          "AIIMS Raipur",
+          "AIIMS Rishikesh",
+          "Other AIIMS"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Patient Care",
+          "Students Related",
+          "Recruitment Related",
+          "Procurement Related",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_6",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Deficiency in treatment",
+          "Non-availability of appointment",
+          "Long waiting period",
+          "Misbehaviour by staff",
+          "Insufficient space in waiting area",
+          "Lack of facilities in OPD",
+          "Financial difficulties",
+          "Other"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REhMVEg%3d"
+  }
+}

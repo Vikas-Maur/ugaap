@@ -1,0 +1,117 @@
+{
+  "capturedAt": "2026-08-26T06:51:57.210Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Housing and Urban Affairs",
+    "categoryPath": [
+      "Directorate of Estates",
+      "Service Matters & Pension Related",
+      "Ex-Cadre"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "DDA (Delhi Development Authority)",
+          "Directorate of Estates",
+          "Principal Accounts Office",
+          "TCPO (Town and Country Planning Organisation)",
+          "NCRPB (National Capital Region Planning Board)",
+          "HPL (Hindustan Prefab Ltd.)",
+          "HUDCO (Housing and Urban Development Corporation)",
+          "NBO (National Buildings Organisation)",
+          "NCHFI (National Cooperative Housing Federation of India)",
+          "CGEWHO (Central Government Employee Welfare Housing Organisation)",
+          "NCRTC (National Capital Region Transport Corporation Ltd)",
+          "DUAC (Delhi Urban Arts Commission)",
+          "BMTPC (Building Materials & Technology Promotion Council )",
+          "Rajghat Samadhi Committee",
+          "GISO (Government of India Stationery Office)",
+          "NIUA (National Institute of Urban Affairs)",
+          "Department of Publication",
+          "DMRC (Delhi Metro Rail Corporation)",
+          "Schemes, Programs & Other Divisions under MoHUA",
+          "Directorate of Printing",
+          "NBCC",
+          "L&DO",
+          "CPWD",
+          "Delhi Division"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Service Matters & Pension Related",
+          "Allotment Related-Delhi",
+          "GPOA/ Shops related",
+          "Holiday Homes",
+          "GPRA (Regions)",
+          "GPOA",
+          "General Section Related",
+          "Policy Matter relating to GPRA and Public Premises(Eviction of Unauthorised Occupation)Act and Rules 1971.",
+          "Subletting related",
+          "Out of Turn allotment",
+          "Vigilance",
+          "Computer",
+          "Eviction",
+          "Court Case",
+          "Rent Related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Gazetted Officers",
+          "Non-Gazetted Officers",
+          "MTS",
+          "Ex-Cadre"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension Related",
+          "Pay Fixation",
+          "MACP",
+          "Stepping up",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9VUkQ%3d"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "capturedAt": "2026-08-26T09:45:23.650Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "Aiport Security matters",
+      "Security Programme",
+      "Rejection of security programme"
+    ],
+    "fields": [
+      {
+        "id": "RegionalOfficeBCAS",
+        "name": "RegionalOfficeBCAS",
+        "label": "Name of Regional office-BCAS",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name of Regional office-BCAS",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PlaceProgrammeSubmitted",
+        "name": "PlaceProgrammeSubmitted",
+        "label": "Place / office where programme submitted",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Place / office where programme submitted",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "SubmissionDate",
+        "name": "SubmissionDate",
+        "label": "Date of submission",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Date of submission",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RenewOrFreshCase",
+        "name": "RenewOrFreshCase",
+        "label": "Renewal / Fresh case",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Renewal / Fresh case",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "EntityAndCategoryName",
+        "name": "EntityAndCategoryName",
+        "label": "Name of entity and category",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name  of entity and category",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Harassment of Security Staff",
+          "Security clearance of employees",
+          "Security Programme",
+          "Security Facility at aiport",
+          "Airline staff related matters",
+          "Security banned/removed items",
+          "E-Sahaj related matters",
+          "Security Clearance of entitities",
+          "Vigilance Matters",
+          "Security Equipment",
+          "Airport Entry Permit (AEP)",
+          "Security Training matters"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in getting approval",
+          "Rejection of security programme",
+          "Other problems"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

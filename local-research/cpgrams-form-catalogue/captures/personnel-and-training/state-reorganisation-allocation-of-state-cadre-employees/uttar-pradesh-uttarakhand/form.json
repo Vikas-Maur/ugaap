@@ -1,0 +1,130 @@
+{
+  "capturedAt": "2026-08-26T07:12:03.263Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Personnel and Training",
+    "categoryPath": [
+      "State Reorganisation (Allocation of State Cadre Employees)",
+      "Uttar Pradesh/ Uttarakhand"
+    ],
+    "fields": [
+      {
+        "id": "EmployeeName",
+        "name": "EmployeeName",
+        "label": "Employee Name",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Employee Name",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "WhetherStateCadreEmployee",
+        "name": "WhetherStateCadreEmployee",
+        "label": "Whether State Cadre/ Non State Cadre Employee",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Whether State Cadre/ Non State Cadre Employee",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "InitialAllocation",
+        "name": "InitialAllocation",
+        "label": "Initial Allocation",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Initial Allocation",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "OrderNo",
+        "name": "OrderNo",
+        "label": "DoPT Order No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter DoPT Order No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "OrderDate",
+        "name": "OrderDate",
+        "label": "DoPT Order Date",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter DoPT Order Date",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Union Public Service Commission (UPSC)",
+          "Misbehaviour/ Corruption / Harassment",
+          "All India Services",
+          "Policy Related",
+          "Appointment Related",
+          "DoP&T Employee Services Related",
+          "Administrative Matters (Institutes under DoP&T)",
+          "Reservation Matters in posts and services of Central Government pertaining to",
+          "Training Matters",
+          "Vigilance/Disciplinary Matters",
+          "State Reorganisation (Allocation of State Cadre Employees)",
+          "Retraining and Redeployment Division",
+          "CBI Investigation",
+          "Service Matters of CBI Officer",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Andhra Pradesh/ Telangana",
+          "Bihar/ Jharkhand",
+          "Madhya Pradesh/ Chhattisgarh",
+          "Uttar Pradesh/ Uttarakhand"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9QQVQ%3d"
+  }
+}

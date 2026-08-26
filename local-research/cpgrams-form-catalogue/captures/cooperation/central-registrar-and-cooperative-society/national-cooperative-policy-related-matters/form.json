@@ -1,0 +1,70 @@
+{
+  "capturedAt": "2026-08-26T10:06:56.393Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Cooperation",
+    "categoryPath": [
+      "Central Registrar and Cooperative Society",
+      "National Cooperative Policy related matters"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Central Registrar and Cooperative Society",
+          "Cooperative Development",
+          "Administration and CET",
+          "Primary Agriculture Cooperative Society PACS",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Multi State Cooperative Society related matters",
+          "Modal State Cooperative related matters",
+          "National Cooperative Policy related matters",
+          "Issue related of MSCS and Banks registered under MSCS Act 2002"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DT1A="
+  }
+}

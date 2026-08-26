@@ -1,0 +1,77 @@
+{
+  "capturedAt": "2026-08-26T07:27:30.743Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Agriculture and Farmers Welfare",
+    "categoryPath": [
+      "Matters Related to Farmers Welfare (MSP, Price Support System, Agriculture Marketing)",
+      "Matter relating to Agriculture Marketing"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "PMKISAN related issues",
+          "Crops, Pulses, Plants and Seeds related issues",
+          "Other Scheme Related",
+          "Matters Related to Farmers Welfare (MSP, Price Support System, Agriculture Marketing)",
+          "Policy and Trade related",
+          "Employees Services Related",
+          "Pension related",
+          "Natural Clamity Draught related issues",
+          "Machinery and Technology issues",
+          "Organic farming and fertilizers issues",
+          "Misbehaviour/ Harassment/ Corruption",
+          "Miscellaneous Matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "MSP related Issues",
+          "Price Support System",
+          "Agriculture Infrastructure Fund",
+          "Matter relating to Agriculture Marketing",
+          "KCC and Agriculture Loan- Scheme information"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Query related to training issues - Chaudhary Charan Singh National Institute of Agricultural Marketing (CCSNIAM)",
+          "Matter relating to warehouse construction",
+          "Matter relating to Three Agriculture Laws",
+          "Matter relating to Agmark Grading",
+          "Matter relating to eNAM",
+          "DMI related matters"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BQUM="
+  }
+}

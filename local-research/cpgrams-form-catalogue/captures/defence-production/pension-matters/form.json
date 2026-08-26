@@ -1,0 +1,57 @@
+{
+  "capturedAt": "2026-08-26T11:30:22.365Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Production",
+    "categoryPath": [
+      "Pension Matters"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Service Matter",
+          "Pension Matters",
+          "Land Issues",
+          "Workplace matters related to Harassment",
+          "Vendor",
+          "Customer",
+          "Firm's Quality Assurance Inspection related",
+          "Legal Matter/Judiciary",
+          "Implementation of Schemes",
+          "Allegation of Corruption/ Malpractices",
+          "Miscellaneous Matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay of Pension",
+          "Fixation of Pension",
+          "Pension Documents",
+          "Gratuity",
+          "Commutation",
+          "Leave encashment"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERQUk8="
+  }
+}

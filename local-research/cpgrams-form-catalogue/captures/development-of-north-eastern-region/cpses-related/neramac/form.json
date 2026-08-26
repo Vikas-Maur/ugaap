@@ -1,0 +1,99 @@
+{
+  "capturedAt": "2026-08-26T11:39:58.655Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Development of North Eastern Region",
+    "categoryPath": [
+      "CPSEs related",
+      "NERAMAC"
+    ],
+    "fields": [
+      {
+        "id": "Name",
+        "name": "Name",
+        "label": "Name",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Email",
+        "name": "Email",
+        "label": "Email",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Email",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "MobileNo",
+        "name": "MobileNo",
+        "label": null,
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Mobile No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee related",
+          "Allegation of Corruption",
+          "Implementation of Schemes",
+          "Recruitment related",
+          "CPSEs related",
+          "Suggestion"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "NEHHDC",
+          "NERAMAC"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9ORVI="
+  }
+}

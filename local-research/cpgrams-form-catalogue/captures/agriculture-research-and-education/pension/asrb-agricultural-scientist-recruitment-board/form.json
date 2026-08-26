@@ -1,0 +1,71 @@
+{
+  "capturedAt": "2026-08-26T07:30:16.764Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Agriculture Research and Education",
+    "categoryPath": [
+      "Pension",
+      "ASRB (Agricultural Scientist Recruitment Board)"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative",
+          "Pension",
+          "Scheme and Policy",
+          "Scientific and Technical Matters",
+          "Agriculture Education and Training",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "DARE (Department of Agricultural Research and Education)",
+          "ICAR (Indian Council of Agricultural Research)",
+          "CAU (Central Agricultural Universities)",
+          "ASRB (Agricultural Scientist Recruitment Board)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BUkU="
+  }
+}

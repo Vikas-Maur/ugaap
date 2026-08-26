@@ -1,0 +1,80 @@
+{
+  "capturedAt": "2026-08-26T07:19:49.925Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Health & Family Welfare",
+    "categoryPath": [
+      "CGHS Health Centres",
+      "CGHS Cards"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospitals",
+          "Medicines",
+          "CGHS Health Centres",
+          "Medical Education",
+          "Financial Assistance for Medical Treatment",
+          "Health Schemes",
+          "Public Health",
+          "Food Regulation",
+          "Online Health Services",
+          "Policy Matters",
+          "MoHFW Employee Related",
+          "Other",
+          "Private Insurance"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Hospital Services",
+          "Non-availability of Medicines",
+          "Poor Infrastructure",
+          "CGHS Cards",
+          "Medical Reimbursement Claims",
+          "Employee Related",
+          "Allegation of corruption",
+          "Suggestions",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Cards not received",
+          "Error in cards",
+          "Transfer of cards",
+          "Other"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REhMVEg%3d"
+  }
+}

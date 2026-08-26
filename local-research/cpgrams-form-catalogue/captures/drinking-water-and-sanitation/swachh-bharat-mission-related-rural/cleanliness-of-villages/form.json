@@ -1,0 +1,64 @@
+{
+  "capturedAt": "2026-08-26T11:40:36.867Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Drinking Water and Sanitation",
+    "categoryPath": [
+      "Swachh Bharat Mission related(Rural)",
+      "Cleanliness of Villages"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Jal Jeevan Mission related(Rural)",
+          "Swachh Bharat Mission related(Rural)",
+          "Misbehaviour/Corruption/Harassment",
+          "Pension Related",
+          "Employee Services Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Cleanliness of Villages",
+          "Waste Management",
+          "Toilet Related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Littering in Public Places",
+          "Water Stagnation/Overflowing or blockages of Drainages"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EV1M="
+  }
+}

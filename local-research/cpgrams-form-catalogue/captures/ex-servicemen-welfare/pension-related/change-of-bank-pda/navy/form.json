@@ -1,0 +1,139 @@
+{
+  "capturedAt": "2026-08-26T12:06:14.504Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "Pension Related",
+      "Change of Bank/PDA",
+      "Navy"
+    ],
+    "fields": [
+      {
+        "id": "ServiceNo",
+        "name": "ServiceNo",
+        "label": "Service No. of ESM",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Service No. of ESM",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "LastRank",
+        "name": "LastRank",
+        "label": "Rank Last Held",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Rank Last Held",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PPONo",
+        "name": "PPONo",
+        "label": "PPO No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter PPO No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RecordOffice",
+        "name": "RecordOffice",
+        "label": "Concerned Record Office",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Concerned Record Office",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Service Pension Related",
+          "Disability Pension Related",
+          "Family Pension Related (LFP/SFP/Dual FP)",
+          "Invalid Pension",
+          "Reservist Pension",
+          "Revision of Pension/Anomaly in Pension",
+          "Non-receipt of PPO",
+          "Issue of Corrigendum PPO",
+          "Change of Address",
+          "Change of Bank/PDA",
+          "Non-submission of Life Certificate",
+          "Recovery from pension by Banks/PDAs",
+          "Request for payment of Maintenance Allowance",
+          "Other issues",
+          "One Rank One Pension (OROP) Related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Army",
+          "Navy",
+          "Airforce"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

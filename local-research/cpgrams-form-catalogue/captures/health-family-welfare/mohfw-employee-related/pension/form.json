@@ -1,0 +1,77 @@
+{
+  "capturedAt": "2026-08-26T07:23:18.579Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Health & Family Welfare",
+    "categoryPath": [
+      "MoHFW Employee Related",
+      "Pension"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospitals",
+          "Medicines",
+          "CGHS Health Centres",
+          "Medical Education",
+          "Financial Assistance for Medical Treatment",
+          "Health Schemes",
+          "Public Health",
+          "Food Regulation",
+          "Online Health Services",
+          "Policy Matters",
+          "MoHFW Employee Related",
+          "Other",
+          "Private Insurance"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension",
+          "Other Retirement Benefits",
+          "MACP Related",
+          "Allegation of Malpractice",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in Pension",
+          "Delay in issuance of PPO",
+          "Mistake in pension fixation",
+          "Mistake in pension revision",
+          "Other"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REhMVEg%3d"
+  }
+}

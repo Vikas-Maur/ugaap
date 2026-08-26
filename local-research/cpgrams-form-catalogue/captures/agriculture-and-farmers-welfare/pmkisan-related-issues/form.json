@@ -1,0 +1,57 @@
+{
+  "capturedAt": "2026-08-26T07:26:08.878Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Agriculture and Farmers Welfare",
+    "categoryPath": [
+      "PMKISAN related issues"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "PMKISAN related issues",
+          "Crops, Pulses, Plants and Seeds related issues",
+          "Other Scheme Related",
+          "Matters Related to Farmers Welfare (MSP, Price Support System, Agriculture Marketing)",
+          "Policy and Trade related",
+          "Employees Services Related",
+          "Pension related",
+          "Natural Clamity Draught related issues",
+          "Machinery and Technology issues",
+          "Organic farming and fertilizers issues",
+          "Misbehaviour/ Harassment/ Corruption",
+          "Miscellaneous Matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Technical Issues with PMKISAN Portal",
+          "Delay in approval by State government",
+          "Delay in receiving benefit",
+          "Ineligible beneficiaries getting benefits",
+          "Non receipt of feedback from State Governments"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BQUM="
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "capturedAt": "2026-08-26T06:58:10.690Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Housing and Urban Affairs",
+    "categoryPath": [
+      "NCRTC (National Capital Region Transport Corporation Ltd)",
+      "Procurement related grivences",
+      "Others"
+    ],
+    "fields": [
+      {
+        "id": "Contract",
+        "name": "Contract",
+        "label": "Name of Contract/ Contact Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name of Contract/ Contact Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Agency",
+        "name": "Agency",
+        "label": "Name of Agency",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Name of Agency",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Authority",
+        "name": "Authority",
+        "label": "Contract placement authority",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Contract placement authority",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Site",
+        "name": "Site",
+        "label": "Site Location including district and state",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Site Location including district and state",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "DDA (Delhi Development Authority)",
+          "Directorate of Estates",
+          "Principal Accounts Office",
+          "TCPO (Town and Country Planning Organisation)",
+          "NCRPB (National Capital Region Planning Board)",
+          "HPL (Hindustan Prefab Ltd.)",
+          "HUDCO (Housing and Urban Development Corporation)",
+          "NBO (National Buildings Organisation)",
+          "NCHFI (National Cooperative Housing Federation of India)",
+          "CGEWHO (Central Government Employee Welfare Housing Organisation)",
+          "NCRTC (National Capital Region Transport Corporation Ltd)",
+          "DUAC (Delhi Urban Arts Commission)",
+          "BMTPC (Building Materials & Technology Promotion Council )",
+          "Rajghat Samadhi Committee",
+          "GISO (Government of India Stationery Office)",
+          "NIUA (National Institute of Urban Affairs)",
+          "Department of Publication",
+          "DMRC (Delhi Metro Rail Corporation)",
+          "Schemes, Programs & Other Divisions under MoHUA",
+          "Directorate of Printing",
+          "NBCC",
+          "L&DO",
+          "CPWD",
+          "Delhi Division"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Project related grievances",
+          "Human Resources and related Accounts & Finance grievances",
+          "Vigilance related grievances",
+          "Procurement related grivences"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Matters related to procurement of goods, works & services and related matters",
+          "Matters related to GEM procurement",
+          "Others"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9VUkQ%3d"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "capturedAt": "2026-08-26T11:40:16.539Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Drinking Water and Sanitation",
+    "categoryPath": [
+      "Jal Jeevan Mission related(Rural)",
+      "Water Availability Related",
+      "Everyday with least frequency"
+    ],
+    "fields": [
+      {
+        "id": "Location",
+        "name": "Location",
+        "label": "Location of Complainant",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Location of Complainant",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Jal Jeevan Mission related(Rural)",
+          "Swachh Bharat Mission related(Rural)",
+          "Misbehaviour/Corruption/Harassment",
+          "Pension Related",
+          "Employee Services Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Water Availability Related",
+          "Water Quality Related",
+          "Water Accessibility Related",
+          "Functional Household tap Connection Related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Nil Availability",
+          "Once a week",
+          "Twice a week",
+          "Everyday with least frequency"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "DwsState",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a State",
+          "Andaman and Nicobar",
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chhattisgarh",
+          "Dadar and Nagar Haveli",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jaamu & Kashmir",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Ladakh",
+          "Lakshadweep",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Puducherry",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamilnadu",
+          "Telengana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9EV1M="
+  }
+}

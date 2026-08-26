@@ -1,0 +1,142 @@
+{
+  "capturedAt": "2026-08-26T07:00:46.674Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Housing and Urban Affairs",
+    "categoryPath": [
+      "DMRC (Delhi Metro Rail Corporation)",
+      "Material Procurement, Store related grivences",
+      "Any other supply/purchase in DMRC related issues"
+    ],
+    "fields": [
+      {
+        "id": "OrderNo",
+        "name": "OrderNo",
+        "label": "Purchase order No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Purchase order No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ContractNameNo",
+        "name": "ContractNameNo",
+        "label": "Name of Contract/ Contact No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Name of Contract/ Contact No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Agency",
+        "name": "Agency",
+        "label": "Name of Agency",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Name of Agency",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "DDA (Delhi Development Authority)",
+          "Directorate of Estates",
+          "Principal Accounts Office",
+          "TCPO (Town and Country Planning Organisation)",
+          "NCRPB (National Capital Region Planning Board)",
+          "HPL (Hindustan Prefab Ltd.)",
+          "HUDCO (Housing and Urban Development Corporation)",
+          "NBO (National Buildings Organisation)",
+          "NCHFI (National Cooperative Housing Federation of India)",
+          "CGEWHO (Central Government Employee Welfare Housing Organisation)",
+          "NCRTC (National Capital Region Transport Corporation Ltd)",
+          "DUAC (Delhi Urban Arts Commission)",
+          "BMTPC (Building Materials & Technology Promotion Council )",
+          "Rajghat Samadhi Committee",
+          "GISO (Government of India Stationery Office)",
+          "NIUA (National Institute of Urban Affairs)",
+          "Department of Publication",
+          "DMRC (Delhi Metro Rail Corporation)",
+          "Schemes, Programs & Other Divisions under MoHUA",
+          "Directorate of Printing",
+          "NBCC",
+          "L&DO",
+          "CPWD",
+          "Delhi Division"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Project related grievances",
+          "Operation related grievances",
+          "Human resources related grievances",
+          "Vigilance related grievances",
+          "Material Procurement, Store related grivences",
+          "All DMRC legal related query",
+          "Public relation related grievances",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Material, procurement related",
+          "Make in india product issues",
+          "DMRC store related",
+          "Issues related to GEM",
+          "Any other supply/purchase in DMRC related issues"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9VUkQ%3d"
+  }
+}

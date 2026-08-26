@@ -1,0 +1,162 @@
+{
+  "capturedAt": "2026-08-26T11:27:50.551Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Service Matter Related",
+      "Deputation- Transfer on deputation to other organization",
+      "Sr. AO"
+    ],
+    "fields": [
+      {
+        "id": "ServiceNo",
+        "name": "ServiceNo",
+        "label": "Service no",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Service no",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Designation",
+        "name": "Designation",
+        "label": "Designation",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Designation",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ServingOrg",
+        "name": "ServingOrg",
+        "label": "Serving Organization",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Serving Organization",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Recruitment and Appointment",
+          "Transfer/Posting",
+          "Deputation- Transfer on deputation to other organization",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "IDS",
+          "AO",
+          "Sr. AO",
+          "AAO",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CDAPCDA",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a CDA-PCDA",
+          "CDA(Army), Meerut",
+          "CDA (IDS)",
+          "CDA Air Force New Delhi",
+          "CDA Chennai",
+          "CDA CSD Mumbai",
+          "CDA funds Meerut",
+          "CDA GUWAHATI",
+          "CDA PATNA",
+          "CDA PD Meerut",
+          "CDA R and D Banglore",
+          "CDA R and D Hyderabad",
+          "CDA Training Pune",
+          "CDA(Navy/Coast Guard)",
+          "CDA, JABALPUR",
+          "CDA, Secunderabad",
+          "PCA FYS Kolkata",
+          "PCDA (CC), LUCKNOW",
+          "PCDA (WC) Chandigarh",
+          "PCDA AF Dehradun",
+          "PCDA New Delhi",
+          "PCDA O Pune",
+          "PCDA R and D New Delhi",
+          "PCDA SWC Jaipur",
+          "PCDA(Navy)",
+          "PCDA(NC) Jammu",
+          "PR. CDA PENSION Allahabad",
+          "Pr.CDA Bengaluru",
+          "Principal CDA (BR)",
+          "Principal CDA (SC), Pune"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

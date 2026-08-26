@@ -1,0 +1,72 @@
+{
+  "capturedAt": "2026-08-26T09:35:52.156Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Employee Service Related",
+      "Pay & Allowances"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Appointment on compassionatory ground",
+          "Pay & Allowances",
+          "Training",
+          "Promotion related matters",
+          "Transfer/Posting/Deputation",
+          "Reservation related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Stepping up of pay",
+          "Waiver of Recovery of excess payment",
+          "Grant of NFU on completion of 4 years of service and clarification thereon",
+          "Grant of Acp/MACP and clarification thereon",
+          "Pay fixation",
+          "Pay anomalies arising out of implementation of 7th CPC",
+          "Sports increment and advance increment"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

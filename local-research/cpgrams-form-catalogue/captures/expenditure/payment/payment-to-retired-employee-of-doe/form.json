@@ -1,0 +1,84 @@
+{
+  "capturedAt": "2026-08-26T12:11:14.244Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Expenditure",
+    "categoryPath": [
+      "Payment",
+      "Payment to retired employee of DoE"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Allowance",
+          "Salary and allowance revision",
+          "Pay related Matters",
+          "Pension/ Retirement",
+          "Indian Cost Account Service",
+          "Payment",
+          "Indian Civil Accounts Service",
+          "Pay Upgradation",
+          "Creation of posts",
+          "Cadre Review",
+          "Policy matters of Expenses",
+          "Administrative matters",
+          "Government Rules",
+          "Procurement",
+          "Funds to Schemes",
+          "Finance Commission",
+          "Other Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Payment to employee of DoE",
+          "Payment to retired employee of DoE",
+          "Payment of salary",
+          "Payment of dues",
+          "Payment of reimbursement claims",
+          "Payment to vendors"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9FWFA="
+  }
+}

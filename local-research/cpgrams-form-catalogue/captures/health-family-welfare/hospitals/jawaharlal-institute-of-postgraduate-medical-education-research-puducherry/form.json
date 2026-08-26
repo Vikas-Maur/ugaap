@@ -1,0 +1,80 @@
+{
+  "capturedAt": "2026-08-26T07:18:06.692Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Health & Family Welfare",
+    "categoryPath": [
+      "Hospitals",
+      "Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospitals",
+          "Medicines",
+          "CGHS Health Centres",
+          "Medical Education",
+          "Financial Assistance for Medical Treatment",
+          "Health Schemes",
+          "Public Health",
+          "Food Regulation",
+          "Online Health Services",
+          "Policy Matters",
+          "MoHFW Employee Related",
+          "Other",
+          "Private Insurance"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "AIIMS",
+          "RML Hospital",
+          "Safdarjung Hospital",
+          "LHMC & Smt. S.K. Hospital",
+          "KalavatiSaran Hospital",
+          "Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry",
+          "Postgraduate Institute of Medical Education and Research, Chandigarh",
+          "North East Institutions",
+          "Other Hospitals"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Patient Care",
+          "Recruitment Related",
+          "Pension Related",
+          "Other"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REhMVEg%3d"
+  }
+}

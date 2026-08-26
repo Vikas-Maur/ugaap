@@ -1,0 +1,87 @@
+{
+  "capturedAt": "2026-08-26T12:03:30.443Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Environment, Forest and Climate Change",
+    "categoryPath": [
+      "Forest and trees related",
+      "forest protection"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative and service matter related",
+          "Environment related",
+          "Forest and trees related",
+          "Forest Research and Training related",
+          "Indian Forest Service (IFS) related",
+          "National Afforestation and Eco- Development Board (NAEB) related",
+          "Wildlife related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "CAMPA",
+          "Desertification Cell",
+          "Ecologically Sensitive Zones",
+          "Forest clearance",
+          "ICFRE",
+          "Matters of Forest Survey of India",
+          "IGNFA",
+          "IIFM",
+          "Forest Policy",
+          "IPIRTI",
+          "forest protection",
+          "Forest fire",
+          "Deforestation and encroachment on forest land",
+          "Illicit felling of trees",
+          "Intensification of Forest Management Scheme (IFMS)",
+          "Survey and Utilization",
+          "Indian Forest Act",
+          "Clear fallen tress/ cut trees"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9FQUY="
+  }
+}

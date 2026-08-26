@@ -1,0 +1,191 @@
+{
+  "capturedAt": "2026-08-26T09:35:09.086Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Indirect Taxes Related",
+      "Systems/Portal Related Issues",
+      "Exports/Imports related issues at ICEGATE"
+    ],
+    "fields": [
+      {
+        "id": "IcegateId",
+        "name": "IcegateId",
+        "label": "Icegate Id",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Icegate Id",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "JobNo",
+        "name": "JobNo",
+        "label": "Jon No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Jon No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "JobDate",
+        "name": "JobDate",
+        "label": "Job Date",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Job Date",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "LocationCode",
+        "name": "LocationCode",
+        "label": "Location Code",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Location Code",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "EgmCgmNo",
+        "name": "EgmCgmNo",
+        "label": "EGM No./ CGM No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter EGM No./ CGM No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "EgmCgmDate",
+        "name": "EgmCgmDate",
+        "label": "EGM Date/ CGM Date",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter EGM Date/ CGM Date",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BillLanding",
+        "name": "BillLanding",
+        "label": "HAWB/ MAWB/ Bill of Lading",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter HAWB/ MAWB/ Bill of Lading",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ContainerNo",
+        "name": "ContainerNo",
+        "label": "Container No",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Container No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Transhipment",
+        "name": "Transhipment",
+        "label": "Transshipment Permit No",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Transshipment Permit No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Central Goods and Service Tax, Central Excise, Service Tax",
+          "Customs",
+          "Systems/Portal Related Issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Bank Account details at ICEGATE",
+          "Portal/Technical Issue",
+          "DGFT - License issues at ICEGATE",
+          "Payment at ICEGATE",
+          "Exports/Imports related issues at ICEGATE",
+          "GSTN/GSTIN related Issues at ICEGATE",
+          "IGST Refund /Drawback issues related to ICEGATE",
+          "RBI – IDPMS & EDPMS Issues at ICEGATE",
+          "User Registration at ICEGATE",
+          "SCMTR issues at ICEGATE",
+          "Registration",
+          "Refund",
+          "Appeals",
+          "E-Way Bill",
+          "Non-Receipt of Order for Acceptance/ Rejection of application for deferred payment/ payment in installments (DRC-21) even after generation of the same in the system.",
+          "Unable to view documents attached to notice/ order etc even after generation of the same in the system.",
+          "Data Mismatch Between CBIC and CBDT",
+          "PFMS (Public Financial Management System)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

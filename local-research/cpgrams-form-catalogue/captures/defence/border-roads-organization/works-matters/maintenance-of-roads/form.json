@@ -1,0 +1,93 @@
+{
+  "capturedAt": "2026-08-26T11:11:25.935Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence",
+    "categoryPath": [
+      "Border Roads Organization",
+      "Works Matters",
+      "Maintenance of roads"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Defence Land and Cantonment Board related",
+          "Border Roads Organization",
+          "Canteen Stores Depot related",
+          "Training and Education related issues in Defence Institutes(NCC/ Rashtriya Military School/ Rashtriya Indian Military College/ Sainik Schools)",
+          "Secretariat Establishment matters",
+          "Military Hospital",
+          "Capital Procurement in Armed Forces related",
+          "Ceremonials ( Independence /Republic Day)",
+          "Vigilance related matters (MES and BRO)",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Works Matters",
+          "Budget Matters (Issues related to grants)"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Forest clearance",
+          "Maintenance of roads",
+          "Administrative matters",
+          "Procedural delay"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9ERUY="
+  }
+}

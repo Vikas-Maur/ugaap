@@ -1,12 +1,236 @@
 {
   "authorities": [
     {
+      "categoryCount": 114,
+      "checksum": "92f1275bee622c780800c3d6e831e900402676401110fe07d11e799e6a2f6384",
+      "formCount": 88,
+      "id": "authority-agriculture-and-farmers-welfare",
+      "name": "Agriculture and Farmers Welfare",
+      "slug": "agriculture-and-farmers-welfare"
+    },
+    {
+      "categoryCount": 87,
+      "checksum": "6a7e6b26266f0b9a38c50cd5e124dd6e3221ebd085dafe7d58df8a53efcfb8da",
+      "formCount": 62,
+      "id": "authority-agriculture-research-and-education",
+      "name": "Agriculture Research and Education",
+      "slug": "agriculture-research-and-education"
+    },
+    {
+      "categoryCount": 38,
+      "checksum": "cf2433324acc344372c717d8e32579fa7eff4165e8397ae6a16d84d502335f3b",
+      "formCount": 31,
+      "id": "authority-animal-husbandry-dairying",
+      "name": "Animal Husbandry, Dairying",
+      "slug": "animal-husbandry-dairying"
+    },
+    {
+      "categoryCount": 102,
+      "checksum": "f27d7ac987c8d5fc4edc09d86fde097b2bda33bc5cd15b6227e3179aa434b98a",
+      "formCount": 58,
+      "id": "authority-atomic-energy",
+      "name": "Atomic Energy",
+      "slug": "atomic-energy"
+    },
+    {
+      "categoryCount": 179,
+      "checksum": "237633052d1d2db5dd3a81604d2c46be154fc2e31fe4296b12c4bc8ef31e323a",
+      "formCount": 141,
+      "id": "authority-ayush",
+      "name": "Ayush",
+      "slug": "ayush"
+    },
+    {
+      "categoryCount": 132,
+      "checksum": "a44fe41e64da6ce43dca070ca11cb24e358d082a8d0d86e08febc9b169f78915",
+      "formCount": 115,
+      "id": "authority-bio-technology",
+      "name": "Bio Technology",
+      "slug": "bio-technology"
+    },
+    {
       "categoryCount": 41,
       "checksum": "3ce1c73fee87e09a5bcba415c3901389dad264c25451beb275f5af85e3dc3ae6",
       "formCount": 35,
       "id": "authority-central-board-of-direct-taxes-income-tax",
       "name": "Central Board of Direct Taxes (Income Tax)",
       "slug": "central-board-of-direct-taxes-income-tax"
+    },
+    {
+      "categoryCount": 113,
+      "checksum": "381e831a86a1ea22ee1e82074a937b3a1e0dc45016e5d87aecf3be29f2549df5",
+      "formCount": 97,
+      "id": "authority-central-board-of-excise-and-customs",
+      "name": "Central Board of Excise and Customs",
+      "slug": "central-board-of-excise-and-customs"
+    },
+    {
+      "categoryCount": 65,
+      "checksum": "81ce8744079cbc5015d39991ec6ef9a0a3ea03486e19eefb203717933692e121",
+      "formCount": 48,
+      "id": "authority-chemicals-and-petrochemicals",
+      "name": "Chemicals and Petrochemicals",
+      "slug": "chemicals-and-petrochemicals"
+    },
+    {
+      "categoryCount": 354,
+      "checksum": "79e456a9e6aa0d8003d7f5c8a1436e4c52ad16d5914964924565f958512cec8d",
+      "formCount": 282,
+      "id": "authority-civil-aviation",
+      "name": "Civil Aviation",
+      "slug": "civil-aviation"
+    },
+    {
+      "categoryCount": 625,
+      "checksum": "4ba5d6f2fcc8a18bdf1aa787a9edfe2166f54fe06c6ce9e6fb02585709af3b9b",
+      "formCount": 503,
+      "id": "authority-coal",
+      "name": "Coal",
+      "slug": "coal"
+    },
+    {
+      "categoryCount": 160,
+      "checksum": "b7806e0bb9535c7a9bd99726df1a9b7e86d93dbafbde71d549269b3eccf032f8",
+      "formCount": 137,
+      "id": "authority-commerce",
+      "name": "Commerce",
+      "slug": "commerce"
+    },
+    {
+      "categoryCount": 86,
+      "checksum": "293fca0e0a5d9a78008ed0d6b19eb359ac0ad835a819acdbedd58db19f5251e8",
+      "formCount": 73,
+      "id": "authority-consumer-affairs",
+      "name": "Consumer Affairs",
+      "slug": "consumer-affairs"
+    },
+    {
+      "categoryCount": 25,
+      "checksum": "1ccd6f9b8e204f94b16c619e490b8a4c6c827061eadda869ea0f216200f74ba0",
+      "formCount": 20,
+      "id": "authority-cooperation",
+      "name": "Cooperation",
+      "slug": "cooperation"
+    },
+    {
+      "categoryCount": 73,
+      "checksum": "4c3c07411820f500459ae14f65ff104ab6246aa8e9314f3870e036392d368da6",
+      "formCount": 65,
+      "id": "authority-corporate-affairs",
+      "name": "Corporate Affairs",
+      "slug": "corporate-affairs"
+    },
+    {
+      "categoryCount": 118,
+      "checksum": "393fed284b76b1e1c2d1f7b881543fe2639c0f9aa2204a5a02e7c4c191f636e4",
+      "formCount": 95,
+      "id": "authority-culture",
+      "name": "Culture",
+      "slug": "culture"
+    },
+    {
+      "categoryCount": 112,
+      "checksum": "e2ac696852c9b18357a13e88b0802390e770ead5e5094582f90af4f6b209cf3a",
+      "formCount": 90,
+      "id": "authority-defence",
+      "name": "Defence",
+      "slug": "defence"
+    },
+    {
+      "categoryCount": 627,
+      "checksum": "4f04576a34d577011b5a6a97d8cc34e7e954b3a8d2a33b0831cf4bd2d77945f0",
+      "formCount": 458,
+      "id": "authority-defence-finance",
+      "name": "Defence Finance",
+      "slug": "defence-finance"
+    },
+    {
+      "categoryCount": 70,
+      "checksum": "9aa2baea24002f60980f21169a148aefe79d5ca63e38377475ceaa509c90e471",
+      "formCount": 60,
+      "id": "authority-defence-production",
+      "name": "Defence Production",
+      "slug": "defence-production"
+    },
+    {
+      "categoryCount": 23,
+      "checksum": "7d27e2c4dc08d5723381a42bb2d9654bee49bbd7f5495d39f3086e1fa4b73982",
+      "formCount": 17,
+      "id": "authority-development-of-north-eastern-region",
+      "name": "Development of North Eastern Region",
+      "slug": "development-of-north-eastern-region"
+    },
+    {
+      "categoryCount": 48,
+      "checksum": "788cb1c6c57ea862b4d14debc34939fab22eb38769ac711c7507d869b4b797f8",
+      "formCount": 36,
+      "id": "authority-drinking-water-and-sanitation",
+      "name": "Drinking Water and Sanitation",
+      "slug": "drinking-water-and-sanitation"
+    },
+    {
+      "categoryCount": 31,
+      "checksum": "845059c034b9bea04e584b8d318bc9c2136fc51bdaa71c3dc7a5ac5ae7d82f16",
+      "formCount": 26,
+      "id": "authority-earth-sciences",
+      "name": "Earth Sciences",
+      "slug": "earth-sciences"
+    },
+    {
+      "categoryCount": 356,
+      "checksum": "05bc22c31d3ef70649ffda79e401914b97d85a9a093b2c2b1fdeb47738df6973",
+      "formCount": 306,
+      "id": "authority-economic-affairs",
+      "name": "Economic Affairs",
+      "slug": "economic-affairs"
+    },
+    {
+      "categoryCount": 157,
+      "checksum": "94d62205e12b2e7e59ab0856aea396cb6624dae3d15f0bac3da6907f851a8762",
+      "formCount": 127,
+      "id": "authority-electronics-information-technology",
+      "name": "Electronics & Information Technology",
+      "slug": "electronics-information-technology"
+    },
+    {
+      "categoryCount": 94,
+      "checksum": "9612ec3ebac9a1b7f6d6d877e45f3d91e99f07abfd37193d5a3c4b96e75dda2f",
+      "formCount": 79,
+      "id": "authority-empowerment-of-persons-with-disabilities",
+      "name": "Empowerment of Persons with Disabilities",
+      "slug": "empowerment-of-persons-with-disabilities"
+    },
+    {
+      "categoryCount": 268,
+      "checksum": "9da0e956546aaa729e13e4f4c80cc21b4c8a940d0edb90e885eb6fedb84b5e5b",
+      "formCount": 239,
+      "id": "authority-environment-forest-and-climate-change",
+      "name": "Environment, Forest and Climate Change",
+      "slug": "environment-forest-and-climate-change"
+    },
+    {
+      "categoryCount": 209,
+      "checksum": "31358d8fac462cb73c37664d7cc783182b0c6105bc01d8136f0528118395dc3e",
+      "formCount": 162,
+      "id": "authority-ex-servicemen-welfare",
+      "name": "Ex Servicemen Welfare",
+      "slug": "ex-servicemen-welfare"
+    },
+    {
+      "categoryCount": 173,
+      "checksum": "671b0c6271ee6b5d4bc0ba93e2fa3ddcfbceaf866d21bb2b184e3a958dc06bfd",
+      "formCount": 137,
+      "id": "authority-expenditure",
+      "name": "Expenditure",
+      "slug": "expenditure"
+    },
+    {
+      "categoryCount": 54,
+      "checksum": "131418f3af346353e10bca103f74d2511f8dd231543b2240328df035683a9c08",
+      "formCount": 43,
+      "id": "authority-external-affairs",
+      "name": "External Affairs",
+      "slug": "external-affairs"
     },
     {
       "categoryCount": 133,
@@ -17,6 +241,22 @@
       "slug": "financial-services-banking-division"
     },
     {
+      "categoryCount": 95,
+      "checksum": "b6118ae7e7ddca9771ccf8d6645b6b6daf3f76bcf8d5f6b7d9f4d143704a797b",
+      "formCount": 76,
+      "id": "authority-financial-services-insurance-division",
+      "name": "Financial Services (Insurance Division)",
+      "slug": "financial-services-insurance-division"
+    },
+    {
+      "categoryCount": 522,
+      "checksum": "69328ec3f331208e99c1bd360b6c2a16f286bd2eefccdf609e80e92455cb5b76",
+      "formCount": 422,
+      "id": "authority-health-family-welfare",
+      "name": "Health & Family Welfare",
+      "slug": "health-family-welfare"
+    },
+    {
       "categoryCount": 76,
       "checksum": "c1bc1c8ce9ca30b7223b48e2c1a647879b6fae68eac42928aa83a4547aa609e0",
       "formCount": 57,
@@ -25,12 +265,28 @@
       "slug": "home-affairs"
     },
     {
+      "categoryCount": 914,
+      "checksum": "7a0ddcdc24e7ec00089936a1cc3a50f523fd4351fc5ac9ad9c6e783b0318d861",
+      "formCount": 707,
+      "id": "authority-housing-and-urban-affairs",
+      "name": "Housing and Urban Affairs",
+      "slug": "housing-and-urban-affairs"
+    },
+    {
       "categoryCount": 165,
       "checksum": "3665f7ae8ea2db398be3190344d0d7a9e291b7298ce244f129530929a1713f33",
       "formCount": 129,
       "id": "authority-labour-and-employment",
       "name": "Labour and Employment",
       "slug": "labour-and-employment"
+    },
+    {
+      "categoryCount": 160,
+      "checksum": "e6fec32b0783a7ca01e9ee521c376ad76d11911eddf83ef13469abd0c200d7c7",
+      "formCount": 131,
+      "id": "authority-personnel-and-training",
+      "name": "Personnel and Training",
+      "slug": "personnel-and-training"
     },
     {
       "categoryCount": 175,
@@ -47,11 +303,19 @@
       "id": "authority-telecommunications",
       "name": "Telecommunications",
       "slug": "telecommunications"
+    },
+    {
+      "categoryCount": 20,
+      "checksum": "5ceb631e223556434515ec28fac83e33915f67e534fb68a213ed076a3e403069",
+      "formCount": 11,
+      "id": "authority-v7-newgrievance-index-re9fquy",
+      "name": "V7 Newgrievance Index Re9fquy",
+      "slug": "v7-newgrievance-index-re9fquy"
     }
   ],
-  "catalogueChecksum": "7a490f321562ff16784251dd4587c770fbbf244653d8932799e4f0f5e88d6b43",
-  "categoryCount": 694,
-  "formCount": 558,
-  "organizationCount": 6,
+  "catalogueChecksum": "3acb34fbc7a0fe1c610b94e0993f7355862f3bd494f0b0d5dd26b714053b27b6",
+  "categoryCount": 6898,
+  "formCount": 5500,
+  "organizationCount": 39,
   "schemaVersion": 1
 }

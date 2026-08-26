@@ -1,0 +1,112 @@
+{
+  "capturedAt": "2026-08-26T07:25:15.291Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Financial Services (Insurance Division)",
+    "categoryPath": [
+      "Customer Service Related",
+      "Policy Bond Related",
+      "Duplicate policy related"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Agricultural Insurance",
+          "Life Insurance Claim Related",
+          "General Insurance Claim Related",
+          "Customer Service Related",
+          "Government Schemes Related",
+          "Administrative Matters",
+          "Misbehaviour/Corruption/Harassment",
+          "Misselling",
+          "Private insurance Companies"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Proposal Related",
+          "Policy Bond Related",
+          "Policy Renewal",
+          "Policy transfer/portability",
+          "Other customer services"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Non issuance/receipt of policy Bond",
+          "Alterations/Corrections in Policy Bond",
+          "Duplicate policy related",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "InsuranceCompany",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Insurance Company",
+          "Life Insurance Corporation of India",
+          "Agriculture Insurance Company of India Ltd.",
+          "Oriental Insurance Co. Ltd.",
+          "United India Insurance Company Ltd.",
+          "The New India Assurance Co. Ltd.",
+          "National Insurance Company Limited"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBSUQ%3d"
+  }
+}

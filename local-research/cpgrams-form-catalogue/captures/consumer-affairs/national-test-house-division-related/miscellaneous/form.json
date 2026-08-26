@@ -1,0 +1,83 @@
+{
+  "capturedAt": "2026-08-26T10:06:19.070Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Consumer Affairs",
+    "categoryPath": [
+      "National Test House Division Related",
+      "Miscellaneous"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Bureau of Indian Standard Organisation Related/ Division Related",
+          "Consumer welfare Fund Related",
+          "Consumer Protection Unit Related",
+          "The Central Consumer Protection Authority",
+          "National Consumer Helpline",
+          "(Essential Commodity Regulation and Enforcement) ECRE Division Related",
+          "Emblems and Names Related",
+          "Employee Services Related",
+          "Legal Metrology Division Related",
+          "National Test House Division Related",
+          "Pension Related",
+          "Parliament & Coordination Division Related",
+          "Price Monitoring Cell Related",
+          "Publicity Division Related",
+          "Misbehaviour/ Corruption/ Harassment"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Policy Matters",
+          "Testing Facilities",
+          "Organisational Functioning of NTH",
+          "Establishment Matters",
+          "Complaints",
+          "Misuse/Abuse of Powers",
+          "Miscellaneous"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9DQUY="
+  }
+}

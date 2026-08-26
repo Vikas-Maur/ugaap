@@ -1,0 +1,59 @@
+{
+  "capturedAt": "2026-08-26T07:11:57.351Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Personnel and Training",
+    "categoryPath": [
+      "State Reorganisation (Allocation of State Cadre Employees)"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Union Public Service Commission (UPSC)",
+          "Misbehaviour/ Corruption / Harassment",
+          "All India Services",
+          "Policy Related",
+          "Appointment Related",
+          "DoP&T Employee Services Related",
+          "Administrative Matters (Institutes under DoP&T)",
+          "Reservation Matters in posts and services of Central Government pertaining to",
+          "Training Matters",
+          "Vigilance/Disciplinary Matters",
+          "State Reorganisation (Allocation of State Cadre Employees)",
+          "Retraining and Redeployment Division",
+          "CBI Investigation",
+          "Service Matters of CBI Officer",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Andhra Pradesh/ Telangana",
+          "Bihar/ Jharkhand",
+          "Madhya Pradesh/ Chhattisgarh",
+          "Uttar Pradesh/ Uttarakhand"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9QQVQ%3d"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "capturedAt": "2026-08-26T09:38:52.191Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+      "Directorate General of Civil Aviation.",
+      "Unemployment related"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Directorate General of Civil Aviation.",
+          "Bureau of Civil Aviation Security",
+          "Commission of Railway Safety",
+          "Airport Authority of India",
+          "Pawan Hans Helicopter Ltd.",
+          "Indira Gandhi Rashtriya Uran Academy.",
+          "Rajiv Gandhi National Aviation University",
+          "Principal Accounts MOCA",
+          "Air India",
+          "MOCA (Secretariat level)"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Compensatory ground appointment",
+          "Recruitment related",
+          "Procurement related",
+          "Unemployment related",
+          "Scholarship / Sponsorship related",
+          "Pending any type of Bill/dues for payment",
+          "Issues related to Promotion",
+          "Transfer/Posting",
+          "Pending Disciplinary/Vigilance matters",
+          "Bharatkosh Payment related",
+          "Official Language related",
+          "Sexual harassment",
+          "Misbehaviour/Harassment by any officer/staff",
+          "TA settlement by regional offices",
+          "Pension not started / Pension stopped"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

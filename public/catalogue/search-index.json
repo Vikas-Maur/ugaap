@@ -1,8 +1,8 @@
 {
   "asset": "search-index.data.json",
-  "assetChecksum": "f51a2d3fb90d03bb9af69400df960fc359ad0a62cdfa4120d2e13ee68b27c576",
-  "catalogueChecksum": "7a490f321562ff16784251dd4587c770fbbf244653d8932799e4f0f5e88d6b43",
-  "documentCount": 558,
+  "assetChecksum": "aeab9679a59f3dca6af38e40b2d603ea18ab78315cb0a7299ca0a097e43e2f91",
+  "catalogueChecksum": "3acb34fbc7a0fe1c610b94e0993f7355862f3bd494f0b0d5dd26b714053b27b6",
+  "documentCount": 5500,
   "enrichmentChecksum": "deterministic-v1",
   "oramaVersion": "3.1.18",
   "schemaVersion": 3

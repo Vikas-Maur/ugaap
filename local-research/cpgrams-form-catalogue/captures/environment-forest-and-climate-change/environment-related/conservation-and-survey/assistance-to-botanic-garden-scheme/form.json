@@ -1,0 +1,112 @@
+{
+  "capturedAt": "2026-08-26T11:59:38.521Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Environment, Forest and Climate Change",
+    "categoryPath": [
+      "Environment related",
+      "Conservation and Survey",
+      "Assistance to Botanic Garden Scheme"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative and service matter related",
+          "Environment related",
+          "Forest and trees related",
+          "Forest Research and Training related",
+          "Indian Forest Service (IFS) related",
+          "National Afforestation and Eco- Development Board (NAEB) related",
+          "Wildlife related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Clean Technology",
+          "Climate Change",
+          "Conservation and Survey",
+          "Environment Education",
+          "Environment Clearance and related issues",
+          "Wetlands",
+          "Ozone Cell",
+          "Research in Environment (RE)",
+          "Pollution/Hazard related (CPCB)"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Biosphere Reserves Scheme",
+          "Man and Biosphere Programme of the UNESCO",
+          "All India Coordinated Programme on Taxonomy Capacity Building (AICOPTAX)",
+          "Assistance to Botanic Garden Scheme",
+          "BGIR Noida",
+          "G.B. Pant Institute of Himalayan Environment and Development (GBPIHED)",
+          "International Centre for Integrated Mountain Development (ICMOD)",
+          "Mountain Division",
+          "Matters related to Botanical Survey of India (BSI) and Zoological Survey of India (ZSI)",
+          "National Biodiversity Authority(NBA)",
+          "Convention on Biological Diversity (CBD)",
+          "National Biodiversity Action Plan(NBAP)",
+          "Coordination work of Biodiversity",
+          "Conservation Scheme",
+          "Bio-Diversity Act",
+          "Genetic Engineering Appraisal Committee (GEAC)",
+          "Capacity Building Project on Biosafety",
+          "Sustainable Coastal Management Division (Marine Conservation, Coral Reef and Mangroves)",
+          "SICOM, NCSCM",
+          "CS-I (Medicinal Plant)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9FQUY="
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "capturedAt": "2026-08-26T12:08:47.576Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "ESM Welfare Scheme Related",
+      "Welfare Scheme of Kendriya Sainik Board",
+      "Assistance to Ex-Servicemen in Penury"
+    ],
+    "fields": [
+      {
+        "id": "EsmId",
+        "name": "EsmId",
+        "label": "ESM Identity No / Dependent ID No",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter ESM Identity No / Dependent ID No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "ECHS Related",
+          "Grant of Financial Assistance",
+          "Penury Grant",
+          "PM Scholarship Scheme",
+          "Self Employment Scheme",
+          "Welfare Scheme of Kendriya Sainik Board",
+          "Other Schemes"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Assistance to Ex-Servicemen in Penury",
+          "Assistance for Education of Children/Widows of ESM",
+          "Assistance to 100% Disabled Children of ESM",
+          "Assistance for marriage of daughters of ESM/Remarriage of Widows",
+          "Assistance to non-pensioner ESM for medical treatment",
+          "Incentive to wards of ESM/Widows undergoing cadet's training at NDA",
+          "Assistance for repair of house of ESM/Widows, damaged in natural calamity",
+          "Assistance for Funeral of ESM",
+          "Assistance to Orphan children of ESM",
+          "Assistance for vocational training of widows of ESM",
+          "Assistance for treatment of serious diseases to ESM/Widows",
+          "Assistance for procurement of mobility equipment for disabled ESM",
+          "Assistance as interest Subsidy on Home Loan to ESM"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "RSB",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a RSB",
+          "RSB Andhra Pradesh",
+          "RSB Assam",
+          "RSB Bihar",
+          "RSB Chhatisgarh",
+          "RSB Delhi",
+          "RSB Goa",
+          "RSB Gujarat",
+          "RSB Himachal Pradesh",
+          "RSB J&K",
+          "RSB Jharkhand",
+          "RSB Karnataka",
+          "RSB Kerala",
+          "RSB Madhya Pradesh",
+          "RSB Meghalaya",
+          "RSB Mizoram",
+          "RSB Nagaland",
+          "RSB Punjab",
+          "RSB Tamil Nadu",
+          "RSB Telangana",
+          "RSB Uttarakhand",
+          "RSB West Bengal"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

@@ -1,0 +1,3581 @@
+{
+  "authority": {
+    "id": "authority-chemicals-and-petrochemicals",
+    "name": "Chemicals and Petrochemicals",
+    "slug": "chemicals-and-petrochemicals"
+  },
+  "categories": [
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-covid-related",
+        "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals",
+      "name": "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Employee related",
+        "COVID Related"
+      ],
+      "parentId": null,
+      "path": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals"
+      ],
+      "slug": "adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-covid-related",
+      "id": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-covid-related",
+      "name": "COVID Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Employee related",
+        "COVID Related"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals",
+      "path": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "COVID Related"
+      ],
+      "slug": "covid-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/covid-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-corruption-related",
+        "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-harrasment-atrocities-related",
+        "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-pension-pay-related-issues",
+        "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-recruitment-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related",
+      "name": "Employee related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Employee related",
+        "COVID Related",
+        "Pension / pay related issues",
+        "Corruption related",
+        "Recruitment Related",
+        "Harrasment/atrocities related"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals",
+      "path": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related"
+      ],
+      "slug": "employee-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-corruption-related",
+      "id": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-corruption-related",
+      "name": "Corruption related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Employee related",
+        "COVID Related",
+        "Pension / pay related issues",
+        "Corruption related",
+        "Recruitment Related",
+        "Harrasment/atrocities related"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related",
+      "path": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Corruption related"
+      ],
+      "slug": "corruption-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/corruption-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-harrasment-atrocities-related",
+      "id": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-harrasment-atrocities-related",
+      "name": "Harrasment/atrocities related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Employee related",
+        "COVID Related",
+        "Pension / pay related issues",
+        "Corruption related",
+        "Recruitment Related",
+        "Harrasment/atrocities related"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related",
+      "path": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Harrasment/atrocities related"
+      ],
+      "slug": "harrasment-atrocities-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/harrasment-atrocities-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-pension-pay-related-issues",
+      "id": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-pension-pay-related-issues",
+      "name": "Pension / pay related issues",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Employee related",
+        "COVID Related",
+        "Pension / pay related issues",
+        "Corruption related",
+        "Recruitment Related",
+        "Harrasment/atrocities related"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related",
+      "path": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Pension / pay related issues"
+      ],
+      "slug": "pension-pay-related-issues",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/pension-pay-related-issues/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-recruitment-related",
+      "id": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-recruitment-related",
+      "name": "Recruitment Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Employee related",
+        "COVID Related",
+        "Pension / pay related issues",
+        "Corruption related",
+        "Recruitment Related",
+        "Harrasment/atrocities related"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related",
+      "path": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Recruitment Related"
+      ],
+      "slug": "recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/recruitment-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology",
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related",
+      "name": "Autonomous Bodies (ABs) related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology"
+      ],
+      "parentId": null,
+      "path": [
+        "Autonomous Bodies (ABs) related"
+      ],
+      "slug": "autonomous-bodies-abs-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-employee-and-retirement-related",
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-financial-irregularities-corruption",
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-others",
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-recruitment-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology",
+      "name": "Central Institute of Petrochemicals Engineering and Technology",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology"
+      ],
+      "slug": "central-institute-of-petrochemicals-engineering-and-technology",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-employee-and-retirement-related",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-employee-and-retirement-related",
+      "name": "Employee and Retirement Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related"
+      ],
+      "slug": "employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/employee-and-retirement-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-financial-irregularities-corruption",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-financial-irregularities-corruption",
+      "name": "Financial Irregularities, Corruption",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Financial Irregularities, Corruption"
+      ],
+      "slug": "financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/financial-irregularities-corruption/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-others",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-recruitment-related",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-recruitment-related",
+      "name": "Recruitment Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Recruitment Related"
+      ],
+      "slug": "recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/recruitment-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-employee-and-retirement-related",
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-financial-irregularities-corruption",
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-others",
+        "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-recruitment-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology",
+      "name": "Institutes of Pesticides Formulation Technology",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology"
+      ],
+      "slug": "institutes-of-pesticides-formulation-technology",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-employee-and-retirement-related",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-employee-and-retirement-related",
+      "name": "Employee and Retirement Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Employee and Retirement Related"
+      ],
+      "slug": "employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/employee-and-retirement-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-financial-irregularities-corruption",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-financial-irregularities-corruption",
+      "name": "Financial Irregularities, Corruption",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Financial Irregularities, Corruption"
+      ],
+      "slug": "financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/financial-irregularities-corruption/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-others",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-recruitment-related",
+      "id": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-recruitment-related",
+      "name": "Recruitment Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Institutes of Pesticides Formulation Technology",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology",
+      "path": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Recruitment Related"
+      ],
+      "slug": "recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/recruitment-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-compensation",
+        "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-others",
+        "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-rehabilition-matters-issues",
+        "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-welfare-matters"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related",
+      "name": "Bhopal Gas Tragedy related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Rehabilition Matters/Issues",
+        "Welfare Matters",
+        "Compensation",
+        "Others"
+      ],
+      "parentId": null,
+      "path": [
+        "Bhopal Gas Tragedy related"
+      ],
+      "slug": "bhopal-gas-tragedy-related",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-compensation",
+      "id": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-compensation",
+      "name": "Compensation",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Rehabilition Matters/Issues",
+        "Welfare Matters",
+        "Compensation",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related",
+      "path": [
+        "Bhopal Gas Tragedy related",
+        "Compensation"
+      ],
+      "slug": "compensation",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/compensation/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-others",
+      "id": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Rehabilition Matters/Issues",
+        "Welfare Matters",
+        "Compensation",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related",
+      "path": [
+        "Bhopal Gas Tragedy related",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-rehabilition-matters-issues",
+      "id": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-rehabilition-matters-issues",
+      "name": "Rehabilition Matters/Issues",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Rehabilition Matters/Issues",
+        "Welfare Matters",
+        "Compensation",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related",
+      "path": [
+        "Bhopal Gas Tragedy related",
+        "Rehabilition Matters/Issues"
+      ],
+      "slug": "rehabilition-matters-issues",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/rehabilition-matters-issues/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-welfare-matters",
+      "id": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-welfare-matters",
+      "name": "Welfare Matters",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Rehabilition Matters/Issues",
+        "Welfare Matters",
+        "Compensation",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related",
+      "path": [
+        "Bhopal Gas Tragedy related",
+        "Welfare Matters"
+      ],
+      "slug": "welfare-matters",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/welfare-matters/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-chemical-related-others",
+        "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-chemical-related",
+      "name": "Chemical Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others"
+      ],
+      "parentId": null,
+      "path": [
+        "Chemical Related"
+      ],
+      "slug": "chemical-related",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-chemical-related-others-any-other-matter-pertaining-to-chemicals-sector"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-chemical-related-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "Any other matter pertaining to Chemicals sector"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related",
+      "path": [
+        "Chemical Related",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-chemical-related-others-any-other-matter-pertaining-to-chemicals-sector",
+      "id": "category-chemicals-and-petrochemicals-chemical-related-others-any-other-matter-pertaining-to-chemicals-sector",
+      "name": "Any other matter pertaining to Chemicals sector",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "Any other matter pertaining to Chemicals sector"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related-others",
+      "path": [
+        "Chemical Related",
+        "Others",
+        "Any other matter pertaining to Chemicals sector"
+      ],
+      "slug": "any-other-matter-pertaining-to-chemicals-sector",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/others/any-other-matter-pertaining-to-chemicals-sector/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+        "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-bis-related",
+        "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-cpds",
+        "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-implementation-of-chemical-weapon-convention",
+        "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-ominbus-chemical-regulation",
+        "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-project-import-export-input-output-etc"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related",
+      "name": "Scheme/Policy Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "BIS related",
+        "Implementation Of Chemical Weapon Convention",
+        "Ominbus Chemical Regulation",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "CPDS",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related",
+      "path": [
+        "Chemical Related",
+        "Scheme/Policy Related"
+      ],
+      "slug": "scheme-policy-related",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "id": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "name": "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "BIS related",
+        "Implementation Of Chemical Weapon Convention",
+        "Ominbus Chemical Regulation",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "CPDS",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related",
+      "path": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes"
+      ],
+      "slug": "anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/anti-dumping-taxes-duties-trade-related-matters-hs-codes/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-bis-related",
+      "id": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-bis-related",
+      "name": "BIS related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "BIS related",
+        "Implementation Of Chemical Weapon Convention",
+        "Ominbus Chemical Regulation",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "CPDS",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related",
+      "path": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "BIS related"
+      ],
+      "slug": "bis-related",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/bis-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-cpds",
+      "id": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-cpds",
+      "name": "CPDS",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "BIS related",
+        "Implementation Of Chemical Weapon Convention",
+        "Ominbus Chemical Regulation",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "CPDS",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related",
+      "path": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "CPDS"
+      ],
+      "slug": "cpds",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/cpds/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-implementation-of-chemical-weapon-convention",
+      "id": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-implementation-of-chemical-weapon-convention",
+      "name": "Implementation Of Chemical Weapon Convention",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "BIS related",
+        "Implementation Of Chemical Weapon Convention",
+        "Ominbus Chemical Regulation",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "CPDS",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related",
+      "path": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Implementation Of Chemical Weapon Convention"
+      ],
+      "slug": "implementation-of-chemical-weapon-convention",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/implementation-of-chemical-weapon-convention/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-ominbus-chemical-regulation",
+      "id": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-ominbus-chemical-regulation",
+      "name": "Ominbus Chemical Regulation",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "BIS related",
+        "Implementation Of Chemical Weapon Convention",
+        "Ominbus Chemical Regulation",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "CPDS",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related",
+      "path": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Ominbus Chemical Regulation"
+      ],
+      "slug": "ominbus-chemical-regulation",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/ominbus-chemical-regulation/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-project-import-export-input-output-etc",
+      "id": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-project-import-export-input-output-etc",
+      "name": "Project Import/Export, Input/Output, etc.",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "BIS related",
+        "Implementation Of Chemical Weapon Convention",
+        "Ominbus Chemical Regulation",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "CPDS",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related",
+      "path": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "slug": "project-import-export-input-output-etc",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/project-import-export-input-output-etc/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-miscellaneous-any-other",
+        "category-chemicals-and-petrochemicals-miscellaneous-data-related",
+        "category-chemicals-and-petrochemicals-miscellaneous-suggestions-advise"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-miscellaneous",
+      "name": "Miscellaneous",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Data related",
+        "Suggestions/ Advise",
+        "Any other"
+      ],
+      "parentId": null,
+      "path": [
+        "Miscellaneous"
+      ],
+      "slug": "miscellaneous",
+      "sourcePath": "chemicals-and-petrochemicals/miscellaneous/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-miscellaneous-any-other",
+      "id": "category-chemicals-and-petrochemicals-miscellaneous-any-other",
+      "name": "Any other",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Data related",
+        "Suggestions/ Advise",
+        "Any other"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-miscellaneous",
+      "path": [
+        "Miscellaneous",
+        "Any other"
+      ],
+      "slug": "any-other",
+      "sourcePath": "chemicals-and-petrochemicals/miscellaneous/any-other/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-miscellaneous-data-related",
+      "id": "category-chemicals-and-petrochemicals-miscellaneous-data-related",
+      "name": "Data related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Data related",
+        "Suggestions/ Advise",
+        "Any other"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-miscellaneous",
+      "path": [
+        "Miscellaneous",
+        "Data related"
+      ],
+      "slug": "data-related",
+      "sourcePath": "chemicals-and-petrochemicals/miscellaneous/data-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-miscellaneous-suggestions-advise",
+      "id": "category-chemicals-and-petrochemicals-miscellaneous-suggestions-advise",
+      "name": "Suggestions/ Advise",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Data related",
+        "Suggestions/ Advise",
+        "Any other"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-miscellaneous",
+      "path": [
+        "Miscellaneous",
+        "Suggestions/ Advise"
+      ],
+      "slug": "suggestions-advise",
+      "sourcePath": "chemicals-and-petrochemicals/miscellaneous/suggestions-advise/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-petrochemical-related-others",
+        "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related",
+      "name": "Petrochemical Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others"
+      ],
+      "parentId": null,
+      "path": [
+        "Petrochemical Related"
+      ],
+      "slug": "petrochemical-related",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-petrochemical-related-others-any-other-matter-pertaining-to-petrochemicals-sector"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "Any other matter pertaining to Petrochemicals sector"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related",
+      "path": [
+        "Petrochemical Related",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-petrochemical-related-others-any-other-matter-pertaining-to-petrochemicals-sector",
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-others-any-other-matter-pertaining-to-petrochemicals-sector",
+      "name": "Any other matter pertaining to Petrochemicals sector",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "Any other matter pertaining to Petrochemicals sector"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related-others",
+      "path": [
+        "Petrochemical Related",
+        "Others",
+        "Any other matter pertaining to Petrochemicals sector"
+      ],
+      "slug": "any-other-matter-pertaining-to-petrochemicals-sector",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/others/any-other-matter-pertaining-to-petrochemicals-sector/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+        "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-import-export-duties-related-issues",
+        "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-new-scheme-of-petrochemicals",
+        "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-parks",
+        "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-waste-management"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related",
+      "name": "Scheme/Policy Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "New Scheme of Petrochemicals",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "Import/Export Duties related issues",
+        "Plastic Parks",
+        "Plastic Waste Management"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related",
+      "path": [
+        "Petrochemical Related",
+        "Scheme/Policy Related"
+      ],
+      "slug": "scheme-policy-related",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "name": "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "New Scheme of Petrochemicals",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "Import/Export Duties related issues",
+        "Plastic Parks",
+        "Plastic Waste Management"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related",
+      "path": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes"
+      ],
+      "slug": "anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/anti-dumping-taxes-duties-trade-related-matters-hs-codes/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-import-export-duties-related-issues",
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-import-export-duties-related-issues",
+      "name": "Import/Export Duties related issues",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "New Scheme of Petrochemicals",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "Import/Export Duties related issues",
+        "Plastic Parks",
+        "Plastic Waste Management"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related",
+      "path": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Import/Export Duties related issues"
+      ],
+      "slug": "import-export-duties-related-issues",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/import-export-duties-related-issues/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-new-scheme-of-petrochemicals",
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-new-scheme-of-petrochemicals",
+      "name": "New Scheme of Petrochemicals",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "New Scheme of Petrochemicals",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "Import/Export Duties related issues",
+        "Plastic Parks",
+        "Plastic Waste Management"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related",
+      "path": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "New Scheme of Petrochemicals"
+      ],
+      "slug": "new-scheme-of-petrochemicals",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/new-scheme-of-petrochemicals/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-parks",
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-parks",
+      "name": "Plastic Parks",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "New Scheme of Petrochemicals",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "Import/Export Duties related issues",
+        "Plastic Parks",
+        "Plastic Waste Management"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related",
+      "path": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Plastic Parks"
+      ],
+      "slug": "plastic-parks",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/plastic-parks/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-waste-management",
+      "id": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-waste-management",
+      "name": "Plastic Waste Management",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "Scheme/Policy Related",
+        "Others",
+        "New Scheme of Petrochemicals",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+        "Import/Export Duties related issues",
+        "Plastic Parks",
+        "Plastic Waste Management"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related",
+      "path": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Plastic Waste Management"
+      ],
+      "slug": "plastic-waste-management",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/plastic-waste-management/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related",
+      "name": "Public Sector Undertakings (PSUs) related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited"
+      ],
+      "parentId": null,
+      "path": [
+        "Public Sector Undertakings (PSUs) related"
+      ],
+      "slug": "public-sector-undertakings-psus-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-employee-retirement-related",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-financial-irregularities-corruption-performance-related",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-others",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-production-related",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-recruitment-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited",
+      "name": "HIL(India) Limited",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee, Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption, Performance related",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited"
+      ],
+      "slug": "hil-india-limited",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-employee-retirement-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-employee-retirement-related",
+      "name": "Employee, Retirement Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee, Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption, Performance related",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Employee, Retirement Related"
+      ],
+      "slug": "employee-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/employee-retirement-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-financial-irregularities-corruption-performance-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-financial-irregularities-corruption-performance-related",
+      "name": "Financial Irregularities, Corruption, Performance related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee, Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption, Performance related",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Financial Irregularities, Corruption, Performance related"
+      ],
+      "slug": "financial-irregularities-corruption-performance-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/financial-irregularities-corruption-performance-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-others",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee, Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption, Performance related",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-production-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-production-related",
+      "name": "Production related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee, Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption, Performance related",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Production related"
+      ],
+      "slug": "production-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/production-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-recruitment-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-recruitment-related",
+      "name": "Recruitment Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee, Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption, Performance related",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Recruitment Related"
+      ],
+      "slug": "recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/recruitment-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-employee-and-retirement-related",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-financial-irregularities-corruption",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-others",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-production-related",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-recruitment-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited",
+      "name": "Hindustan Fluorocarbons Limited",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited"
+      ],
+      "slug": "hindustan-fluorocarbons-limited",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-employee-and-retirement-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-employee-and-retirement-related",
+      "name": "Employee and Retirement Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related"
+      ],
+      "slug": "employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/employee-and-retirement-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-financial-irregularities-corruption",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-financial-irregularities-corruption",
+      "name": "Financial Irregularities, Corruption",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Financial Irregularities, Corruption"
+      ],
+      "slug": "financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/financial-irregularities-corruption/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-others",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-production-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-production-related",
+      "name": "Production related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Production related"
+      ],
+      "slug": "production-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/production-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-recruitment-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-recruitment-related",
+      "name": "Recruitment Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Recruitment Related"
+      ],
+      "slug": "recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/recruitment-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-employee-and-retirement-related",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-financial-irregularities-corruption",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-others",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-production-related",
+        "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-recruitment-related"
+      ],
+      "formCapable": false,
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited",
+      "name": "Hindustan Organic Chemicals Limited",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited"
+      ],
+      "slug": "hindustan-organic-chemicals-limited",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-employee-and-retirement-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-employee-and-retirement-related",
+      "name": "Employee and Retirement Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Employee and Retirement Related"
+      ],
+      "slug": "employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/employee-and-retirement-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-financial-irregularities-corruption",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-financial-irregularities-corruption",
+      "name": "Financial Irregularities, Corruption",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Financial Irregularities, Corruption"
+      ],
+      "slug": "financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/financial-irregularities-corruption/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-others",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/others/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-production-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-production-related",
+      "name": "Production related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Production related"
+      ],
+      "slug": "production-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/production-related/form.json"
+    },
+    {
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-recruitment-related",
+      "id": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-recruitment-related",
+      "name": "Recruitment Related",
+      "navigationOptions": [
+        "Chemical Related",
+        "Petrochemical Related",
+        "Public Sector Undertakings (PSUs) related",
+        "Autonomous Bodies (ABs) related",
+        "Bhopal Gas Tragedy related",
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Miscellaneous",
+        "HIL(India) Limited",
+        "Hindustan Organic Chemicals Limited",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related",
+        "Production related",
+        "Recruitment Related",
+        "Financial Irregularities, Corruption",
+        "Others"
+      ],
+      "parentId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited",
+      "path": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Recruitment Related"
+      ],
+      "slug": "recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/recruitment-related/form.json"
+    }
+  ],
+  "checksum": "81ce8744079cbc5015d39991ec6ef9a0a3ea03486e19eefb203717933692e121",
+  "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-covid-related",
+      "categoryPath": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "COVID Related"
+      ],
+      "checksum": "108607e17f88f3e49be5280b87f07bdd58637012cfee8249c10b53017e542a89",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-covid-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/covid-related/form.json",
+      "title": "COVID Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-corruption-related",
+      "categoryPath": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Corruption related"
+      ],
+      "checksum": "5f1d4c6d4f7bb4b0c46d5b0fabaff4ee1ae98048c0afe5ee11cc279062475abf",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-corruption-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/corruption-related/form.json",
+      "title": "Corruption related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-harrasment-atrocities-related",
+      "categoryPath": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Harrasment/atrocities related"
+      ],
+      "checksum": "ca100ff09b8484bd07f678a8c031d5276c3d5d79d59df3e28b73925d09784495",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-harrasment-atrocities-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/harrasment-atrocities-related/form.json",
+      "title": "Harrasment/atrocities related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-pension-pay-related-issues",
+      "categoryPath": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Pension / pay related issues"
+      ],
+      "checksum": "e04d8b9f1359bf9c851fcbaa89e0fe073eca1abd0b1330c40e14276224f80f0f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-pension-pay-related-issues",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/pension-pay-related-issues/form.json",
+      "title": "Pension / pay related issues",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-recruitment-related",
+      "categoryPath": [
+        "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+        "Employee related",
+        "Recruitment Related"
+      ],
+      "checksum": "5a31865ac6526507b70b9162a13761242ad2bdbca041b444f41c0c8c377c6c4a",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-adminstration-related-matters-pertaining-to-department-of-chemicals-and-petrochemicals-employee-related-recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/adminstration-related-matters-pertaining-to-department-of-chemicals-and-petroche/employee-related/recruitment-related/form.json",
+      "title": "Recruitment Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-employee-and-retirement-related",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Employee and Retirement Related"
+      ],
+      "checksum": "3d27963586938f07f6bf9536a10ddce774c42b60280d955841bff10536891cee",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/employee-and-retirement-related/form.json",
+      "title": "Employee and Retirement Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-financial-irregularities-corruption",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Financial Irregularities, Corruption"
+      ],
+      "checksum": "722df6ca19a28bb21ae6527edf44625c2bc51a8ca8088aa6081a41b5a805a7a6",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/financial-irregularities-corruption/form.json",
+      "title": "Financial Irregularities, Corruption",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-others",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Others"
+      ],
+      "checksum": "37361730ea1b5aa6f16d37dd20bf97dd50fa424237adb193adb425985c236fa7",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-others",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-recruitment-related",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Central Institute of Petrochemicals Engineering and Technology",
+        "Recruitment Related"
+      ],
+      "checksum": "ecdece50ec92a9b3a391705bb2d2b6006a3b7e2d5b6f5db828fb78b77e647236",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-central-institute-of-petrochemicals-engineering-and-technology-recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/central-institute-of-petrochemicals-engineering-and-technology/recruitment-related/form.json",
+      "title": "Recruitment Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-employee-and-retirement-related",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Employee and Retirement Related"
+      ],
+      "checksum": "3e6134cd66c4ee51d64ba1a659af8577b831b5d41e7a5d56b51cbe6d26376e66",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/employee-and-retirement-related/form.json",
+      "title": "Employee and Retirement Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-financial-irregularities-corruption",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Financial Irregularities, Corruption"
+      ],
+      "checksum": "f2a4a3be990bdae7d90177e1fa5c73f782a76d0732d32b2895ca7482bd210c5e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/financial-irregularities-corruption/form.json",
+      "title": "Financial Irregularities, Corruption",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-others",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Others"
+      ],
+      "checksum": "e5d66119fe9946f0b2738034128a4088683cdaeffb6a0e0fe3924d4803ac8fe6",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-others",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-recruitment-related",
+      "categoryPath": [
+        "Autonomous Bodies (ABs) related",
+        "Institutes of Pesticides Formulation Technology",
+        "Recruitment Related"
+      ],
+      "checksum": "36e09389654b1bd65ddd9de0e68784e8c2ac248dbadba0f2c078155d45183d7c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-autonomous-bodies-abs-related-institutes-of-pesticides-formulation-technology-recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/autonomous-bodies-abs-related/institutes-of-pesticides-formulation-technology/recruitment-related/form.json",
+      "title": "Recruitment Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-compensation",
+      "categoryPath": [
+        "Bhopal Gas Tragedy related",
+        "Compensation"
+      ],
+      "checksum": "a72269f3116f01b2640fd5a81c8db58cc09b72340a5704ab9fa24329390bf037",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-compensation",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/compensation/form.json",
+      "title": "Compensation",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-others",
+      "categoryPath": [
+        "Bhopal Gas Tragedy related",
+        "Others"
+      ],
+      "checksum": "17dd28bfd0374e07216eeba7852e1b1b2962e29af2895e082a966e0a02741f01",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-others",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-rehabilition-matters-issues",
+      "categoryPath": [
+        "Bhopal Gas Tragedy related",
+        "Rehabilition Matters/Issues"
+      ],
+      "checksum": "5386b0c11b5280685351619e8cb708f763bcbcaa8d9a215b843b541825c3ddfe",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-rehabilition-matters-issues",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/rehabilition-matters-issues/form.json",
+      "title": "Rehabilition Matters/Issues",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-welfare-matters",
+      "categoryPath": [
+        "Bhopal Gas Tragedy related",
+        "Welfare Matters"
+      ],
+      "checksum": "92110f2d06eb34ecd1767b72227db27393ebc7c5fb5176276a98b062c57d1dee",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-bhopal-gas-tragedy-related-welfare-matters",
+      "sourcePath": "chemicals-and-petrochemicals/bhopal-gas-tragedy-related/welfare-matters/form.json",
+      "title": "Welfare Matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-chemical-related-others-any-other-matter-pertaining-to-chemicals-sector",
+      "categoryPath": [
+        "Chemical Related",
+        "Others",
+        "Any other matter pertaining to Chemicals sector"
+      ],
+      "checksum": "b3a8d88bcd165044f6697eff47d2bbabb0b08bdf72b09a6b659e84385ac513e7",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-chemical-related-others-any-other-matter-pertaining-to-chemicals-sector",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/others/any-other-matter-pertaining-to-chemicals-sector/form.json",
+      "title": "Any other matter pertaining to Chemicals sector",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "categoryPath": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes"
+      ],
+      "checksum": "c1342c71e3c7f80244ffc25fa288ec3af4b8297faff184004a5c0fc13ec7f4dc",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/anti-dumping-taxes-duties-trade-related-matters-hs-codes/form.json",
+      "title": "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-bis-related",
+      "categoryPath": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "BIS related"
+      ],
+      "checksum": "243fb3787889c3716139858852f36f4e94dbadee3a6e363a3eb97b17b12c821e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-bis-related",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/bis-related/form.json",
+      "title": "BIS related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-cpds",
+      "categoryPath": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "CPDS"
+      ],
+      "checksum": "39b56be6be20a85310539fa1a2cafffe19f4cdbdffa1fea6bc98c86f80049138",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-cpds",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/cpds/form.json",
+      "title": "CPDS",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-implementation-of-chemical-weapon-convention",
+      "categoryPath": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Implementation Of Chemical Weapon Convention"
+      ],
+      "checksum": "a9c61ae641d3a19452e04f6f075a3e36b62b3aa8afe2f46eb55251c575c6c70e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-implementation-of-chemical-weapon-convention",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/implementation-of-chemical-weapon-convention/form.json",
+      "title": "Implementation Of Chemical Weapon Convention",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-ominbus-chemical-regulation",
+      "categoryPath": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Ominbus Chemical Regulation"
+      ],
+      "checksum": "fbeb78ccdfcc3f660dcde206919d367edcd9ca0e0772f406ff86efc41833d61f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-ominbus-chemical-regulation",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/ominbus-chemical-regulation/form.json",
+      "title": "Ominbus Chemical Regulation",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-project-import-export-input-output-etc",
+      "categoryPath": [
+        "Chemical Related",
+        "Scheme/Policy Related",
+        "Project Import/Export, Input/Output, etc."
+      ],
+      "checksum": "aa446c859adb22dc47c9d9e7a4ae01dcda7f26031f9b7899c47031a188699fcb",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-chemical-related-scheme-policy-related-project-import-export-input-output-etc",
+      "sourcePath": "chemicals-and-petrochemicals/chemical-related/scheme-policy-related/project-import-export-input-output-etc/form.json",
+      "title": "Project Import/Export, Input/Output, etc.",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-miscellaneous-any-other",
+      "categoryPath": [
+        "Miscellaneous",
+        "Any other"
+      ],
+      "checksum": "8933c50f6be3cf162a41007b451c15b4065c00f83c20a462595786697d9fab47",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-miscellaneous-any-other",
+      "sourcePath": "chemicals-and-petrochemicals/miscellaneous/any-other/form.json",
+      "title": "Any other",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-miscellaneous-data-related",
+      "categoryPath": [
+        "Miscellaneous",
+        "Data related"
+      ],
+      "checksum": "777870be1078b5868327cbbcd000308831a486af326628729cc7e364f4ec43ce",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-miscellaneous-data-related",
+      "sourcePath": "chemicals-and-petrochemicals/miscellaneous/data-related/form.json",
+      "title": "Data related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-miscellaneous-suggestions-advise",
+      "categoryPath": [
+        "Miscellaneous",
+        "Suggestions/ Advise"
+      ],
+      "checksum": "7a1872e4810f42c0da00760dd79d56d219324d3a5c59bb70700f7f096ad3175c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-miscellaneous-suggestions-advise",
+      "sourcePath": "chemicals-and-petrochemicals/miscellaneous/suggestions-advise/form.json",
+      "title": "Suggestions/ Advise",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-petrochemical-related-others-any-other-matter-pertaining-to-petrochemicals-sector",
+      "categoryPath": [
+        "Petrochemical Related",
+        "Others",
+        "Any other matter pertaining to Petrochemicals sector"
+      ],
+      "checksum": "3400c5c0fa37f88b8dfbb2fa5a2de7e43bb57e36dc37d62e4dcedbc9bcb2c52d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-petrochemical-related-others-any-other-matter-pertaining-to-petrochemicals-sector",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/others/any-other-matter-pertaining-to-petrochemicals-sector/form.json",
+      "title": "Any other matter pertaining to Petrochemicals sector",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "categoryPath": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes"
+      ],
+      "checksum": "3b7f0f2bba9b0cdb45afa0f41384d278646a0069e0dcfef777e85e258ae2be0e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-anti-dumping-taxes-duties-trade-related-matters-hs-codes",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/anti-dumping-taxes-duties-trade-related-matters-hs-codes/form.json",
+      "title": "Anti Dumping, Taxes, Duties, Trade Related Matters, HS Codes",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-import-export-duties-related-issues",
+      "categoryPath": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Import/Export Duties related issues"
+      ],
+      "checksum": "8cc50c9fb6240136f1ce804b77c81f4de8ccb55c47fa8205fa3ffe497a779985",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-import-export-duties-related-issues",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/import-export-duties-related-issues/form.json",
+      "title": "Import/Export Duties related issues",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-new-scheme-of-petrochemicals",
+      "categoryPath": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "New Scheme of Petrochemicals"
+      ],
+      "checksum": "43340e27a88cee2b64e9078fc197f48db51878ac5cf67516ac529333e6785c7c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-new-scheme-of-petrochemicals",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/new-scheme-of-petrochemicals/form.json",
+      "title": "New Scheme of Petrochemicals",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-parks",
+      "categoryPath": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Plastic Parks"
+      ],
+      "checksum": "38f1c03bc656040c75268c6bff6fa15cf0d3809b6458b3b0cc50ce19790d402f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-parks",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/plastic-parks/form.json",
+      "title": "Plastic Parks",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-waste-management",
+      "categoryPath": [
+        "Petrochemical Related",
+        "Scheme/Policy Related",
+        "Plastic Waste Management"
+      ],
+      "checksum": "ee07a199cf1959aa6b102268ab52caf035927d30c5461324dadfee391bef3ada",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-petrochemical-related-scheme-policy-related-plastic-waste-management",
+      "sourcePath": "chemicals-and-petrochemicals/petrochemical-related/scheme-policy-related/plastic-waste-management/form.json",
+      "title": "Plastic Waste Management",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-employee-retirement-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Employee, Retirement Related"
+      ],
+      "checksum": "446600bde7d62349a403e98effcc1b4b1ec286152af004fedb6d00c906527dcd",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-employee-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/employee-retirement-related/form.json",
+      "title": "Employee, Retirement Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-financial-irregularities-corruption-performance-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Financial Irregularities, Corruption, Performance related"
+      ],
+      "checksum": "f90ca55f3ff2f855b5591dd17de2d5dc2323bcac2d2934b81178b86ffdd0ba0e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-financial-irregularities-corruption-performance-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/financial-irregularities-corruption-performance-related/form.json",
+      "title": "Financial Irregularities, Corruption, Performance related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-others",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Others"
+      ],
+      "checksum": "594f747eb1a83f7869ec3cc446962007b41df73a743459a9d60aac8cbebd6f63",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-others",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-production-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Production related"
+      ],
+      "checksum": "1c8cbc1c29649024e10aaec18a86a39277f597ef9c341c855355747a808fb649",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-production-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/production-related/form.json",
+      "title": "Production related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-recruitment-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "HIL(India) Limited",
+        "Recruitment Related"
+      ],
+      "checksum": "6641182b9f396360ad81735e958598db92cb575440a133ca653ec4e8fe74eae0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hil-india-limited-recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hil-india-limited/recruitment-related/form.json",
+      "title": "Recruitment Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-employee-and-retirement-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Employee and Retirement Related"
+      ],
+      "checksum": "afc591a50bb36d6d3915054b3080e59c7f263b020461ccecd6cd2135e0956a43",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/employee-and-retirement-related/form.json",
+      "title": "Employee and Retirement Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-financial-irregularities-corruption",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Financial Irregularities, Corruption"
+      ],
+      "checksum": "8615b32e1e64806e31499e943fd7ae1ddd6c3120fe0725fe72552650a0cee40d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/financial-irregularities-corruption/form.json",
+      "title": "Financial Irregularities, Corruption",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-others",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Others"
+      ],
+      "checksum": "92493a97c65de2c6298db4800bc7e27f4f147244d5d2ae69ffb6a121e4c5e23f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-others",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-production-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Production related"
+      ],
+      "checksum": "15ce9136c1e7187b46e63367747ffcc5d198663eebec83a76e7ea6a13ceb91d9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-production-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/production-related/form.json",
+      "title": "Production related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-recruitment-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Fluorocarbons Limited",
+        "Recruitment Related"
+      ],
+      "checksum": "1209c3b7b12a21d64586c07a03d2a469b50092e0c88068703a61fcfa830ec5ee",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-fluorocarbons-limited-recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-fluorocarbons-limited/recruitment-related/form.json",
+      "title": "Recruitment Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-employee-and-retirement-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Employee and Retirement Related"
+      ],
+      "checksum": "5e4141d40de5ce8204fe7cff74188a2c008938c82387cb0826413787d722318d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-employee-and-retirement-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/employee-and-retirement-related/form.json",
+      "title": "Employee and Retirement Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-financial-irregularities-corruption",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Financial Irregularities, Corruption"
+      ],
+      "checksum": "d111ed5d84314ecc350405e3ba77fef9d58c54478e5dd9a5b44c98a898a2fd7e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-financial-irregularities-corruption",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/financial-irregularities-corruption/form.json",
+      "title": "Financial Irregularities, Corruption",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-others",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Others"
+      ],
+      "checksum": "89a6d608925bb55148afc39ba1469eb159d8d7b97d5e6044150f77a358733b40",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-others",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-production-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Production related"
+      ],
+      "checksum": "806919ea790e3ed2041bb03ea06ff950edd75ce980002d596d1be4e42fea4c2e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-production-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/production-related/form.json",
+      "title": "Production related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-chemicals-and-petrochemicals",
+      "categoryId": "category-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-recruitment-related",
+      "categoryPath": [
+        "Public Sector Undertakings (PSUs) related",
+        "Hindustan Organic Chemicals Limited",
+        "Recruitment Related"
+      ],
+      "checksum": "876729d4261e3607221f1d270484246590be1fe883e8f6fd9b32b1ee3c76d023",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-chemicals-and-petrochemicals-public-sector-undertakings-psus-related-hindustan-organic-chemicals-limited-recruitment-related",
+      "sourcePath": "chemicals-and-petrochemicals/public-sector-undertakings-psus-related/hindustan-organic-chemicals-limited/recruitment-related/form.json",
+      "title": "Recruitment Related",
+      "version": 1
+    }
+  ],
+  "schemaVersion": 1
+}

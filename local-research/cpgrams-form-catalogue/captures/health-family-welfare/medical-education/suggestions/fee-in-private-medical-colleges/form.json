@@ -1,0 +1,107 @@
+{
+  "capturedAt": "2026-08-26T07:21:00.897Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Health & Family Welfare",
+    "categoryPath": [
+      "Medical Education",
+      "Suggestions",
+      "Fee in Private Medical Colleges"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospitals",
+          "Medicines",
+          "CGHS Health Centres",
+          "Medical Education",
+          "Financial Assistance for Medical Treatment",
+          "Health Schemes",
+          "Public Health",
+          "Food Regulation",
+          "Online Health Services",
+          "Policy Matters",
+          "MoHFW Employee Related",
+          "Other",
+          "Private Insurance"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Domicile Criteria in NEET",
+          "Non-allocation of seats in colleges as per rank obtained",
+          "Refund of security amount not in time",
+          "Non allocation of seats in medical colleges as per EVS reservation policy",
+          "Dental Colleges",
+          "Training Institutes",
+          "Vaccine Institutes",
+          "Mental Health Institutes",
+          "Pharmacy Institutes",
+          "All India Institute of Physical Medicine and Rehabilitation",
+          "All India Institute of Speech and Hearing",
+          "Nursing Colleges",
+          "Allegation of Corruption/ Malpractice",
+          "Suggestions",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Provision of Exit Test in NMC Act,2019",
+          "Foreign Medical Graduate Examination conducted by NBE",
+          "Fee in Private Medical Colleges",
+          "Ban on Cigarettes"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REhMVEg%3d"
+  }
+}

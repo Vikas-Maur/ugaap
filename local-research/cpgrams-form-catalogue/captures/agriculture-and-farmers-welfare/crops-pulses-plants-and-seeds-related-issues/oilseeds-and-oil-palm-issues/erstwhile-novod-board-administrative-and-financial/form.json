@@ -1,0 +1,94 @@
+{
+  "capturedAt": "2026-08-26T07:27:03.407Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Agriculture and Farmers Welfare",
+    "categoryPath": [
+      "Crops, Pulses, Plants and Seeds related issues",
+      "Oilseeds and Oil Palm issues",
+      "Erstwhile NOVOD Board (Administrative and Financial)"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "PMKISAN related issues",
+          "Crops, Pulses, Plants and Seeds related issues",
+          "Other Scheme Related",
+          "Matters Related to Farmers Welfare (MSP, Price Support System, Agriculture Marketing)",
+          "Policy and Trade related",
+          "Employees Services Related",
+          "Pension related",
+          "Natural Clamity Draught related issues",
+          "Machinery and Technology issues",
+          "Organic farming and fertilizers issues",
+          "Misbehaviour/ Harassment/ Corruption",
+          "Miscellaneous Matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Crop related issues",
+          "Plant Protection Matters",
+          "Seeds related issues",
+          "Oilseeds and Oil Palm issues",
+          "Pulses related issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Erstwhile NOVOD Board (Administrative and Financial)",
+          "Oilseeds and Oil Palm issues"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BQUM="
+  }
+}

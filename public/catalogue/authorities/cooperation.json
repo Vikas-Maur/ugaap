@@ -1,0 +1,1361 @@
+{
+  "authority": {
+    "id": "authority-cooperation",
+    "name": "Cooperation",
+    "slug": "cooperation"
+  },
+  "categories": [
+    {
+      "authorityId": "authority-cooperation",
+      "children": [
+        "category-cooperation-administration-and-cet-administration",
+        "category-cooperation-administration-and-cet-cooperative-education-and-training",
+        "category-cooperation-administration-and-cet-national-council-for-cooperative-training-ncct",
+        "category-cooperation-administration-and-cet-national-database-on-cooperative",
+        "category-cooperation-administration-and-cet-vaikunth-mehta-national-institute-of-cooperative-management-vamnicom"
+      ],
+      "formCapable": false,
+      "id": "category-cooperation-administration-and-cet",
+      "name": "Administration and CET",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Cooperative Education and Training",
+        "National Council for Cooperative Training-NCCT",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+        "National Database on Cooperative",
+        "Administration"
+      ],
+      "parentId": null,
+      "path": [
+        "Administration and CET"
+      ],
+      "slug": "administration-and-cet",
+      "sourcePath": "cooperation/administration-and-cet/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-administration-and-cet-administration",
+      "id": "category-cooperation-administration-and-cet-administration",
+      "name": "Administration",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Cooperative Education and Training",
+        "National Council for Cooperative Training-NCCT",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+        "National Database on Cooperative",
+        "Administration"
+      ],
+      "parentId": "category-cooperation-administration-and-cet",
+      "path": [
+        "Administration and CET",
+        "Administration"
+      ],
+      "slug": "administration",
+      "sourcePath": "cooperation/administration-and-cet/administration/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-administration-and-cet-cooperative-education-and-training",
+      "id": "category-cooperation-administration-and-cet-cooperative-education-and-training",
+      "name": "Cooperative Education and Training",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Cooperative Education and Training",
+        "National Council for Cooperative Training-NCCT",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+        "National Database on Cooperative",
+        "Administration"
+      ],
+      "parentId": "category-cooperation-administration-and-cet",
+      "path": [
+        "Administration and CET",
+        "Cooperative Education and Training"
+      ],
+      "slug": "cooperative-education-and-training",
+      "sourcePath": "cooperation/administration-and-cet/cooperative-education-and-training/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-administration-and-cet-national-council-for-cooperative-training-ncct",
+      "id": "category-cooperation-administration-and-cet-national-council-for-cooperative-training-ncct",
+      "name": "National Council for Cooperative Training-NCCT",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Cooperative Education and Training",
+        "National Council for Cooperative Training-NCCT",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+        "National Database on Cooperative",
+        "Administration"
+      ],
+      "parentId": "category-cooperation-administration-and-cet",
+      "path": [
+        "Administration and CET",
+        "National Council for Cooperative Training-NCCT"
+      ],
+      "slug": "national-council-for-cooperative-training-ncct",
+      "sourcePath": "cooperation/administration-and-cet/national-council-for-cooperative-training-ncct/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-administration-and-cet-national-database-on-cooperative",
+      "id": "category-cooperation-administration-and-cet-national-database-on-cooperative",
+      "name": "National Database on Cooperative",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Cooperative Education and Training",
+        "National Council for Cooperative Training-NCCT",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+        "National Database on Cooperative",
+        "Administration"
+      ],
+      "parentId": "category-cooperation-administration-and-cet",
+      "path": [
+        "Administration and CET",
+        "National Database on Cooperative"
+      ],
+      "slug": "national-database-on-cooperative",
+      "sourcePath": "cooperation/administration-and-cet/national-database-on-cooperative/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-administration-and-cet-vaikunth-mehta-national-institute-of-cooperative-management-vamnicom",
+      "id": "category-cooperation-administration-and-cet-vaikunth-mehta-national-institute-of-cooperative-management-vamnicom",
+      "name": "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Cooperative Education and Training",
+        "National Council for Cooperative Training-NCCT",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+        "National Database on Cooperative",
+        "Administration"
+      ],
+      "parentId": "category-cooperation-administration-and-cet",
+      "path": [
+        "Administration and CET",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM"
+      ],
+      "slug": "vaikunth-mehta-national-institute-of-cooperative-management-vamnicom",
+      "sourcePath": "cooperation/administration-and-cet/vaikunth-mehta-national-institute-of-cooperative-management-vamnicom/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [
+        "category-cooperation-central-registrar-and-cooperative-society-issue-related-of-mscs-and-banks-registered-under-mscs-act-2002",
+        "category-cooperation-central-registrar-and-cooperative-society-modal-state-cooperative-related-matters",
+        "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
+        "category-cooperation-central-registrar-and-cooperative-society-national-cooperative-policy-related-matters"
+      ],
+      "formCapable": false,
+      "id": "category-cooperation-central-registrar-and-cooperative-society",
+      "name": "Central Registrar and Cooperative Society",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002"
+      ],
+      "parentId": null,
+      "path": [
+        "Central Registrar and Cooperative Society"
+      ],
+      "slug": "central-registrar-and-cooperative-society",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society-issue-related-of-mscs-and-banks-registered-under-mscs-act-2002",
+      "id": "category-cooperation-central-registrar-and-cooperative-society-issue-related-of-mscs-and-banks-registered-under-mscs-act-2002",
+      "name": "Issue related of MSCS and Banks registered under MSCS Act 2002",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002"
+      ],
+      "parentId": "category-cooperation-central-registrar-and-cooperative-society",
+      "path": [
+        "Central Registrar and Cooperative Society",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002"
+      ],
+      "slug": "issue-related-of-mscs-and-banks-registered-under-mscs-act-2002",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/issue-related-of-mscs-and-banks-registered-under-mscs-act-2002/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society-modal-state-cooperative-related-matters",
+      "id": "category-cooperation-central-registrar-and-cooperative-society-modal-state-cooperative-related-matters",
+      "name": "Modal State Cooperative related matters",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002"
+      ],
+      "parentId": "category-cooperation-central-registrar-and-cooperative-society",
+      "path": [
+        "Central Registrar and Cooperative Society",
+        "Modal State Cooperative related matters"
+      ],
+      "slug": "modal-state-cooperative-related-matters",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/modal-state-cooperative-related-matters/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [
+        "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-deemed-registration-related-issue",
+        "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-other-multi-state-cooperative-society-related-issues",
+        "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-registration-related-issues"
+      ],
+      "formCapable": false,
+      "id": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
+      "name": "Multi State Cooperative Society related matters",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002",
+        "Registration related issues",
+        "Deemed Registration related issue",
+        "Other Multi State Cooperative Society related issues"
+      ],
+      "parentId": "category-cooperation-central-registrar-and-cooperative-society",
+      "path": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters"
+      ],
+      "slug": "multi-state-cooperative-society-related-matters",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-deemed-registration-related-issue",
+      "id": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-deemed-registration-related-issue",
+      "name": "Deemed Registration related issue",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002",
+        "Registration related issues",
+        "Deemed Registration related issue",
+        "Other Multi State Cooperative Society related issues"
+      ],
+      "parentId": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
+      "path": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters",
+        "Deemed Registration related issue"
+      ],
+      "slug": "deemed-registration-related-issue",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/deemed-registration-related-issue/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-other-multi-state-cooperative-society-related-issues",
+      "id": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-other-multi-state-cooperative-society-related-issues",
+      "name": "Other Multi State Cooperative Society related issues",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002",
+        "Registration related issues",
+        "Deemed Registration related issue",
+        "Other Multi State Cooperative Society related issues"
+      ],
+      "parentId": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
+      "path": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters",
+        "Other Multi State Cooperative Society related issues"
+      ],
+      "slug": "other-multi-state-cooperative-society-related-issues",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/other-multi-state-cooperative-society-related-issues/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-registration-related-issues",
+      "id": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-registration-related-issues",
+      "name": "Registration related issues",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002",
+        "Registration related issues",
+        "Deemed Registration related issue",
+        "Other Multi State Cooperative Society related issues"
+      ],
+      "parentId": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
+      "path": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters",
+        "Registration related issues"
+      ],
+      "slug": "registration-related-issues",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/registration-related-issues/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society-national-cooperative-policy-related-matters",
+      "id": "category-cooperation-central-registrar-and-cooperative-society-national-cooperative-policy-related-matters",
+      "name": "National Cooperative Policy related matters",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Multi State Cooperative Society related matters",
+        "Modal State Cooperative related matters",
+        "National Cooperative Policy related matters",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002"
+      ],
+      "parentId": "category-cooperation-central-registrar-and-cooperative-society",
+      "path": [
+        "Central Registrar and Cooperative Society",
+        "National Cooperative Policy related matters"
+      ],
+      "slug": "national-cooperative-policy-related-matters",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/national-cooperative-policy-related-matters/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [
+        "category-cooperation-cooperative-development-coordination-of-cooperation-activities-in-all-sectors",
+        "category-cooperation-cooperative-development-federation-sectoral-issues-including-matters-related-to-cooperative-banking",
+        "category-cooperation-cooperative-development-national-cooperative-development-corporation"
+      ],
+      "formCapable": false,
+      "id": "category-cooperation-cooperative-development",
+      "name": "Cooperative Development",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "National Cooperative Development Corporation",
+        "Federation/ Sectoral issues including matters related to Cooperative Banking",
+        "Coordination of cooperation activities in all sectors"
+      ],
+      "parentId": null,
+      "path": [
+        "Cooperative Development"
+      ],
+      "slug": "cooperative-development",
+      "sourcePath": "cooperation/cooperative-development/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-cooperative-development-coordination-of-cooperation-activities-in-all-sectors",
+      "id": "category-cooperation-cooperative-development-coordination-of-cooperation-activities-in-all-sectors",
+      "name": "Coordination of cooperation activities in all sectors",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "National Cooperative Development Corporation",
+        "Federation/ Sectoral issues including matters related to Cooperative Banking",
+        "Coordination of cooperation activities in all sectors"
+      ],
+      "parentId": "category-cooperation-cooperative-development",
+      "path": [
+        "Cooperative Development",
+        "Coordination of cooperation activities in all sectors"
+      ],
+      "slug": "coordination-of-cooperation-activities-in-all-sectors",
+      "sourcePath": "cooperation/cooperative-development/coordination-of-cooperation-activities-in-all-sectors/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-cooperative-development-federation-sectoral-issues-including-matters-related-to-cooperative-banking",
+      "id": "category-cooperation-cooperative-development-federation-sectoral-issues-including-matters-related-to-cooperative-banking",
+      "name": "Federation/ Sectoral issues including matters related to Cooperative Banking",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "National Cooperative Development Corporation",
+        "Federation/ Sectoral issues including matters related to Cooperative Banking",
+        "Coordination of cooperation activities in all sectors"
+      ],
+      "parentId": "category-cooperation-cooperative-development",
+      "path": [
+        "Cooperative Development",
+        "Federation/ Sectoral issues including matters related to Cooperative Banking"
+      ],
+      "slug": "federation-sectoral-issues-including-matters-related-to-cooperative-banking",
+      "sourcePath": "cooperation/cooperative-development/federation-sectoral-issues-including-matters-related-to-cooperative-banking/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-cooperative-development-national-cooperative-development-corporation",
+      "id": "category-cooperation-cooperative-development-national-cooperative-development-corporation",
+      "name": "National Cooperative Development Corporation",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "National Cooperative Development Corporation",
+        "Federation/ Sectoral issues including matters related to Cooperative Banking",
+        "Coordination of cooperation activities in all sectors"
+      ],
+      "parentId": "category-cooperation-cooperative-development",
+      "path": [
+        "Cooperative Development",
+        "National Cooperative Development Corporation"
+      ],
+      "slug": "national-cooperative-development-corporation",
+      "sourcePath": "cooperation/cooperative-development/national-cooperative-development-corporation/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-others",
+      "id": "category-cooperation-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others"
+      ],
+      "parentId": null,
+      "path": [
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "cooperation/others/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [
+        "category-cooperation-primary-agriculture-cooperative-society-pacs-computerization-pacs-and-bye-law",
+        "category-cooperation-primary-agriculture-cooperative-society-pacs-primary-cooperatives",
+        "category-cooperation-primary-agriculture-cooperative-society-pacs-programme-and-awareness",
+        "category-cooperation-primary-agriculture-cooperative-society-pacs-umbrella-scheme",
+        "category-cooperation-primary-agriculture-cooperative-society-pacs-website-e-governance"
+      ],
+      "formCapable": false,
+      "id": "category-cooperation-primary-agriculture-cooperative-society-pacs",
+      "name": "Primary Agriculture Cooperative Society PACS",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Umbrella Scheme",
+        "Primary Cooperatives",
+        "Computerization PACS and bye law",
+        "Programme and Awareness",
+        "Website/ e-governance"
+      ],
+      "parentId": null,
+      "path": [
+        "Primary Agriculture Cooperative Society PACS"
+      ],
+      "slug": "primary-agriculture-cooperative-society-pacs",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-primary-agriculture-cooperative-society-pacs-computerization-pacs-and-bye-law",
+      "id": "category-cooperation-primary-agriculture-cooperative-society-pacs-computerization-pacs-and-bye-law",
+      "name": "Computerization PACS and bye law",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Umbrella Scheme",
+        "Primary Cooperatives",
+        "Computerization PACS and bye law",
+        "Programme and Awareness",
+        "Website/ e-governance"
+      ],
+      "parentId": "category-cooperation-primary-agriculture-cooperative-society-pacs",
+      "path": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Computerization PACS and bye law"
+      ],
+      "slug": "computerization-pacs-and-bye-law",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/computerization-pacs-and-bye-law/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-primary-agriculture-cooperative-society-pacs-primary-cooperatives",
+      "id": "category-cooperation-primary-agriculture-cooperative-society-pacs-primary-cooperatives",
+      "name": "Primary Cooperatives",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Umbrella Scheme",
+        "Primary Cooperatives",
+        "Computerization PACS and bye law",
+        "Programme and Awareness",
+        "Website/ e-governance"
+      ],
+      "parentId": "category-cooperation-primary-agriculture-cooperative-society-pacs",
+      "path": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Primary Cooperatives"
+      ],
+      "slug": "primary-cooperatives",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/primary-cooperatives/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-primary-agriculture-cooperative-society-pacs-programme-and-awareness",
+      "id": "category-cooperation-primary-agriculture-cooperative-society-pacs-programme-and-awareness",
+      "name": "Programme and Awareness",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Umbrella Scheme",
+        "Primary Cooperatives",
+        "Computerization PACS and bye law",
+        "Programme and Awareness",
+        "Website/ e-governance"
+      ],
+      "parentId": "category-cooperation-primary-agriculture-cooperative-society-pacs",
+      "path": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Programme and Awareness"
+      ],
+      "slug": "programme-and-awareness",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/programme-and-awareness/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-primary-agriculture-cooperative-society-pacs-umbrella-scheme",
+      "id": "category-cooperation-primary-agriculture-cooperative-society-pacs-umbrella-scheme",
+      "name": "Umbrella Scheme",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Umbrella Scheme",
+        "Primary Cooperatives",
+        "Computerization PACS and bye law",
+        "Programme and Awareness",
+        "Website/ e-governance"
+      ],
+      "parentId": "category-cooperation-primary-agriculture-cooperative-society-pacs",
+      "path": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Umbrella Scheme"
+      ],
+      "slug": "umbrella-scheme",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/umbrella-scheme/form.json"
+    },
+    {
+      "authorityId": "authority-cooperation",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-cooperation-primary-agriculture-cooperative-society-pacs-website-e-governance",
+      "id": "category-cooperation-primary-agriculture-cooperative-society-pacs-website-e-governance",
+      "name": "Website/ e-governance",
+      "navigationOptions": [
+        "Central Registrar and Cooperative Society",
+        "Cooperative Development",
+        "Administration and CET",
+        "Primary Agriculture Cooperative Society PACS",
+        "Others",
+        "Umbrella Scheme",
+        "Primary Cooperatives",
+        "Computerization PACS and bye law",
+        "Programme and Awareness",
+        "Website/ e-governance"
+      ],
+      "parentId": "category-cooperation-primary-agriculture-cooperative-society-pacs",
+      "path": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Website/ e-governance"
+      ],
+      "slug": "website-e-governance",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/website-e-governance/form.json"
+    }
+  ],
+  "checksum": "1ccd6f9b8e204f94b16c619e490b8a4c6c827061eadda869ea0f216200f74ba0",
+  "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-administration-and-cet-administration",
+      "categoryPath": [
+        "Administration and CET",
+        "Administration"
+      ],
+      "checksum": "bd0c7b4c0eb7d89865aebdcb9e451127dccef66148f833d22ad65ade2b3f9bf0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-administration-and-cet-administration",
+      "sourcePath": "cooperation/administration-and-cet/administration/form.json",
+      "title": "Administration",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-administration-and-cet-cooperative-education-and-training",
+      "categoryPath": [
+        "Administration and CET",
+        "Cooperative Education and Training"
+      ],
+      "checksum": "e58a71ee8c745daa6da8975a4012518bcb683ee37d20194090951a6f13802d97",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-administration-and-cet-cooperative-education-and-training",
+      "sourcePath": "cooperation/administration-and-cet/cooperative-education-and-training/form.json",
+      "title": "Cooperative Education and Training",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-administration-and-cet-national-council-for-cooperative-training-ncct",
+      "categoryPath": [
+        "Administration and CET",
+        "National Council for Cooperative Training-NCCT"
+      ],
+      "checksum": "49f9d33778d3af3a5c02ec6014b83d5b8fb9e22219a50a26848a25eb3b437b81",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-administration-and-cet-national-council-for-cooperative-training-ncct",
+      "sourcePath": "cooperation/administration-and-cet/national-council-for-cooperative-training-ncct/form.json",
+      "title": "National Council for Cooperative Training-NCCT",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-administration-and-cet-national-database-on-cooperative",
+      "categoryPath": [
+        "Administration and CET",
+        "National Database on Cooperative"
+      ],
+      "checksum": "b941aaac837f1072a84160a463a6de39517d47739a8c5d61660661ad05ccc11d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-administration-and-cet-national-database-on-cooperative",
+      "sourcePath": "cooperation/administration-and-cet/national-database-on-cooperative/form.json",
+      "title": "National Database on Cooperative",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-administration-and-cet-vaikunth-mehta-national-institute-of-cooperative-management-vamnicom",
+      "categoryPath": [
+        "Administration and CET",
+        "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM"
+      ],
+      "checksum": "1f4aaa5faf89c2d3c71cb3336d95c31f8178544e830915976ec7b98198b3d173",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-administration-and-cet-vaikunth-mehta-national-institute-of-cooperative-management-vamnicom",
+      "sourcePath": "cooperation/administration-and-cet/vaikunth-mehta-national-institute-of-cooperative-management-vamnicom/form.json",
+      "title": "Vaikunth Mehta National Institute of Cooperative Management-VAMNICOM",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society-issue-related-of-mscs-and-banks-registered-under-mscs-act-2002",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society",
+        "Issue related of MSCS and Banks registered under MSCS Act 2002"
+      ],
+      "checksum": "61c00b6c65a9d5e526fe240779f2e953659e6765245f203fc706fd137762df5a",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society-issue-related-of-mscs-and-banks-registered-under-mscs-act-2002",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/issue-related-of-mscs-and-banks-registered-under-mscs-act-2002/form.json",
+      "title": "Issue related of MSCS and Banks registered under MSCS Act 2002",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society-modal-state-cooperative-related-matters",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society",
+        "Modal State Cooperative related matters"
+      ],
+      "checksum": "ff1aa3c9aeecfd5ccc3879e97702a2b2224df1084b68d648ca5a067a2ec8d9a2",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society-modal-state-cooperative-related-matters",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/modal-state-cooperative-related-matters/form.json",
+      "title": "Modal State Cooperative related matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-deemed-registration-related-issue",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters",
+        "Deemed Registration related issue"
+      ],
+      "checksum": "2ebf997c3e13b5de6696693588304a4ed948ec15dc32f93076f4c92a24537248",
+      "fields": [
+        {
+          "id": "referencenumberfrommscsact",
+          "kind": "text",
+          "label": "Reference number from MSCS Act",
+          "placeholder": "Please Enter Reference number from MSCS Act",
+          "required": true
+        },
+        {
+          "id": "societyname",
+          "kind": "text",
+          "label": "Society Name",
+          "placeholder": "Please Enter Society Name",
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-deemed-registration-related-issue",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/deemed-registration-related-issue/form.json",
+      "title": "Deemed Registration related issue",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-other-multi-state-cooperative-society-related-issues",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters",
+        "Other Multi State Cooperative Society related issues"
+      ],
+      "checksum": "abb6c35f4837cab4fc4fab3eaf95d98044bc53f2218d430009f52a1f52cf03c3",
+      "fields": [
+        {
+          "id": "referencenumberfrommscsact",
+          "kind": "text",
+          "label": "Reference number from MSCS Act",
+          "placeholder": "Please Enter Reference number from MSCS Act",
+          "required": true
+        },
+        {
+          "id": "societyname",
+          "kind": "text",
+          "label": "Society Name",
+          "placeholder": "Please Enter Society Name",
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-other-multi-state-cooperative-society-related-issues",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/other-multi-state-cooperative-society-related-issues/form.json",
+      "title": "Other Multi State Cooperative Society related issues",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-registration-related-issues",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters",
+        "Registration related issues"
+      ],
+      "checksum": "d559b7780ae5dddae0bf8de513503086d5e273f52f4eb1aefcfb5242024f8879",
+      "fields": [
+        {
+          "id": "referencenumberfrommscsact",
+          "kind": "text",
+          "label": "Reference number from MSCS Act",
+          "placeholder": "Please Enter Reference number from MSCS Act",
+          "required": true
+        },
+        {
+          "id": "societyname",
+          "kind": "text",
+          "label": "Society Name",
+          "placeholder": "Please Enter Society Name",
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-registration-related-issues",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/registration-related-issues/form.json",
+      "title": "Registration related issues",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society-national-cooperative-policy-related-matters",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society",
+        "National Cooperative Policy related matters"
+      ],
+      "checksum": "06d8e7b08c51663503d4d3a4932c48e4c29b4ce02fa86a414cc1d94e6361f1cf",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society-national-cooperative-policy-related-matters",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/national-cooperative-policy-related-matters/form.json",
+      "title": "National Cooperative Policy related matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-cooperative-development-coordination-of-cooperation-activities-in-all-sectors",
+      "categoryPath": [
+        "Cooperative Development",
+        "Coordination of cooperation activities in all sectors"
+      ],
+      "checksum": "3660a405e1f4a4c862a35cb2b07c9822e1b4b9a8a07c0bf224fdfedf5c857084",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-cooperative-development-coordination-of-cooperation-activities-in-all-sectors",
+      "sourcePath": "cooperation/cooperative-development/coordination-of-cooperation-activities-in-all-sectors/form.json",
+      "title": "Coordination of cooperation activities in all sectors",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-cooperative-development-federation-sectoral-issues-including-matters-related-to-cooperative-banking",
+      "categoryPath": [
+        "Cooperative Development",
+        "Federation/ Sectoral issues including matters related to Cooperative Banking"
+      ],
+      "checksum": "a666bdc081aecfcb43b9b4c5cf5017e1e8d07abea2bbfdd1f025a6f13a5548fa",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-cooperative-development-federation-sectoral-issues-including-matters-related-to-cooperative-banking",
+      "sourcePath": "cooperation/cooperative-development/federation-sectoral-issues-including-matters-related-to-cooperative-banking/form.json",
+      "title": "Federation/ Sectoral issues including matters related to Cooperative Banking",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-cooperative-development-national-cooperative-development-corporation",
+      "categoryPath": [
+        "Cooperative Development",
+        "National Cooperative Development Corporation"
+      ],
+      "checksum": "6c01f5aad1040678e1212fb2ac200c54bb5ed3299bac62d9b7dd78827291d2e9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-cooperative-development-national-cooperative-development-corporation",
+      "sourcePath": "cooperation/cooperative-development/national-cooperative-development-corporation/form.json",
+      "title": "National Cooperative Development Corporation",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-others",
+      "categoryPath": [
+        "Others"
+      ],
+      "checksum": "b8d9823bab6f832de575d1cb9b861ecbf742cb1b908cb3405ab4e1e9d09cf6cc",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-others",
+      "sourcePath": "cooperation/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-primary-agriculture-cooperative-society-pacs-computerization-pacs-and-bye-law",
+      "categoryPath": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Computerization PACS and bye law"
+      ],
+      "checksum": "f79d64bb2a0c1edd15bacca6697065c129200bd17500a1fe44c1e48c314158f7",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-primary-agriculture-cooperative-society-pacs-computerization-pacs-and-bye-law",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/computerization-pacs-and-bye-law/form.json",
+      "title": "Computerization PACS and bye law",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-primary-agriculture-cooperative-society-pacs-primary-cooperatives",
+      "categoryPath": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Primary Cooperatives"
+      ],
+      "checksum": "3903adc9a24531c8d79dcf068df72b88c05a937ceb294519658c9a796c9e6e91",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-primary-agriculture-cooperative-society-pacs-primary-cooperatives",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/primary-cooperatives/form.json",
+      "title": "Primary Cooperatives",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-primary-agriculture-cooperative-society-pacs-programme-and-awareness",
+      "categoryPath": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Programme and Awareness"
+      ],
+      "checksum": "66e3deaafb9900f93fad0b8ac93d641dc30bb2a82b63c6fadaadafeadb672927",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-primary-agriculture-cooperative-society-pacs-programme-and-awareness",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/programme-and-awareness/form.json",
+      "title": "Programme and Awareness",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-primary-agriculture-cooperative-society-pacs-umbrella-scheme",
+      "categoryPath": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Umbrella Scheme"
+      ],
+      "checksum": "2b710bc278ff06ccca6a1f9090976e70675652cfd9dfefff5f1c0999691a7a99",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-primary-agriculture-cooperative-society-pacs-umbrella-scheme",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/umbrella-scheme/form.json",
+      "title": "Umbrella Scheme",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-primary-agriculture-cooperative-society-pacs-website-e-governance",
+      "categoryPath": [
+        "Primary Agriculture Cooperative Society PACS",
+        "Website/ e-governance"
+      ],
+      "checksum": "1502602ea10a5de70c3f94c1018643d4670fcb3f0f6b49646de638a8c4ddadd3",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-primary-agriculture-cooperative-society-pacs-website-e-governance",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/website-e-governance/form.json",
+      "title": "Website/ e-governance",
+      "version": 1
+    }
+  ],
+  "schemaVersion": 1
+}

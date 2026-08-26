@@ -1,0 +1,96 @@
+{
+  "capturedAt": "2026-08-26T11:11:48.249Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence",
+    "categoryPath": [
+      "Training and Education related issues in Defence Institutes(NCC/ Rashtriya Military School/ Rashtriya Indian Military College/ Sainik Schools)",
+      "Sainik Schools related matters",
+      "Accessibility related issues"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Defence Land and Cantonment Board related",
+          "Border Roads Organization",
+          "Canteen Stores Depot related",
+          "Training and Education related issues in Defence Institutes(NCC/ Rashtriya Military School/ Rashtriya Indian Military College/ Sainik Schools)",
+          "Secretariat Establishment matters",
+          "Military Hospital",
+          "Capital Procurement in Armed Forces related",
+          "Ceremonials ( Independence /Republic Day)",
+          "Vigilance related matters (MES and BRO)",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "National Cadet Corps related matters",
+          "Sainik Schools related matters",
+          "Rashtriya Military School, Rashtriya Indian Military College related matters"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Admission related matters",
+          "Examination related matters",
+          "Fees related matters",
+          "Accessibility related issues",
+          "Administrative Matters",
+          "Infrastructure related issues"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9ERUY="
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "capturedAt": "2026-08-26T12:10:58.146Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Expenditure",
+    "categoryPath": [
+      "Pension/ Retirement",
+      "Grant of OPS in place of NPS in case of CABs"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Allowance",
+          "Salary and allowance revision",
+          "Pay related Matters",
+          "Pension/ Retirement",
+          "Indian Cost Account Service",
+          "Payment",
+          "Indian Civil Accounts Service",
+          "Pay Upgradation",
+          "Creation of posts",
+          "Cadre Review",
+          "Policy matters of Expenses",
+          "Administrative matters",
+          "Government Rules",
+          "Procurement",
+          "Funds to Schemes",
+          "Finance Commission",
+          "Other Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension to retired employees",
+          "Pension to super senior retired employees",
+          "Family pension",
+          "Fixed medical Allowance",
+          "Issuance of PPO",
+          "National Pension System",
+          "Employee Pension Scheme, 1995",
+          "Retiral Benefits of Central Government Defence Pensioners",
+          "CGHS/CS-MA",
+          "Grant of OPS in place of NPS in case of CABs",
+          "CGEGIS",
+          "Gratuity",
+          "GPF/CPF",
+          "CCS(Pension) Rules",
+          "Age of retirement",
+          "Old Pension Scheme and other Retiral Benefits of CABs"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9FWFA="
+  }
+}

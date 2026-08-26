@@ -1,0 +1,49 @@
+{
+  "capturedAt": "2026-08-26T11:39:59.924Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Development of North Eastern Region",
+    "categoryPath": [
+      "Suggestion"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Employee related",
+          "Allegation of Corruption",
+          "Implementation of Schemes",
+          "Recruitment related",
+          "CPSEs related",
+          "Suggestion"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Employee related",
+          "Scheme related",
+          "Other Stakeholders'"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9ORVI="
+  }
+}

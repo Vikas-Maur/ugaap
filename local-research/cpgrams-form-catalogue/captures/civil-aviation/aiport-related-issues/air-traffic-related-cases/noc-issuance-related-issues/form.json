@@ -1,0 +1,116 @@
+{
+  "capturedAt": "2026-08-26T09:41:53.680Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "Aiport Related issues",
+      "Air Traffic Related Cases",
+      "NOC issuance related issues"
+    ],
+    "fields": [
+      {
+        "id": "AreaBuildingAirportUnderQuestion",
+        "name": "AreaBuildingAirportUnderQuestion",
+        "label": "Area / Building / Airport under question",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Area / Building / Airport under question",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Parking Related Cases",
+          "Facilitation at Airports",
+          "Land Management related cases",
+          "Security related cases",
+          "Toilet related cases",
+          "Cleanliness related cases",
+          "Expansion of Airports / Runways / Terminal Buildings",
+          "Privatization of Airports",
+          "Air Traffic Related Cases",
+          "Public Transport and Taxi Services",
+          "Lost / Stolen articles at Airports",
+          "Complaint of corruption and Malpractices",
+          "Cargo Department related complaints",
+          "Other / miscellaneous",
+          "Ground handlers"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "NOC issuance related issues",
+          "Air space management related cases",
+          "Noise due to low flying aircrafts"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

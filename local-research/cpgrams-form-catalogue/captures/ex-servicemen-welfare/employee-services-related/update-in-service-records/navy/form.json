@@ -1,0 +1,131 @@
+{
+  "capturedAt": "2026-08-26T12:06:41.281Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "Employee Services Related",
+      "Update in Service Records",
+      "Navy"
+    ],
+    "fields": [
+      {
+        "id": "ServiceNo",
+        "name": "ServiceNo",
+        "label": "Service No. of ESM",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Service No. of ESM",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "LastRank",
+        "name": "LastRank",
+        "label": "Rank Last Held",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Rank Last Held",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PPONo",
+        "name": "PPONo",
+        "label": "PPO No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter PPO No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RecordOffice",
+        "name": "RecordOffice",
+        "label": "Concerned Record Office",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Concerned Record Office",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Re-employment Related",
+          "Update in Service Records",
+          "Compassionate Appointments",
+          "Grant of ESM Status/Issue of ESM Card",
+          "Outstanding Dues",
+          "Group Insurance Fund Related",
+          "Other issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Army",
+          "Navy",
+          "Airforce"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

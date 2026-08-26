@@ -1,0 +1,138 @@
+{
+  "capturedAt": "2026-08-26T12:13:07.193Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "External Affairs",
+    "categoryPath": [
+      "Passport Application Related",
+      "Change / Correction in personal particulars",
+      "Others"
+    ],
+    "fields": [
+      {
+        "id": "OfficeName",
+        "name": "OfficeName",
+        "label": "Name of Passport Office /Missions/Posts, abroad",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter Name of Passport Office /Missions/Posts, abroad",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ReferenceNo",
+        "name": "ReferenceNo",
+        "label": "File number / ARN No./ Old Passport No.",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter File number / ARN No./ Old Passport No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Death Compensation not paid while being employed",
+          "Imprisonment due to illegal Stay in foreign country",
+          "Transportation of Mortal remains",
+          "Seafarers",
+          "Whereabouts Unknown",
+          "Passport Application Related",
+          "Delay in issuance Police Clearance Certificate Application",
+          "Delay in Issuance of Surrender Certificate",
+          "Marital Dispute with NRI/PIO",
+          "Student Related (Grievances of indian students abroad)",
+          "NRI/PIO Related issues",
+          "Illegal Agent Related",
+          "Others (Attestation / Apostille / GEP / Indian Community Welfare Fund (ICWF) Related / Pravasi Bharatiya Bima Yojana (PBBY) Related etc.) (Subject not covered under above Categories)"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Tatkaal Passport application",
+          "Postal Issues (Dispatch of Passport)",
+          "Appointment Issues",
+          "Payment Refund Issues",
+          "Deletion of ECR Issues",
+          "Change / Correction in personal particulars",
+          "Delay in Issuance of passport",
+          "Passport Policy issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Change in Applicant's Name",
+          "Change in Applicant's Date of Birth (DOB)",
+          "Change in Applicant's Place of Birth (POB)",
+          "Change in Applicant's Spouse Name",
+          "Change in Applicant's Parents Name",
+          "Change in Applicant's Address",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "AnnexureType",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Mission / Passport Office / Division",
+          "Mission",
+          "Passport Office (RPO)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TUVBUEQ="
+  }
+}

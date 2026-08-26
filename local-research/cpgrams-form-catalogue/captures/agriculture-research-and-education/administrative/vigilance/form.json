@@ -1,0 +1,69 @@
+{
+  "capturedAt": "2026-08-26T07:29:34.681Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Agriculture Research and Education",
+    "categoryPath": [
+      "Administrative",
+      "Vigilance"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative",
+          "Pension",
+          "Scheme and Policy",
+          "Scientific and Technical Matters",
+          "Agriculture Education and Training",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Service and Recruitment",
+          "Salary and Other Entitlements",
+          "Vigilance",
+          "General Admn. Coordination, Publication and Official Language",
+          "Legal"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "DARE, Vice-Chancellors of CAUs",
+          "ICAR (Indian Council of Agricultural Research)",
+          "Central Agricultural Universities - other staff",
+          "ASRB (Agricultural Scientist Recruitment Board)"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9BUkU="
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "capturedAt": "2026-08-26T12:06:12.001Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "Pension Related",
+      "Change of Bank/PDA"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Service Pension Related",
+          "Disability Pension Related",
+          "Family Pension Related (LFP/SFP/Dual FP)",
+          "Invalid Pension",
+          "Reservist Pension",
+          "Revision of Pension/Anomaly in Pension",
+          "Non-receipt of PPO",
+          "Issue of Corrigendum PPO",
+          "Change of Address",
+          "Change of Bank/PDA",
+          "Non-submission of Life Certificate",
+          "Recovery from pension by Banks/PDAs",
+          "Request for payment of Maintenance Allowance",
+          "Other issues",
+          "One Rank One Pension (OROP) Related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Army",
+          "Navy",
+          "Airforce"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

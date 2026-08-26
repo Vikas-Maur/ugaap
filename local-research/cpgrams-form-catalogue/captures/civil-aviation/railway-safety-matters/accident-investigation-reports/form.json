@@ -1,0 +1,132 @@
+{
+  "capturedAt": "2026-08-26T09:40:22.127Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Civil Aviation",
+    "categoryPath": [
+      "Railway Safety Matters",
+      "Accident Investigation/ Reports"
+    ],
+    "fields": [
+      {
+        "id": "DateOfApplication",
+        "name": "DateOfApplication",
+        "label": "Date of application",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Date of application",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "TrainNumberName",
+        "name": "TrainNumberName",
+        "label": "Train number and name",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Train number and name",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "LocationRailwayConcern",
+        "name": "LocationRailwayConcern",
+        "label": "Location and railway concern",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Location and railway concern",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Airlines Related",
+          "Regional scheme",
+          "Employee related service Matters (Incl Ex employees, pensions and HR issues)",
+          "AAIB Related",
+          "Railway Safety Matters",
+          "Passenger Issues for Pawan Hans Helicopter Ltd.",
+          "Aiport Related issues",
+          "University Related Matters",
+          "Tariff and Finance regulation issues",
+          "Passenger harassment",
+          "Other DGCA matters",
+          "Aiport Security matters",
+          "Economic Reguation matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Railways/ Metro related",
+          "Related with CRS (Clearances)/ Technical Matters",
+          "Accident Investigation/ Reports",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "Zone",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Zone of Accident",
+          "Dy. CMRS / O/o CMRS, New Delhi",
+          "Dy. CRS (Eng.) / South Central Circle, Secunderabad",
+          "Dy. CRS (ET) /Western Circle, Mumbai",
+          "Dy. CRS (S&T) / Eastern Circle, Kolkata",
+          "Dy. CRS (S&T) / Northeast Frontier Kolkata",
+          "Dy. CRS / Northeastern Circle, Lucknow",
+          "Dy. CRS / Northern Circle, New Delhi",
+          "Dy. CRS / South Eastern Circle, Kolkata",
+          "Dy. CRS / Southern Circle, Bangalore",
+          "Dy. CRS(M)/TW. Lucknow",
+          "Dy.CRS (ET)/ Central Circle, Mumbai"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9DQVY="
+  }
+}

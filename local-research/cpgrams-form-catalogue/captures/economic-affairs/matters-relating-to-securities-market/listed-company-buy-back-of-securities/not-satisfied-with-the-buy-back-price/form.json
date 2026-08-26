@@ -1,0 +1,110 @@
+{
+  "capturedAt": "2026-08-26T11:50:49.077Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Economic Affairs",
+    "categoryPath": [
+      "Matters relating to Securities Market",
+      "Listed Company- Buy Back of Securities",
+      "Not satisfied with the Buy Back Price"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administration Related",
+          "Vigilance Matters",
+          "Indian Economic Service (IES) Cadre related Matters",
+          "Investment Related Matters",
+          "Small Savings Scheme Agent Related matters",
+          "Investment in Other Bonds",
+          "Foreign Exchange Management Act (FEMA)",
+          "SEBI / SAT administrative matters",
+          "Coin related Matters",
+          "Currency related matters",
+          "SPMCIL (CPSE) related matters",
+          "Miscellaneous Matters",
+          "Matters relating to Small Savings Scheme",
+          "Matters relating to Securities Market"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Stock Broker",
+          "Listed Company- Equity Issue (Dividend/Transfer/Transmission/Duplicate Shares/Bonus Shares etc.)",
+          "Mutual Fund",
+          "Mutual Fund trading on Exchange Platform",
+          "Registrar and Share Transfer Agent",
+          "Depository participant",
+          "Investment Advisors",
+          "Research Analyst",
+          "Exchange",
+          "Depository",
+          "Listed Company- Debt Issue (Interest/Redemption/Transfer/Transmission etc.)",
+          "Debenture Trustee",
+          "Listed Company-IPO/Prelisting/Offer document (shares)",
+          "Listed Company-IPO/Prelisting /Offer Document (Debenture and Bonds)",
+          "Merchant Bankers",
+          "Bankers to the issue",
+          "Listed Company- Buy Back of Securities",
+          "Listed Company-Delisting of securities",
+          "KYC Registration Agency",
+          "Clearing Corporation",
+          "Portfolio Manager",
+          "Venture Capital Fund",
+          "Category 1 Alternative Investment Fund",
+          "Category 2 Alternative Investment Fund",
+          "Category 3 Alternative Investment Fund",
+          "Collective Investment Scheme",
+          "Credit Rating Agencies",
+          "Real Estate Investment Trust",
+          "Infrastructure Investment Trust",
+          "Vault Manager",
+          "Online Bond Platform Provider",
+          "PACL Matters",
+          "Sahara India Real Estate Corporation Ltd.",
+          "Sahara Housing Investment Corporation Ltd.",
+          "Sahara India Commercial Corporation Ltd.",
+          "Market Intelligence input (Price manipulation, Insider Trading, Corporate Governance, Unfair Trade practices, Accounting Manipulation, Minimum Public Shareholding etc.)",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Non-receipt of letter of offer fo Buy Back",
+          "Not satisfied with the Buy Back Price",
+          "Delay/Non-receipt of Buy back consideration",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9FQUY="
+  }
+}

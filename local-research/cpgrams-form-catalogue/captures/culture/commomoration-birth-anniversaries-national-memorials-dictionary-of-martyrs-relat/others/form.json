@@ -1,0 +1,81 @@
+{
+  "capturedAt": "2026-08-26T11:09:12.689Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Culture",
+    "categoryPath": [
+      "Commomoration/ Birth Anniversaries, National Memorials, Dictionary of Martyrs related Matters",
+      "OTHERS"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Archeological survey of india related matters",
+          "Artist Pension Scheme and other Financial Assistance for promotion of Art and Culture",
+          "Schemes of Scholarship and fellowship",
+          "Zonal Cultural Centres",
+          "Buddhist and Tibetan Arts related matters",
+          "AKADEMIES related matters ( National School of Drama, Sahitya Akademi, Sangeet Natak, Manuscipt, Classical Language, etc",
+          "Commomoration/ Birth Anniversaries, National Memorials, Dictionary of Martyrs related Matters",
+          "Development of Libraries",
+          "Archives, Manav Sanghralaya, Asiatic Society, Nehru Memorial, Prime Minister Museum related matters",
+          "Pension related matters of retired employees from main Secretariat of the Ministry",
+          "General Administration related matters",
+          "Museum related matters",
+          "Other Museums related matters eg NCSM, NRLC, VMH",
+          "UNESCO and National Monument Authority related matters",
+          "International Cultural Relation Issues",
+          "Gandhi Heritage Site Mission",
+          "Azadi ka Amrit Mahotsav",
+          "Vigilance related matters"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Scheme for Centenaries Anniversaries Maintenance of National Memorials Jallianwala Bagh National Memorial Trust Dictonary of Martyrs",
+          "OTHERS"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RENMVFI="
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "capturedAt": "2026-08-26T11:12:13.359Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence",
+    "categoryPath": [
+      "Military Hospital",
+      "Administrative matters related to defence civilians under DGAFMS Cadre O/o DGAFMS, AFMC Pune, ALC Pune, AFMSDs(Delhi, Mumbai, Lucknow, Pune), AFTC Delhi Cantt and BTDS Stores Pune, DGMS(Army/Navy/ Air Force)",
+      "Department Promotion Committee(DPC)"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Defence Land and Cantonment Board related",
+          "Border Roads Organization",
+          "Canteen Stores Depot related",
+          "Training and Education related issues in Defence Institutes(NCC/ Rashtriya Military School/ Rashtriya Indian Military College/ Sainik Schools)",
+          "Secretariat Establishment matters",
+          "Military Hospital",
+          "Capital Procurement in Armed Forces related",
+          "Ceremonials ( Independence /Republic Day)",
+          "Vigilance related matters (MES and BRO)",
+          "Employee Services Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Administrative matters related to defence civilians under DGAFMS Cadre O/o DGAFMS, AFMC Pune, ALC Pune, AFMSDs(Delhi, Mumbai, Lucknow, Pune), AFTC Delhi Cantt and BTDS Stores Pune, DGMS(Army/Navy/ Air Force)",
+          "Bills Payment /Payment to the vendors",
+          "Service- related issues",
+          "Non-availability of doctors / staff",
+          "Facilties in the hospitals"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Direct Recruitment",
+          "Department Promotion Committee(DPC)",
+          "Posting",
+          "Compassionate Appointment",
+          "Related to Recruitment Rules",
+          "Pay and Allowances",
+          "Grant of maintenance adjustment of pay and allowances",
+          "Grant of Permanent Commission to Military Nursing Service"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9ERUY="
+  }
+}

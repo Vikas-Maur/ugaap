@@ -1,0 +1,128 @@
+{
+  "capturedAt": "2026-08-26T07:38:07.164Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ayush",
+    "categoryPath": [
+      "Matters relating to the Employees of Ministry of Ayush and its Organizations",
+      "Recruitments"
+    ],
+    "fields": [
+      {
+        "id": "PpoNo",
+        "name": "PpoNo",
+        "label": "PPO No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter PPO No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospital Related",
+          "Ayush Schemes",
+          "College Permission & Admission",
+          "Ayush Education in National Institutes",
+          "Ayush Research",
+          "Ayush Drugs Policy",
+          "Covid- 19",
+          "Matters relating to the Employees of Ministry of Ayush and its Organizations",
+          "Lab & Pharmocopeia",
+          "Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension",
+          "Retirement Dues",
+          "DACP",
+          "MACP",
+          "Promotion",
+          "Delay in Confirmation",
+          "Recruitments",
+          "Contractual Appointment",
+          "Outsourcing Engagement",
+          "Transfers",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "AyushInstitute",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Ayush Institute",
+          "All India Institute of Ayurveda, New Delhi",
+          "Central Council for Research in Ayurvedic Sciences,New Delhi",
+          "Central Council for Research in Homoeopathy,New Delhi",
+          "Central Council for Research in Siddha, Tamil Nadu",
+          "Central Council for Research in Unani Medicine,New Delhi",
+          "Central Council for Research in Yoga & Naturopathy, New Delhi",
+          "Indian Medicine Pharmaceutical Corporation Ltd., Uttrakhand",
+          "Institute for Teaching and Research in Ayurveda, Gujarat",
+          "Ministry of Ayush(HQ)",
+          "Morarji Desai National Institute of Yoga, New Delhi",
+          "National Commission for Homoeopathy, West Bengal",
+          "National Commission for Indian System of Medicine,New Delhi",
+          "National Institute of Ayurveda, Jaipur",
+          "National Institute of Homoeopathy, West Bengal",
+          "National Institute of Naturopathy,Maharashtra",
+          "National Institute of Siddha, Tamil Nadu",
+          "National Institute of Sowa Rigpa, Ladakh",
+          "National Institute of Unani Medicine, Bangalore",
+          "National Medicine Plant Board, New Delhi",
+          "North Eastern Institute of Ayurveda & Folk Medicine Research, Pasighat",
+          "North Eastern Institute of Ayurveda and Homoeopathy, Shillong",
+          "Pharmacopoeia Commission for Indian Medicine & Homoeopathy, Ghaziabad",
+          "Rashtriya Ayurveda Vidyapeeth, New Delhi"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/QVlVU0g="
+  }
+}

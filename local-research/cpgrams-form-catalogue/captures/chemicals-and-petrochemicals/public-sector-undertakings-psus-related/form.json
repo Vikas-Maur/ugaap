@@ -1,0 +1,50 @@
+{
+  "capturedAt": "2026-08-26T09:37:27.914Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Chemicals and Petrochemicals",
+    "categoryPath": [
+      "Public Sector Undertakings (PSUs) related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Chemical Related",
+          "Petrochemical Related",
+          "Public Sector Undertakings (PSUs) related",
+          "Autonomous Bodies (ABs) related",
+          "Bhopal Gas Tragedy related",
+          "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+          "Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "HIL(India) Limited",
+          "Hindustan Organic Chemicals Limited",
+          "Hindustan Fluorocarbons Limited"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9DUEM="
+  }
+}

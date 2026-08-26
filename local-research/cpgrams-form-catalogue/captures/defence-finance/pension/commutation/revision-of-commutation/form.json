@@ -1,0 +1,179 @@
+{
+  "capturedAt": "2026-08-26T11:25:19.397Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Pension",
+      "Commutation",
+      "Revision of Commutation"
+    ],
+    "fields": [
+      {
+        "id": "ArmyNoServNoPersNo",
+        "name": "ArmyNoServNoPersNo",
+        "label": "Army Number/Service No/Personal Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Army Number/Service No/Personal Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RankDesigLastHeld",
+        "name": "RankDesigLastHeld",
+        "label": "Rank/Designation last held",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Rank/Designation last held",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "NameOfLastUnitFormServed",
+        "name": "NameOfLastUnitFormServed",
+        "label": "Name of last unit / formation served",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name of last unit / formation served",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "NameOfPensionPayingBankTreasuryOfficeDPDO",
+        "name": "NameOfPensionPayingBankTreasuryOfficeDPDO",
+        "label": "Name of Pension Paying Bank/Treasury Office/DPDO etc",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name of Pension Paying Bank/Treasury Office/DPDO etc",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "GPFNPSNoPPONo",
+        "name": "GPFNPSNoPPONo",
+        "label": "GPF/NPS Number/PPO No",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter GPF/NPS Number/PPO No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension",
+          "Gratuity",
+          "Commutation",
+          "Fixed Medical Allowance",
+          "Gallantry Awards",
+          "Ex Gratial Lump sum Compensation"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Sanction of Commutation",
+          "Revision of Commutation",
+          "Restoration of Commutation",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "PensionOffice",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Pension Office",
+          "CDA AIR FORCE NEW DELHI",
+          "CDA ARMY MEERUT",
+          "CDA BR GUWAHATI",
+          "CDA CHENNAI",
+          "CDA CSD",
+          "CDA FUNDS",
+          "CDA GUWAHATI",
+          "CDA JABALPUR",
+          "CDA PATNA",
+          "CDA PD MEERUT",
+          "CDA R&D BANGALORE",
+          "PCA FACTORY KOLKATA",
+          "PCDA AIR FORCE DEHRADUN",
+          "PCDA BENGALORE",
+          "PCDA BR DELHI CANTT",
+          "PCDA CC LUCKNOW",
+          "PCDA G BLOCK",
+          "PCDA NAVY MUMBAI",
+          "PCDA NC JAMMU",
+          "PCDA OFFICERS PUNE",
+          "PCDA PENSION Prayagraj",
+          "PCDA R&D NEW DELHI",
+          "PCDA SC PUNE",
+          "PCDA SWC JAIPUR",
+          "PCDA WC CHANDIGARH"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

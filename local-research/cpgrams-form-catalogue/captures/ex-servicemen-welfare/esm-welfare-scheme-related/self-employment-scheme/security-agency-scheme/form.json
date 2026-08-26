@@ -1,0 +1,108 @@
+{
+  "capturedAt": "2026-08-26T12:08:44.044Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Ex Servicemen Welfare",
+    "categoryPath": [
+      "ESM Welfare Scheme Related",
+      "Self Employment Scheme",
+      "Security Agency Scheme"
+    ],
+    "fields": [
+      {
+        "id": "EsmId",
+        "name": "EsmId",
+        "label": "ESM ID No/ Dependent ID No/ ESM Company Registration ID",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter ESM ID No/ Dependent ID No/ ESM Company Registration ID",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Pension Related",
+          "Employee Services Related",
+          "Policy Matter",
+          "Resettlement Issues",
+          "ESM Welfare Scheme Related",
+          "Misbehaviour/Harassment/Corruption"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "ECHS Related",
+          "Grant of Financial Assistance",
+          "Penury Grant",
+          "PM Scholarship Scheme",
+          "Self Employment Scheme",
+          "Welfare Scheme of Kendriya Sainik Board",
+          "Other Schemes"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Ex-Servicemen (ESM) Coal Loading and Transportation Scheme",
+          "Coal Tipper Attachment Scheme for Widows and Disabled ESM",
+          "Issue of Eligibility Certificate for Allotment of Oil Product Agencies under 8% Quota Scheme",
+          "Management of Company Owned Company Operated (COCO) Outlets",
+          "Allotment of Mother Dairy Milk Booths and Fruit and Vegetable (Safal) Shops",
+          "Management of CNG station by ESM (Officers) in NCR",
+          "Issue of Eligibility Certificate for Allotment of regular LPG distributorship",
+          "Issue of Eligibility Certificate for Allotment of Retail Outlet (Petrol & Diesel)",
+          "Security Agency Scheme",
+          "Scheme for providing Technical Services"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RERFU1c="
+  }
+}

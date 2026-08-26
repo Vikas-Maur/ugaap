@@ -1,0 +1,56 @@
+{
+  "capturedAt": "2026-08-26T11:43:02.096Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Economic Affairs",
+    "categoryPath": [
+      "SEBI / SAT administrative matters"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administration Related",
+          "Vigilance Matters",
+          "Indian Economic Service (IES) Cadre related Matters",
+          "Investment Related Matters",
+          "Small Savings Scheme Agent Related matters",
+          "Investment in Other Bonds",
+          "Foreign Exchange Management Act (FEMA)",
+          "SEBI / SAT administrative matters",
+          "Coin related Matters",
+          "Currency related matters",
+          "SPMCIL (CPSE) related matters",
+          "Miscellaneous Matters",
+          "Matters relating to Small Savings Scheme",
+          "Matters relating to Securities Market"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Appointment of SEBI/SAT Board/Bench Member",
+          "Complaint against Board/Bench Member of SEBI/SAT"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9FQUY="
+  }
+}

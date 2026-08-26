@@ -1,0 +1,101 @@
+{
+  "capturedAt": "2026-08-26T07:17:07.903Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Health & Family Welfare",
+    "categoryPath": [
+      "Hospitals",
+      "Safdarjung Hospital",
+      "Patient Care"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Hospitals",
+          "Medicines",
+          "CGHS Health Centres",
+          "Medical Education",
+          "Financial Assistance for Medical Treatment",
+          "Health Schemes",
+          "Public Health",
+          "Food Regulation",
+          "Online Health Services",
+          "Policy Matters",
+          "MoHFW Employee Related",
+          "Other",
+          "Private Insurance"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "AIIMS",
+          "RML Hospital",
+          "Safdarjung Hospital",
+          "LHMC & Smt. S.K. Hospital",
+          "KalavatiSaran Hospital",
+          "Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry",
+          "Postgraduate Institute of Medical Education and Research, Chandigarh",
+          "North East Institutions",
+          "Other Hospitals"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Patient Care",
+          "Recruitment Related",
+          "Pension Related",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Deficiency in treatments",
+          "Misbehaviour by staff",
+          "Lack of facilities in OPD",
+          "Long waiting period",
+          "Non-availability of beds",
+          "Non-availability of medical equipment",
+          "Other"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REhMVEg%3d"
+  }
+}

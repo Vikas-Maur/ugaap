@@ -1,0 +1,67 @@
+{
+  "capturedAt": "2026-08-26T09:38:15.354Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Chemicals and Petrochemicals",
+    "categoryPath": [
+      "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+      "Employee related"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Chemical Related",
+          "Petrochemical Related",
+          "Public Sector Undertakings (PSUs) related",
+          "Autonomous Bodies (ABs) related",
+          "Bhopal Gas Tragedy related",
+          "Adminstration related matters pertaining to Department of Chemicals and Petrochemicals",
+          "Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Employee related",
+          "COVID Related"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension / pay related issues",
+          "Corruption related",
+          "Recruitment Related",
+          "Harrasment/atrocities related"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9DUEM="
+  }
+}

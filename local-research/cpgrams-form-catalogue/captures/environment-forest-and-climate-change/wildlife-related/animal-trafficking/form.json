@@ -1,0 +1,84 @@
+{
+  "capturedAt": "2026-08-26T12:04:31.372Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Environment, Forest and Climate Change",
+    "categoryPath": [
+      "Wildlife related",
+      "Animal trafficking"
+    ],
+    "fields": [
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Administrative and service matter related",
+          "Environment related",
+          "Forest and trees related",
+          "Forest Research and Training related",
+          "Indian Forest Service (IFS) related",
+          "National Afforestation and Eco- Development Board (NAEB) related",
+          "Wildlife related",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Wildlife Crime Control Bureau",
+          "Regional Offices",
+          "Zoo related",
+          "National Tiger Conservation Authority (NTCA)",
+          "Project Elephant (PE)",
+          "Protecting animals",
+          "Animal trafficking",
+          "Critical Wildlife Habitats",
+          "Projects Coalition against Wildlife Trafficking (CAWT)",
+          "Administrative and functional issues related to WCCB, CZA, National Zoological Park, PNHZP and Wildlife Institute of India",
+          "IUCN",
+          "Transboundary Issues",
+          "Wildlife Awards",
+          "Human-Wildlife conflict",
+          "Convention on International Trade in Endangered Species of wild fauna and flora (CITES) and EXIM Policy"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/TU9FQUY="
+  }
+}

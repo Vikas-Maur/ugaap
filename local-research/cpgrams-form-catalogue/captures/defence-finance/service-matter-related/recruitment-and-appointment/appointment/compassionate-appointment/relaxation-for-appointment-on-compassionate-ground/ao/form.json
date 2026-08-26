@@ -1,0 +1,221 @@
+{
+  "capturedAt": "2026-08-26T11:25:59.351Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Defence Finance",
+    "categoryPath": [
+      "Service Matter Related",
+      "Recruitment and Appointment",
+      "Appointment",
+      "Compassionate appointment",
+      "Relaxation for appointment on compassionate ground",
+      "AO"
+    ],
+    "fields": [
+      {
+        "id": "ServAccountNo",
+        "name": "ServAccountNo",
+        "label": "Service/Account Number",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Service/Account Number",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "RollNo",
+        "name": "RollNo",
+        "label": "Roll number of the competitive examination",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Roll number of the competitive examination",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PlaceOfPostingNameOfOfficeStation",
+        "name": "PlaceOfPostingNameOfOfficeStation",
+        "label": "Place of posting/Name of office and station",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Place of posting/Name of office and station",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PostHeldInGovDept",
+        "name": "PostHeldInGovDept",
+        "label": "Post held in the Government Department",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Post held in the Government Department",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Technical Issue Related",
+          "GeM- Payment Related",
+          "Pay & Allowance",
+          "Pension",
+          "Service Matter Related",
+          "Miscellaneous Issues"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Recruitment and Appointment",
+          "Transfer/Posting",
+          "Deputation- Transfer on deputation to other organization",
+          "Others"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Appointment",
+          "Other",
+          "Direct Recruitment"
+        ]
+      },
+      {
+        "id": "Category_5",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Casual labor regularization",
+          "Compassionate appointment"
+        ]
+      },
+      {
+        "id": "Category_6",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Relaxation for appointment on compassionate ground",
+          "Other matters of Compassionate Appointment"
+        ]
+      },
+      {
+        "id": "Category_7",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "IDS",
+          "AO",
+          "Sr. AO",
+          "AAO",
+          "Others"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CDAPCDA",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a CDA-PCDA",
+          "CDA(Army), Meerut",
+          "CDA (IDS)",
+          "CDA Air Force New Delhi",
+          "CDA Chennai",
+          "CDA CSD Mumbai",
+          "CDA funds Meerut",
+          "CDA GUWAHATI",
+          "CDA PATNA",
+          "CDA PD Meerut",
+          "CDA R and D Banglore",
+          "CDA R and D Hyderabad",
+          "CDA Training Pune",
+          "CDA(Navy/Coast Guard)",
+          "CDA, JABALPUR",
+          "CDA, Secunderabad",
+          "PCA FYS Kolkata",
+          "PCDA (CC), LUCKNOW",
+          "PCDA (WC) Chandigarh",
+          "PCDA AF Dehradun",
+          "PCDA New Delhi",
+          "PCDA O Pune",
+          "PCDA R and D New Delhi",
+          "PCDA SWC Jaipur",
+          "PCDA(Navy)",
+          "PCDA(NC) Jammu",
+          "PR. CDA PENSION Allahabad",
+          "Pr.CDA Bengaluru",
+          "Principal CDA (BR)",
+          "Principal CDA (SC), Pune"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RkFEU1M="
+  }
+}

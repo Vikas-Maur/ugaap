@@ -1,0 +1,74 @@
+{
+  "capturedAt": "2026-08-26T07:23:53.993Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Financial Services (Insurance Division)",
+    "categoryPath": [
+      "Life Insurance Claim Related",
+      "Annuity/Pension Payments"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Agricultural Insurance",
+          "Life Insurance Claim Related",
+          "General Insurance Claim Related",
+          "Customer Service Related",
+          "Government Schemes Related",
+          "Administrative Matters",
+          "Misbehaviour/Corruption/Harassment",
+          "Misselling",
+          "Private insurance Companies"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Annuity/Pension Payments",
+          "Survival benefit/Maturity Claim",
+          "Death Claim",
+          "Loan/Surrender",
+          "Other claim related matters"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Delay in Annuity payment",
+          "Discrepancy in annuity amount",
+          "Commutation amount not paid",
+          "Surrender of policy",
+          "Life Certificate related",
+          "Others"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/REVBSUQ%3d"
+  }
+}

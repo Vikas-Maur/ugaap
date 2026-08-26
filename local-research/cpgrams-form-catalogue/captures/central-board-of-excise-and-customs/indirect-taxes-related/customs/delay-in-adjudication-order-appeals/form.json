@@ -1,0 +1,167 @@
+{
+  "capturedAt": "2026-08-26T09:34:53.333Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Indirect Taxes Related",
+      "Customs",
+      "Delay in Adjudication Order / Appeals"
+    ],
+    "fields": [
+      {
+        "id": "State",
+        "name": "State",
+        "label": "State",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter State",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Jurisdiction",
+        "name": "Jurisdiction",
+        "label": "Jurisdiction of the complainant (Zone)",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Jurisdiction of the complainant (Zone)",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PortCode",
+        "name": "PortCode",
+        "label": "Port Code",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Port Code",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "IECCode",
+        "name": "IECCode",
+        "label": "IEC Code",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter IEC Code",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BeSbNo",
+        "name": "BeSbNo",
+        "label": "BE/ SB No",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter BE/ SB No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Central Goods and Service Tax, Central Excise, Service Tax",
+          "Customs",
+          "Systems/Portal Related Issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Incorrect custom duty levied",
+          "Live Consignemnts Import / Export",
+          "Customs Refund/IGST/Drawback",
+          "Surcharges and Cesses",
+          "Passanger Baggage / Transfer of Resident",
+          "Delay in Adjudication Order / Appeals",
+          "Reward",
+          "Alert on Exporter / Importer",
+          "Central Revenues Control Laboratories issues",
+          "Electronic Data Interface (EDI) related issues"
+        ]
+      },
+      {
+        "id": "ddl",
+        "name": "CbicRegion",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select a Region",
+          "Chief Commissioner of Customs (Ahmedabad Zone)",
+          "Chief Commissioner of Customs (Bangalore Zone)",
+          "Chief Commissioner of Customs (Chennai Zone)",
+          "Chief Commissioner of Customs (Delhi Zone)",
+          "Chief Commissioner of Customs (Kolkata Zone)",
+          "Chief Commissioner of Customs (Mumbai Zone-I)",
+          "Chief Commissioner of Customs (Mumbai Zone-II)",
+          "Chief Commissioner Customs (Preventive) Thiruchirapalli Zone",
+          "Chief Comm. of Customs (Mumbai Zone-III)",
+          "Chief Commissioner of Customs (Preventive), Delhi",
+          "Chief Comm. of Customs(Prev.), Patna"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

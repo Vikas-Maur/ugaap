@@ -1,0 +1,89 @@
+{
+  "capturedAt": "2026-08-26T12:10:54.546Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Expenditure",
+    "categoryPath": [
+      "Pension/ Retirement",
+      "CGHS/CS-MA"
+    ],
+    "fields": [
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Allowance",
+          "Salary and allowance revision",
+          "Pay related Matters",
+          "Pension/ Retirement",
+          "Indian Cost Account Service",
+          "Payment",
+          "Indian Civil Accounts Service",
+          "Pay Upgradation",
+          "Creation of posts",
+          "Cadre Review",
+          "Policy matters of Expenses",
+          "Administrative matters",
+          "Government Rules",
+          "Procurement",
+          "Funds to Schemes",
+          "Finance Commission",
+          "Other Miscellaneous"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Pension to retired employees",
+          "Pension to super senior retired employees",
+          "Family pension",
+          "Fixed medical Allowance",
+          "Issuance of PPO",
+          "National Pension System",
+          "Employee Pension Scheme, 1995",
+          "Retiral Benefits of Central Government Defence Pensioners",
+          "CGHS/CS-MA",
+          "Grant of OPS in place of NPS in case of CABs",
+          "CGEGIS",
+          "Gratuity",
+          "GPF/CPF",
+          "CCS(Pension) Rules",
+          "Age of retirement",
+          "Old Pension Scheme and other Retiral Benefits of CABs"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Central Government",
+          "Central Autonomous Bodies (CABs)"
+        ]
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9FWFA="
+  }
+}

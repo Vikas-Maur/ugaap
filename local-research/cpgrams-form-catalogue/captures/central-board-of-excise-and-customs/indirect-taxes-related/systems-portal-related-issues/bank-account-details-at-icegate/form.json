@@ -1,0 +1,231 @@
+{
+  "capturedAt": "2026-08-26T09:35:02.774Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Central Board of Excise and Customs",
+    "categoryPath": [
+      "Indirect Taxes Related",
+      "Systems/Portal Related Issues",
+      "Bank Account details at ICEGATE"
+    ],
+    "fields": [
+      {
+        "id": "IcegateId",
+        "name": "IcegateId",
+        "label": "Icegate Id",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Icegate Id",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "IECCode",
+        "name": "IECCode",
+        "label": "IEC Code",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter IEC Code",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "EmailId",
+        "name": "EmailId",
+        "label": "Registered Email Id",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Registered Email Id",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AdCode",
+        "name": "AdCode",
+        "label": "AD Code No",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter AD Code No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "AdCodeDate",
+        "name": "AdCodeDate",
+        "label": "AD Code Date",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter AD Code Date",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Location",
+        "name": "Location",
+        "label": "Location",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Location",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BankName",
+        "name": "BankName",
+        "label": "Bank Name",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Bank Name",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BankAccountNo",
+        "name": "BankAccountNo",
+        "label": "Bank Account No",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Bank Account No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "IFSCCode",
+        "name": "IFSCCode",
+        "label": "IFSC Code",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter IFSC Code",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "BeNoAndDate",
+        "name": "BeNoAndDate",
+        "label": "BE No. and Date",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter BE No. and Date",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "LocationCode",
+        "name": "LocationCode",
+        "label": "Location Code",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Location Code",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ChallanNo",
+        "name": "ChallanNo",
+        "label": "Challan No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Challan No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "PANNo",
+        "name": "PANNo",
+        "label": "PAN No.",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter PAN No.",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "Indirect Taxes Related",
+          "Employee Service Related",
+          "Pension Related",
+          "Misbehaviour/Corruption/Harassment",
+          "Information/Clarification / Policy Related"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Central Goods and Service Tax, Central Excise, Service Tax",
+          "Customs",
+          "Systems/Portal Related Issues"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Bank Account details at ICEGATE",
+          "Portal/Technical Issue",
+          "DGFT - License issues at ICEGATE",
+          "Payment at ICEGATE",
+          "Exports/Imports related issues at ICEGATE",
+          "GSTN/GSTIN related Issues at ICEGATE",
+          "IGST Refund /Drawback issues related to ICEGATE",
+          "RBI – IDPMS & EDPMS Issues at ICEGATE",
+          "User Registration at ICEGATE",
+          "SCMTR issues at ICEGATE",
+          "Registration",
+          "Refund",
+          "Appeals",
+          "E-Way Bill",
+          "Non-Receipt of Order for Acceptance/ Rejection of application for deferred payment/ payment in installments (DRC-21) even after generation of the same in the system.",
+          "Unable to view documents attached to notice/ order etc even after generation of the same in the system.",
+          "Data Mismatch Between CBIC and CBDT",
+          "PFMS (Public Financial Management System)"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/Q0JPRUM="
+  }
+}

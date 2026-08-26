@@ -1,0 +1,153 @@
+{
+  "capturedAt": "2026-08-26T06:59:17.626Z",
+  "differences": null,
+  "snapshot": {
+    "authority": "Housing and Urban Affairs",
+    "categoryPath": [
+      "DMRC (Delhi Metro Rail Corporation)",
+      "Project related grievances",
+      "Civil Project related query"
+    ],
+    "fields": [
+      {
+        "id": "ProjectNumber",
+        "name": "ProjectNumber",
+        "label": "Name of project",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name of project",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ContractNo",
+        "name": "ContractNo",
+        "label": "Contract No",
+        "kind": "text",
+        "required": false,
+        "placeholder": "Please Enter  Contract No",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "ContractorName",
+        "name": "ContractorName",
+        "label": "Name of contractor",
+        "kind": "text",
+        "required": true,
+        "placeholder": "Please Enter Name of contractor",
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "fileUpload",
+        "name": "fileUpload",
+        "label": null,
+        "kind": "file",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null
+      },
+      {
+        "id": "Category_2",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": false,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Please select main category",
+          "DDA (Delhi Development Authority)",
+          "Directorate of Estates",
+          "Principal Accounts Office",
+          "TCPO (Town and Country Planning Organisation)",
+          "NCRPB (National Capital Region Planning Board)",
+          "HPL (Hindustan Prefab Ltd.)",
+          "HUDCO (Housing and Urban Development Corporation)",
+          "NBO (National Buildings Organisation)",
+          "NCHFI (National Cooperative Housing Federation of India)",
+          "CGEWHO (Central Government Employee Welfare Housing Organisation)",
+          "NCRTC (National Capital Region Transport Corporation Ltd)",
+          "DUAC (Delhi Urban Arts Commission)",
+          "BMTPC (Building Materials & Technology Promotion Council )",
+          "Rajghat Samadhi Committee",
+          "GISO (Government of India Stationery Office)",
+          "NIUA (National Institute of Urban Affairs)",
+          "Department of Publication",
+          "DMRC (Delhi Metro Rail Corporation)",
+          "Schemes, Programs & Other Divisions under MoHUA",
+          "Directorate of Printing",
+          "NBCC",
+          "L&DO",
+          "CPWD",
+          "Delhi Division"
+        ]
+      },
+      {
+        "id": "Category_3",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Project related grievances",
+          "Operation related grievances",
+          "Human resources related grievances",
+          "Vigilance related grievances",
+          "Material Procurement, Store related grivences",
+          "All DMRC legal related query",
+          "Public relation related grievances",
+          "Other"
+        ]
+      },
+      {
+        "id": "Category_4",
+        "name": "Category",
+        "label": null,
+        "kind": "select",
+        "required": true,
+        "placeholder": null,
+        "maximumLength": null,
+        "pattern": null,
+        "options": [
+          "Select next level category",
+          "Civil Project related query",
+          "Architectural issues of DMRC",
+          "Connectivity of metro stations to Public Transport & shopping centres by FOB/Underpass",
+          "Encrochment of land, Resettlement & Rehabilitation issues, Land issues, Tree cutting",
+          "Metro lines connectivity, DPR Provision,",
+          "Metro Network & approval of Metro corridors, Extension of Metro Corridors,",
+          "CMRS(Commissioner of Metro Rail Safety) related issues",
+          "Metro Consultancy Services",
+          "New Metro corridor provision, Metro Lite",
+          "Compensation for affected properties in metro construction",
+          "Environmental issues and C&D waste disposal",
+          "Opening of Metro Line, Status of work of any Metro Line",
+          "Station naming-renaming",
+          "Property and Development related issue, Sarita vihar DDA land related",
+          "Contracts/Tenders/NOC Related query",
+          "Any other project related issue"
+        ]
+      },
+      {
+        "id": "Remarks",
+        "name": "Remarks",
+        "label": "Text of grievance (Remarks)",
+        "kind": "textarea",
+        "required": true,
+        "placeholder": "Please Enter Text of Grievance (Remarks)",
+        "maximumLength": "2000",
+        "pattern": null
+      }
+    ],
+    "heading": null,
+    "pathname": "/V7/NewGrievance/Index/RE9VUkQ%3d"
+  }
+}

@@ -1,0 +1,1928 @@
+{
+  "authority": {
+    "id": "authority-earth-sciences",
+    "name": "Earth Sciences",
+    "slug": "earth-sciences"
+  },
+  "categories": [
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [
+        "category-earth-sciences-atmospheric-climate-science-and-services-across-agromet-advisory",
+        "category-earth-sciences-atmospheric-climate-science-and-services-across-air-quality-early-warning",
+        "category-earth-sciences-atmospheric-climate-science-and-services-across-weather-forecast"
+      ],
+      "formCapable": false,
+      "id": "category-earth-sciences-atmospheric-climate-science-and-services-across",
+      "name": "Atmospheric, Climate Science and Services (ACROSS)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Agromet Advisory",
+        "Weather Forecast",
+        "Air Quality (early warning)"
+      ],
+      "parentId": null,
+      "path": [
+        "Atmospheric, Climate Science and Services (ACROSS)"
+      ],
+      "slug": "atmospheric-climate-science-and-services-across",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-atmospheric-climate-science-and-services-across-agromet-advisory",
+      "id": "category-earth-sciences-atmospheric-climate-science-and-services-across-agromet-advisory",
+      "name": "Agromet Advisory",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Agromet Advisory",
+        "Weather Forecast",
+        "Air Quality (early warning)"
+      ],
+      "parentId": "category-earth-sciences-atmospheric-climate-science-and-services-across",
+      "path": [
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Agromet Advisory"
+      ],
+      "slug": "agromet-advisory",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/agromet-advisory/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-atmospheric-climate-science-and-services-across-air-quality-early-warning",
+      "id": "category-earth-sciences-atmospheric-climate-science-and-services-across-air-quality-early-warning",
+      "name": "Air Quality (early warning)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Agromet Advisory",
+        "Weather Forecast",
+        "Air Quality (early warning)"
+      ],
+      "parentId": "category-earth-sciences-atmospheric-climate-science-and-services-across",
+      "path": [
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Air Quality (early warning)"
+      ],
+      "slug": "air-quality-early-warning",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/air-quality-early-warning/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-atmospheric-climate-science-and-services-across-weather-forecast",
+      "id": "category-earth-sciences-atmospheric-climate-science-and-services-across-weather-forecast",
+      "name": "Weather Forecast",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Agromet Advisory",
+        "Weather Forecast",
+        "Air Quality (early warning)"
+      ],
+      "parentId": "category-earth-sciences-atmospheric-climate-science-and-services-across",
+      "path": [
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Weather Forecast"
+      ],
+      "slug": "weather-forecast",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/weather-forecast/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-cmlre-centre-for-marine-living-resources-and-ecology",
+      "id": "category-earth-sciences-cmlre-centre-for-marine-living-resources-and-ecology",
+      "name": "CMLRE (Centre for Marine Living Resources and Ecology)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "CMLRE (Centre for Marine Living Resources and Ecology)"
+      ],
+      "slug": "cmlre-centre-for-marine-living-resources-and-ecology",
+      "sourcePath": "earth-sciences/cmlre-centre-for-marine-living-resources-and-ecology/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-deep-ocean-mission-dom",
+      "id": "category-earth-sciences-deep-ocean-mission-dom",
+      "name": "Deep Ocean Mission (DOM)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "Deep Ocean Mission (DOM)"
+      ],
+      "slug": "deep-ocean-mission-dom",
+      "sourcePath": "earth-sciences/deep-ocean-mission-dom/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [
+        "category-earth-sciences-employee-related-moes-others",
+        "category-earth-sciences-employee-related-moes-pension",
+        "category-earth-sciences-employee-related-moes-recruitment",
+        "category-earth-sciences-employee-related-moes-retirement-benefits-related"
+      ],
+      "formCapable": false,
+      "id": "category-earth-sciences-employee-related-moes",
+      "name": "Employee related (MoES)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Recruitment",
+        "Pension",
+        "Others",
+        "Retirement Benefits Related"
+      ],
+      "parentId": null,
+      "path": [
+        "Employee related (MoES)"
+      ],
+      "slug": "employee-related-moes",
+      "sourcePath": "earth-sciences/employee-related-moes/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-employee-related-moes-others",
+      "id": "category-earth-sciences-employee-related-moes-others",
+      "name": "Others",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Recruitment",
+        "Pension",
+        "Others",
+        "Retirement Benefits Related"
+      ],
+      "parentId": "category-earth-sciences-employee-related-moes",
+      "path": [
+        "Employee related (MoES)",
+        "Others"
+      ],
+      "slug": "others",
+      "sourcePath": "earth-sciences/employee-related-moes/others/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-employee-related-moes-pension",
+      "id": "category-earth-sciences-employee-related-moes-pension",
+      "name": "Pension",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Recruitment",
+        "Pension",
+        "Others",
+        "Retirement Benefits Related"
+      ],
+      "parentId": "category-earth-sciences-employee-related-moes",
+      "path": [
+        "Employee related (MoES)",
+        "Pension"
+      ],
+      "slug": "pension",
+      "sourcePath": "earth-sciences/employee-related-moes/pension/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-employee-related-moes-recruitment",
+      "id": "category-earth-sciences-employee-related-moes-recruitment",
+      "name": "Recruitment",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Recruitment",
+        "Pension",
+        "Others",
+        "Retirement Benefits Related"
+      ],
+      "parentId": "category-earth-sciences-employee-related-moes",
+      "path": [
+        "Employee related (MoES)",
+        "Recruitment"
+      ],
+      "slug": "recruitment",
+      "sourcePath": "earth-sciences/employee-related-moes/recruitment/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-employee-related-moes-retirement-benefits-related",
+      "id": "category-earth-sciences-employee-related-moes-retirement-benefits-related",
+      "name": "Retirement Benefits Related",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Recruitment",
+        "Pension",
+        "Others",
+        "Retirement Benefits Related"
+      ],
+      "parentId": "category-earth-sciences-employee-related-moes",
+      "path": [
+        "Employee related (MoES)",
+        "Retirement Benefits Related"
+      ],
+      "slug": "retirement-benefits-related",
+      "sourcePath": "earth-sciences/employee-related-moes/retirement-benefits-related/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-iitm-indian-institute-of-tropical-meteorology",
+      "id": "category-earth-sciences-iitm-indian-institute-of-tropical-meteorology",
+      "name": "IITM (Indian Institute of Tropical Meteorology)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "IITM (Indian Institute of Tropical Meteorology)"
+      ],
+      "slug": "iitm-indian-institute-of-tropical-meteorology",
+      "sourcePath": "earth-sciences/iitm-indian-institute-of-tropical-meteorology/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-imd-india-meteorological-department",
+      "id": "category-earth-sciences-imd-india-meteorological-department",
+      "name": "IMD (India Meteorological Department)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "IMD (India Meteorological Department)"
+      ],
+      "slug": "imd-india-meteorological-department",
+      "sourcePath": "earth-sciences/imd-india-meteorological-department/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-incois-indian-national-centre-for-ocean-information-services",
+      "id": "category-earth-sciences-incois-indian-national-centre-for-ocean-information-services",
+      "name": "INCOIS (Indian National Centre for Ocean Information Services)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "INCOIS (Indian National Centre for Ocean Information Services)"
+      ],
+      "slug": "incois-indian-national-centre-for-ocean-information-services",
+      "sourcePath": "earth-sciences/incois-indian-national-centre-for-ocean-information-services/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-ncess-national-centre-for-earth-science-studies",
+      "id": "category-earth-sciences-ncess-national-centre-for-earth-science-studies",
+      "name": "NCESS (National Centre for Earth Science Studies)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "NCESS (National Centre for Earth Science Studies)"
+      ],
+      "slug": "ncess-national-centre-for-earth-science-studies",
+      "sourcePath": "earth-sciences/ncess-national-centre-for-earth-science-studies/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-ncmrwf-national-centre-for-medium-range-forecasting",
+      "id": "category-earth-sciences-ncmrwf-national-centre-for-medium-range-forecasting",
+      "name": "NCMRWF (National Centre for Medium Range Forecasting)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "NCMRWF (National Centre for Medium Range Forecasting)"
+      ],
+      "slug": "ncmrwf-national-centre-for-medium-range-forecasting",
+      "sourcePath": "earth-sciences/ncmrwf-national-centre-for-medium-range-forecasting/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-ncpor-national-centre-for-polar-and-ocean-research",
+      "id": "category-earth-sciences-ncpor-national-centre-for-polar-and-ocean-research",
+      "name": "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)"
+      ],
+      "slug": "ncpor-national-centre-for-polar-and-ocean-research",
+      "sourcePath": "earth-sciences/ncpor-national-centre-for-polar-and-ocean-research/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-ncs-national-center-for-seismology",
+      "id": "category-earth-sciences-ncs-national-center-for-seismology",
+      "name": "NCS (National Center for Seismology)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "NCS (National Center for Seismology)"
+      ],
+      "slug": "ncs-national-center-for-seismology",
+      "sourcePath": "earth-sciences/ncs-national-center-for-seismology/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-niot-national-institute-of-ocean-technology",
+      "id": "category-earth-sciences-niot-national-institute-of-ocean-technology",
+      "name": "NIOT (National Institute of Ocean Technology)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "NIOT (National Institute of Ocean Technology)"
+      ],
+      "slug": "niot-national-institute-of-ocean-technology",
+      "sourcePath": "earth-sciences/niot-national-institute-of-ocean-technology/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [
+        "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-observation",
+        "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-services",
+        "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-technology"
+      ],
+      "formCapable": false,
+      "id": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
+      "name": "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Ocean Technology",
+        "Ocean services",
+        "Ocean Observation"
+      ],
+      "parentId": null,
+      "path": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology"
+      ],
+      "slug": "osmart-ocean-services-modelling-application-resources-and-technology",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-observation",
+      "id": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-observation",
+      "name": "Ocean Observation",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Ocean Technology",
+        "Ocean services",
+        "Ocean Observation"
+      ],
+      "parentId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
+      "path": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Ocean Observation"
+      ],
+      "slug": "ocean-observation",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/ocean-observation/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-services",
+      "id": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-services",
+      "name": "Ocean services",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Ocean Technology",
+        "Ocean services",
+        "Ocean Observation"
+      ],
+      "parentId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
+      "path": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Ocean services"
+      ],
+      "slug": "ocean-services",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/ocean-services/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-technology",
+      "id": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-technology",
+      "name": "Ocean Technology",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Ocean Technology",
+        "Ocean services",
+        "Ocean Observation"
+      ],
+      "parentId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
+      "path": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Ocean Technology"
+      ],
+      "slug": "ocean-technology",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/ocean-technology/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-others-moes",
+      "id": "category-earth-sciences-others-moes",
+      "name": "Others (MoES)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "Others (MoES)"
+      ],
+      "slug": "others-moes",
+      "sourcePath": "earth-sciences/others-moes/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-polar-expedition-pacer",
+      "id": "category-earth-sciences-polar-expedition-pacer",
+      "name": "Polar expedition (PACER)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)"
+      ],
+      "parentId": null,
+      "path": [
+        "Polar expedition (PACER)"
+      ],
+      "slug": "polar-expedition-pacer",
+      "sourcePath": "earth-sciences/polar-expedition-pacer/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [
+        "category-earth-sciences-research-education-training-and-outreach-reachout-extra-mural-funding",
+        "category-earth-sciences-research-education-training-and-outreach-reachout-outreach-awareness"
+      ],
+      "formCapable": false,
+      "id": "category-earth-sciences-research-education-training-and-outreach-reachout",
+      "name": "Research, Education, Training and Outreach (REACHOUT)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Extra Mural funding",
+        "Outreach awareness"
+      ],
+      "parentId": null,
+      "path": [
+        "Research, Education, Training and Outreach (REACHOUT)"
+      ],
+      "slug": "research-education-training-and-outreach-reachout",
+      "sourcePath": "earth-sciences/research-education-training-and-outreach-reachout/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-research-education-training-and-outreach-reachout-extra-mural-funding",
+      "id": "category-earth-sciences-research-education-training-and-outreach-reachout-extra-mural-funding",
+      "name": "Extra Mural funding",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Extra Mural funding",
+        "Outreach awareness"
+      ],
+      "parentId": "category-earth-sciences-research-education-training-and-outreach-reachout",
+      "path": [
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "Extra Mural funding"
+      ],
+      "slug": "extra-mural-funding",
+      "sourcePath": "earth-sciences/research-education-training-and-outreach-reachout/extra-mural-funding/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-research-education-training-and-outreach-reachout-outreach-awareness",
+      "id": "category-earth-sciences-research-education-training-and-outreach-reachout-outreach-awareness",
+      "name": "Outreach awareness",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Extra Mural funding",
+        "Outreach awareness"
+      ],
+      "parentId": "category-earth-sciences-research-education-training-and-outreach-reachout",
+      "path": [
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "Outreach awareness"
+      ],
+      "slug": "outreach-awareness",
+      "sourcePath": "earth-sciences/research-education-training-and-outreach-reachout/outreach-awareness/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [
+        "category-earth-sciences-sage-seismology-and-geosciences-earthquake-monitoring",
+        "category-earth-sciences-sage-seismology-and-geosciences-seismic-hazard-assessment"
+      ],
+      "formCapable": false,
+      "id": "category-earth-sciences-sage-seismology-and-geosciences",
+      "name": "SAGE (Seismology and Geosciences)",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Earthquake monitoring",
+        "Seismic hazard assessment"
+      ],
+      "parentId": null,
+      "path": [
+        "SAGE (Seismology and Geosciences)"
+      ],
+      "slug": "sage-seismology-and-geosciences",
+      "sourcePath": "earth-sciences/sage-seismology-and-geosciences/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-sage-seismology-and-geosciences-earthquake-monitoring",
+      "id": "category-earth-sciences-sage-seismology-and-geosciences-earthquake-monitoring",
+      "name": "Earthquake monitoring",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Earthquake monitoring",
+        "Seismic hazard assessment"
+      ],
+      "parentId": "category-earth-sciences-sage-seismology-and-geosciences",
+      "path": [
+        "SAGE (Seismology and Geosciences)",
+        "Earthquake monitoring"
+      ],
+      "slug": "earthquake-monitoring",
+      "sourcePath": "earth-sciences/sage-seismology-and-geosciences/earthquake-monitoring/form.json"
+    },
+    {
+      "authorityId": "authority-earth-sciences",
+      "children": [],
+      "formCapable": true,
+      "formId": "form-earth-sciences-sage-seismology-and-geosciences-seismic-hazard-assessment",
+      "id": "category-earth-sciences-sage-seismology-and-geosciences-seismic-hazard-assessment",
+      "name": "Seismic hazard assessment",
+      "navigationOptions": [
+        "Employee related (MoES)",
+        "Others (MoES)",
+        "SAGE (Seismology and Geosciences)",
+        "Polar expedition (PACER)",
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Deep Ocean Mission (DOM)",
+        "NCMRWF (National Centre for Medium Range Forecasting)",
+        "NCS (National Center for Seismology)",
+        "INCOIS (Indian National Centre for Ocean Information Services)",
+        "NIOT (National Institute of Ocean Technology)",
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+        "IITM (Indian Institute of Tropical Meteorology)",
+        "CMLRE (Centre for Marine Living Resources and Ecology)",
+        "NCESS (National Centre for Earth Science Studies)",
+        "IMD (India Meteorological Department)",
+        "Earthquake monitoring",
+        "Seismic hazard assessment"
+      ],
+      "parentId": "category-earth-sciences-sage-seismology-and-geosciences",
+      "path": [
+        "SAGE (Seismology and Geosciences)",
+        "Seismic hazard assessment"
+      ],
+      "slug": "seismic-hazard-assessment",
+      "sourcePath": "earth-sciences/sage-seismology-and-geosciences/seismic-hazard-assessment/form.json"
+    }
+  ],
+  "checksum": "845059c034b9bea04e584b8d318bc9c2136fc51bdaa71c3dc7a5ac5ae7d82f16",
+  "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-atmospheric-climate-science-and-services-across-agromet-advisory",
+      "categoryPath": [
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Agromet Advisory"
+      ],
+      "checksum": "2c9c2c273114eed6ba36f12df6a02034d4a34088aa08e9dfc0616cc387472e96",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-atmospheric-climate-science-and-services-across-agromet-advisory",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/agromet-advisory/form.json",
+      "title": "Agromet Advisory",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-atmospheric-climate-science-and-services-across-air-quality-early-warning",
+      "categoryPath": [
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Air Quality (early warning)"
+      ],
+      "checksum": "69c845492b40621afaff29b39c798eef5c8c856d69d9e9b7391f4c8436380031",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-atmospheric-climate-science-and-services-across-air-quality-early-warning",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/air-quality-early-warning/form.json",
+      "title": "Air Quality (early warning)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-atmospheric-climate-science-and-services-across-weather-forecast",
+      "categoryPath": [
+        "Atmospheric, Climate Science and Services (ACROSS)",
+        "Weather Forecast"
+      ],
+      "checksum": "e3613e9d6218605fa9646f0072f9447b9d77a68824bb63e369ef6ec2afbfd61e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-atmospheric-climate-science-and-services-across-weather-forecast",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/weather-forecast/form.json",
+      "title": "Weather Forecast",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-cmlre-centre-for-marine-living-resources-and-ecology",
+      "categoryPath": [
+        "CMLRE (Centre for Marine Living Resources and Ecology)"
+      ],
+      "checksum": "3488bd259b65aeea18dc7856702ad4c28445f68c68b70f405fe9843f8f6661c3",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-cmlre-centre-for-marine-living-resources-and-ecology",
+      "sourcePath": "earth-sciences/cmlre-centre-for-marine-living-resources-and-ecology/form.json",
+      "title": "CMLRE (Centre for Marine Living Resources and Ecology)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-deep-ocean-mission-dom",
+      "categoryPath": [
+        "Deep Ocean Mission (DOM)"
+      ],
+      "checksum": "bb4bcd9bfee07e2f9dc1b11f5f56ea4f746aab9eec6def4d8b8332d508fab027",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-deep-ocean-mission-dom",
+      "sourcePath": "earth-sciences/deep-ocean-mission-dom/form.json",
+      "title": "Deep Ocean Mission (DOM)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-employee-related-moes-others",
+      "categoryPath": [
+        "Employee related (MoES)",
+        "Others"
+      ],
+      "checksum": "d4121808b7748604a8119a6848661f3ee59d5aa277d97903b5628892f892df7d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-employee-related-moes-others",
+      "sourcePath": "earth-sciences/employee-related-moes/others/form.json",
+      "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-employee-related-moes-pension",
+      "categoryPath": [
+        "Employee related (MoES)",
+        "Pension"
+      ],
+      "checksum": "4b11a0ecd652effa518660ac1d77b79842de228cf35f718676504c942ea7397b",
+      "fields": [
+        {
+          "id": "pponumber",
+          "kind": "text",
+          "label": "PPO Number",
+          "placeholder": "Please Enter PPO Number",
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-employee-related-moes-pension",
+      "sourcePath": "earth-sciences/employee-related-moes/pension/form.json",
+      "title": "Pension",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-employee-related-moes-recruitment",
+      "categoryPath": [
+        "Employee related (MoES)",
+        "Recruitment"
+      ],
+      "checksum": "20b5cd2178959fed37746ffd9031e64ae86e296a93219457a49984c939953985",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-employee-related-moes-recruitment",
+      "sourcePath": "earth-sciences/employee-related-moes/recruitment/form.json",
+      "title": "Recruitment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-employee-related-moes-retirement-benefits-related",
+      "categoryPath": [
+        "Employee related (MoES)",
+        "Retirement Benefits Related"
+      ],
+      "checksum": "1824e1331419ffb733f23355b9a8dd974f71f7868644ba6230da243fc30920c1",
+      "fields": [
+        {
+          "id": "pponumber",
+          "kind": "text",
+          "label": "PPO Number",
+          "placeholder": "Please Enter PPO Number",
+          "required": true
+        },
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-employee-related-moes-retirement-benefits-related",
+      "sourcePath": "earth-sciences/employee-related-moes/retirement-benefits-related/form.json",
+      "title": "Retirement Benefits Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-iitm-indian-institute-of-tropical-meteorology",
+      "categoryPath": [
+        "IITM (Indian Institute of Tropical Meteorology)"
+      ],
+      "checksum": "1b93cf327e1b2b844b67e58a5ca7997791fd31aa8c29c3a09fdb07b589470974",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-iitm-indian-institute-of-tropical-meteorology",
+      "sourcePath": "earth-sciences/iitm-indian-institute-of-tropical-meteorology/form.json",
+      "title": "IITM (Indian Institute of Tropical Meteorology)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-imd-india-meteorological-department",
+      "categoryPath": [
+        "IMD (India Meteorological Department)"
+      ],
+      "checksum": "6193c044a8b9667e2371eaf280550d89d1cf642323e400b606462231daf697c8",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-imd-india-meteorological-department",
+      "sourcePath": "earth-sciences/imd-india-meteorological-department/form.json",
+      "title": "IMD (India Meteorological Department)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-incois-indian-national-centre-for-ocean-information-services",
+      "categoryPath": [
+        "INCOIS (Indian National Centre for Ocean Information Services)"
+      ],
+      "checksum": "65ab353749210a3fd5f102aa07db82e2129164841ef9a020fbf048b1b75e0f9d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-incois-indian-national-centre-for-ocean-information-services",
+      "sourcePath": "earth-sciences/incois-indian-national-centre-for-ocean-information-services/form.json",
+      "title": "INCOIS (Indian National Centre for Ocean Information Services)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-ncess-national-centre-for-earth-science-studies",
+      "categoryPath": [
+        "NCESS (National Centre for Earth Science Studies)"
+      ],
+      "checksum": "40e62b860ddad13522496a53958c16b9c21c93b38fce6117421808a277fd8126",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-ncess-national-centre-for-earth-science-studies",
+      "sourcePath": "earth-sciences/ncess-national-centre-for-earth-science-studies/form.json",
+      "title": "NCESS (National Centre for Earth Science Studies)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-ncmrwf-national-centre-for-medium-range-forecasting",
+      "categoryPath": [
+        "NCMRWF (National Centre for Medium Range Forecasting)"
+      ],
+      "checksum": "031a49f34c29641a53f89a74460128a06b469ba6b699eb369892ed5d8bed3a53",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-ncmrwf-national-centre-for-medium-range-forecasting",
+      "sourcePath": "earth-sciences/ncmrwf-national-centre-for-medium-range-forecasting/form.json",
+      "title": "NCMRWF (National Centre for Medium Range Forecasting)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-ncpor-national-centre-for-polar-and-ocean-research",
+      "categoryPath": [
+        "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)"
+      ],
+      "checksum": "49e84b093594e930533692d5c0cfe37e63c3d1917c690b8b65ec8c72ddebe113",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-ncpor-national-centre-for-polar-and-ocean-research",
+      "sourcePath": "earth-sciences/ncpor-national-centre-for-polar-and-ocean-research/form.json",
+      "title": "NCPOR (NATIONAL CENTRE FOR POLAR AND OCEAN RESEARCH)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-ncs-national-center-for-seismology",
+      "categoryPath": [
+        "NCS (National Center for Seismology)"
+      ],
+      "checksum": "cf3d7d50e7432933302e65cdb568aef197e923ac71439e740272d95ad19cb7a0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-ncs-national-center-for-seismology",
+      "sourcePath": "earth-sciences/ncs-national-center-for-seismology/form.json",
+      "title": "NCS (National Center for Seismology)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-niot-national-institute-of-ocean-technology",
+      "categoryPath": [
+        "NIOT (National Institute of Ocean Technology)"
+      ],
+      "checksum": "86192a4219c67561de28b65c548f41a1de4f60decb58922897c8f7e7b0efa540",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-niot-national-institute-of-ocean-technology",
+      "sourcePath": "earth-sciences/niot-national-institute-of-ocean-technology/form.json",
+      "title": "NIOT (National Institute of Ocean Technology)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-observation",
+      "categoryPath": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Ocean Observation"
+      ],
+      "checksum": "022a5670d05269cd3e63f55c6576a83f4120604462ae4e6f2aa2311cabd44c1a",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-observation",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/ocean-observation/form.json",
+      "title": "Ocean Observation",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-services",
+      "categoryPath": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Ocean services"
+      ],
+      "checksum": "039e524dd1b6db76da834bc0da1039224bd8ca54757684f8d67b637ee99c9023",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-services",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/ocean-services/form.json",
+      "title": "Ocean services",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-technology",
+      "categoryPath": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+        "Ocean Technology"
+      ],
+      "checksum": "518a655d895932eb266b8b630364fc5edb205da3f70d332a25c3c8376a425085",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-technology",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/ocean-technology/form.json",
+      "title": "Ocean Technology",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-others-moes",
+      "categoryPath": [
+        "Others (MoES)"
+      ],
+      "checksum": "18bc0c63c5435d201d23faa41d2597c3b6f4ec6b78cca5f648f353c019a20787",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-others-moes",
+      "sourcePath": "earth-sciences/others-moes/form.json",
+      "title": "Others (MoES)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-polar-expedition-pacer",
+      "categoryPath": [
+        "Polar expedition (PACER)"
+      ],
+      "checksum": "da721f34c1ac4bcf3e99a94f5b40dec2ad98798c4984456d5189f66321f382ba",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-polar-expedition-pacer",
+      "sourcePath": "earth-sciences/polar-expedition-pacer/form.json",
+      "title": "Polar expedition (PACER)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-research-education-training-and-outreach-reachout-extra-mural-funding",
+      "categoryPath": [
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "Extra Mural funding"
+      ],
+      "checksum": "c44cd85401b10eb6f3141c668a1dc0b1f93702cd8db5f1280ad7e32c4c45743d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-research-education-training-and-outreach-reachout-extra-mural-funding",
+      "sourcePath": "earth-sciences/research-education-training-and-outreach-reachout/extra-mural-funding/form.json",
+      "title": "Extra Mural funding",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-research-education-training-and-outreach-reachout-outreach-awareness",
+      "categoryPath": [
+        "Research, Education, Training and Outreach (REACHOUT)",
+        "Outreach awareness"
+      ],
+      "checksum": "906db9c10b02686a2ddbc3b42a5537837350094591e18530d410c3026bcb91da",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-research-education-training-and-outreach-reachout-outreach-awareness",
+      "sourcePath": "earth-sciences/research-education-training-and-outreach-reachout/outreach-awareness/form.json",
+      "title": "Outreach awareness",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-sage-seismology-and-geosciences-earthquake-monitoring",
+      "categoryPath": [
+        "SAGE (Seismology and Geosciences)",
+        "Earthquake monitoring"
+      ],
+      "checksum": "0c8fe7987cc2efdd50f8aafa220c3b8bff5369f8fb41b0e4242bc1af3dd628b9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-sage-seismology-and-geosciences-earthquake-monitoring",
+      "sourcePath": "earth-sciences/sage-seismology-and-geosciences/earthquake-monitoring/form.json",
+      "title": "Earthquake monitoring",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-sage-seismology-and-geosciences-seismic-hazard-assessment",
+      "categoryPath": [
+        "SAGE (Seismology and Geosciences)",
+        "Seismic hazard assessment"
+      ],
+      "checksum": "8b88d00310ec77a9062a151bb8db3939390e9111ab0b30efd0d2ca43a343ab98",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "fileupload",
+          "kind": "file",
+          "label": "File Upload",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-sage-seismology-and-geosciences-seismic-hazard-assessment",
+      "sourcePath": "earth-sciences/sage-seismology-and-geosciences/seismic-hazard-assessment/form.json",
+      "title": "Seismic hazard assessment",
+      "version": 1
+    }
+  ],
+  "schemaVersion": 1
+}
