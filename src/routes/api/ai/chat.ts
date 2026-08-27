@@ -13,7 +13,10 @@ import {
 } from "#/features/assistant/prompt";
 import { assistantChatRequestSchema } from "#/features/assistant/schema";
 import { searchCatalogueServer } from "#/features/assistant/server-catalogue";
-import { searchGrievanceCatalogueDef } from "#/features/assistant/tools";
+import {
+	searchGrievanceCatalogueDef,
+	submitConfirmedGrievanceDef,
+} from "#/features/assistant/tools";
 import {
 	assertSameOrigin,
 	enforceRateLimit,
@@ -102,7 +105,10 @@ export const Route = createFileRoute("/api/ai/chat")({
 						};
 					},
 				);
-				const tools = mergeAgentTools([searchTool], agentParams.tools);
+				const tools = mergeAgentTools(
+					[searchTool, submitConfirmedGrievanceDef],
+					agentParams.tools,
+				);
 				const abortController = new AbortController();
 				const stream = chat({
 					adapter: geminiText(configuredTextModel()),

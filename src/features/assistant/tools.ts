@@ -1,8 +1,7 @@
 import { toolDefinition } from "@tanstack/ai";
 import { z } from "zod";
-
-import { extractedFieldSchema } from "./schema";
 import { assistantRouteDestinations } from "./routes";
+import { extractedFieldSchema } from "./schema";
 
 const toolStatusSchema = z.enum([
 	"ok",
@@ -108,7 +107,10 @@ export const navigateWebsiteDef = toolDefinition({
 	inputSchema: z
 		.object({
 			destination: z.enum(assistantRouteDestinations),
-			authoritySlug: z.string().regex(/^[a-z0-9-]+$/).optional(),
+			authoritySlug: z
+				.string()
+				.regex(/^[a-z0-9-]+$/)
+				.optional(),
 			registrationId: z.string().min(1).max(120).optional(),
 			publicId: z.string().min(1).max(120).optional(),
 		})
@@ -124,7 +126,10 @@ export const changeInterfaceLanguageDef = toolDefinition({
 	name: "change_interface_language",
 	description: "Change the UGAAP website interface language.",
 	inputSchema: z.object({ language: z.enum(["en", "hi"]) }).strict(),
-	outputSchema: z.object({ status: toolStatusSchema, language: z.enum(["en", "hi"]) }),
+	outputSchema: z.object({
+		status: toolStatusSchema,
+		language: z.enum(["en", "hi"]),
+	}),
 });
 
 export const assistantSearchResultSchema = z
@@ -228,23 +233,12 @@ export const editVisibleFormDef = toolDefinition({
 	outputSchema: z.object({ status: toolStatusSchema, reason: z.string() }),
 });
 
-export const requestSubmissionConfirmationDef = toolDefinition({
-	name: "request_submission_confirmation",
-	description:
-		"Prepare a separate final confirmation while the grievance review is visible. This does not submit the grievance.",
-	inputSchema: z.object({}).strict(),
-	outputSchema: z.object({
-		status: toolStatusSchema,
-		confirmationId: z.string().nullable(),
-		reason: z.string(),
-	}),
-});
-
 export const submitConfirmedGrievanceDef = toolDefinition({
 	name: "submit_confirmed_grievance",
 	description:
-		"Submit only after the citizen explicitly confirms in a later voice or chat turn, or presses the visible confirmation button. Use the pending confirmationId exactly.",
-	inputSchema: z.object({ confirmationId: z.string().min(1).max(120) }).strict(),
+		"Submit the grievance currently visible on its final review screen. Calling this tool asks the citizen for explicit approval before its client implementation can run.",
+	needsApproval: true,
+	inputSchema: z.object({}).strict(),
 	outputSchema: z.object({
 		status: toolStatusSchema,
 		registrationId: z.string().nullable(),

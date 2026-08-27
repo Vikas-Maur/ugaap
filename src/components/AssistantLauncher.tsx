@@ -54,7 +54,6 @@ import {
 	listWebsiteRoutesDef,
 	navigateWebsiteDef,
 	openGrievanceFormDef,
-	requestSubmissionConfirmationDef,
 	reviewVisibleFormDef,
 	searchGrievanceCatalogueDef,
 	submitConfirmedGrievanceDef,
@@ -148,10 +147,6 @@ const toolNames = {
 	edit_visible_form: {
 		en: "Returning to form editing",
 		hi: "फॉर्म में बदलाव के लिए लौट रहा है",
-	},
-	request_submission_confirmation: {
-		en: "Preparing submission confirmation",
-		hi: "जमा करने की पुष्टि तैयार कर रहा है",
 	},
 	submit_confirmed_grievance: {
 		en: "Submitting the grievance",
@@ -250,13 +245,9 @@ export function AssistantLauncher() {
 		applyFields,
 		undoLastFill,
 		canUndo,
-		beginUserTurn,
 		reviewVisibleForm,
 		editVisibleForm,
-		requestSubmissionConfirmation,
-		submitConfirmedGrievance,
-		pendingSubmission,
-		cancelPendingSubmission,
+		submitReviewedGrievance,
 	} = useAssistantContext();
 	const [input, setInput] = useState("");
 	const [notice, setNotice] = useState<string | null>(null);
@@ -308,10 +299,7 @@ export function AssistantLauncher() {
 	const currentFormRef = useRef(currentForm);
 	const reviewVisibleFormRef = useRef(reviewVisibleForm);
 	const editVisibleFormRef = useRef(editVisibleForm);
-	const requestSubmissionConfirmationRef = useRef(
-		requestSubmissionConfirmation,
-	);
-	const submitConfirmedGrievanceRef = useRef(submitConfirmedGrievance);
+	const submitReviewedGrievanceRef = useRef(submitReviewedGrievance);
 	applyFieldsRef.current = applyFields;
 	navigateRef.current = navigate;
 	sessionRef.current = session;
@@ -319,8 +307,7 @@ export function AssistantLauncher() {
 	currentFormRef.current = currentForm;
 	reviewVisibleFormRef.current = reviewVisibleForm;
 	editVisibleFormRef.current = editVisibleForm;
-	requestSubmissionConfirmationRef.current = requestSubmissionConfirmation;
-	submitConfirmedGrievanceRef.current = submitConfirmedGrievance;
+	submitReviewedGrievanceRef.current = submitReviewedGrievance;
 	const requestContextRef = useRef({
 		language,
 		pathname,
@@ -708,25 +695,14 @@ export function AssistantLauncher() {
 		const editTool = editVisibleFormDef.client(() =>
 			editVisibleFormRef.current(),
 		);
-		const confirmationTool = requestSubmissionConfirmationDef.client(() => {
-			const result = requestSubmissionConfirmationRef.current();
+		const submitTool = submitConfirmedGrievanceDef.client(async () => {
+			const result = await submitReviewedGrievanceRef.current();
 			return {
 				status: result.status,
 				reason: result.reason,
-				confirmationId: result.confirmationId ?? null,
+				registrationId: result.registrationId ?? null,
 			};
 		});
-		const submitTool = submitConfirmedGrievanceDef.client(
-			async ({ confirmationId }) => {
-				const result =
-					await submitConfirmedGrievanceRef.current(confirmationId);
-				return {
-					status: result.status,
-					reason: result.reason,
-					registrationId: result.registrationId ?? null,
-				};
-			},
-		);
 		return clientTools(
 			routesTool,
 			authoritiesTool,
@@ -740,7 +716,6 @@ export function AssistantLauncher() {
 			fillTool,
 			reviewTool,
 			editTool,
-			confirmationTool,
 			submitTool,
 		);
 	}, []);
@@ -969,7 +944,6 @@ export function AssistantLauncher() {
 		const message = input.trim();
 		if (!message || chatState.isLoading) return;
 		setNotice(null);
-		beginUserTurn();
 		setInput("");
 		messageLanguageRef.current = null;
 		await chatState.sendMessage(message);
@@ -1029,7 +1003,6 @@ export function AssistantLauncher() {
 				return;
 			}
 
-			beginUserTurn();
 			speakFallbackRef.current = true;
 			textVoiceBaselineRef.current = latestAssistantReply?.id ?? null;
 			textVoiceReplyRef.current = null;
@@ -1094,7 +1067,6 @@ export function AssistantLauncher() {
 			textVoiceFinishingRef.current = false;
 		}
 	}, [
-		beginUserTurn,
 		chatState.sendMessage,
 		clearTextVoiceStopTimer,
 		latestAssistantReply?.id,
@@ -1386,6 +1358,11 @@ export function AssistantLauncher() {
 	const runningTools = compactTranscript.filter(
 		(item) => item.kind === "tool" && item.state === "running",
 	);
+	const submissionApproval = chatState.interrupts.find(
+		(interrupt) =>
+			interrupt.kind === "tool-approval" &&
+			interrupt.toolName === "submit_confirmed_grievance",
+	);
 	const settledTranscript = compactTranscript.filter(
 		(item) => item.kind !== "tool" || item.state !== "running",
 	);
@@ -1438,13 +1415,6 @@ export function AssistantLauncher() {
 							hi: "माइक्रोफोन और स्पीकर तैयार किए जा रहे हैं।",
 						}),
 					);
-	async function confirmPendingSubmission() {
-		if (!pendingSubmission) return;
-		const result = await submitConfirmedGrievance(pendingSubmission.id, {
-			allowCurrentTurn: true,
-		});
-		setNotice(result.reason);
-	}
 	return (
 		<>
 			<Sheet open={historyOpen} onOpenChange={setHistoryOpen}>
@@ -1730,21 +1700,22 @@ export function AssistantLauncher() {
 					</div>
 				) : null}
 
-				{pendingSubmission ? (
+				{submissionApproval?.kind === "tool-approval" ? (
 					<div className="mb-2 flex flex-wrap items-center justify-between gap-2 bg-[var(--blue-50)] px-2 py-1.5 text-xs">
 						<span className="font-semibold text-[var(--ink)]">
 							{translate(
 								text({
-									en: `Ready to submit ${pendingSubmission.formTitle}. Confirm after checking the review.`,
-									hi: `${pendingSubmission.formTitle} जमा करने के लिए तैयार है। समीक्षा जाँचकर पुष्टि करें।`,
+									en: `Ready to submit ${currentForm?.form.title ?? "this grievance"}. Confirm after checking the review.`,
+									hi: `${currentForm?.form.title ?? "यह शिकायत"} जमा करने के लिए तैयार है। समीक्षा जाँचकर पुष्टि करें।`,
 								}),
 							)}
 						</span>
 						<span className="flex items-center gap-2">
 							<button
 								type="button"
-								onClick={() => void confirmPendingSubmission()}
-								className="min-h-9 rounded-md bg-[var(--action)] px-3 font-bold text-white"
+								onClick={() => submissionApproval.resolveInterrupt(true)}
+								disabled={chatState.resuming}
+								className="min-h-9 rounded-md bg-[var(--action)] px-3 font-bold text-white disabled:cursor-not-allowed disabled:opacity-50"
 							>
 								{translate(
 									text({
@@ -1755,8 +1726,9 @@ export function AssistantLauncher() {
 							</button>
 							<button
 								type="button"
-								onClick={cancelPendingSubmission}
-								className="min-h-9 px-2 font-bold text-[var(--ink-muted)] underline"
+								onClick={() => submissionApproval.resolveInterrupt(false)}
+								disabled={chatState.resuming}
+								className="min-h-9 px-2 font-bold text-[var(--ink-muted)] underline disabled:cursor-not-allowed disabled:opacity-50"
 							>
 								{translate(text({ en: "Cancel", hi: "रद्द करें" }))}
 							</button>

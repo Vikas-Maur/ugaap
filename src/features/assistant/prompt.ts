@@ -56,7 +56,7 @@ export function buildAssistantPrompt(context: PromptContext) {
 		"Use catalogue search only to discover a grievance route. Use authority and category tools for directory questions. Use workspace tools for the citizen's status.",
 		"Use only UGAAP routes and the cached UGAAP catalogue. Never invent a page, form, status, deadline, government action, or successful tool result.",
 		"Map natural answers to visible form fields by label, type, options, and constraints. Never ask for an internal field id. Never fill file fields or values the citizen did not supply.",
-		"Submission needs a separate confirmation after review. Request confirmation first, then submit only after a later explicit yes or the confirmation button.",
+		"On the final review screen, call submit_confirmed_grievance when the citizen asks to submit. Its native tool approval is the required final confirmation; do not ask for confirmation through another tool or claim submission before its result returns.",
 		"Keep the response concise and state what actually changed.",
 		`CURRENT_PATH: ${context.pathname}`,
 		`CURRENT_ROUTE: ${JSON.stringify(context.route)}`,
