@@ -49,6 +49,7 @@ import {
 	fillVisibleFormDef,
 	getCurrentRecordStatusDef,
 	getWorkspaceSummaryDef,
+	inspectVisibleFormDef,
 	listAuthoritiesDef,
 	listAuthorityCategoriesDef,
 	listWebsiteRoutesDef,
@@ -142,6 +143,10 @@ const toolNames = {
 	fill_visible_form: {
 		en: "Filling the visible form",
 		hi: "दिख रहा फॉर्म भर रहा है",
+	},
+	inspect_visible_form: {
+		en: "Checking the form details",
+		hi: "फॉर्म का विवरण जाँच रहा है",
 	},
 	review_visible_form: { en: "Reviewing the form", hi: "फॉर्म की जांच कर रहा है" },
 	edit_visible_form: {
@@ -243,6 +248,7 @@ export function AssistantLauncher() {
 	const {
 		currentForm,
 		applyFields,
+		inspectVisibleForm,
 		undoLastFill,
 		canUndo,
 		reviewVisibleForm,
@@ -293,6 +299,7 @@ export function AssistantLauncher() {
 		},
 	});
 	const applyFieldsRef = useRef(applyFields);
+	const inspectVisibleFormRef = useRef(inspectVisibleForm);
 	const navigateRef = useRef(navigate);
 	const sessionRef = useRef(session);
 	const setLanguageRef = useRef(setLanguage);
@@ -301,6 +308,7 @@ export function AssistantLauncher() {
 	const editVisibleFormRef = useRef(editVisibleForm);
 	const submitReviewedGrievanceRef = useRef(submitReviewedGrievance);
 	applyFieldsRef.current = applyFields;
+	inspectVisibleFormRef.current = inspectVisibleForm;
 	navigateRef.current = navigate;
 	sessionRef.current = session;
 	setLanguageRef.current = setLanguage;
@@ -515,14 +523,10 @@ export function AssistantLauncher() {
 						};
 					const destination = canonicalFormDestination(authoritySlug, formId);
 					if (!sessionRef.current?.user) {
-						await navigateRef.current({
-							to: "/login",
-							search: { redirect: destination },
-						});
 						return {
 							opened: false,
 							requiresLogin: true,
-							reason: "Sign in is required before the form opens.",
+							reason: `Authentication is required before opening ${destination}. Use navigate_website to explicitly open sign in or registration and preserve this destination.`,
 						};
 					}
 					await navigateRef.current({
@@ -554,31 +558,66 @@ export function AssistantLauncher() {
 					path: requestContextRef.current.pathname,
 					reason: "That page is not registered.",
 				};
-			const parameter = route.requiredParameter
-				? request[route.requiredParameter]
-				: undefined;
-			if (route.requiredParameter && !parameter)
+			const pathForRoute = (candidate: (typeof assistantRoutes)[number]) => {
+				const parameter = candidate.requiredParameter
+					? request[candidate.requiredParameter]
+					: undefined;
+				if (candidate.requiredParameter && !parameter) return null;
+				if (
+					candidate.destination === "authority" &&
+					request.authoritySlug &&
+					request.formId
+				)
+					return canonicalFormDestination(
+						request.authoritySlug,
+						request.formId,
+					);
+				return candidate.requiredParameter
+					? candidate.path.replace(
+							`$${candidate.requiredParameter}`,
+							encodeURIComponent(parameter ?? ""),
+						)
+					: candidate.path;
+			};
+			const targetPath = pathForRoute(route);
+			if (!targetPath)
 				return {
 					status: "unavailable" as const,
 					path: requestContextRef.current.pathname,
 					reason: `The ${route.requiredParameter} is required.`,
 				};
-			const targetPath = route.requiredParameter
-				? route.path.replace(
-						`$${route.requiredParameter}`,
-						encodeURIComponent(parameter ?? ""),
-					)
-				: route.path;
 			if (route.access === "authenticated" && !sessionRef.current?.user) {
-				await navigateRef.current({
-					to: "/login",
-					search: { redirect: targetPath },
-				});
 				return {
 					status: "requires-auth" as const,
-					path: "/login",
-					reason: "Sign in is required before opening that page.",
+					path: requestContextRef.current.pathname,
+					reason:
+						"Authentication is required. Use navigate_website to explicitly open sign in or registration and preserve the requested destination.",
 				};
+			}
+			let authenticationRedirect = "/dashboard";
+			if (
+				(request.destination === "login" ||
+					request.destination === "register") &&
+				request.redirectDestination
+			) {
+				const redirectRoute = assistantRoutes.find(
+					(candidate) => candidate.destination === request.redirectDestination,
+				);
+				if (!redirectRoute || redirectRoute.access !== "authenticated")
+					return {
+						status: "unavailable" as const,
+						path: requestContextRef.current.pathname,
+						reason:
+							"The post-authentication destination must be a registered authenticated page.",
+					};
+				const redirectPath = pathForRoute(redirectRoute);
+				if (!redirectPath)
+					return {
+						status: "unavailable" as const,
+						path: requestContextRef.current.pathname,
+						reason: `The ${redirectRoute.requiredParameter} is required for the post-authentication destination.`,
+					};
+				authenticationRedirect = redirectPath;
 			}
 			switch (request.destination) {
 				case "home":
@@ -633,13 +672,13 @@ export function AssistantLauncher() {
 				case "login":
 					await navigateRef.current({
 						to: "/login",
-						search: { redirect: "/dashboard" },
+						search: { redirect: authenticationRedirect },
 					});
 					break;
 				case "register":
 					await navigateRef.current({
 						to: "/register",
-						search: { redirect: "/dashboard" },
+						search: { redirect: authenticationRedirect },
 					});
 					break;
 				case "dashboard":
@@ -684,6 +723,9 @@ export function AssistantLauncher() {
 		const fillTool = fillVisibleFormDef.client(({ fields }) =>
 			applyFieldsRef.current(fields),
 		);
+		const inspectTool = inspectVisibleFormDef.client(() =>
+			inspectVisibleFormRef.current(),
+		);
 		const reviewTool = reviewVisibleFormDef.client(async () => {
 			const result = await reviewVisibleFormRef.current();
 			return {
@@ -714,6 +756,7 @@ export function AssistantLauncher() {
 			navigationTool,
 			languageTool,
 			fillTool,
+			inspectTool,
 			reviewTool,
 			editTool,
 			submitTool,

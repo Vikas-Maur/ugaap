@@ -1342,13 +1342,13 @@ function CatalogueFormScreen({
 			};
 		}
 		await navigate({
-				to: ".",
-				search: (previous) => ({
-					...previous,
-					review: true,
-					draft: draftId,
-				}),
-			});
+			to: ".",
+			search: (previous) => ({
+				...previous,
+				review: true,
+				draft: draftId,
+			}),
+		});
 		return { opened: true, missingFields: [] };
 	}, [
 		draftId,
@@ -1714,7 +1714,8 @@ function CatalogueFormScreen({
 		setSaveError(false);
 		try {
 			const saved = await save({ quiet: true });
-			if (!saved?.ok) throw new Error("Sign in before submitting this grievance.");
+			if (!saved?.ok)
+				throw new Error("Sign in before submitting this grievance.");
 			if (!submissionKey.current)
 				submissionKey.current = createIdempotencyKey();
 			const result = await submitGrievance({
@@ -1752,6 +1753,7 @@ function CatalogueFormScreen({
 		() => ({
 			form,
 			values: state.values,
+			attachments: state.attachments,
 			errors: state.errors,
 			stage: review ? ("review" as const) : ("edit" as const),
 			revision: assistantRevision,
@@ -1767,6 +1769,7 @@ function CatalogueFormScreen({
 			openReview,
 			review,
 			state.errors,
+			state.attachments,
 			state.setValue,
 			state.values,
 			submit,

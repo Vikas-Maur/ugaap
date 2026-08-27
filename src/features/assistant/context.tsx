@@ -7,6 +7,10 @@ import {
 	useState,
 } from "react";
 
+import {
+	type AttachmentState,
+	validateForm,
+} from "#/features/catalogue/form-state";
 import type {
 	CatalogueField,
 	CatalogueForm,
@@ -29,6 +33,7 @@ export type AssistantWorkflowResult = {
 export type RegisteredForm = {
 	form: CatalogueForm;
 	values: Record<string, string>;
+	attachments: AttachmentState;
 	errors: Record<string, string>;
 	stage: "edit" | "review";
 	revision: string;
@@ -38,6 +43,29 @@ export type RegisteredForm = {
 	submit: () => Promise<{ registrationId: string }>;
 };
 
+export type VisibleFormInspection = {
+	status: "ok" | "not-on-form";
+	formTitle: string | null;
+	stage: "edit" | "review" | null;
+	totalFields: number;
+	filledFields: number;
+	requiredFields: number;
+	completedRequiredFields: number;
+	missingRequiredFields: string[];
+	invalidFields: string[];
+	readyForReview: boolean;
+	fields: Array<{
+		label: string;
+		kind: CatalogueField["kind"];
+		required: boolean;
+		filled: boolean;
+		value: string | null;
+		attachmentNames: string[];
+		error: string | null;
+	}>;
+	reason: string;
+};
+
 type AssistantContextValue = {
 	currentForm: RegisteredForm | null;
 	registerForm: (registration: RegisteredForm | null) => void;
@@ -45,6 +73,7 @@ type AssistantContextValue = {
 		applied: number;
 		rejected: number;
 	};
+	inspectVisibleForm: () => VisibleFormInspection;
 	undoLastFill: () => void;
 	canUndo: boolean;
 	reviewVisibleForm: () => Promise<AssistantWorkflowResult>;
@@ -112,6 +141,77 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
 		setUndoValues(null);
 	}, [currentForm, undoValues]);
 
+	const inspectVisibleForm = useCallback((): VisibleFormInspection => {
+		if (!currentForm)
+			return {
+				status: "not-on-form",
+				formTitle: null,
+				stage: null,
+				totalFields: 0,
+				filledFields: 0,
+				requiredFields: 0,
+				completedRequiredFields: 0,
+				missingRequiredFields: [],
+				invalidFields: [],
+				readyForReview: false,
+				fields: [],
+				reason: "No grievance form is visible.",
+			};
+		const errors = validateForm(
+			currentForm.form,
+			currentForm.values,
+			currentForm.attachments,
+		);
+		const fields = currentForm.form.fields.map((field) => {
+			const value = currentForm.values[field.id] ?? "";
+			const attachmentNames =
+				currentForm.attachments[field.id]?.map((item) => item.name) ?? [];
+			const filled =
+				field.kind === "file"
+					? attachmentNames.length > 0
+					: value.trim().length > 0;
+			return {
+				label: field.label,
+				kind: field.kind,
+				required: field.required,
+				filled,
+				value: field.kind === "file" || !filled ? null : value,
+				attachmentNames,
+				error: errors[field.id] ?? null,
+			};
+		});
+		const missingRequiredFields = fields
+			.filter((field) => field.required && !field.filled)
+			.map((field) => field.label);
+		const invalidFields = fields
+			.filter((field) => field.filled && field.error)
+			.map((field) => field.label);
+		const requiredFields = fields.filter((field) => field.required).length;
+		const completedRequiredFields = fields.filter(
+			(field) => field.required && field.filled && !field.error,
+		).length;
+		const readyForReview =
+			currentForm.stage === "edit" && Object.keys(errors).length === 0;
+		return {
+			status: "ok",
+			formTitle: currentForm.form.title,
+			stage: currentForm.stage,
+			totalFields: fields.length,
+			filledFields: fields.filter((field) => field.filled).length,
+			requiredFields,
+			completedRequiredFields,
+			missingRequiredFields,
+			invalidFields,
+			readyForReview,
+			fields,
+			reason: readyForReview
+				? "All required fields are complete and the form can move to review."
+				: currentForm.stage === "review"
+					? "The form is already at the review stage."
+					: "The form needs more information or corrections before review.",
+		};
+	}, [currentForm]);
+
 	const reviewVisibleForm =
 		useCallback(async (): Promise<AssistantWorkflowResult> => {
 			if (!currentForm)
@@ -175,6 +275,7 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
 			currentForm,
 			registerForm,
 			applyFields,
+			inspectVisibleForm,
 			undoLastFill,
 			canUndo: Boolean(undoValues),
 			reviewVisibleForm,
@@ -185,6 +286,7 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
 			applyFields,
 			currentForm,
 			editVisibleForm,
+			inspectVisibleForm,
 			registerForm,
 			reviewVisibleForm,
 			submitReviewedGrievance,

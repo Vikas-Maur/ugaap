@@ -14,6 +14,7 @@ import {
 import { assistantChatRequestSchema } from "#/features/assistant/schema";
 import { searchCatalogueServer } from "#/features/assistant/server-catalogue";
 import {
+	inspectVisibleFormDef,
 	searchGrievanceCatalogueDef,
 	submitConfirmedGrievanceDef,
 } from "#/features/assistant/tools";
@@ -106,7 +107,7 @@ export const Route = createFileRoute("/api/ai/chat")({
 					},
 				);
 				const tools = mergeAgentTools(
-					[searchTool, submitConfirmedGrievanceDef],
+					[searchTool, inspectVisibleFormDef, submitConfirmedGrievanceDef],
 					agentParams.tools,
 				);
 				const abortController = new AbortController();

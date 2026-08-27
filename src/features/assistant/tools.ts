@@ -103,16 +103,21 @@ export const getCurrentRecordStatusDef = toolDefinition({
 export const navigateWebsiteDef = toolDefinition({
 	name: "navigate_website",
 	description:
-		"Navigate to a UGAAP page. Use current page context before navigating. Do not navigate away when the requested work can be completed on the current page.",
+		"Navigate to a UGAAP page. For a signed-out visitor requesting an authenticated page or action, explicitly navigate to sign in, or to register only when they want a new account, and set redirectDestination to the protected page they originally requested. Use current page context before navigating. Do not navigate away when the requested work can be completed on the current page.",
 	inputSchema: z
 		.object({
 			destination: z.enum(assistantRouteDestinations),
+			redirectDestination: z.enum(assistantRouteDestinations).optional().meta({
+				description:
+					"Protected UGAAP destination to open after successful sign-in or registration. Use only when destination is login or register.",
+			}),
 			authoritySlug: z
 				.string()
 				.regex(/^[a-z0-9-]+$/)
 				.optional(),
 			registrationId: z.string().min(1).max(120).optional(),
 			publicId: z.string().min(1).max(120).optional(),
+			formId: z.string().min(1).max(180).optional(),
 		})
 		.strict(),
 	outputSchema: z.object({
@@ -183,7 +188,7 @@ export const searchGrievanceCatalogueDef = toolDefinition({
 export const openGrievanceFormDef = toolDefinition({
 	name: "open_grievance_form",
 	description:
-		"Open a verified grievance form after the citizen explicitly asks to continue with a search result.",
+		"Open a verified grievance form after the signed-in citizen asks to start, open, file, fill, or continue with it. For a signed-out visitor, use navigate_website to explicitly open sign-in or registration and preserve this authority and form as the post-authentication destination.",
 	inputSchema: z
 		.object({
 			authoritySlug: z.string().regex(/^[a-z0-9-]+$/),
@@ -202,7 +207,7 @@ export const openGrievanceFormDef = toolDefinition({
 export const fillVisibleFormDef = toolDefinition({
 	name: "fill_visible_form",
 	description:
-		"Fill verified non-file fields on the grievance form currently visible to a signed-in citizen. Infer the matching internal fieldId from the supplied live form context; the citizen may describe a value naturally and never needs to know exact labels or IDs. Use only values the citizen supplied.",
+		"Fill verified non-file fields on the grievance form currently visible to a signed-in citizen. Infer the matching internal fieldId from the supplied live form context; the citizen may describe a value naturally and never needs to know exact labels or IDs. Use only values the citizen supplied. Always call inspect_visible_form after this tool returns before replying or deciding whether review is appropriate.",
 	inputSchema: z
 		.object({ fields: z.array(extractedFieldSchema).min(1).max(20) })
 		.strict(),
@@ -210,6 +215,41 @@ export const fillVisibleFormDef = toolDefinition({
 		.object({
 			applied: z.number().int().min(0),
 			rejected: z.number().int().min(0),
+		})
+		.strict(),
+});
+
+export const inspectVisibleFormDef = toolDefinition({
+	name: "inspect_visible_form",
+	description:
+		"Inspect the visible grievance form's live values and readiness. Call this after every fill_visible_form result, when the citizen asks what is filled or missing, and before suggesting the next form action. Use readyForReview instead of guessing from earlier form context.",
+	inputSchema: z.object({}).strict(),
+	outputSchema: z
+		.object({
+			status: z.enum(["ok", "not-on-form"]),
+			formTitle: z.string().nullable(),
+			stage: z.enum(["edit", "review"]).nullable(),
+			totalFields: z.number().int().nonnegative(),
+			filledFields: z.number().int().nonnegative(),
+			requiredFields: z.number().int().nonnegative(),
+			completedRequiredFields: z.number().int().nonnegative(),
+			missingRequiredFields: z.array(z.string()),
+			invalidFields: z.array(z.string()),
+			readyForReview: z.boolean(),
+			fields: z.array(
+				z
+					.object({
+						label: z.string(),
+						kind: z.enum(["text", "number", "select", "textarea", "file"]),
+						required: z.boolean(),
+						filled: z.boolean(),
+						value: z.string().nullable(),
+						attachmentNames: z.array(z.string()),
+						error: z.string().nullable(),
+					})
+					.strict(),
+			),
+			reason: z.string(),
 		})
 		.strict(),
 });
