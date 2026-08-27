@@ -578,7 +578,7 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 			const reviewHash = digest({ formChecksum: form.checksum, caseKey });
 			const grievance: CaseSeed = {
 				id: grievanceId,
-				registrationId: `SYN-${String(organizationIndex + 1).padStart(2, "0")}-${String(caseIndex + 1).padStart(4, "0")}`,
+				registrationId: `SYN-${digest(organization.slug).slice(0, 8).toUpperCase()}-${String(caseIndex + 1).padStart(4, "0")}`,
 				userId,
 				draftId: null,
 				organizationId: organization.id,
