@@ -58,3 +58,17 @@ export function splitSpeechText(
 	if (remaining) segments.push(remaining);
 	return segments;
 }
+
+export function canCompleteVoiceResponse({
+	requestSettled,
+	approvalPending,
+	resuming,
+	loading,
+}: {
+	requestSettled: boolean;
+	approvalPending: boolean;
+	resuming: boolean;
+	loading: boolean;
+}) {
+	return requestSettled && !approvalPending && !resuming && !loading;
+}

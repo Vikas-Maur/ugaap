@@ -44,6 +44,7 @@ import {
 } from "#/features/assistant/routes";
 import { assistantTranscriptionSchema } from "#/features/assistant/schema";
 import {
+	canCompleteVoiceResponse,
 	selectSpeechVoice,
 	splitSpeechText,
 } from "#/features/assistant/speech";
@@ -282,6 +283,7 @@ export function AssistantLauncher() {
 	const [textVoiceSpeaking, setTextVoiceSpeaking] = useState(false);
 	const [textVoiceResponseComplete, setTextVoiceResponseComplete] =
 		useState(false);
+	const [textVoiceRequestSettled, setTextVoiceRequestSettled] = useState(false);
 	const [voiceElapsedSeconds, setVoiceElapsedSeconds] = useState(0);
 	const [voiceRequested, setVoiceRequested] = useState(false);
 	const [pageContent, setPageContent] = useState("");
@@ -301,6 +303,8 @@ export function AssistantLauncher() {
 		null,
 	);
 	const textVoicePlaybackFailedRef = useRef(false);
+	const textVoiceApprovalContinuationRef = useRef(false);
+	const textVoiceApprovalWasResumingRef = useRef(false);
 	const messageLanguageRef = useRef<"en" | "hi" | null>(null);
 	const voiceRequestedRef = useRef(false);
 	const compactTranscriptRef = useRef<HTMLDivElement>(null);
@@ -799,9 +803,12 @@ export function AssistantLauncher() {
 			textVoiceResponseFinishedRef.current = false;
 			textVoiceSpeechQueueRef.current = [];
 			textVoiceActiveUtteranceRef.current = null;
+			textVoiceApprovalContinuationRef.current = false;
+			textVoiceApprovalWasResumingRef.current = false;
 			setTextVoicePending(false);
 			setTextVoiceSpeaking(false);
 			setTextVoiceResponseComplete(false);
+			setTextVoiceRequestSettled(false);
 			if (failedVoiceTurn) {
 				if (typeof window !== "undefined" && "speechSynthesis" in window) {
 					window.speechSynthesis.cancel();
@@ -819,6 +826,11 @@ export function AssistantLauncher() {
 			);
 		},
 	});
+	const submissionApproval = chatState.interrupts.find(
+		(interrupt) =>
+			interrupt.kind === "tool-approval" &&
+			interrupt.toolName === "submit_confirmed_grievance",
+	);
 	const latestAssistantReply = useMemo(() => {
 		for (let index = chatState.messages.length - 1; index >= 0; index -= 1) {
 			const message = chatState.messages[index];
@@ -835,9 +847,12 @@ export function AssistantLauncher() {
 		textVoiceResponseFinishedRef.current = false;
 		textVoiceSpeechQueueRef.current = [];
 		textVoiceActiveUtteranceRef.current = null;
+		textVoiceApprovalContinuationRef.current = false;
+		textVoiceApprovalWasResumingRef.current = false;
 		setTextVoicePending(false);
 		setTextVoiceSpeaking(false);
 		setTextVoiceResponseComplete(false);
+		setTextVoiceRequestSettled(false);
 		voiceRequestedRef.current = false;
 		setVoiceRequested(false);
 	}, []);
@@ -886,6 +901,9 @@ export function AssistantLauncher() {
 						0,
 						textVoiceSpeechPendingRef.current - 1,
 					);
+					if (textVoiceSpeechPendingRef.current === 0) {
+						setTextVoiceSpeaking(false);
+					}
 					if (
 						textVoiceResponseFinishedRef.current &&
 						textVoiceSpeechPendingRef.current === 0
@@ -1019,6 +1037,46 @@ export function AssistantLauncher() {
 		textVoicePending,
 		textVoiceResponseComplete,
 	]);
+
+	useEffect(() => {
+		if (
+			!speakFallbackRef.current ||
+			!textVoicePending ||
+			!textVoiceRequestSettled
+		)
+			return;
+		if (
+			!canCompleteVoiceResponse({
+				requestSettled: textVoiceRequestSettled,
+				approvalPending: Boolean(submissionApproval),
+				resuming: chatState.resuming,
+				loading: chatState.isLoading,
+			})
+		) {
+			setTextVoiceResponseComplete(false);
+			if (submissionApproval) setNotice(null);
+			return;
+		}
+		setTextVoiceResponseComplete(true);
+	}, [
+		chatState.isLoading,
+		chatState.resuming,
+		submissionApproval,
+		textVoicePending,
+		textVoiceRequestSettled,
+	]);
+
+	useEffect(() => {
+		if (!textVoiceApprovalContinuationRef.current) return;
+		if (chatState.resuming || chatState.isLoading) {
+			textVoiceApprovalWasResumingRef.current = true;
+			return;
+		}
+		if (!textVoiceApprovalWasResumingRef.current) return;
+		textVoiceApprovalContinuationRef.current = false;
+		textVoiceApprovalWasResumingRef.current = false;
+		if (speakFallbackRef.current) setTextVoiceRequestSettled(true);
+	}, [chatState.isLoading, chatState.resuming]);
 
 	const setVoiceEnabled = useCallback((enabled: boolean) => {
 		voiceRequestedRef.current = enabled;
@@ -1189,6 +1247,7 @@ export function AssistantLauncher() {
 			textVoiceResponseFinishedRef.current = false;
 			textVoicePlaybackFailedRef.current = false;
 			setTextVoiceResponseComplete(false);
+			setTextVoiceRequestSettled(false);
 			setNotice(
 				translate(
 					text({
@@ -1201,7 +1260,7 @@ export function AssistantLauncher() {
 			processingStage = "assistant";
 			try {
 				await chatState.sendMessage(transcript);
-				if (speakFallbackRef.current) setTextVoiceResponseComplete(true);
+				if (speakFallbackRef.current) setTextVoiceRequestSettled(true);
 			} finally {
 				messageLanguageRef.current = null;
 			}
@@ -1335,9 +1394,12 @@ export function AssistantLauncher() {
 		textVoiceResponseFinishedRef.current = false;
 		textVoiceSpeechQueueRef.current = [];
 		textVoiceActiveUtteranceRef.current = null;
+		textVoiceApprovalContinuationRef.current = false;
+		textVoiceApprovalWasResumingRef.current = false;
 		setTextVoicePending(false);
 		setTextVoiceSpeaking(false);
 		setTextVoiceResponseComplete(false);
+		setTextVoiceRequestSettled(false);
 		if (typeof window !== "undefined" && "speechSynthesis" in window) {
 			window.speechSynthesis.cancel();
 		}
@@ -1378,6 +1440,20 @@ export function AssistantLauncher() {
 		if (voiceRequestedRef.current) await startTextVoiceRecording();
 	}
 
+	function resolveSubmissionApproval(approved: boolean) {
+		if (!submissionApproval || submissionApproval.kind !== "tool-approval")
+			return;
+		if (speakFallbackRef.current && textVoicePending) {
+			textVoiceApprovalContinuationRef.current = true;
+			textVoiceApprovalWasResumingRef.current = false;
+			setTextVoiceRequestSettled(false);
+			setTextVoiceResponseComplete(false);
+			setNotice(null);
+		}
+		if (approved) submissionApproval.resolveInterrupt(true);
+		else submissionApproval.resolveInterrupt(false);
+	}
+
 	useEffect(
 		() => () => {
 			voiceRequestedRef.current = false;
@@ -1386,6 +1462,8 @@ export function AssistantLauncher() {
 			textVoiceResponseFinishedRef.current = false;
 			textVoiceSpeechQueueRef.current = [];
 			textVoiceActiveUtteranceRef.current = null;
+			textVoiceApprovalContinuationRef.current = false;
+			textVoiceApprovalWasResumingRef.current = false;
 			if (textVoiceStopTimerRef.current)
 				window.clearTimeout(textVoiceStopTimerRef.current);
 			cancelTextRecorder();
@@ -1451,19 +1529,26 @@ export function AssistantLauncher() {
 			)
 		: textVoiceSpeaking
 			? translate(text({ en: "UGAAP is speaking…", hi: "UGAAP बोल रहा है…" }))
-			: textVoicePending
+			: submissionApproval
 				? translate(
 						text({
-							en: "The text model is preparing a response…",
-							hi: "टेक्स्ट मॉडल जवाब तैयार कर रहा है…",
+							en: "Waiting for your submission confirmation",
+							hi: "सबमिशन की पुष्टि का इंतज़ार है",
 						}),
 					)
-				: translate(
-						text({
-							en: "Speak naturally and hear the answer aloud",
-							hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
-						}),
-					);
+				: textVoicePending
+					? translate(
+							text({
+								en: "The text model is preparing a response…",
+								hi: "टेक्स्ट मॉडल जवाब तैयार कर रहा है…",
+							}),
+						)
+					: translate(
+							text({
+								en: "Speak naturally and hear the answer aloud",
+								hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
+							}),
+						);
 	const voicePhase = !voiceActive
 		? "idle"
 		: textVoiceRecording
@@ -1556,11 +1641,6 @@ export function AssistantLauncher() {
 	}, [chatState.messages, language, notice]);
 	const runningTools = compactTranscript.filter(
 		(item) => item.kind === "tool" && item.state === "running",
-	);
-	const submissionApproval = chatState.interrupts.find(
-		(interrupt) =>
-			interrupt.kind === "tool-approval" &&
-			interrupt.toolName === "submit_confirmed_grievance",
 	);
 	const settledTranscript = compactTranscript.filter(
 		(item) => item.kind !== "tool" || item.state !== "running",
@@ -1912,7 +1992,7 @@ export function AssistantLauncher() {
 						<span className="flex items-center gap-2">
 							<button
 								type="button"
-								onClick={() => submissionApproval.resolveInterrupt(true)}
+								onClick={() => resolveSubmissionApproval(true)}
 								disabled={chatState.resuming}
 								className="min-h-9 rounded-md bg-[var(--action)] px-3 font-bold text-white disabled:cursor-not-allowed disabled:opacity-50"
 							>
@@ -1925,7 +2005,7 @@ export function AssistantLauncher() {
 							</button>
 							<button
 								type="button"
-								onClick={() => submissionApproval.resolveInterrupt(false)}
+								onClick={() => resolveSubmissionApproval(false)}
 								disabled={chatState.resuming}
 								className="min-h-9 px-2 font-bold text-[var(--ink-muted)] underline disabled:cursor-not-allowed disabled:opacity-50"
 							>

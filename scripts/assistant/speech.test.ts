@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+	canCompleteVoiceResponse,
 	selectSpeechVoice,
 	splitSpeechText,
 } from "../../src/features/assistant/speech";
@@ -45,4 +46,25 @@ test("Hindi sentence boundaries are valid speech split points", () => {
 		"पहला वाक्य।",
 		"दूसरा वाक्य",
 	]);
+});
+
+test("a voice response stays open across a submission approval pause", () => {
+	assert.equal(
+		canCompleteVoiceResponse({
+			requestSettled: true,
+			approvalPending: true,
+			resuming: false,
+			loading: false,
+		}),
+		false,
+	);
+	assert.equal(
+		canCompleteVoiceResponse({
+			requestSettled: true,
+			approvalPending: false,
+			resuming: false,
+			loading: false,
+		}),
+		true,
+	);
 });
