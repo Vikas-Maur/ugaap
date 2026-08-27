@@ -24,17 +24,17 @@ importers:
         specifier: ^4.1.18
         version: 4.3.3(vite@8.2.1(@types/node@22.20.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12))
       '@tanstack/ai':
-        specifier: 0.48.0
-        version: 0.48.0(zod@4.4.3)
+        specifier: 0.49.1
+        version: 0.49.1(zod@4.4.3)
       '@tanstack/ai-client':
-        specifier: 0.26.0
-        version: 0.26.0(zod@4.4.3)
+        specifier: 0.28.0
+        version: 0.28.0(zod@4.4.3)
       '@tanstack/ai-gemini':
-        specifier: 0.25.1
-        version: 0.25.1(@tanstack/ai@0.48.0(zod@4.4.3))
+        specifier: 0.26.1
+        version: 0.26.1(@tanstack/ai@0.49.1(zod@4.4.3))
       '@tanstack/ai-react':
-        specifier: 0.21.3
-        version: 0.21.3(@tanstack/ai@0.48.0(zod@4.4.3))(@types/react@19.2.18)(react@19.2.8)(zod@4.4.3)
+        specifier: 0.22.1
+        version: 0.22.1(@tanstack/ai@0.49.1(zod@4.4.3))(@types/react@19.2.18)(react@19.2.8)(zod@4.4.3)
       '@tanstack/react-devtools':
         specifier: 0.10.12
         version: 0.10.12(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(csstype@3.2.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(solid-js@1.9.15)
@@ -889,8 +889,8 @@ packages:
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
 
-  '@google/genai@2.17.1':
-    resolution: {integrity: sha512-CdZ3M/titoH81hXXkvOikrOW26bC9IXh9iYT7u+r+5p7wi1LnMEnB0AbJfDeWAkjuneP4oJ299BtCt6twmORWg==}
+  '@google/genai@2.19.0':
+    resolution: {integrity: sha512-IM3u1FjpOLyOPsPh0smGA6Ntj2olUWCPbTs/WQj7cA/2AKCGw/652W7IaySx0XtwuscFnMYBoraebQusSZ0zSQ==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@modelcontextprotocol/sdk': ^1.25.2
@@ -2074,22 +2074,22 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7 || ^8
 
-  '@tanstack/ai-client@0.26.0':
-    resolution: {integrity: sha512-FCDA1Pi9XcT8KmvyExpoebZ3LbyECHGb+ORT6JUgmo9ANyODTtuzCmqLRZof8pWiT2zOuSi9yc+fsWTHOhckaw==}
+  '@tanstack/ai-client@0.28.0':
+    resolution: {integrity: sha512-KkOLqw4d2MkzhmqFiHGANjmhpvBWHlKDSSCdZA/o57d+Sc/dS+1fJBqRO5tKGI2m8Y9q3+TINGGo4pNUUFyfTQ==}
 
   '@tanstack/ai-event-client@0.10.0':
     resolution: {integrity: sha512-grvlmM0z4rMLvjwPKBfT4/sL4D97yqocSzyaTvUa+2wZmXESCf/uR/7ZAldOKBasEx6qO5EJ31hdKDEDjnrnDg==}
 
-  '@tanstack/ai-gemini@0.25.1':
-    resolution: {integrity: sha512-lDNVR9Q1QUUGXqFEb1qlWHKRR+83tt8GceBr7G0jBKdh/NYSVCsqP9sTGHcQYoHQdJ7744/UwKHsYRYkUDr3fA==}
+  '@tanstack/ai-gemini@0.26.1':
+    resolution: {integrity: sha512-I6W5HqMoZY21ms4x21Y5L03nNMNrjog+TCc4PkczNaq42izOBK10U2mgqC1T4Dm0uepWXME4AFXoFKTJ48tHng==}
     peerDependencies:
-      '@tanstack/ai': ^0.48.0
+      '@tanstack/ai': ^0.49.1
 
-  '@tanstack/ai-react@0.21.3':
-    resolution: {integrity: sha512-zfd3IIKfaZXGvuKstQjjkbXRcw1P9s8HGQ7PauS8yxuqDpQm9hGM9udXQeFwAkjBCde9tGSm4W+NTzheBepZ8Q==}
+  '@tanstack/ai-react@0.22.1':
+    resolution: {integrity: sha512-3v2MJ4V11RDAxQ3JUaOp33ET0nobckQgPKnxdaqWexCqdaHZox0xGu4/w1u3bmQqjm5w73+9lOnRgp+fUfu4Fw==}
     peerDependencies:
       '@mcp-ui/client': ^7
-      '@tanstack/ai': ^0.48.0
+      '@tanstack/ai': ^0.49.1
       '@types/react': '>=18.0.0'
       react: '>=18.0.0'
     peerDependenciesMeta:
@@ -2099,8 +2099,8 @@ packages:
   '@tanstack/ai-utils@0.4.0':
     resolution: {integrity: sha512-xqvAgPJkIuGk1m+jZKyb7vBTQIaBmUD9EVzlPkDWWMp80n69uwL0TnBZCVk+OwL9goTQiFy648dnBfLsiJgl6A==}
 
-  '@tanstack/ai@0.48.0':
-    resolution: {integrity: sha512-G1IzJ7QZ66fzYiSMFW3pWKXc+3vVkQv2yYNN+gC6fkdh+eECJCQHaxsHQKl0JFkWg/dNFhrIqF4v4OztnIZ4dw==}
+  '@tanstack/ai@0.49.1':
+    resolution: {integrity: sha512-tOyeMiegTztxLReWpdlzcjAvQ1RutGXwONniixErozeLiErNyNo9fbgTOwdKX9sGM9Gp3HvvXvB5zwGkintxbg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@opentelemetry/api': '>=1.9.0'
@@ -3292,6 +3292,10 @@ packages:
   google-logging-utils@1.1.3:
     resolution: {integrity: sha512-eAmLkjDjAFCVXg7A1unxHsLf961m6y17QFqXqAXGj/gVkKFrEICfStRfwUlGNfeCEjNRa32JEWOUTlYXPyyKvA==}
     engines: {node: '>=14'}
+
+  google-logging-utils@1.2.0:
+    resolution: {integrity: sha512-WE9av4wKDZgRjBwgVUabocx8T6/7o3Ca1Fat46FXDhXVAFibzNadedcOXrdgd1Kzmk8tsk/9ZH89Wyf/SqeZ3A==}
+    engines: {node: '>=18'}
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -5167,7 +5171,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
-  '@google/genai@2.17.1':
+  '@google/genai@2.19.0':
     dependencies:
       google-auth-library: 10.9.1
       p-retry: 4.6.2
@@ -6253,9 +6257,9 @@ snapshots:
       tailwindcss: 4.3.3
       vite: 8.2.1(@types/node@22.20.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12)
 
-  '@tanstack/ai-client@0.26.0(zod@4.4.3)':
+  '@tanstack/ai-client@0.28.0(zod@4.4.3)':
     dependencies:
-      '@tanstack/ai': 0.48.0(zod@4.4.3)
+      '@tanstack/ai': 0.49.1(zod@4.4.3)
       '@tanstack/ai-event-client': 0.10.0
       '@tanstack/ai-utils': 0.4.0
     transitivePeerDependencies:
@@ -6266,10 +6270,10 @@ snapshots:
     dependencies:
       '@tanstack/devtools-event-client': 0.4.4
 
-  '@tanstack/ai-gemini@0.25.1(@tanstack/ai@0.48.0(zod@4.4.3))':
+  '@tanstack/ai-gemini@0.26.1(@tanstack/ai@0.49.1(zod@4.4.3))':
     dependencies:
-      '@google/genai': 2.17.1
-      '@tanstack/ai': 0.48.0(zod@4.4.3)
+      '@google/genai': 2.19.0
+      '@tanstack/ai': 0.49.1(zod@4.4.3)
       '@tanstack/ai-utils': 0.4.0
       partial-json: 0.1.7
     transitivePeerDependencies:
@@ -6278,10 +6282,10 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@tanstack/ai-react@0.21.3(@tanstack/ai@0.48.0(zod@4.4.3))(@types/react@19.2.18)(react@19.2.8)(zod@4.4.3)':
+  '@tanstack/ai-react@0.22.1(@tanstack/ai@0.49.1(zod@4.4.3))(@types/react@19.2.18)(react@19.2.8)(zod@4.4.3)':
     dependencies:
-      '@tanstack/ai': 0.48.0(zod@4.4.3)
-      '@tanstack/ai-client': 0.26.0(zod@4.4.3)
+      '@tanstack/ai': 0.49.1(zod@4.4.3)
+      '@tanstack/ai-client': 0.28.0(zod@4.4.3)
       '@types/react': 19.2.18
       react: 19.2.8
     transitivePeerDependencies:
@@ -6290,7 +6294,7 @@ snapshots:
 
   '@tanstack/ai-utils@0.4.0': {}
 
-  '@tanstack/ai@0.48.0(zod@4.4.3)':
+  '@tanstack/ai@0.49.1(zod@4.4.3)':
     dependencies:
       '@ag-ui/core': 0.1.1-canary.beta.0(zod@4.4.3)
       '@standard-schema/spec': 1.1.0
@@ -7508,7 +7512,7 @@ snapshots:
   gcp-metadata@8.1.2:
     dependencies:
       gaxios: 7.3.1
-      google-logging-utils: 1.1.3
+      google-logging-utils: 1.2.0
       json-bigint: 1.0.0
     transitivePeerDependencies:
       - supports-color
@@ -7543,6 +7547,8 @@ snapshots:
       - supports-color
 
   google-logging-utils@1.1.3: {}
+
+  google-logging-utils@1.2.0: {}
 
   graceful-fs@4.2.11: {}
 

@@ -35,33 +35,6 @@ export const extractedFieldSchema = z
 	})
 	.strict();
 
-export const assistantTurnSchema = z
-	.object({
-		inputTranscript: z.string().min(1).max(4_000).nullable(),
-		message: z.string().min(1).max(1_200),
-		intent: z.enum([
-			"classify",
-			"clarify",
-			"navigate",
-			"fill-form",
-			"public-information",
-			"login-required",
-			"unsupported",
-		]),
-		formId: z.string().max(180).nullable(),
-		authoritySlug: z.string().max(180).nullable(),
-		formTitle: z.string().max(320).nullable(),
-		authorityName: z.string().max(240).nullable(),
-		confidence: z.number().min(0).max(1),
-		extractedFields: z.array(extractedFieldSchema).max(20),
-		missingRequiredFields: z.array(z.string().max(180)).max(20),
-		followUpQuestion: z.string().max(500).nullable(),
-		plainLanguageReason: z.string().max(700),
-	})
-	.strict();
-
-export type AssistantTurn = z.infer<typeof assistantTurnSchema>;
-
 const wireMessageSchema = z
 	.object({
 		id: z.string().max(200).optional(),

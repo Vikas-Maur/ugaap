@@ -11,10 +11,7 @@ import {
 	buildAssistantPrompt,
 	detectMessageLanguage,
 } from "#/features/assistant/prompt";
-import {
-	assistantChatRequestSchema,
-	assistantTurnSchema,
-} from "#/features/assistant/schema";
+import { assistantChatRequestSchema } from "#/features/assistant/schema";
 import { searchCatalogueServer } from "#/features/assistant/server-catalogue";
 import { searchGrievanceCatalogueDef } from "#/features/assistant/tools";
 import {
@@ -110,6 +107,10 @@ export const Route = createFileRoute("/api/ai/chat")({
 				const stream = chat({
 					adapter: geminiText(configuredTextModel()),
 					messages: agentParams.messages,
+					threadId: agentParams.threadId,
+					runId: agentParams.runId,
+					parentRunId: agentParams.parentRunId,
+					resume: agentParams.resume,
 					systemPrompts: [
 						buildAssistantPrompt({
 							replyLanguage:
@@ -117,7 +118,6 @@ export const Route = createFileRoute("/api/ai/chat")({
 								(latestInput.hasAudio
 									? "auto"
 									: detectMessageLanguage(latestInput.text)),
-							latestInputHasAudio: latestInput.hasAudio,
 							authenticated: Boolean(session),
 							pathname: parsed.data.forwardedProps.pathname,
 							route: parsed.data.forwardedProps.route,
@@ -125,7 +125,6 @@ export const Route = createFileRoute("/api/ai/chat")({
 							pageContent: parsed.data.forwardedProps.pageContent,
 						}),
 					],
-					outputSchema: assistantTurnSchema,
 					tools,
 					stream: true,
 					abortController,

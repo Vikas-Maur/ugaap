@@ -1,27 +1,30 @@
-import type { RealtimeToken } from "@tanstack/ai";
 import { clientTools } from "@tanstack/ai-client";
-import { geminiRealtime } from "@tanstack/ai-gemini";
 import {
 	fetchServerSentEvents,
 	useAudioRecorder,
 	useChat,
-	useRealtimeChat,
 } from "@tanstack/ai-react";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
 import {
 	ArrowRight,
 	Bot,
+	Check,
 	LoaderCircle,
 	LogIn,
 	MessageSquareText,
 	Mic,
 	Send,
 	Square,
+	Trash2,
+	TriangleAlert,
 	Undo2,
+	Wrench,
 	X,
 } from "lucide-react";
 import {
+	type CSSProperties,
 	type FormEvent,
+	type RefObject,
 	useCallback,
 	useEffect,
 	useMemo,
@@ -38,10 +41,7 @@ import {
 	assistantRoutes,
 	routeDefinitionForPath,
 } from "#/features/assistant/routes";
-import {
-	assistantTranscriptionSchema,
-	assistantTurnSchema,
-} from "#/features/assistant/schema";
+import { assistantTranscriptionSchema } from "#/features/assistant/schema";
 import { selectSpeechVoice } from "#/features/assistant/speech";
 import {
 	changeInterfaceLanguageDef,
@@ -78,11 +78,146 @@ import {
 	SheetTitle,
 } from "./ui/sheet";
 
-type AssistantMode = "realtime" | "text" | "local";
+type AssistantMode = "text" | "local";
 
-function messageText(
-	parts: ReadonlyArray<{ type: string; content?: unknown }>,
-) {
+type ToolActivityState = "running" | "complete" | "error";
+
+type CompactTranscriptItem = {
+	id: string;
+	kind: "message" | "tool";
+	role?: "user" | "assistant";
+	content: string;
+	state?: ToolActivityState;
+	timestamp: number;
+};
+
+type AssistantRecommendation = {
+	formId: string;
+	authoritySlug: string;
+	authorityName: string;
+	formTitle: string;
+};
+
+type AssistantMessagePart = {
+	type: string;
+	content?: unknown;
+	name?: unknown;
+	state?: unknown;
+	output?: unknown;
+};
+
+const toolNames = {
+	list_website_routes: {
+		en: "Reading website routes",
+		hi: "वेबसाइट के पेज देख रहा है",
+	},
+	list_authorities: { en: "Loading authorities", hi: "विभागों की सूची देख रहा है" },
+	list_authority_categories: {
+		en: "Loading grievance categories",
+		hi: "शिकायत श्रेणियां देख रहा है",
+	},
+	get_workspace_summary: {
+		en: "Checking your workspace",
+		hi: "आपका कार्यक्षेत्र देख रहा है",
+	},
+	get_current_record_status: {
+		en: "Checking grievance status",
+		hi: "शिकायत की स्थिति देख रहा है",
+	},
+	navigate_website: {
+		en: "Opening the requested page",
+		hi: "मांगा गया पेज खोल रहा है",
+	},
+	change_interface_language: {
+		en: "Changing the language",
+		hi: "भाषा बदल रहा है",
+	},
+	search_grievance_catalogue: {
+		en: "Searching the grievance catalogue",
+		hi: "शिकायत सूची में खोज रहा है",
+	},
+	open_grievance_form: {
+		en: "Opening the grievance form",
+		hi: "शिकायत फॉर्म खोल रहा है",
+	},
+	fill_visible_form: {
+		en: "Filling the visible form",
+		hi: "दिख रहा फॉर्म भर रहा है",
+	},
+	review_visible_form: { en: "Reviewing the form", hi: "फॉर्म की जांच कर रहा है" },
+	edit_visible_form: {
+		en: "Returning to form editing",
+		hi: "फॉर्म में बदलाव के लिए लौट रहा है",
+	},
+	request_submission_confirmation: {
+		en: "Preparing submission confirmation",
+		hi: "जमा करने की पुष्टि तैयार कर रहा है",
+	},
+	submit_confirmed_grievance: {
+		en: "Submitting the grievance",
+		hi: "शिकायत जमा कर रहा है",
+	},
+} as const;
+
+const voiceWaveBarIds = Array.from(
+	{ length: 96 },
+	(_, index) => `voice-wave-${index}`,
+);
+
+function toolActivityName(name: string, language: "en" | "hi") {
+	const known = toolNames[name as keyof typeof toolNames];
+	if (known) return known[language];
+	return name.replaceAll("_", " ");
+}
+
+function toolActivityState(state?: string): ToolActivityState {
+	if (state === "error") return "error";
+	if (state === "complete") return "complete";
+	return "running";
+}
+
+function VoiceWaveform({
+	phase,
+	live,
+	waveformRef,
+}: {
+	phase: "connecting" | "listening" | "speaking";
+	live: boolean;
+	waveformRef: RefObject<HTMLSpanElement | null>;
+}) {
+	return (
+		<span
+			ref={waveformRef}
+			className="voice-waveform"
+			data-phase={phase}
+			data-live={live}
+			aria-hidden="true"
+		>
+			{voiceWaveBarIds.map((barId) => (
+				<span
+					key={barId}
+					className="voice-wave-bar"
+					style={{ "--voice-scale": 0 } as CSSProperties}
+				/>
+			))}
+		</span>
+	);
+}
+
+function elapsedVoiceTime(seconds: number) {
+	const minutes = Math.floor(seconds / 60);
+	return `${minutes}:${String(seconds % 60).padStart(2, "0")}`;
+}
+
+function completedSpeechLength(content: string, start: number) {
+	let end = start;
+	for (let index = start; index < content.length; index += 1) {
+		if (".!?।\n".includes(content[index] ?? "")) end = index + 1;
+	}
+	return end;
+}
+
+function messageText(parts: ReadonlyArray<AssistantMessagePart>) {
 	return parts
 		.flatMap((part) =>
 			part.type === "text" && typeof part.content === "string"
@@ -92,14 +227,14 @@ function messageText(
 		.join(" ");
 }
 
+function assistantReplyText(parts: ReadonlyArray<AssistantMessagePart>) {
+	return messageText(parts).trim();
+}
+
 function canonicalFormDestination(authoritySlug: string, formId: string) {
 	const search = new URLSearchParams({ form: formId, review: "false" });
 	return `/services/${encodeURIComponent(authoritySlug)}?${search.toString()}`;
 }
-
-const geminiRealtimeProviderOptions = {
-	thinkingConfig: { thinkingLevel: "high" },
-} as const;
 
 export function AssistantLauncher() {
 	const { language, setLanguage, text: translate } = useI18n();
@@ -128,11 +263,9 @@ export function AssistantLauncher() {
 	const [historyOpen, setHistoryOpen] = useState(false);
 	const [textVoicePending, setTextVoicePending] = useState(false);
 	const [textVoiceSpeaking, setTextVoiceSpeaking] = useState(false);
-	const [lastVoiceTranscript, setLastVoiceTranscript] = useState<string | null>(
-		null,
-	);
+	const [voiceElapsedSeconds, setVoiceElapsedSeconds] = useState(0);
 	const [voiceRequested, setVoiceRequested] = useState(false);
-	const [assistantMode, setAssistantMode] = useState<AssistantMode>("realtime");
+	const [assistantMode, setAssistantMode] = useState<AssistantMode>("text");
 	const [pageContent, setPageContent] = useState("");
 	const finishTextRecordingRef = useRef<() => Promise<void>>(
 		async () => undefined,
@@ -140,12 +273,21 @@ export function AssistantLauncher() {
 	const textVoiceStopTimerRef = useRef(0);
 	const textVoiceFinishingRef = useRef(false);
 	const speakFallbackRef = useRef(false);
-	const textVoiceBaselineRef = useRef<unknown>(null);
+	const textVoiceBaselineRef = useRef<string | null>(null);
+	const textVoiceReplyRef = useRef<string | null>(null);
+	const textVoiceSpokenLengthRef = useRef(0);
+	const textVoiceSpeechPendingRef = useRef(0);
+	const textVoiceResponseFinishedRef = useRef(false);
 	const messageLanguageRef = useRef<"en" | "hi" | null>(null);
 	const voiceRequestedRef = useRef(false);
-	const liveWasConnectedRef = useRef(false);
-	const liveCleanupInFlightRef = useRef(false);
-	const lastRealtimeUserTurnRef = useRef<string | null>(null);
+	const compactTranscriptRef = useRef<HTMLDivElement>(null);
+	const compactTranscriptFollowsRef = useRef(true);
+	const textVoiceWaveformRef = useRef<HTMLSpanElement>(null);
+	const textVoiceVisualizerStreamRef = useRef<MediaStream | null>(null);
+	const textVoiceVisualizerContextRef = useRef<AudioContext | null>(null);
+	const textVoiceVisualizerFrameRef = useRef(0);
+	const textVoiceVisualizerPaintRef = useRef(0);
+	const voiceTimerStartedAtRef = useRef(0);
 	const {
 		isRecording: textVoiceRecording,
 		isSupported: textVoiceSupported,
@@ -606,7 +748,6 @@ export function AssistantLauncher() {
 	const chatState = useChat({
 		connection,
 		tools: assistantTools,
-		outputSchema: assistantTurnSchema,
 		onError: () => {
 			const failedVoiceTurn = speakFallbackRef.current;
 			speakFallbackRef.current = false;
@@ -626,40 +767,35 @@ export function AssistantLauncher() {
 			);
 		},
 	});
-
-	useEffect(() => {
-		const final = chatState.final;
-		if (
-			!final ||
-			!speakFallbackRef.current ||
-			!textVoicePending ||
-			final === textVoiceBaselineRef.current
-		)
-			return;
-
-		let finished = false;
-		let disposed = false;
-		const finishVoiceTurn = () => {
-			if (finished || disposed) return;
-			finished = true;
-			speakFallbackRef.current = false;
-			setTextVoicePending(false);
-			setTextVoiceSpeaking(false);
-			voiceRequestedRef.current = false;
-			setVoiceRequested(false);
-		};
-		const language = /[\u0900-\u097f]/.test(final.message) ? "hi" : "en";
-		const speakWithBrowser = () => {
-			if (
-				disposed ||
-				typeof window === "undefined" ||
-				!("speechSynthesis" in window)
-			) {
+	const latestAssistantReply = useMemo(() => {
+		for (let index = chatState.messages.length - 1; index >= 0; index -= 1) {
+			const message = chatState.messages[index];
+			if (message?.role !== "assistant") continue;
+			const content = assistantReplyText(message.parts);
+			if (content) return { id: message.id, content };
+		}
+		return null;
+	}, [chatState.messages]);
+	const finishVoiceTurn = useCallback(() => {
+		if (!speakFallbackRef.current) return;
+		speakFallbackRef.current = false;
+		textVoiceSpeechPendingRef.current = 0;
+		textVoiceResponseFinishedRef.current = false;
+		setTextVoicePending(false);
+		setTextVoiceSpeaking(false);
+		voiceRequestedRef.current = false;
+		setVoiceRequested(false);
+	}, []);
+	const queueVoiceSpeech = useCallback(
+		(content: string) => {
+			if (!content.trim()) return;
+			if (typeof window === "undefined" || !("speechSynthesis" in window)) {
 				finishVoiceTurn();
 				return;
 			}
-			window.speechSynthesis.cancel();
-			const utterance = new SpeechSynthesisUtterance(final.message);
+
+			const language = /[\u0900-\u097f]/.test(content) ? "hi" : "en";
+			const utterance = new SpeechSynthesisUtterance(content.trim());
 			const voice = selectSpeechVoice(
 				window.speechSynthesis.getVoices(),
 				language,
@@ -668,132 +804,68 @@ export function AssistantLauncher() {
 			if (voice) utterance.voice = voice;
 			utterance.rate = language === "hi" ? 0.94 : 0.97;
 			utterance.pitch = 1;
+			textVoiceSpeechPendingRef.current += 1;
+			let settled = false;
+			const settle = () => {
+				if (settled) return;
+				settled = true;
+				textVoiceSpeechPendingRef.current = Math.max(
+					0,
+					textVoiceSpeechPendingRef.current - 1,
+				);
+				if (
+					textVoiceResponseFinishedRef.current &&
+					textVoiceSpeechPendingRef.current === 0
+				) {
+					finishVoiceTurn();
+				}
+			};
 			utterance.onstart = () => setTextVoiceSpeaking(true);
-			utterance.onend = finishVoiceTurn;
-			utterance.onerror = finishVoiceTurn;
+			utterance.onend = settle;
+			utterance.onerror = settle;
 			try {
 				window.speechSynthesis.speak(utterance);
 			} catch {
-				finishVoiceTurn();
+				settle();
 			}
-		};
-		setNotice(null);
-		speakWithBrowser();
-		return () => {
-			disposed = true;
-			if (typeof window !== "undefined" && "speechSynthesis" in window)
-				window.speechSynthesis.cancel();
-		};
-	}, [chatState.final, textVoicePending]);
-
-	const currentCatalogueForm = currentForm?.form ?? null;
-	const visibleFormDescription = useMemo(
-		() =>
-			currentCatalogueForm
-				? {
-						id: currentCatalogueForm.id,
-						title: currentCatalogueForm.title,
-						heading: currentCatalogueForm.heading,
-						categoryPath: currentCatalogueForm.categoryPath,
-						stage: currentForm?.stage ?? "edit",
-						fields: currentCatalogueForm.fields
-							.filter((field) => field.kind !== "file")
-							.map((field) => ({
-								id: field.id,
-								label: field.label,
-								kind: field.kind,
-								required: field.required,
-								placeholder: field.placeholder,
-								maximumLength: field.maximumLength,
-								pattern: field.pattern,
-								options: field.options,
-								value: currentForm?.values[field.id] ?? "",
-								error: currentForm?.errors[field.id] ?? null,
-							})),
-					}
-				: null,
-		[currentCatalogueForm, currentForm],
-	);
-
-	const voiceInstructions = useMemo(
-		() =>
-			[
-				"You are UGAAP's voice website guide. Understand the current UGAAP page and operate it through tools when asked.",
-				`Detect the language of every citizen utterance from its grammar and majority language. Reply in English when they speak English. Reply in simple natural Hindi when they speak Hindi or Hinglish. Indian names and official or legal terms such as Aadhaar, benami, pension, PAN, and ministry inside an English utterance do not make it Hindi. Do not use the website's ${language === "hi" ? "Hindi" : "English"} interface setting to choose the reply language.`,
-				"Use VISIBLE_FORM before catalogue search. If a form is visible, fill, review, or submit it directly and do not search for it or navigate away.",
-				"Search only when a grievance route must be discovered. Use authority and category tools for directory questions and workspace tools for status questions.",
-				"Never invent a page, form, status, government action, or successful tool result. Keep replies short and conversational.",
-				"Map natural answers to visible form fields. Never ask for an internal field id, fill file fields, or fill values the citizen did not supply.",
-				"Submission requires a separate confirmation after review. Request confirmation first and submit only after a later explicit yes.",
-				visibleFormDescription
-					? `VISIBLE_FORM: ${JSON.stringify(visibleFormDescription)}`
-					: "No grievance form is visible.",
-				`PAGE_CONTENT: ${pageContent || "No readable page content was captured."}`,
-				`CURRENT_ROUTE: ${JSON.stringify(currentRoute)}`,
-				`SITE_ROUTES: ${JSON.stringify(assistantRouteSummary())}`,
-			].join("\n"),
-		[currentRoute, language, pageContent, visibleFormDescription],
-	);
-
-	const realtime = useRealtimeChat({
-		getToken: async () => {
-			const response = await fetch("/api/ai/realtime-token", {
-				method: "POST",
-				credentials: "same-origin",
-			});
-			if (!response.ok) throw new Error("Gemini Live is unavailable.");
-			return (await response.json()) as RealtimeToken;
 		},
-		adapter: useMemo(
-			() => geminiRealtime({ model: "gemini-3.1-flash-live-preview" }),
-			[],
-		),
-		tools: assistantTools,
-		autoCapture: true,
-		autoPlayback: true,
-		instructions: voiceInstructions,
-		voice: "Charon",
-		vadMode: "server",
-		outputModalities: ["audio", "text"],
-		onConnect: () =>
-			setNotice(
-				translate(
-					text({
-						en: "Voice is on. Speak naturally; UGAAP will answer aloud.",
-						hi: "आवाज़ चालू है। स्वाभाविक रूप से बोलें; UGAAP आवाज़ में जवाब देगा।",
-					}),
-				),
-			),
-		onError: (error) =>
-			setNotice(
-				translate(
-					text({
-						en: `Gemini Live could not start: ${error.message}`,
-						hi: `Gemini Live शुरू नहीं हो सका: ${error.message}`,
-					}),
-				),
-			),
-	});
+		[finishVoiceTurn],
+	);
 
 	useEffect(() => {
-		const latestUser = [...realtime.messages]
-			.reverse()
-			.find((message) => message.role === "user");
-		if (!latestUser || lastRealtimeUserTurnRef.current === latestUser.id)
+		if (!speakFallbackRef.current || !textVoicePending) return;
+		if (
+			!latestAssistantReply ||
+			latestAssistantReply.id === textVoiceBaselineRef.current
+		) {
+			if (!chatState.isLoading) finishVoiceTurn();
 			return;
-		lastRealtimeUserTurnRef.current = latestUser.id;
-		beginUserTurn();
-	}, [beginUserTurn, realtime.messages]);
+		}
 
-	useEffect(() => {
-		realtime.updateSession({
-			instructions: voiceInstructions,
-			voice: "Charon",
-			vadMode: "server",
-			outputModalities: ["audio", "text"],
-			providerOptions: geminiRealtimeProviderOptions,
-		});
-	}, [realtime.updateSession, voiceInstructions]);
+		if (textVoiceReplyRef.current !== latestAssistantReply.id) {
+			textVoiceReplyRef.current = latestAssistantReply.id;
+			textVoiceSpokenLengthRef.current = 0;
+			setNotice(null);
+		}
+		const start = textVoiceSpokenLengthRef.current;
+		const end = chatState.isLoading
+			? completedSpeechLength(latestAssistantReply.content, start)
+			: latestAssistantReply.content.length;
+		if (end > start) {
+			textVoiceSpokenLengthRef.current = end;
+			queueVoiceSpeech(latestAssistantReply.content.slice(start, end));
+		}
+		if (!chatState.isLoading) {
+			textVoiceResponseFinishedRef.current = true;
+			if (textVoiceSpeechPendingRef.current === 0) finishVoiceTurn();
+		}
+	}, [
+		chatState.isLoading,
+		finishVoiceTurn,
+		latestAssistantReply,
+		queueVoiceSpeech,
+		textVoicePending,
+	]);
 
 	const setVoiceEnabled = useCallback((enabled: boolean) => {
 		voiceRequestedRef.current = enabled;
@@ -806,12 +878,97 @@ export function AssistantLauncher() {
 		textVoiceStopTimerRef.current = 0;
 	}, []);
 
+	const stopTextVoiceVisualizer = useCallback(() => {
+		if (textVoiceVisualizerFrameRef.current) {
+			window.cancelAnimationFrame(textVoiceVisualizerFrameRef.current);
+			textVoiceVisualizerFrameRef.current = 0;
+		}
+		textVoiceVisualizerStreamRef.current?.getTracks().forEach((track) => {
+			track.stop();
+		});
+		textVoiceVisualizerStreamRef.current = null;
+		const context = textVoiceVisualizerContextRef.current;
+		textVoiceVisualizerContextRef.current = null;
+		if (context && context.state !== "closed") {
+			void context.close().catch(() => undefined);
+		}
+		for (const bar of textVoiceWaveformRef.current?.querySelectorAll<HTMLElement>(
+			".voice-wave-bar",
+		) ?? []) {
+			bar.style.setProperty("--voice-scale", "0");
+		}
+	}, []);
+
+	const startTextVoiceVisualizer = useCallback(async () => {
+		stopTextVoiceVisualizer();
+		try {
+			const stream = await navigator.mediaDevices.getUserMedia({
+				audio: {
+					autoGainControl: true,
+					echoCancellation: true,
+					noiseSuppression: true,
+				},
+			});
+			if (!voiceRequestedRef.current) {
+				stream.getTracks().forEach((track) => {
+					track.stop();
+				});
+				return;
+			}
+			const context = new AudioContext();
+			const source = context.createMediaStreamSource(stream);
+			const analyser = context.createAnalyser();
+			analyser.fftSize = 1024;
+			source.connect(analyser);
+			await context.resume();
+			textVoiceVisualizerStreamRef.current = stream;
+			textVoiceVisualizerContextRef.current = context;
+			const audioData = new Uint8Array(analyser.fftSize);
+			const samples = voiceWaveBarIds.map(() => 0);
+			let smoothedAmplitude = 0;
+			const draw = (timestamp: number) => {
+				analyser.getByteTimeDomainData(audioData);
+				let sumOfSquares = 0;
+				for (const sample of audioData) {
+					const normalized = (sample - 128) / 128;
+					sumOfSquares += normalized * normalized;
+				}
+				const rms = Math.sqrt(sumOfSquares / audioData.length);
+				const noiseGated = Math.max(0, (rms - 0.006) * 11);
+				const targetAmplitude = Math.min(1, noiseGated ** 0.7);
+				const response = targetAmplitude > smoothedAmplitude ? 0.24 : 0.09;
+				smoothedAmplitude += (targetAmplitude - smoothedAmplitude) * response;
+
+				if (timestamp - textVoiceVisualizerPaintRef.current >= 85) {
+					textVoiceVisualizerPaintRef.current = timestamp;
+					samples.copyWithin(0, 1);
+					samples[samples.length - 1] = smoothedAmplitude;
+					const bars =
+						textVoiceWaveformRef.current?.querySelectorAll<HTMLElement>(
+							".voice-wave-bar",
+						);
+					if (bars) {
+						bars.forEach((bar, index) => {
+							const amplitude = samples[index] ?? 0;
+							const scale = amplitude > 0.015 ? 0.1 + amplitude * 0.9 : 0;
+							bar.style.setProperty("--voice-scale", scale.toFixed(3));
+						});
+					}
+				}
+				textVoiceVisualizerFrameRef.current =
+					window.requestAnimationFrame(draw);
+			};
+			textVoiceVisualizerFrameRef.current = window.requestAnimationFrame(draw);
+		} catch {
+			stopTextVoiceVisualizer();
+		}
+	}, [stopTextVoiceVisualizer]);
+
 	async function submit(event?: FormEvent) {
 		event?.preventDefault();
 		const message = input.trim();
 		if (!message || chatState.isLoading) return;
 		setNotice(null);
-		setLastVoiceTranscript(null);
 		beginUserTurn();
 		setInput("");
 		messageLanguageRef.current = null;
@@ -821,7 +978,10 @@ export function AssistantLauncher() {
 	const finishTextVoiceRecording = useCallback(async () => {
 		if (!textVoiceRecording || textVoiceFinishingRef.current) return;
 		textVoiceFinishingRef.current = true;
+		let processingStage: "recording" | "transcription" | "assistant" =
+			"recording";
 		clearTextVoiceStopTimer();
+		stopTextVoiceVisualizer();
 		setTextVoicePending(true);
 		setTextVoiceSpeaking(false);
 		setNotice(
@@ -838,6 +998,7 @@ export function AssistantLauncher() {
 				throw new Error("The recording was too short.");
 			const audioPart = await recordingToGeminiAudio(recording.blob);
 			if (!voiceRequestedRef.current) return;
+			processingStage = "transcription";
 			const response = await fetch("/api/ai/transcribe", {
 				method: "POST",
 				credentials: "same-origin",
@@ -868,10 +1029,13 @@ export function AssistantLauncher() {
 				return;
 			}
 
-			setLastVoiceTranscript(transcript);
 			beginUserTurn();
 			speakFallbackRef.current = true;
-			textVoiceBaselineRef.current = chatState.final;
+			textVoiceBaselineRef.current = latestAssistantReply?.id ?? null;
+			textVoiceReplyRef.current = null;
+			textVoiceSpokenLengthRef.current = 0;
+			textVoiceSpeechPendingRef.current = 0;
+			textVoiceResponseFinishedRef.current = false;
 			setNotice(
 				translate(
 					text({
@@ -881,6 +1045,7 @@ export function AssistantLauncher() {
 				),
 			);
 			messageLanguageRef.current = transcription.data.language;
+			processingStage = "assistant";
 			try {
 				await chatState.sendMessage(transcript);
 			} finally {
@@ -894,6 +1059,9 @@ export function AssistantLauncher() {
 			const permissionDenied =
 				error instanceof DOMException &&
 				(error.name === "NotAllowedError" || error.name === "SecurityError");
+			const recordingTooShort =
+				error instanceof Error &&
+				error.message === "The recording was too short.";
 			setNotice(
 				translate(
 					permissionDenied
@@ -901,10 +1069,25 @@ export function AssistantLauncher() {
 								en: "Microphone access was blocked. Allow microphone access, then try again.",
 								hi: "माइक्रोफ़ोन की अनुमति नहीं मिली। अनुमति देकर फिर कोशिश करें।",
 							})
-						: text({
-								en: "The recording could not be processed. Try again or type your message.",
-								hi: "रिकॉर्डिंग तैयार नहीं हो सकी। दोबारा कोशिश करें या संदेश टाइप करें।",
-							}),
+						: processingStage === "assistant"
+							? text({
+									en: "I heard your message, but the guide could not answer. Please send it again.",
+									hi: "आपका संदेश सुन लिया गया, लेकिन मार्गदर्शक जवाब नहीं दे सका। कृपया इसे फिर से भेजें।",
+								})
+							: recordingTooShort
+								? text({
+										en: "The recording was too short. Speak for a moment longer and try again.",
+										hi: "रिकॉर्डिंग बहुत छोटी थी। थोड़ा और बोलकर फिर कोशिश करें।",
+									})
+								: processingStage === "transcription"
+									? text({
+											en: "I could not understand that recording. Please record it again or type your message.",
+											hi: "रिकॉर्डिंग समझ में नहीं आई। कृपया फिर से रिकॉर्ड करें या संदेश टाइप करें।",
+										})
+									: text({
+											en: "The recording could not be prepared. Please record it again.",
+											hi: "रिकॉर्डिंग तैयार नहीं हो सकी। कृपया फिर से रिकॉर्ड करें।",
+										}),
 				),
 			);
 		} finally {
@@ -912,10 +1095,11 @@ export function AssistantLauncher() {
 		}
 	}, [
 		beginUserTurn,
-		chatState.final,
 		chatState.sendMessage,
 		clearTextVoiceStopTimer,
+		latestAssistantReply?.id,
 		setVoiceEnabled,
+		stopTextVoiceVisualizer,
 		stopTextRecorder,
 		textVoiceRecording,
 		translate,
@@ -939,13 +1123,13 @@ export function AssistantLauncher() {
 			window.speechSynthesis.cancel();
 		setTextVoicePending(false);
 		setTextVoiceSpeaking(false);
-		setLastVoiceTranscript(null);
 		try {
 			await startTextRecorder();
 			if (!voiceRequestedRef.current) {
 				cancelTextRecorder();
 				return;
 			}
+			void startTextVoiceVisualizer();
 			setNotice(
 				translate(
 					text({
@@ -983,6 +1167,7 @@ export function AssistantLauncher() {
 		clearTextVoiceStopTimer,
 		setVoiceEnabled,
 		startTextRecorder,
+		startTextVoiceVisualizer,
 		textVoiceSupported,
 		translate,
 	]);
@@ -990,25 +1175,26 @@ export function AssistantLauncher() {
 	async function stopVoice() {
 		setVoiceEnabled(false);
 		clearTextVoiceStopTimer();
+		stopTextVoiceVisualizer();
 		cancelTextRecorder();
 		speakFallbackRef.current = false;
+		textVoiceSpeechPendingRef.current = 0;
+		textVoiceResponseFinishedRef.current = false;
 		setTextVoicePending(false);
 		setTextVoiceSpeaking(false);
-		realtime.interrupt();
-		realtime.stopListening();
-		await realtime.disconnect().catch(() => undefined);
 		if (typeof window !== "undefined" && "speechSynthesis" in window) {
 			window.speechSynthesis.cancel();
 		}
 	}
 
+	async function cancelVoiceInput() {
+		setNotice(null);
+		await stopVoice();
+	}
+
 	async function stopAssistant() {
 		chatState.stop();
-		if (
-			voiceRequestedRef.current ||
-			textVoiceRecording ||
-			realtime.status !== "idle"
-		) {
+		if (voiceRequestedRef.current || textVoiceRecording) {
 			await stopVoice();
 		} else if (typeof window !== "undefined" && "speechSynthesis" in window) {
 			window.speechSynthesis.cancel();
@@ -1019,7 +1205,7 @@ export function AssistantLauncher() {
 	async function toggleVoice() {
 		setNotice(null);
 		if (voiceRequestedRef.current) {
-			if (assistantMode === "text" && textVoiceRecording) {
+			if (textVoiceRecording) {
 				await finishTextVoiceRecording();
 				return;
 			}
@@ -1027,71 +1213,8 @@ export function AssistantLauncher() {
 			return;
 		}
 		setVoiceEnabled(true);
-		if (assistantMode === "text") {
-			realtime.interrupt();
-			realtime.stopListening();
-			await realtime.disconnect().catch(() => undefined);
-			if (voiceRequestedRef.current) await startTextVoiceRecording();
-			return;
-		}
-		try {
-			realtime.updateSession({
-				instructions: voiceInstructions,
-				voice: "Charon",
-				vadMode: "server",
-				outputModalities: ["audio", "text"],
-				providerOptions: geminiRealtimeProviderOptions,
-			});
-			await realtime.connect();
-		} catch {
-			await realtime.disconnect().catch(() => undefined);
-			if (voiceRequestedRef.current) {
-				setAssistantMode("text");
-				await startTextVoiceRecording();
-			}
-		}
+		if (voiceRequestedRef.current) await startTextVoiceRecording();
 	}
-
-	useEffect(() => {
-		if (realtime.status === "connected") {
-			liveWasConnectedRef.current = true;
-			return;
-		}
-		if (
-			(realtime.status !== "idle" && realtime.status !== "error") ||
-			!liveWasConnectedRef.current ||
-			!voiceRequestedRef.current ||
-			liveCleanupInFlightRef.current
-		)
-			return;
-
-		// Gemini can close its socket while the audio stream remains alive. Force a
-		// full teardown before falling back so the browser never keeps a leaked mic.
-		liveWasConnectedRef.current = false;
-		liveCleanupInFlightRef.current = true;
-		void realtime
-			.disconnect()
-			.catch(() => undefined)
-			.finally(() => {
-				liveCleanupInFlightRef.current = false;
-				if (!voiceRequestedRef.current) return;
-				setNotice(
-					translate(
-						text({
-							en: "The live voice session ended. Record this message for the text model instead.",
-							hi: "लाइव वॉइस सत्र बंद हो गया। यह संदेश टेक्स्ट मॉडल के लिए रिकॉर्ड करें।",
-						}),
-					),
-				);
-				setAssistantMode("text");
-				void startTextVoiceRecording();
-			});
-	}, [
-		realtime.disconnect,
-		realtime.status,
-		startTextVoiceRecording,
-		translate,
-	]);
 
 	useEffect(
 		() => () => {
@@ -1099,18 +1222,18 @@ export function AssistantLauncher() {
 			if (textVoiceStopTimerRef.current)
 				window.clearTimeout(textVoiceStopTimerRef.current);
 			cancelTextRecorder();
+			stopTextVoiceVisualizer();
 			if (typeof window !== "undefined" && "speechSynthesis" in window) {
 				window.speechSynthesis.cancel();
 			}
 		},
-		[cancelTextRecorder],
+		[cancelTextRecorder, stopTextVoiceVisualizer],
 	);
 
-	async function openRecommendation(turn: typeof chatState.final) {
-		if (!turn?.formId || !turn.authoritySlug) return;
+	async function openRecommendation(recommendation: AssistantRecommendation) {
 		const destination = canonicalFormDestination(
-			turn.authoritySlug,
-			turn.formId,
+			recommendation.authoritySlug,
+			recommendation.formId,
 		);
 		if (!session?.user) {
 			await navigate({ to: "/login", search: { redirect: destination } });
@@ -1118,97 +1241,65 @@ export function AssistantLauncher() {
 		}
 		await navigate({
 			to: "/services/$authoritySlug",
-			params: { authoritySlug: turn.authoritySlug },
-			search: { form: turn.formId, review: false, draft: undefined },
+			params: { authoritySlug: recommendation.authoritySlug },
+			search: {
+				form: recommendation.formId,
+				review: false,
+				draft: undefined,
+			},
 		});
 	}
 
 	const voiceActive = voiceRequested;
+	useEffect(() => {
+		if (!voiceActive) {
+			voiceTimerStartedAtRef.current = 0;
+			setVoiceElapsedSeconds(0);
+			return;
+		}
+		if (!textVoiceRecording) return;
+		if (!voiceTimerStartedAtRef.current) {
+			voiceTimerStartedAtRef.current = Date.now();
+			setVoiceElapsedSeconds(0);
+		}
+		const timer = window.setInterval(() => {
+			setVoiceElapsedSeconds(
+				Math.floor((Date.now() - voiceTimerStartedAtRef.current) / 1000),
+			);
+		}, 250);
+		return () => window.clearInterval(timer);
+	}, [textVoiceRecording, voiceActive]);
 	const assistantBusy = voiceActive || chatState.isLoading;
-	const lastRealtimeMessage = realtime.messages.at(-1);
-	const lastRealtimeTranscript = lastRealtimeMessage?.parts
-		.flatMap((part) =>
-			part.type === "text"
-				? [part.content]
-				: part.type === "audio" && part.transcript
-					? [part.transcript]
-					: [],
-		)
-		.join(" ");
-	const latestVoiceReply =
-		voiceActive && assistantMode === "realtime"
-			? (realtime.pendingUserTranscript ??
-				realtime.pendingAssistantTranscript ??
-				lastRealtimeTranscript)
-			: null;
-	const latestDockReply =
-		latestVoiceReply ?? chatState.partial.message ?? chatState.final?.message;
-	const voiceStatus =
-		assistantMode === "text"
-			? textVoiceRecording
+	const latestDockReply = latestAssistantReply?.content;
+	const voiceStatus = textVoiceRecording
+		? translate(
+				text({
+					en: "Recording now. Tap voice to stop and send.",
+					hi: "रिकॉर्डिंग चालू है। रोककर भेजने के लिए वॉइस दबाएँ।",
+				}),
+			)
+		: textVoiceSpeaking
+			? translate(text({ en: "UGAAP is speaking…", hi: "UGAAP बोल रहा है…" }))
+			: textVoicePending
 				? translate(
 						text({
-							en: "Recording now. Tap voice to stop and send.",
-							hi: "रिकॉर्डिंग चालू है। रोककर भेजने के लिए वॉइस दबाएँ।",
+							en: "The text model is preparing a response…",
+							hi: "टेक्स्ट मॉडल जवाब तैयार कर रहा है…",
 						}),
 					)
-				: textVoiceSpeaking
-					? translate(
-							text({ en: "UGAAP is speaking…", hi: "UGAAP बोल रहा है…" }),
-						)
-					: textVoicePending
-						? translate(
-								text({
-									en: "The text model is preparing a response…",
-									hi: "टेक्स्ट मॉडल जवाब तैयार कर रहा है…",
-								}),
-							)
-						: translate(
-								text({
-									en: "Speak naturally and hear the answer aloud",
-									hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
-								}),
-							)
-			: textVoiceRecording
-				? translate(text({ en: "Listening now…", hi: "अभी सुन रहे हैं…" }))
-				: realtime.status === "connected"
-					? realtime.mode === "speaking"
-						? translate(
-								text({ en: "UGAAP is speaking…", hi: "UGAAP बोल रहा है…" }),
-							)
-						: translate(
-								text({
-									en: "Listening—speak naturally",
-									hi: "सुन रहे हैं—सहज रूप से बोलें",
-								}),
-							)
-					: voiceActive
-						? translate(
-								text({
-									en: "Connecting realtime voice…",
-									hi: "रीयलटाइम आवाज़ जुड़ रही है…",
-								}),
-							)
-						: translate(
-								text({
-									en: "Speak naturally and hear the answer aloud",
-									hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
-								}),
-							);
+				: translate(
+						text({
+							en: "Speak naturally and hear the answer aloud",
+							hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
+						}),
+					);
 	const voicePhase = !voiceActive
 		? "idle"
-		: assistantMode === "text"
-			? textVoiceRecording
-				? "listening"
-				: textVoiceSpeaking
-					? "speaking"
-					: "connecting"
-			: textVoiceRecording ||
-					(realtime.status === "connected" && realtime.mode !== "speaking")
-				? "listening"
-				: realtime.status === "connected" && realtime.mode === "speaking"
-					? "speaking"
-					: "connecting";
+		: textVoiceRecording
+			? "listening"
+			: textVoiceSpeaking
+				? "speaking"
+				: "connecting";
 	const voiceButtonLabel =
 		voicePhase === "idle"
 			? translate(
@@ -1217,15 +1308,136 @@ export function AssistantLauncher() {
 						hi: "आवाज़ मार्गदर्शक शुरू करें",
 					}),
 				)
-			: voicePhase === "listening" && assistantMode === "text"
+			: voicePhase === "listening"
 				? translate(text({ en: "Stop and send", hi: "रोककर भेजें" }))
 				: voicePhase === "connecting"
-					? translate(text({ en: "Connecting voice", hi: "आवाज़ जुड़ रही है" }))
+					? translate(text({ en: "Preparing voice", hi: "आवाज़ तैयार हो रही है" }))
 					: voicePhase === "speaking"
 						? translate(
 								text({ en: "UGAAP is speaking", hi: "UGAAP बोल रहा है" }),
 							)
 						: translate(text({ en: "Listening", hi: "सुन रहा है" }));
+	const compactTranscript = useMemo(() => {
+		const resultStates = new Map<string, ToolActivityState>();
+		for (const message of chatState.messages) {
+			for (const part of message.parts) {
+				if (part.type === "tool-result") {
+					resultStates.set(
+						part.toolCallId,
+						part.state === "error" ? "error" : "complete",
+					);
+				}
+			}
+		}
+
+		const items: Array<CompactTranscriptItem> = [];
+		let sequence = 0;
+		for (const message of chatState.messages) {
+			const timestamp = message.createdAt?.getTime() ?? sequence;
+			if (message.role === "user") {
+				const content = messageText(message.parts);
+				if (content) {
+					items.push({
+						id: `${message.id}-message`,
+						kind: "message",
+						role: "user",
+						content,
+						timestamp,
+					});
+				}
+			}
+			if (message.role === "assistant") {
+				for (const [partIndex, part] of message.parts.entries()) {
+					if (part.type === "tool-call") {
+						items.push({
+							id: `${message.id}-${part.id}`,
+							kind: "tool",
+							content: toolActivityName(part.name, language),
+							state: resultStates.get(part.id) ?? toolActivityState(part.state),
+							timestamp: timestamp + partIndex / 100,
+						});
+					}
+					if (part.type === "text" && part.content.trim()) {
+						items.push({
+							id: `${message.id}-text-${partIndex}`,
+							kind: "message",
+							role: "assistant",
+							content: part.content,
+							timestamp: timestamp + partIndex / 100,
+						});
+					}
+				}
+			}
+			sequence += 1;
+		}
+
+		if (notice) {
+			items.push({
+				id: "assistant-notice",
+				kind: "message",
+				role: "assistant",
+				content: notice,
+				timestamp: Date.now() + 1,
+			});
+		}
+
+		return items.sort((left, right) => left.timestamp - right.timestamp);
+	}, [chatState.messages, language, notice]);
+	const runningTools = compactTranscript.filter(
+		(item) => item.kind === "tool" && item.state === "running",
+	);
+	const settledTranscript = compactTranscript.filter(
+		(item) => item.kind !== "tool" || item.state !== "running",
+	);
+	const conversationStarted = chatState.messages.length > 0;
+	const transcriptRevision = settledTranscript
+		.map((item) => `${item.id}:${item.state ?? "message"}:${item.content}`)
+		.join("|");
+
+	useEffect(() => {
+		const root = compactTranscriptRef.current;
+		const viewport = root?.querySelector<HTMLElement>(
+			'[data-slot="scroll-area-viewport"]',
+		);
+		if (!viewport) return;
+		const updateFollowState = () => {
+			compactTranscriptFollowsRef.current =
+				viewport.scrollHeight - viewport.scrollTop - viewport.clientHeight < 12;
+		};
+		viewport.addEventListener("scroll", updateFollowState, { passive: true });
+		return () => viewport.removeEventListener("scroll", updateFollowState);
+	}, []);
+
+	useEffect(() => {
+		if (!compactTranscriptFollowsRef.current || !transcriptRevision) return;
+		const viewport = compactTranscriptRef.current?.querySelector<HTMLElement>(
+			'[data-slot="scroll-area-viewport"]',
+		);
+		if (viewport) viewport.scrollTop = viewport.scrollHeight;
+	}, [transcriptRevision]);
+
+	const voiceWaveIsLive = textVoiceRecording;
+	const voiceActionHint =
+		voicePhase === "listening"
+			? translate(
+					text({
+						en: "Tap stop when you are done. Your recording will be sent.",
+						hi: "बोलने के बाद रोकें दबाएं। आपकी रिकॉर्डिंग भेजी जाएगी।",
+					}),
+				)
+			: voicePhase === "speaking"
+				? translate(
+						text({
+							en: "Playing the guide's reply aloud.",
+							hi: "मार्गदर्शक का जवाब आवाज़ में सुनाया जा रहा है।",
+						}),
+					)
+				: translate(
+						text({
+							en: "Setting up your microphone and speaker.",
+							hi: "माइक्रोफोन और स्पीकर तैयार किए जा रहे हैं।",
+						}),
+					);
 	async function confirmPendingSubmission() {
 		if (!pendingSubmission) return;
 		const result = await submitConfirmedGrievance(pendingSubmission.id, {
@@ -1286,8 +1498,7 @@ export function AssistantLauncher() {
 
 					<ScrollArea className="min-h-0 flex-1" type="auto">
 						<div aria-live="polite">
-							{chatState.messages.length === 0 &&
-							realtime.messages.length === 0 ? (
+							{chatState.messages.length === 0 ? (
 								<div className="px-5 py-8 text-sm leading-7 text-[var(--ink-muted)]">
 									<p className="m-0 text-base font-bold text-[var(--ink)]">
 										{translate(
@@ -1323,11 +1534,24 @@ export function AssistantLauncher() {
 										</div>
 									) : null;
 								}
-								const structured = message.parts.find(
-									(part) => part.type === "structured-output",
+								const content = assistantReplyText(message.parts);
+								const toolCalls = message.parts.filter(
+									(part) => part.type === "tool-call",
 								);
-								const turn = structured?.data ?? structured?.partial;
-								return turn?.message ? (
+								const recommendation = toolCalls
+									.flatMap((part) =>
+										part.name === "search_grievance_catalogue" &&
+										part.output?.status === "found"
+											? part.output.results.slice(0, 1).map((result) => ({
+													formId: result.id,
+													authoritySlug: result.authoritySlug,
+													authorityName: result.authorityName,
+													formTitle: result.title,
+												}))
+											: [],
+									)
+									.at(0);
+								return content || toolCalls.length ? (
 									<div
 										key={message.id}
 										className="border-b border-[var(--line)] px-5 py-5 text-sm leading-7 text-[var(--ink-muted)]"
@@ -1335,19 +1559,39 @@ export function AssistantLauncher() {
 										<span className="mb-1 block text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--action)]">
 											UGAAP
 										</span>
-										<p className="m-0">{turn.message}</p>
-										{turn.formId && turn.authoritySlug ? (
+										{toolCalls.map((part) => {
+											const state = toolActivityState(part.state);
+											return (
+												<div
+													key={part.id}
+													className={`flex items-center gap-2 py-1 text-xs font-semibold ${state === "error" ? "text-[var(--danger)]" : "text-[var(--action)]"}`}
+												>
+													{state === "running" ? (
+														<LoaderCircle className="animate-spin" size={14} />
+													) : state === "error" ? (
+														<TriangleAlert size={14} />
+													) : (
+														<Check size={14} />
+													)}
+													<span>{toolActivityName(part.name, language)}</span>
+												</div>
+											);
+										})}
+										{content ? (
+											<p className="m-0 whitespace-pre-wrap">{content}</p>
+										) : null}
+										{recommendation ? (
 											<div className="mt-4 border-l-4 border-[var(--highlight)] pl-4">
 												<p className="m-0 text-xs font-bold text-[var(--action)]">
-													{turn.authorityName}
+													{recommendation.authorityName}
 												</p>
 												<p className="mb-3 mt-1 font-bold text-[var(--ink)]">
-													{turn.formTitle}
+													{recommendation.formTitle}
 												</p>
 												<button
 													type="button"
 													onClick={() =>
-														void openRecommendation(structured?.data ?? null)
+														void openRecommendation(recommendation)
 													}
 													className="inline-flex min-h-10 items-center gap-2 text-sm font-bold text-[var(--action)] hover:text-[var(--action-hover)] focus-visible:outline-3 focus-visible:outline-[var(--highlight)]"
 												>
@@ -1376,38 +1620,6 @@ export function AssistantLauncher() {
 								) : null;
 							})}
 
-							{realtime.messages.map((message) => {
-								const content = message.parts
-									.flatMap((part) =>
-										part.type === "text"
-											? [part.content]
-											: part.type === "audio" && part.transcript
-												? [part.transcript]
-												: [],
-									)
-									.join(" ");
-								return content ? (
-									<div
-										key={message.id}
-										className={`border-b border-[var(--line)] px-5 py-4 text-sm leading-7 ${message.role === "user" ? "bg-[var(--blue-50)] text-[var(--ink)]" : "text-[var(--ink-muted)]"}`}
-									>
-										<span className="mb-1 block text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--action)]">
-											{message.role === "user"
-												? translate(text({ en: "You", hi: "आप" }))
-												: "UGAAP"}
-										</span>
-										{content}
-									</div>
-								) : null;
-							})}
-
-							{realtime.pendingUserTranscript ||
-							realtime.pendingAssistantTranscript ? (
-								<div className="border-b border-[var(--line)] px-5 py-4 text-sm italic text-[var(--ink-muted)]">
-									{realtime.pendingUserTranscript ??
-										realtime.pendingAssistantTranscript}
-								</div>
-							) : null}
 							{chatState.isLoading ? (
 								<div className="flex items-center gap-2 px-5 py-5 text-sm text-[var(--ink-muted)]">
 									<LoaderCircle
@@ -1447,141 +1659,225 @@ export function AssistantLauncher() {
 				onSubmit={(event) => void submit(event)}
 				className="assistant-dock px-3 py-2 sm:px-4"
 			>
-				<div
-					className="assistant-response mb-2 border-b border-[var(--line)] px-1 pb-2 text-sm leading-5 text-[var(--ink-muted)]"
-					aria-live="polite"
-				>
-					{pendingSubmission ? (
-						<div className="flex flex-wrap items-center justify-between gap-2">
-							<span className="font-semibold text-[var(--ink)]">
-								{translate(
-									text({
-										en: `Ready to submit ${pendingSubmission.formTitle}. Confirm after checking the review.`,
-										hi: `${pendingSubmission.formTitle} जमा करने के लिए तैयार है। समीक्षा जाँचकर पुष्टि करें।`,
-									}),
-								)}
-							</span>
-							<span className="flex items-center gap-2">
-								<button
-									type="button"
-									onClick={() => void confirmPendingSubmission()}
-									className="min-h-9 rounded-md bg-[var(--action)] px-3 text-xs font-bold text-white"
-								>
+				{conversationStarted ? (
+					<ScrollArea
+						ref={compactTranscriptRef}
+						type="hover"
+						className="assistant-response mb-2 h-16 px-1 text-sm text-[var(--ink-muted)]"
+					>
+						<div className="py-0.5" aria-live="polite">
+							{settledTranscript.length ? (
+								settledTranscript.map((item) =>
+									item.kind === "tool" ? (
+										<p
+											key={item.id}
+											className={`m-0 flex min-h-5 items-start gap-1.5 text-xs leading-5 ${item.state === "error" ? "text-[var(--danger)]" : "text-[var(--action)]"}`}
+										>
+											{item.state === "error" ? (
+												<TriangleAlert className="mt-0.5 shrink-0" size={13} />
+											) : (
+												<Check className="mt-0.5 shrink-0" size={13} />
+											)}
+											<span>{item.content}</span>
+										</p>
+									) : (
+										<p key={item.id} className="m-0 min-h-5 leading-5">
+											<span className="mr-1 font-extrabold text-[var(--action)]">
+												{item.role === "user"
+													? translate(text({ en: "You", hi: "आप" }))
+													: "UGAAP"}
+											</span>
+											{item.content}
+										</p>
+									),
+								)
+							) : (
+								<p className="m-0 leading-5 text-[var(--ink-muted)]">
 									{translate(
 										text({
-											en: "Confirm and submit",
-											hi: "पुष्टि करके जमा करें",
+											en: "Listening for your message...",
+											hi: "आपका संदेश सुन रहा है...",
 										}),
 									)}
-								</button>
-								<button
-									type="button"
-									onClick={cancelPendingSubmission}
-									className="min-h-9 px-2 text-xs font-bold text-[var(--ink-muted)] underline"
-								>
-									{translate(text({ en: "Cancel", hi: "रद्द करें" }))}
-								</button>
-							</span>
+								</p>
+							)}
 						</div>
-					) : (
-						<span className="block truncate">
-							{voiceActive
-								? voiceStatus
-								: latestDockReply ||
-									notice ||
-									translate(
-										text({
-											en: "I can help you file a grievance, navigate UGAAP, and guide you through each step.",
-											hi: "मैं शिकायत दर्ज करने, UGAAP वेबसाइट पर जाने और हर चरण में आपका मार्गदर्शन करने में मदद कर सकता हूँ।",
-										}),
-									)}
-						</span>
-					)}
-				</div>
-				{lastVoiceTranscript ? (
-					<p
-						className="m-0 mb-2 border-b border-[var(--line)] px-1 pb-2 text-sm leading-5 text-[var(--ink)]"
+					</ScrollArea>
+				) : (
+					<div
+						className="assistant-response mb-2 px-1 text-sm leading-5 text-[var(--ink-muted)]"
 						aria-live="polite"
 					>
-						<span className="mr-1 font-extrabold text-[var(--action)]">
-							{translate(text({ en: "You said:", hi: "आपने कहा:" }))}
-						</span>
-						{lastVoiceTranscript}
-					</p>
-				) : null}
-				<div className="flex items-center gap-2">
-					<button
-						type="button"
-						onClick={() => void toggleVoice()}
-						aria-pressed={voiceActive}
-						aria-label={voiceButtonLabel}
-						className={`inline-flex min-h-12 shrink-0 items-center gap-2 rounded-lg px-3 text-sm font-extrabold transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)] ${voiceActive ? "bg-[var(--action)] text-white" : "bg-[var(--highlight)] text-[var(--ink)] hover:bg-[var(--highlight-soft)]"}`}
+						{translate(
+							text({
+								en: "I can help you file a grievance, navigate UGAAP, and guide you through each step.",
+								hi: "मैं शिकायत दर्ज करने, UGAAP वेबसाइट पर जाने और हर चरण में आपका मार्गदर्शन करने में मदद कर सकता हूँ।",
+							}),
+						)}
+					</div>
+				)}
+
+				{runningTools.length ? (
+					<div
+						className="mb-2 flex min-h-7 items-center gap-2 px-1 text-xs font-bold text-[var(--action)]"
+						aria-live="polite"
 					>
-						{voicePhase === "idle" ? (
-							<Mic size={20} aria-hidden="true" />
-						) : voicePhase === "connecting" ? (
-							<LoaderCircle
-								className="animate-spin"
-								size={19}
+						<LoaderCircle className="shrink-0 animate-spin" size={14} />
+						<Wrench className="shrink-0" size={13} aria-hidden="true" />
+						<span className="truncate">
+							{runningTools.map((tool) => tool.content).join(", ")}
+						</span>
+					</div>
+				) : null}
+
+				{pendingSubmission ? (
+					<div className="mb-2 flex flex-wrap items-center justify-between gap-2 bg-[var(--blue-50)] px-2 py-1.5 text-xs">
+						<span className="font-semibold text-[var(--ink)]">
+							{translate(
+								text({
+									en: `Ready to submit ${pendingSubmission.formTitle}. Confirm after checking the review.`,
+									hi: `${pendingSubmission.formTitle} जमा करने के लिए तैयार है। समीक्षा जाँचकर पुष्टि करें।`,
+								}),
+							)}
+						</span>
+						<span className="flex items-center gap-2">
+							<button
+								type="button"
+								onClick={() => void confirmPendingSubmission()}
+								className="min-h-9 rounded-md bg-[var(--action)] px-3 font-bold text-white"
+							>
+								{translate(
+									text({
+										en: "Confirm and submit",
+										hi: "पुष्टि करके जमा करें",
+									}),
+								)}
+							</button>
+							<button
+								type="button"
+								onClick={cancelPendingSubmission}
+								className="min-h-9 px-2 font-bold text-[var(--ink-muted)] underline"
+							>
+								{translate(text({ en: "Cancel", hi: "रद्द करें" }))}
+							</button>
+						</span>
+					</div>
+				) : null}
+
+				<div className="flex items-center gap-2">
+					{voiceActive ? (
+						<div className="flex min-h-12 min-w-0 flex-1 items-center gap-2 rounded-lg border border-[var(--line-strong)] bg-[var(--paper)] px-2 text-[var(--ink)]">
+							<button
+								type="button"
+								onClick={() => void cancelVoiceInput()}
+								className="grid size-9 shrink-0 place-items-center rounded-full text-[var(--ink-muted)] hover:bg-[var(--blue-50)] hover:text-[var(--danger)] focus-visible:outline-2 focus-visible:outline-[var(--highlight)]"
+								aria-label={translate(
+									text({ en: "Cancel recording", hi: "रिकॉर्डिंग रद्द करें" }),
+								)}
+							>
+								<Trash2 size={18} aria-hidden="true" />
+							</button>
+							<span
+								className={`size-2 shrink-0 rounded-full ${voicePhase === "listening" ? "animate-pulse bg-[var(--danger)]" : "bg-[var(--line-strong)]"}`}
 								aria-hidden="true"
 							/>
-						) : assistantMode === "text" && textVoiceRecording ? (
-							<Square size={17} fill="currentColor" aria-hidden="true" />
-						) : (
-							<span
-								className="flex h-7 items-center gap-0.5"
-								aria-hidden="true"
-							>
-								<span className="voice-bar w-1 rounded-full bg-current" />
-								<span className="voice-bar w-1 rounded-full bg-current [animation-delay:140ms]" />
-								<span className="voice-bar w-1 rounded-full bg-current [animation-delay:280ms]" />
+							<span className="shrink-0 text-sm font-semibold tabular-nums">
+								{elapsedVoiceTime(voiceElapsedSeconds)}
 							</span>
-						)}
-						<span className="hidden sm:inline">{voiceButtonLabel}</span>
-					</button>
-
-					<label className="sr-only" htmlFor="ugaap-command-input">
-						{translate(
-							text({ en: "Describe what happened", hi: "बताएं कि क्या हुआ" }),
-						)}
-					</label>
-					<textarea
-						id="ugaap-command-input"
-						rows={1}
-						value={input}
-						onChange={(event) => setInput(event.target.value)}
-						onKeyDown={(event) => {
-							if (event.key === "Enter" && !event.shiftKey) {
-								event.preventDefault();
-								void submit();
-							}
-						}}
-						placeholder={translate(
-							text({ en: "Tell us what happened...", hi: "बताएं कि क्या हुआ..." }),
-						)}
-						className="min-h-12 min-w-0 flex-1 resize-none rounded-lg border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2.5 text-base leading-7 text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus:border-[var(--action)] focus:ring-3 focus:ring-[var(--highlight-soft)]"
-					/>
-
-					{chatState.isLoading ? (
-						<button
-							type="button"
-							onClick={() => void stopAssistant()}
-							className="grid size-12 shrink-0 place-items-center rounded-lg border border-[var(--danger)] text-[var(--danger)] hover:bg-red-50"
-							aria-label={translate(
-								text({ en: "Stop response", hi: "जवाब रोकें" }),
-							)}
-						>
-							<Square size={15} fill="currentColor" aria-hidden="true" />
-						</button>
+							<VoiceWaveform
+								phase={voicePhase === "idle" ? "connecting" : voicePhase}
+								live={voiceWaveIsLive}
+								waveformRef={textVoiceWaveformRef}
+							/>
+							<span className="sr-only" aria-live="polite">
+								{voiceStatus}. {voiceActionHint}
+							</span>
+							<button
+								type="button"
+								onClick={() =>
+									void (textVoiceRecording
+										? finishTextVoiceRecording()
+										: stopVoice())
+								}
+								className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--highlight)] text-[var(--ink)] hover:bg-[var(--highlight-soft)] focus-visible:outline-3 focus-visible:outline-[var(--action)]"
+								aria-label={voiceButtonLabel}
+							>
+								{textVoiceRecording ? (
+									<Send size={19} aria-hidden="true" />
+								) : voicePhase === "connecting" ? (
+									<LoaderCircle
+										className="animate-spin"
+										size={18}
+										aria-hidden="true"
+									/>
+								) : (
+									<Square size={15} fill="currentColor" aria-hidden="true" />
+								)}
+							</button>
+						</div>
 					) : (
-						<button
-							type="submit"
-							disabled={!input.trim()}
-							className="grid size-12 shrink-0 place-items-center rounded-lg bg-[var(--action)] text-white hover:bg-[var(--action-hover)] disabled:cursor-not-allowed disabled:opacity-35"
-							aria-label={translate(text({ en: "Send message", hi: "संदेश भेजें" }))}
-						>
-							<Send size={19} aria-hidden="true" />
-						</button>
+						<>
+							<button
+								type="button"
+								onClick={() => void toggleVoice()}
+								aria-pressed="false"
+								aria-label={voiceButtonLabel}
+								className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-lg bg-[var(--highlight)] px-3 text-sm font-extrabold text-[var(--ink)] transition-colors hover:bg-[var(--highlight-soft)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)]"
+							>
+								<Mic size={20} aria-hidden="true" />
+								<span className="hidden sm:inline">{voiceButtonLabel}</span>
+							</button>
+							<label className="sr-only" htmlFor="ugaap-command-input">
+								{translate(
+									text({
+										en: "Describe what happened",
+										hi: "बताएं कि क्या हुआ",
+									}),
+								)}
+							</label>
+							<textarea
+								id="ugaap-command-input"
+								rows={1}
+								value={input}
+								onChange={(event) => setInput(event.target.value)}
+								onKeyDown={(event) => {
+									if (event.key === "Enter" && !event.shiftKey) {
+										event.preventDefault();
+										void submit();
+									}
+								}}
+								placeholder={translate(
+									text({
+										en: "Tell us what happened...",
+										hi: "बताएं कि क्या हुआ...",
+									}),
+								)}
+								className="min-h-12 min-w-0 flex-1 resize-none rounded-lg border border-[var(--line-strong)] bg-[var(--paper)] px-3 py-2.5 text-base leading-7 text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus:border-[var(--action)] focus:ring-3 focus:ring-[var(--highlight-soft)]"
+							/>
+							{chatState.isLoading ? (
+								<button
+									type="button"
+									onClick={() => void stopAssistant()}
+									className="grid size-12 shrink-0 place-items-center rounded-lg border border-[var(--danger)] text-[var(--danger)] hover:bg-red-50"
+									aria-label={translate(
+										text({ en: "Stop response", hi: "जवाब रोकें" }),
+									)}
+								>
+									<Square size={15} fill="currentColor" aria-hidden="true" />
+								</button>
+							) : (
+								<button
+									type="submit"
+									disabled={!input.trim()}
+									className="grid size-12 shrink-0 place-items-center rounded-lg bg-[var(--action)] text-white hover:bg-[var(--action-hover)] disabled:cursor-not-allowed disabled:opacity-35"
+									aria-label={translate(
+										text({ en: "Send message", hi: "संदेश भेजें" }),
+									)}
+								>
+									<Send size={19} aria-hidden="true" />
+								</button>
+							)}
+						</>
 					)}
 
 					<button
@@ -1599,10 +1895,6 @@ export function AssistantLauncher() {
 				<div className="mt-2 inline-flex overflow-hidden rounded-md border border-[var(--line-strong)] text-xs font-semibold text-[var(--ink-muted)]">
 					{(
 						[
-							{
-								id: "realtime",
-								label: text({ en: "Realtime", hi: "रीयलटाइम" }),
-							},
 							{
 								id: "text",
 								label: text({ en: "Text model", hi: "टेक्स्ट मॉडल" }),
@@ -1622,8 +1914,7 @@ export function AssistantLauncher() {
 								aria-pressed={selected}
 								disabled={disabled}
 								onClick={() => {
-									if (option.id === "realtime" || option.id === "text")
-										setAssistantMode(option.id);
+									if (option.id === "text") setAssistantMode(option.id);
 								}}
 								className={`min-h-8 border-r border-[var(--line-strong)] px-2.5 last:border-r-0 transition-colors focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--highlight)] ${selected ? "bg-[var(--blue-50)] text-[var(--action)]" : "hover:bg-[var(--blue-50)] hover:text-[var(--ink)]"} ${disabled ? "cursor-not-allowed opacity-50" : ""}`}
 							>
