@@ -13,6 +13,7 @@ import {
 	LogIn,
 	MessageSquareText,
 	Mic,
+	RefreshCw,
 	Send,
 	Square,
 	Trash2,
@@ -67,6 +68,8 @@ import {
 	searchCataloguePage,
 } from "#/features/catalogue/client";
 import { text, useI18n } from "#/features/i18n/i18n";
+import { useNetworkStatus } from "#/features/network/context";
+import { formatNetworkSpeed } from "#/features/network/probe";
 import { authClient } from "#/lib/auth-client";
 import { ScrollArea } from "./ui/scroll-area";
 import {
@@ -77,8 +80,12 @@ import {
 	SheetHeader,
 	SheetTitle,
 } from "./ui/sheet";
-
-type AssistantMode = "text" | "local";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "./ui/tooltip";
 
 type ToolActivityState = "running" | "complete" | "error";
 
@@ -238,6 +245,8 @@ function canonicalFormDestination(authoritySlug: string, formId: string) {
 
 export function AssistantLauncher() {
 	const { language, setLanguage, text: translate } = useI18n();
+	const { snapshot: networkSnapshot, checkNow: checkNetworkNow } =
+		useNetworkStatus();
 	const { data: session } = authClient.useSession();
 	const navigate = useNavigate();
 	const location = useRouterState({
@@ -262,7 +271,6 @@ export function AssistantLauncher() {
 	const [textVoiceSpeaking, setTextVoiceSpeaking] = useState(false);
 	const [voiceElapsedSeconds, setVoiceElapsedSeconds] = useState(0);
 	const [voiceRequested, setVoiceRequested] = useState(false);
-	const [assistantMode, setAssistantMode] = useState<AssistantMode>("text");
 	const [pageContent, setPageContent] = useState("");
 	const finishTextRecordingRef = useRef<() => Promise<void>>(
 		async () => undefined,
@@ -1907,36 +1915,65 @@ export function AssistantLauncher() {
 					</button>
 				</div>
 
-				<div className="mt-2 inline-flex overflow-hidden rounded-md border border-[var(--line-strong)] text-xs font-semibold text-[var(--ink-muted)]">
-					{(
-						[
-							{
-								id: "text",
-								label: text({ en: "Text model", hi: "टेक्स्ट मॉडल" }),
-							},
-							{
-								id: "local",
-								label: text({ en: "Local", hi: "लोकल" }),
-							},
-						] as const
-					).map((option) => {
-						const selected = assistantMode === option.id;
-						const disabled = option.id === "local" || voiceActive;
-						return (
+				<div className="mt-2 flex min-h-8 items-center justify-between gap-3 text-xs text-[var(--ink-muted)]">
+					<div className="inline-flex shrink-0 overflow-hidden rounded-md border border-[var(--line-strong)] font-semibold">
+						<span className="inline-flex min-h-8 items-center border-r border-[var(--line-strong)] bg-[var(--blue-50)] px-2.5 text-[var(--action)]">
+							{translate(text({ en: "Online AI", hi: "ऑनलाइन AI" }))}
+						</span>
+						<TooltipProvider>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<button
+										type="button"
+										aria-disabled="true"
+										className="min-h-8 cursor-not-allowed px-2.5 opacity-50"
+									>
+										{translate(text({ en: "Local search", hi: "लोकल खोज" }))}
+									</button>
+								</TooltipTrigger>
+								<TooltipContent side="top" sideOffset={6}>
+									{translate(text({ en: "Coming soon", hi: "जल्द आ रही है" }))}
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+					</div>
+					<div
+						className="flex min-w-0 items-center justify-end gap-2 text-right text-[11px] leading-4"
+						aria-live="polite"
+					>
+						<span className="truncate">
+							{networkSnapshot.quality === "checking"
+								? translate(
+										text({
+											en: "Checking connection speed...",
+											hi: "कनेक्शन की गति जांची जा रही है...",
+										}),
+									)
+								: networkSnapshot.quality === "unavailable"
+									? translate(
+											text({
+												en: "Connection check failed.",
+												hi: "कनेक्शन जांच विफल हुई।",
+											}),
+										)
+									: translate(
+											text({
+												en: `${formatNetworkSpeed(networkSnapshot.estimatedKbps ?? 0)} measured.`,
+												hi: `${formatNetworkSpeed(networkSnapshot.estimatedKbps ?? 0)} मापा गया।`,
+											}),
+										)}
+						</span>
+						{networkSnapshot.quality !== "checking" ? (
 							<button
-								key={option.id}
 								type="button"
-								aria-pressed={selected}
-								disabled={disabled}
-								onClick={() => {
-									if (option.id === "text") setAssistantMode(option.id);
-								}}
-								className={`min-h-8 border-r border-[var(--line-strong)] px-2.5 last:border-r-0 transition-colors focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--highlight)] ${selected ? "bg-[var(--blue-50)] text-[var(--action)]" : "hover:bg-[var(--blue-50)] hover:text-[var(--ink)]"} ${disabled ? "cursor-not-allowed opacity-50" : ""}`}
+								onClick={() => void checkNetworkNow()}
+								className="inline-flex min-h-8 shrink-0 items-center gap-1 font-bold text-[var(--action)] hover:text-[var(--action-hover)] focus-visible:outline-2 focus-visible:outline-[var(--highlight)]"
 							>
-								<span>{translate(option.label)}</span>
+								<RefreshCw size={12} aria-hidden="true" />
+								{translate(text({ en: "Check again", hi: "फिर जांचें" }))}
 							</button>
-						);
-					})}
+						) : null}
+					</div>
 				</div>
 
 				<p

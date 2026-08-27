@@ -9,6 +9,7 @@ import { AppShell } from "../components/AppShell";
 import { Toaster } from "../components/ui/sonner";
 import { AssistantProvider } from "../features/assistant/context";
 import { I18nProvider } from "../features/i18n/i18n";
+import { NetworkStatusProvider } from "../features/network/context";
 import appCss from "../styles.css?url";
 
 interface MyRouterContext {
@@ -55,12 +56,14 @@ function RootDocument({ children }: { children: ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<I18nProvider>
-					<AssistantProvider>
-						<AppShell>{children}</AppShell>
-					</AssistantProvider>
-					<Toaster position="top-right" />
-				</I18nProvider>
+				<NetworkStatusProvider>
+					<I18nProvider>
+						<AssistantProvider>
+							<AppShell>{children}</AppShell>
+						</AssistantProvider>
+						<Toaster position="top-right" />
+					</I18nProvider>
+				</NetworkStatusProvider>
 				<Scripts />
 			</body>
 		</html>

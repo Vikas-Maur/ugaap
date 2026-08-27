@@ -36,6 +36,7 @@ import { Route as ApiAiRealtimeTokenRouteImport } from './routes/api/ai/realtime
 import { Route as ApiAiTranscribeRouteImport } from './routes/api/ai/transcribe'
 import { Route as ApiAttachmentsAttachmentIdRouteImport } from './routes/api/attachments/$attachmentId'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiNetworkProbeRouteImport } from './routes/api/network/probe'
 import { Route as ServicesAuthoritySlugIndexRouteImport } from './routes/services.$authoritySlug.index'
 import { Route as ServicesAuthoritySlugFormFormIdRouteImport } from './routes/services.$authoritySlug.form.$formId'
 
@@ -179,6 +180,11 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiNetworkProbeRoute = ApiNetworkProbeRouteImport.update({
+  id: '/api/network/probe',
+  path: '/api/network/probe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesAuthoritySlugIndexRoute =
   ServicesAuthoritySlugIndexRouteImport.update({
     id: '/',
@@ -218,6 +224,7 @@ export interface FileRoutesByFullPath {
   '/api/ai/transcribe': typeof ApiAiTranscribeRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/network/probe': typeof ApiNetworkProbeRoute
   '/grievances/': typeof AuthenticatedGrievancesIndexRoute
   '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
@@ -245,6 +252,7 @@ export interface FileRoutesByTo {
   '/api/ai/transcribe': typeof ApiAiTranscribeRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/network/probe': typeof ApiNetworkProbeRoute
   '/grievances': typeof AuthenticatedGrievancesIndexRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
@@ -277,6 +285,7 @@ export interface FileRoutesById {
   '/api/ai/transcribe': typeof ApiAiTranscribeRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/network/probe': typeof ApiNetworkProbeRoute
   '/_authenticated/grievances/': typeof AuthenticatedGrievancesIndexRoute
   '/services/$authoritySlug/': typeof ServicesAuthoritySlugIndexRoute
   '/services/$authoritySlug/form/$formId': typeof ServicesAuthoritySlugFormFormIdRoute
@@ -309,6 +318,7 @@ export interface FileRouteTypes {
     | '/api/ai/transcribe'
     | '/api/attachments/$attachmentId'
     | '/api/auth/$'
+    | '/api/network/probe'
     | '/grievances/'
     | '/services/$authoritySlug/'
     | '/services/$authoritySlug/form/$formId'
@@ -336,6 +346,7 @@ export interface FileRouteTypes {
     | '/api/ai/transcribe'
     | '/api/attachments/$attachmentId'
     | '/api/auth/$'
+    | '/api/network/probe'
     | '/grievances'
     | '/services/$authoritySlug'
     | '/services/$authoritySlug/form/$formId'
@@ -367,6 +378,7 @@ export interface FileRouteTypes {
     | '/api/ai/transcribe'
     | '/api/attachments/$attachmentId'
     | '/api/auth/$'
+    | '/api/network/probe'
     | '/_authenticated/grievances/'
     | '/services/$authoritySlug/'
     | '/services/$authoritySlug/form/$formId'
@@ -391,6 +403,7 @@ export interface RootRouteChildren {
   ApiAiTranscribeRoute: typeof ApiAiTranscribeRoute
   ApiAttachmentsAttachmentIdRoute: typeof ApiAttachmentsAttachmentIdRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiNetworkProbeRoute: typeof ApiNetworkProbeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -584,6 +597,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/network/probe': {
+      id: '/api/network/probe'
+      path: '/api/network/probe'
+      fullPath: '/api/network/probe'
+      preLoaderRoute: typeof ApiNetworkProbeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/$authoritySlug/': {
       id: '/services/$authoritySlug/'
       path: '/'
@@ -685,6 +705,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAiTranscribeRoute: ApiAiTranscribeRoute,
   ApiAttachmentsAttachmentIdRoute: ApiAttachmentsAttachmentIdRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiNetworkProbeRoute: ApiNetworkProbeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
