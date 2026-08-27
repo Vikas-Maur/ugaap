@@ -59,6 +59,7 @@ import {
 	type FormValues,
 	fieldHasValue,
 	useCatalogueFormState,
+	validateForm,
 } from "../form-state";
 import type {
 	AuthorityChunk,
@@ -1235,11 +1236,6 @@ function CatalogueFormScreen({
 	const submissionKey = useRef<string | null>(null);
 
 	useEffect(() => {
-		registerForm({ form, values: state.values, setValue: state.setValue });
-		return () => registerForm(null);
-	}, [form, registerForm, state.setValue, state.values]);
-
-	useEffect(() => {
 		if (!draftId) {
 			setRestoring(false);
 			return;
@@ -1329,10 +1325,23 @@ function CatalogueFormScreen({
 			active = false;
 		};
 	}, [draftId, form.fields, form.id, form.version, restore, translate]);
-	const goReview = (event: FormEvent) => {
-		event.preventDefault();
-		if (state.validate())
-			void navigate({
+	const openReview = useCallback(async () => {
+		const errors = validateForm(
+			form,
+			state.values,
+			state.attachments,
+			language,
+		);
+		if (Object.keys(errors).length) {
+			state.validate();
+			return {
+				opened: false,
+				missingFields: form.fields
+					.filter((field) => errors[field.id])
+					.map((field) => field.label),
+			};
+		}
+		await navigate({
 				to: ".",
 				search: (previous) => ({
 					...previous,
@@ -1340,8 +1349,21 @@ function CatalogueFormScreen({
 					draft: draftId,
 				}),
 			});
+		return { opened: true, missingFields: [] };
+	}, [
+		draftId,
+		form,
+		language,
+		navigate,
+		state.attachments,
+		state.validate,
+		state.values,
+	]);
+	const goReview = (event: FormEvent) => {
+		event.preventDefault();
+		void openReview();
 	};
-	const goEdit = () =>
+	const goEdit = useCallback(() => {
 		void navigate({
 			to: ".",
 			search: (previous) => ({
@@ -1350,6 +1372,7 @@ function CatalogueFormScreen({
 				draft: draftId,
 			}),
 		});
+	}, [draftId, navigate]);
 	const save = useCallback(
 		async ({
 			validate = true,
@@ -1683,14 +1706,15 @@ function CatalogueFormScreen({
 		state.reset();
 		setAttachmentError(null);
 	};
-	const submit = async () => {
-		if (submitting || !state.validate()) return;
+	const submit = useCallback(async (): Promise<{ registrationId: string }> => {
+		if (submitting) throw new Error("A submission is already in progress.");
+		if (!state.validate()) throw new Error("The reviewed form is not valid.");
 		setSubmitting(true);
 		setSaveMessage(null);
 		setSaveError(false);
 		try {
 			const saved = await save({ quiet: true });
-			if (!saved?.ok) return;
+			if (!saved?.ok) throw new Error("Sign in before submitting this grievance.");
 			if (!submissionKey.current)
 				submissionKey.current = createIdempotencyKey();
 			const result = await submitGrievance({
@@ -1704,13 +1728,59 @@ function CatalogueFormScreen({
 				to: "/grievances/$registrationId",
 				params: { registrationId: result.registrationId },
 			});
+			return { registrationId: result.registrationId };
 		} catch (error) {
 			setSaveError(true);
 			setSaveMessage(translate(submissionErrorText(error)));
+			throw error;
 		} finally {
 			setSubmitting(false);
 		}
-	};
+	}, [navigate, save, state.validate, submitting, translate]);
+	const assistantRevision = useMemo(
+		() =>
+			JSON.stringify({
+				formId: form.id,
+				values: state.values,
+				attachments: Object.values(state.attachments).flatMap((items) =>
+					items.map((item) => item.id),
+				),
+			}),
+		[form.id, state.attachments, state.values],
+	);
+	const assistantRegistration = useMemo(
+		() => ({
+			form,
+			values: state.values,
+			errors: state.errors,
+			stage: review ? ("review" as const) : ("edit" as const),
+			revision: assistantRevision,
+			setValue: state.setValue,
+			openReview,
+			openEdit: goEdit,
+			submit,
+		}),
+		[
+			assistantRevision,
+			form,
+			goEdit,
+			openReview,
+			review,
+			state.errors,
+			state.setValue,
+			state.values,
+			submit,
+		],
+	);
+	useEffect(() => {
+		registerForm(assistantRegistration);
+	}, [assistantRegistration, registerForm]);
+	useEffect(
+		() => () => {
+			registerForm(null);
+		},
+		[registerForm],
+	);
 	if (restoring) return <LoadingMessage />;
 	if (review)
 		return (
@@ -1720,7 +1790,7 @@ function CatalogueFormScreen({
 				language={language}
 				state={state}
 				onEdit={goEdit}
-				onSubmit={() => void submit()}
+				onSubmit={() => void submit().catch(() => undefined)}
 				draftSaveStatus={draftSaveStatus}
 				saveMessage={saveMessage}
 				saveError={saveError}

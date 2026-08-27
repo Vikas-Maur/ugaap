@@ -236,6 +236,10 @@
 	animation: voice-bar 820ms ease-in-out infinite;
 }
 
+.assistant-response {
+	min-height: 1.75rem;
+}
+
 .assistant-dock {
 	position: fixed;
 	inset-inline: 0.75rem;
@@ -322,6 +326,11 @@
 	.route-signal {
 		animation: none;
 		opacity: 1;
+	}
+
+	.voice-bar {
+		height: 1rem;
+		animation: none;
 	}
 
 	.assistant-dock,

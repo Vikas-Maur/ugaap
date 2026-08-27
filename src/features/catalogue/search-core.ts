@@ -325,6 +325,35 @@ function phraseBonus(document: SearchDocument, normalized: string): number {
 	return 0;
 }
 
+type AuthorityMatchKind = "exact" | "prefix" | "contains";
+
+function authorityMatchKind(
+	authorityName: string,
+	queryTokens: string[],
+): AuthorityMatchKind | null {
+	if (!queryTokens.length) return null;
+	const authorityTokens = meaningfulSearchTokens(authorityName);
+	if (
+		authorityTokens.length === queryTokens.length &&
+		queryTokens.every((token, index) => authorityTokens[index] === token)
+	)
+		return "exact";
+	if (
+		queryTokens.length < authorityTokens.length &&
+		queryTokens.every((token, index) => authorityTokens[index] === token)
+	)
+		return "prefix";
+	if (queryTokens.every((token) => authorityTokens.includes(token)))
+		return "contains";
+	return null;
+}
+
+const authorityMatchPriority: Record<AuthorityMatchKind, number> = {
+	exact: 3,
+	prefix: 2,
+	contains: 1,
+};
+
 export async function runCatalogueSearch(
 	engine: CatalogueSearchEngine,
 	documentCount: number,
@@ -437,6 +466,23 @@ export async function runCatalogueSearch(
 				a.title.localeCompare(b.title) ||
 				a.id.localeCompare(b.id),
 		);
+	const authorityMatches = new Map<
+		string,
+		{ kind: AuthorityMatchKind; name: string }
+	>();
+	for (const { document } of matches.values()) {
+		const kind = authorityMatchKind(document.authorityName, queryTokens);
+		if (!kind || !documentMatchesFilters(document, request)) continue;
+		const current = authorityMatches.get(document.authoritySlug);
+		if (
+			!current ||
+			authorityMatchPriority[kind] > authorityMatchPriority[current.kind]
+		)
+			authorityMatches.set(document.authoritySlug, {
+				kind,
+				name: document.authorityName,
+			});
+	}
 	if (
 		!ranked.length &&
 		queryTokens.every((token) => /^[a-z0-9]+$/i.test(token))
@@ -489,9 +535,42 @@ export async function runCatalogueSearch(
 					a.id.localeCompare(b.id),
 			);
 	}
+	const exactAuthoritySlugs = new Set(
+		[...authorityMatches]
+			.filter(([, match]) => match.kind === "exact")
+			.map(([slug]) => slug),
+	);
+	if (exactAuthoritySlugs.size)
+		ranked = ranked.filter((result) =>
+			exactAuthoritySlugs.has(result.authoritySlug),
+		);
+	const authorityRepresentatives = exactAuthoritySlugs.size
+		? []
+		: [...authorityMatches]
+				.sort(
+					([, left], [, right]) =>
+						authorityMatchPriority[right.kind] -
+							authorityMatchPriority[left.kind] ||
+						left.name.localeCompare(right.name),
+				)
+				.flatMap(([slug]) => {
+					const representative = ranked.find(
+						(result) => result.authoritySlug === slug,
+					);
+					return representative ? [representative] : [];
+				});
 	const strongestScore = ranked[0]?.score ?? 0;
 	if (strongestScore > 0)
 		ranked = ranked.filter((result) => result.score >= strongestScore * 0.08);
+	if (authorityRepresentatives.length) {
+		const representativeIds = new Set(
+			authorityRepresentatives.map((result) => result.id),
+		);
+		ranked = [
+			...authorityRepresentatives,
+			...ranked.filter((result) => !representativeIds.has(result.id)),
+		];
+	}
 
 	const facets: CatalogueSearchResponse["facets"] = {
 		authorities: {},

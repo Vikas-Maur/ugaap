@@ -31,6 +31,7 @@ import { Route as AuthenticatedGrievancesIndexRouteImport } from './routes/_auth
 import { Route as AuthenticatedGrievancesRegistrationIdRouteImport } from './routes/_authenticated/grievances/$registrationId'
 import { Route as ApiAiChatRouteImport } from './routes/api/ai/chat'
 import { Route as ApiAiRealtimeTokenRouteImport } from './routes/api/ai/realtime-token'
+import { Route as ApiAiTranscribeRouteImport } from './routes/api/ai/transcribe'
 import { Route as ApiAttachmentsAttachmentIdRouteImport } from './routes/api/attachments/$attachmentId'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ServicesAuthoritySlugIndexRouteImport } from './routes/services.$authoritySlug.index'
@@ -149,6 +150,11 @@ const ApiAiRealtimeTokenRoute = ApiAiRealtimeTokenRouteImport.update({
   path: '/api/ai/realtime-token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAiTranscribeRoute = ApiAiTranscribeRouteImport.update({
+  id: '/api/ai/transcribe',
+  path: '/api/ai/transcribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAttachmentsAttachmentIdRoute =
   ApiAttachmentsAttachmentIdRouteImport.update({
     id: '/api/attachments/$attachmentId',
@@ -194,6 +200,7 @@ export interface FileRoutesByFullPath {
   '/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
+  '/api/ai/transcribe': typeof ApiAiTranscribeRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/grievances/': typeof AuthenticatedGrievancesIndexRoute
@@ -219,6 +226,7 @@ export interface FileRoutesByTo {
   '/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
+  '/api/ai/transcribe': typeof ApiAiTranscribeRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/grievances': typeof AuthenticatedGrievancesIndexRoute
@@ -248,6 +256,7 @@ export interface FileRoutesById {
   '/_authenticated/grievances/$registrationId': typeof AuthenticatedGrievancesRegistrationIdRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/realtime-token': typeof ApiAiRealtimeTokenRoute
+  '/api/ai/transcribe': typeof ApiAiTranscribeRoute
   '/api/attachments/$attachmentId': typeof ApiAttachmentsAttachmentIdRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_authenticated/grievances/': typeof AuthenticatedGrievancesIndexRoute
@@ -277,6 +286,7 @@ export interface FileRouteTypes {
     | '/grievances/$registrationId'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
+    | '/api/ai/transcribe'
     | '/api/attachments/$attachmentId'
     | '/api/auth/$'
     | '/grievances/'
@@ -302,6 +312,7 @@ export interface FileRouteTypes {
     | '/grievances/$registrationId'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
+    | '/api/ai/transcribe'
     | '/api/attachments/$attachmentId'
     | '/api/auth/$'
     | '/grievances'
@@ -330,6 +341,7 @@ export interface FileRouteTypes {
     | '/_authenticated/grievances/$registrationId'
     | '/api/ai/chat'
     | '/api/ai/realtime-token'
+    | '/api/ai/transcribe'
     | '/api/attachments/$attachmentId'
     | '/api/auth/$'
     | '/_authenticated/grievances/'
@@ -353,6 +365,7 @@ export interface RootRouteChildren {
   PublicGrievancesIndexRoute: typeof PublicGrievancesIndexRoute
   ApiAiChatRoute: typeof ApiAiChatRoute
   ApiAiRealtimeTokenRoute: typeof ApiAiRealtimeTokenRoute
+  ApiAiTranscribeRoute: typeof ApiAiTranscribeRoute
   ApiAttachmentsAttachmentIdRoute: typeof ApiAttachmentsAttachmentIdRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
@@ -513,6 +526,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAiRealtimeTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/ai/transcribe': {
+      id: '/api/ai/transcribe'
+      path: '/api/ai/transcribe'
+      fullPath: '/api/ai/transcribe'
+      preLoaderRoute: typeof ApiAiTranscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/attachments/$attachmentId': {
       id: '/api/attachments/$attachmentId'
       path: '/api/attachments/$attachmentId'
@@ -610,6 +630,7 @@ const rootRouteChildren: RootRouteChildren = {
   PublicGrievancesIndexRoute: PublicGrievancesIndexRoute,
   ApiAiChatRoute: ApiAiChatRoute,
   ApiAiRealtimeTokenRoute: ApiAiRealtimeTokenRoute,
+  ApiAiTranscribeRoute: ApiAiTranscribeRoute,
   ApiAttachmentsAttachmentIdRoute: ApiAttachmentsAttachmentIdRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }

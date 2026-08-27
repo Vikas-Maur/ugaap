@@ -26,6 +26,34 @@ export function createAiTelemetry(): ChatMiddleware {
 				}),
 			);
 		},
+		onBeforeToolCall: (context, tool) => {
+			console.info(
+				JSON.stringify({
+					event: "ai.tool.start",
+					requestId: context.requestId,
+					tool: tool.toolName,
+				}),
+			);
+		},
+		onAfterToolCall: (context, info) => {
+			const resultStatus =
+				typeof info.result === "object" &&
+				info.result !== null &&
+				"status" in info.result &&
+				typeof info.result.status === "string"
+					? info.result.status
+					: undefined;
+			console.info(
+				JSON.stringify({
+					event: "ai.tool.finish",
+					requestId: context.requestId,
+					tool: info.toolName,
+					ok: info.ok,
+					durationMs: info.duration,
+					resultStatus,
+				}),
+			);
+		},
 		onFinish: (context, info) => {
 			console.info(
 				JSON.stringify({

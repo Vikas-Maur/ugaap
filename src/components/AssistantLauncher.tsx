@@ -3,6 +3,7 @@ import { clientTools } from "@tanstack/ai-client";
 import { geminiRealtime } from "@tanstack/ai-gemini";
 import {
 	fetchServerSentEvents,
+	useAudioRecorder,
 	useChat,
 	useRealtimeChat,
 } from "@tanstack/ai-react";
@@ -14,7 +15,6 @@ import {
 	LogIn,
 	MessageSquareText,
 	Mic,
-	MicOff,
 	Send,
 	Square,
 	Undo2,
@@ -28,20 +28,42 @@ import {
 	useRef,
 	useState,
 } from "react";
-
+import {
+	recordingToGeminiAudio,
+	TEXT_VOICE_MAX_DURATION_MS,
+} from "#/features/assistant/audio";
 import { useAssistantContext } from "#/features/assistant/context";
 import {
-	type AssistantTurn,
+	assistantRouteSummary,
+	assistantRoutes,
+	routeDefinitionForPath,
+} from "#/features/assistant/routes";
+import {
+	assistantTranscriptionSchema,
 	assistantTurnSchema,
 } from "#/features/assistant/schema";
+import { selectSpeechVoice } from "#/features/assistant/speech";
 import {
+	changeInterfaceLanguageDef,
+	editVisibleFormDef,
 	fillVisibleFormDef,
+	getCurrentRecordStatusDef,
+	getWorkspaceSummaryDef,
+	listAuthoritiesDef,
+	listAuthorityCategoriesDef,
+	listWebsiteRoutesDef,
+	navigateWebsiteDef,
 	openGrievanceFormDef,
+	requestSubmissionConfirmationDef,
+	reviewVisibleFormDef,
 	searchGrievanceCatalogueDef,
+	submitConfirmedGrievanceDef,
 } from "#/features/assistant/tools";
+import { readableViewportContent } from "#/features/assistant/viewport";
 import {
 	findForm,
 	loadAuthorityChunk,
+	loadCatalogueDirectory,
 	searchCataloguePage,
 } from "#/features/catalogue/client";
 import { text, useI18n } from "#/features/i18n/i18n";
@@ -56,31 +78,7 @@ import {
 	SheetTitle,
 } from "./ui/sheet";
 
-type BrowserRecognition = {
-	lang: string;
-	continuous: boolean;
-	interimResults: boolean;
-	start: () => void;
-	stop: () => void;
-	onresult:
-		| ((event: {
-				results: ArrayLike<{ 0: { transcript: string }; isFinal: boolean }>;
-		  }) => void)
-		| null;
-	onerror: (() => void) | null;
-	onend: (() => void) | null;
-};
-
-type BrowserRecognitionConstructor = new () => BrowserRecognition;
-
-function browserRecognitionConstructor() {
-	if (typeof window === "undefined") return undefined;
-	const voiceWindow = window as Window & {
-		SpeechRecognition?: BrowserRecognitionConstructor;
-		webkitSpeechRecognition?: BrowserRecognitionConstructor;
-	};
-	return voiceWindow.SpeechRecognition ?? voiceWindow.webkitSpeechRecognition;
-}
+type AssistantMode = "realtime" | "text" | "local";
 
 function messageText(
 	parts: ReadonlyArray<{ type: string; content?: unknown }>,
@@ -94,72 +92,108 @@ function messageText(
 		.join(" ");
 }
 
-function readablePageContent() {
-	if (typeof document === "undefined") return "";
-	const root = document.querySelector<HTMLElement>(
-		"[data-assistant-page-content]",
-	);
-	if (!root) return "";
-	const seen = new Set<string>();
-	const lines: string[] = [];
-	for (const element of root.querySelectorAll<HTMLElement>(
-		"h1, h2, h3, p, label, legend, th, td, li, a, button, [role='alert'], [role='status']",
-	)) {
-		if (element.closest("[aria-hidden='true']")) continue;
-		const content = element.innerText.replace(/\s+/g, " ").trim();
-		if (!content || seen.has(content)) continue;
-		seen.add(content);
-		lines.push(content);
-		if (lines.join("\n").length >= 8_000) break;
-	}
-	return lines.join("\n").slice(0, 8_000);
-}
-
 function canonicalFormDestination(authoritySlug: string, formId: string) {
 	const search = new URLSearchParams({ form: formId, review: "false" });
 	return `/services/${encodeURIComponent(authoritySlug)}?${search.toString()}`;
 }
 
+const geminiRealtimeProviderOptions = {
+	thinkingConfig: { thinkingLevel: "high" },
+} as const;
+
 export function AssistantLauncher() {
-	const { language, text: translate } = useI18n();
+	const { language, setLanguage, text: translate } = useI18n();
 	const { data: session } = authClient.useSession();
 	const navigate = useNavigate();
-	const pathname = useRouterState({
-		select: (state) => state.location.pathname,
+	const location = useRouterState({
+		select: (state) => state.location,
 	});
-	const { currentForm, applyFields, undoLastFill, canUndo } =
-		useAssistantContext();
+	const pathname = location.pathname;
+	const currentRoute = routeDefinitionForPath(pathname) ?? null;
+	const {
+		currentForm,
+		applyFields,
+		undoLastFill,
+		canUndo,
+		beginUserTurn,
+		reviewVisibleForm,
+		editVisibleForm,
+		requestSubmissionConfirmation,
+		submitConfirmedGrievance,
+		pendingSubmission,
+		cancelPendingSubmission,
+	} = useAssistantContext();
 	const [input, setInput] = useState("");
 	const [notice, setNotice] = useState<string | null>(null);
 	const [historyOpen, setHistoryOpen] = useState(false);
-	const [browserListening, setBrowserListening] = useState(false);
+	const [textVoicePending, setTextVoicePending] = useState(false);
+	const [textVoiceSpeaking, setTextVoiceSpeaking] = useState(false);
+	const [lastVoiceTranscript, setLastVoiceTranscript] = useState<string | null>(
+		null,
+	);
 	const [voiceRequested, setVoiceRequested] = useState(false);
+	const [assistantMode, setAssistantMode] = useState<AssistantMode>("realtime");
 	const [pageContent, setPageContent] = useState("");
-	const recognitionRef = useRef<BrowserRecognition | null>(null);
+	const finishTextRecordingRef = useRef<() => Promise<void>>(
+		async () => undefined,
+	);
+	const textVoiceStopTimerRef = useRef(0);
+	const textVoiceFinishingRef = useRef(false);
 	const speakFallbackRef = useRef(false);
+	const textVoiceBaselineRef = useRef<unknown>(null);
+	const messageLanguageRef = useRef<"en" | "hi" | null>(null);
 	const voiceRequestedRef = useRef(false);
 	const liveWasConnectedRef = useRef(false);
 	const liveCleanupInFlightRef = useRef(false);
-	const handledChatTurnRef = useRef<AssistantTurn | null>(null);
+	const lastRealtimeUserTurnRef = useRef<string | null>(null);
+	const {
+		isRecording: textVoiceRecording,
+		isSupported: textVoiceSupported,
+		start: startTextRecorder,
+		stop: stopTextRecorder,
+		cancel: cancelTextRecorder,
+	} = useAudioRecorder({
+		audio: {
+			autoGainControl: true,
+			echoCancellation: true,
+			noiseSuppression: true,
+		},
+	});
 	const applyFieldsRef = useRef(applyFields);
 	const navigateRef = useRef(navigate);
 	const sessionRef = useRef(session);
+	const setLanguageRef = useRef(setLanguage);
+	const currentFormRef = useRef(currentForm);
+	const reviewVisibleFormRef = useRef(reviewVisibleForm);
+	const editVisibleFormRef = useRef(editVisibleForm);
+	const requestSubmissionConfirmationRef = useRef(
+		requestSubmissionConfirmation,
+	);
+	const submitConfirmedGrievanceRef = useRef(submitConfirmedGrievance);
 	applyFieldsRef.current = applyFields;
 	navigateRef.current = navigate;
 	sessionRef.current = session;
+	setLanguageRef.current = setLanguage;
+	currentFormRef.current = currentForm;
+	reviewVisibleFormRef.current = reviewVisibleForm;
+	editVisibleFormRef.current = editVisibleForm;
+	requestSubmissionConfirmationRef.current = requestSubmissionConfirmation;
+	submitConfirmedGrievanceRef.current = submitConfirmedGrievance;
 	const requestContextRef = useRef({
 		language,
 		pathname,
+		route: currentRoute,
 		currentForm,
 		pageContent,
 	});
 	requestContextRef.current = {
 		language,
 		pathname,
+		route: currentRoute,
 		currentForm,
 		pageContent,
 	};
-	const pageIdentity = `${pathname}:${language}`;
+	const pageIdentity = `${location.href}:${language}`;
 
 	useEffect(() => {
 		if (!pageIdentity) return;
@@ -168,7 +202,7 @@ export function AssistantLauncher() {
 		const refresh = () => {
 			cancelAnimationFrame(frame);
 			frame = requestAnimationFrame(() => {
-				const next = readablePageContent();
+				const next = readableViewportContent();
 				setPageContent((current) => (current === next ? current : next));
 			});
 		};
@@ -184,9 +218,13 @@ export function AssistantLauncher() {
 				characterData: true,
 			});
 		}
+		window.addEventListener("scroll", refresh, { passive: true });
+		window.addEventListener("resize", refresh);
 		return () => {
 			cancelAnimationFrame(frame);
 			observer?.disconnect();
+			window.removeEventListener("scroll", refresh);
+			window.removeEventListener("resize", refresh);
 		};
 	}, [pageIdentity]);
 
@@ -198,7 +236,16 @@ export function AssistantLauncher() {
 					credentials: "same-origin",
 					body: {
 						language: context.language,
+						messageLanguage: messageLanguageRef.current,
 						pathname: context.pathname,
+						route: context.route
+							? {
+									destination: context.route.destination,
+									label: context.route.label,
+									purpose: context.route.purpose,
+									access: context.route.access,
+								}
+							: null,
 						pageContent: context.pageContent,
 						currentForm: context.currentForm
 							? {
@@ -206,6 +253,7 @@ export function AssistantLauncher() {
 									title: context.currentForm.form.title,
 									heading: context.currentForm.form.heading,
 									categoryPath: context.currentForm.form.categoryPath,
+									stage: context.currentForm.stage,
 									fields: context.currentForm.form.fields.map((field) => ({
 										id: field.id,
 										label: field.label,
@@ -219,6 +267,8 @@ export function AssistantLauncher() {
 											: {}),
 										...(field.pattern ? { pattern: field.pattern } : {}),
 										...(field.options ? { options: field.options } : {}),
+										value: context.currentForm?.values[field.id] ?? "",
+										error: context.currentForm?.errors[field.id] ?? null,
 									})),
 								}
 							: null,
@@ -228,44 +278,11 @@ export function AssistantLauncher() {
 		[],
 	);
 
-	const chatState = useChat({
-		connection,
-		outputSchema: assistantTurnSchema,
-		onError: () => {
-			setNotice(
-				translate(
-					text({
-						en: "The guide could not answer just now. You can still use the grievance catalogue manually.",
-						hi: "मार्गदर्शक अभी जवाब नहीं दे सका। आप शिकायत सूची का इस्तेमाल फिर भी कर सकते हैं।",
-					}),
-				),
-			);
-		},
-	});
-
-	useEffect(() => {
-		if (
-			!chatState.final ||
-			!speakFallbackRef.current ||
-			typeof window === "undefined" ||
-			!("speechSynthesis" in window)
-		)
-			return;
-		window.speechSynthesis.cancel();
-		const utterance = new SpeechSynthesisUtterance(chatState.final.message);
-		utterance.lang = /[\u0900-\u097f]/.test(chatState.final.message)
-			? "hi-IN"
-			: "en-IN";
-		window.speechSynthesis.speak(utterance);
-		speakFallbackRef.current = false;
-	}, [chatState.final]);
-
-	const liveTools = useMemo(() => {
+	const assistantTools = useMemo(() => {
 		const searchTool = searchGrievanceCatalogueDef.client(async (request) => {
 			const response = await searchCataloguePage(request);
 			return {
-				normalizedQuery: response.normalizedQuery,
-				indexVersion: response.indexVersion,
+				...response,
 				results: response.results.map((result) => ({
 					id: result.id,
 					authoritySlug: result.authoritySlug,
@@ -274,15 +291,87 @@ export function AssistantLauncher() {
 					title: result.title,
 					categoryPath: result.categoryPath,
 				})),
-				total: response.total,
-				page: response.page,
-				pageSize: response.pageSize,
-				hasMore: response.hasMore,
-				facets: response.facets,
 				status: response.results.length
 					? ("found" as const)
 					: ("not-found" as const),
 				catalogueOnly: true as const,
+			};
+		});
+		const routesTool = listWebsiteRoutesDef.client(async () => ({
+			routes: assistantRouteSummary(),
+		}));
+		const authoritiesTool = listAuthoritiesDef.client(async () => {
+			const directory = await loadCatalogueDirectory();
+			return {
+				authorities: directory.authorities.map((authority) => ({
+					slug: authority.slug,
+					name: authority.name,
+					categoryCount: authority.categoryCount,
+					formCount: authority.formCount,
+				})),
+			};
+		});
+		const categoriesTool = listAuthorityCategoriesDef.client(
+			async ({ authoritySlug, parentCategoryId }) => {
+				const chunk = await loadAuthorityChunk(authoritySlug);
+				return {
+					authorityName: chunk.authority.name,
+					categories: chunk.categories
+						.filter((category) => category.parentId === parentCategoryId)
+						.slice(0, 80)
+						.map((category) => ({
+							id: category.id,
+							name: category.name,
+							path: category.path,
+							hasChildren: category.children.length > 0,
+							formId: category.formId ?? null,
+						})),
+				};
+			},
+		);
+		const workspaceTool = getWorkspaceSummaryDef.client(async () => {
+			if (!sessionRef.current?.user)
+				return {
+					status: "requires-auth" as const,
+					citizenName: null,
+					needsReply: [],
+					drafts: [],
+					active: [],
+					recentlyResolved: [],
+				};
+			const { getCitizenDashboard } = await import(
+				"#/features/dashboard/functions"
+			);
+			const summary = await getCitizenDashboard();
+			return { status: "ok" as const, ...summary };
+		});
+		const currentRecordTool = getCurrentRecordStatusDef.client(async () => {
+			if (!sessionRef.current?.user)
+				return {
+					status: "requires-auth" as const,
+					kind: null,
+					record: null,
+					reason: "Sign in is required to read a grievance record.",
+				};
+			const match = requestContextRef.current.pathname.match(
+				/^\/grievances\/([^/]+)\/?$/,
+			);
+			if (!match?.[1])
+				return {
+					status: "unavailable" as const,
+					kind: null,
+					record: null,
+					reason: "No grievance detail page is currently open.",
+				};
+			const { getGrievance } = await import("#/features/grievances/functions");
+			const record = await getGrievance({
+				data: { registrationId: decodeURIComponent(match[1]) },
+			});
+			return {
+				status: "ok" as const,
+				kind: "grievance" as const,
+				record,
+				reason: "The current grievance record was loaded.",
 			};
 		});
 		const openTool = openGrievanceFormDef.client(
@@ -304,8 +393,7 @@ export function AssistantLauncher() {
 						return {
 							opened: false,
 							requiresLogin: true,
-							reason:
-								"The citizen must sign in manually before the form opens.",
+							reason: "Sign in is required before the form opens.",
 						};
 					}
 					await navigateRef.current({
@@ -327,11 +415,268 @@ export function AssistantLauncher() {
 				}
 			},
 		);
+		const navigationTool = navigateWebsiteDef.client(async (request) => {
+			const route = assistantRoutes.find(
+				(candidate) => candidate.destination === request.destination,
+			);
+			if (!route)
+				return {
+					status: "unavailable" as const,
+					path: requestContextRef.current.pathname,
+					reason: "That page is not registered.",
+				};
+			const parameter = route.requiredParameter
+				? request[route.requiredParameter]
+				: undefined;
+			if (route.requiredParameter && !parameter)
+				return {
+					status: "unavailable" as const,
+					path: requestContextRef.current.pathname,
+					reason: `The ${route.requiredParameter} is required.`,
+				};
+			const targetPath = route.requiredParameter
+				? route.path.replace(
+						`$${route.requiredParameter}`,
+						encodeURIComponent(parameter ?? ""),
+					)
+				: route.path;
+			if (route.access === "authenticated" && !sessionRef.current?.user) {
+				await navigateRef.current({
+					to: "/login",
+					search: { redirect: targetPath },
+				});
+				return {
+					status: "requires-auth" as const,
+					path: "/login",
+					reason: "Sign in is required before opening that page.",
+				};
+			}
+			switch (request.destination) {
+				case "home":
+					await navigateRef.current({ to: "/" });
+					break;
+				case "about":
+					await navigateRef.current({ to: "/about" });
+					break;
+				case "public-grievances":
+					await navigateRef.current({
+						to: "/public-grievances",
+						search: {
+							q: "",
+							status: "all",
+							organization: "all",
+							sort: "recent",
+						},
+					});
+					break;
+				case "public-grievance":
+					await navigateRef.current({
+						to: "/public-grievances/$publicId",
+						params: { publicId: request.publicId ?? "" },
+					});
+					break;
+				case "leaderboard":
+					await navigateRef.current({
+						to: "/leaderboard",
+						search: { group: "central", compare: "" },
+					});
+					break;
+				case "methodology":
+					await navigateRef.current({ to: "/methodology" });
+					break;
+				case "terms":
+					await navigateRef.current({ to: "/terms" });
+					break;
+				case "privacy":
+					await navigateRef.current({ to: "/privacy" });
+					break;
+				case "cookies":
+					await navigateRef.current({ to: "/cookies" });
+					break;
+				case "login":
+					await navigateRef.current({
+						to: "/login",
+						search: { redirect: "/dashboard" },
+					});
+					break;
+				case "register":
+					await navigateRef.current({
+						to: "/register",
+						search: { redirect: "/dashboard" },
+					});
+					break;
+				case "dashboard":
+					await navigateRef.current({ to: "/dashboard" });
+					break;
+				case "services":
+					await navigateRef.current({ to: "/services", search: { q: "" } });
+					break;
+				case "authority":
+					await navigateRef.current({
+						to: "/services/$authoritySlug",
+						params: { authoritySlug: request.authoritySlug ?? "" },
+						search: { form: undefined, review: false, draft: undefined },
+					});
+					break;
+				case "drafts":
+					await navigateRef.current({ to: "/drafts" });
+					break;
+				case "continuation":
+					await navigateRef.current({ to: "/continuation" });
+					break;
+				case "grievances":
+					await navigateRef.current({ to: "/grievances" });
+					break;
+				case "grievance":
+					await navigateRef.current({
+						to: "/grievances/$registrationId",
+						params: { registrationId: request.registrationId ?? "" },
+					});
+					break;
+			}
+			return {
+				status: "ok" as const,
+				path: targetPath,
+				reason: `${route.label} opened.`,
+			};
+		});
+		const languageTool = changeInterfaceLanguageDef.client(({ language }) => {
+			setLanguageRef.current(language);
+			return { status: "ok" as const, language };
+		});
 		const fillTool = fillVisibleFormDef.client(({ fields }) =>
 			applyFieldsRef.current(fields),
 		);
-		return clientTools(searchTool, openTool, fillTool);
+		const reviewTool = reviewVisibleFormDef.client(async () => {
+			const result = await reviewVisibleFormRef.current();
+			return {
+				status: result.status,
+				reason: result.reason,
+				missingFields: result.missingFields ?? [],
+			};
+		});
+		const editTool = editVisibleFormDef.client(() =>
+			editVisibleFormRef.current(),
+		);
+		const confirmationTool = requestSubmissionConfirmationDef.client(() => {
+			const result = requestSubmissionConfirmationRef.current();
+			return {
+				status: result.status,
+				reason: result.reason,
+				confirmationId: result.confirmationId ?? null,
+			};
+		});
+		const submitTool = submitConfirmedGrievanceDef.client(
+			async ({ confirmationId }) => {
+				const result =
+					await submitConfirmedGrievanceRef.current(confirmationId);
+				return {
+					status: result.status,
+					reason: result.reason,
+					registrationId: result.registrationId ?? null,
+				};
+			},
+		);
+		return clientTools(
+			routesTool,
+			authoritiesTool,
+			categoriesTool,
+			searchTool,
+			workspaceTool,
+			currentRecordTool,
+			openTool,
+			navigationTool,
+			languageTool,
+			fillTool,
+			reviewTool,
+			editTool,
+			confirmationTool,
+			submitTool,
+		);
 	}, []);
+
+	const chatState = useChat({
+		connection,
+		tools: assistantTools,
+		outputSchema: assistantTurnSchema,
+		onError: () => {
+			const failedVoiceTurn = speakFallbackRef.current;
+			speakFallbackRef.current = false;
+			setTextVoicePending(false);
+			setTextVoiceSpeaking(false);
+			if (failedVoiceTurn) {
+				voiceRequestedRef.current = false;
+				setVoiceRequested(false);
+			}
+			setNotice(
+				translate(
+					text({
+						en: "The guide could not answer just now. You can still use the grievance catalogue manually.",
+						hi: "मार्गदर्शक अभी जवाब नहीं दे सका। आप शिकायत सूची का इस्तेमाल फिर भी कर सकते हैं।",
+					}),
+				),
+			);
+		},
+	});
+
+	useEffect(() => {
+		const final = chatState.final;
+		if (
+			!final ||
+			!speakFallbackRef.current ||
+			!textVoicePending ||
+			final === textVoiceBaselineRef.current
+		)
+			return;
+
+		let finished = false;
+		let disposed = false;
+		const finishVoiceTurn = () => {
+			if (finished || disposed) return;
+			finished = true;
+			speakFallbackRef.current = false;
+			setTextVoicePending(false);
+			setTextVoiceSpeaking(false);
+			voiceRequestedRef.current = false;
+			setVoiceRequested(false);
+		};
+		const language = /[\u0900-\u097f]/.test(final.message) ? "hi" : "en";
+		const speakWithBrowser = () => {
+			if (
+				disposed ||
+				typeof window === "undefined" ||
+				!("speechSynthesis" in window)
+			) {
+				finishVoiceTurn();
+				return;
+			}
+			window.speechSynthesis.cancel();
+			const utterance = new SpeechSynthesisUtterance(final.message);
+			const voice = selectSpeechVoice(
+				window.speechSynthesis.getVoices(),
+				language,
+			);
+			utterance.lang = voice?.lang ?? (language === "hi" ? "hi-IN" : "en-IN");
+			if (voice) utterance.voice = voice;
+			utterance.rate = language === "hi" ? 0.94 : 0.97;
+			utterance.pitch = 1;
+			utterance.onstart = () => setTextVoiceSpeaking(true);
+			utterance.onend = finishVoiceTurn;
+			utterance.onerror = finishVoiceTurn;
+			try {
+				window.speechSynthesis.speak(utterance);
+			} catch {
+				finishVoiceTurn();
+			}
+		};
+		setNotice(null);
+		speakWithBrowser();
+		return () => {
+			disposed = true;
+			if (typeof window !== "undefined" && "speechSynthesis" in window)
+				window.speechSynthesis.cancel();
+		};
+	}, [chatState.final, textVoicePending]);
 
 	const currentCatalogueForm = currentForm?.form ?? null;
 	const visibleFormDescription = useMemo(
@@ -342,6 +687,7 @@ export function AssistantLauncher() {
 						title: currentCatalogueForm.title,
 						heading: currentCatalogueForm.heading,
 						categoryPath: currentCatalogueForm.categoryPath,
+						stage: currentForm?.stage ?? "edit",
 						fields: currentCatalogueForm.fields
 							.filter((field) => field.kind !== "file")
 							.map((field) => ({
@@ -353,31 +699,32 @@ export function AssistantLauncher() {
 								maximumLength: field.maximumLength,
 								pattern: field.pattern,
 								options: field.options,
+								value: currentForm?.values[field.id] ?? "",
+								error: currentForm?.errors[field.id] ?? null,
 							})),
 					}
 				: null,
-		[currentCatalogueForm],
+		[currentCatalogueForm, currentForm],
 	);
 
 	const voiceInstructions = useMemo(
 		() =>
 			[
-				"You are UGAAP's voice grievance guide.",
+				"You are UGAAP's voice website guide. Understand the current UGAAP page and operate it through tools when asked.",
 				`Detect the language of every citizen utterance from its grammar and majority language. Reply in English when they speak English. Reply in simple natural Hindi when they speak Hindi or Hinglish. Indian names and official or legal terms such as Aadhaar, benami, pension, PAN, and ministry inside an English utterance do not make it Hindi. Do not use the website's ${language === "hi" ? "Hindi" : "English"} interface setting to choose the reply language.`,
-				"Keep replies short and conversational. Never invent a grievance form or government action.",
-				"UGAAP's cached grievance catalogue and PAGE_CONTENT are your only sources. Never browse, search, recommend, or claim to visit an external government, municipal, ministry, or department website.",
-				"Always call search_grievance_catalogue before naming a route. Refine the English issue keywords or use authority/category filters when needed. If hasMore is true and the likely result is not shown, request the next page. Use a catch-all only when it belongs to the same clearly responsible authority and topic.",
-				"If the direct and catch-all catalogue searches do not find a route, plainly admit that it is not available in the current UGAAP catalogue and stop. Do not continue searching, promise to search later, or direct the citizen to an external site.",
-				"Open a form only after the citizen explicitly asks to continue.",
-				"Filing and form filling require manual sign-in. Never submit a grievance or claim it was submitted.",
-				"Read PAGE_CONTENT and VISIBLE_FORM semantically. Never require the citizen to quote an exact heading, field label, or internal field ID.",
-				"When the citizen supplies information for a visible form, infer the matching field from its label, kind, placeholder, constraints, and options, then call fill_visible_form with its internal id. When a natural answer maps unambiguously to one exact select option, use it without asking the citizen to repeat or confirm the label. Ask only when the information itself is genuinely ambiguous. Never fill a value the citizen did not provide.",
+				"Use VISIBLE_FORM before catalogue search. If a form is visible, fill, review, or submit it directly and do not search for it or navigate away.",
+				"Search only when a grievance route must be discovered. Use authority and category tools for directory questions and workspace tools for status questions.",
+				"Never invent a page, form, status, government action, or successful tool result. Keep replies short and conversational.",
+				"Map natural answers to visible form fields. Never ask for an internal field id, fill file fields, or fill values the citizen did not supply.",
+				"Submission requires a separate confirmation after review. Request confirmation first and submit only after a later explicit yes.",
 				visibleFormDescription
 					? `VISIBLE_FORM: ${JSON.stringify(visibleFormDescription)}`
 					: "No grievance form is visible.",
 				`PAGE_CONTENT: ${pageContent || "No readable page content was captured."}`,
+				`CURRENT_ROUTE: ${JSON.stringify(currentRoute)}`,
+				`SITE_ROUTES: ${JSON.stringify(assistantRouteSummary())}`,
 			].join("\n"),
-		[language, pageContent, visibleFormDescription],
+		[currentRoute, language, pageContent, visibleFormDescription],
 	);
 
 	const realtime = useRealtimeChat({
@@ -393,11 +740,11 @@ export function AssistantLauncher() {
 			() => geminiRealtime({ model: "gemini-3.1-flash-live-preview" }),
 			[],
 		),
-		tools: liveTools,
+		tools: assistantTools,
 		autoCapture: true,
 		autoPlayback: true,
 		instructions: voiceInstructions,
-		voice: "Kore",
+		voice: "Charon",
 		vadMode: "server",
 		outputModalities: ["audio", "text"],
 		onConnect: () =>
@@ -421,11 +768,22 @@ export function AssistantLauncher() {
 	});
 
 	useEffect(() => {
+		const latestUser = [...realtime.messages]
+			.reverse()
+			.find((message) => message.role === "user");
+		if (!latestUser || lastRealtimeUserTurnRef.current === latestUser.id)
+			return;
+		lastRealtimeUserTurnRef.current = latestUser.id;
+		beginUserTurn();
+	}, [beginUserTurn, realtime.messages]);
+
+	useEffect(() => {
 		realtime.updateSession({
 			instructions: voiceInstructions,
-			voice: "Kore",
+			voice: "Charon",
 			vadMode: "server",
 			outputModalities: ["audio", "text"],
+			providerOptions: geminiRealtimeProviderOptions,
 		});
 	}, [realtime.updateSession, voiceInstructions]);
 
@@ -434,72 +792,200 @@ export function AssistantLauncher() {
 		setVoiceRequested(enabled);
 	}, []);
 
-	function stopBrowserVoice() {
-		const recognition = recognitionRef.current;
-		if (recognition) {
-			recognition.onresult = null;
-			recognition.onerror = null;
-			recognition.onend = null;
-			recognition.stop();
-			recognitionRef.current = null;
-		}
-		setBrowserListening(false);
-	}
+	const clearTextVoiceStopTimer = useCallback(() => {
+		if (!textVoiceStopTimerRef.current) return;
+		window.clearTimeout(textVoiceStopTimerRef.current);
+		textVoiceStopTimerRef.current = 0;
+	}, []);
 
 	async function submit(event?: FormEvent) {
 		event?.preventDefault();
 		const message = input.trim();
 		if (!message || chatState.isLoading) return;
 		setNotice(null);
+		setLastVoiceTranscript(null);
+		beginUserTurn();
 		setInput("");
-		setHistoryOpen(true);
+		messageLanguageRef.current = null;
 		await chatState.sendMessage(message);
 	}
 
-	const startBrowserVoice = useCallback(() => {
-		const Recognition = browserRecognitionConstructor();
-		if (!Recognition) {
+	const finishTextVoiceRecording = useCallback(async () => {
+		if (!textVoiceRecording || textVoiceFinishingRef.current) return;
+		textVoiceFinishingRef.current = true;
+		clearTextVoiceStopTimer();
+		setTextVoicePending(true);
+		setTextVoiceSpeaking(false);
+		setNotice(
+			translate(
+				text({
+					en: "Preparing your recording…",
+					hi: "आपकी रिकॉर्डिंग तैयार की जा रही है…",
+				}),
+			),
+		);
+		try {
+			const recording = await stopTextRecorder();
+			if (recording.durationMs < 400)
+				throw new Error("The recording was too short.");
+			const audioPart = await recordingToGeminiAudio(recording.blob);
+			if (!voiceRequestedRef.current) return;
+			const response = await fetch("/api/ai/transcribe", {
+				method: "POST",
+				credentials: "same-origin",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					audio: audioPart.source.value,
+					mimeType: audioPart.source.mimeType,
+				}),
+			});
+			if (!response.ok) throw new Error("Transcription failed.");
+			const transcription = assistantTranscriptionSchema.safeParse(
+				await response.json(),
+			);
+			if (!transcription.success)
+				throw new Error("The transcription response was invalid.");
+			const transcript = transcription.data.transcript.trim();
+			if (!transcript) {
+				setTextVoicePending(false);
+				setVoiceEnabled(false);
+				setNotice(
+					translate(
+						text({
+							en: "No clear speech was detected. Check your microphone and try again.",
+							hi: "कोई साफ़ आवाज़ नहीं मिली। माइक्रोफ़ोन जाँचकर फिर कोशिश करें।",
+						}),
+					),
+				);
+				return;
+			}
+
+			setLastVoiceTranscript(transcript);
+			beginUserTurn();
+			speakFallbackRef.current = true;
+			textVoiceBaselineRef.current = chatState.final;
+			setNotice(
+				translate(
+					text({
+						en: "Transcript ready. Preparing a response…",
+						hi: "लिखा हुआ संदेश तैयार है। जवाब तैयार हो रहा है…",
+					}),
+				),
+			);
+			messageLanguageRef.current = transcription.data.language;
+			try {
+				await chatState.sendMessage(transcript);
+			} finally {
+				messageLanguageRef.current = null;
+			}
+		} catch (error) {
+			speakFallbackRef.current = false;
+			setTextVoicePending(false);
+			setTextVoiceSpeaking(false);
+			setVoiceEnabled(false);
+			const permissionDenied =
+				error instanceof DOMException &&
+				(error.name === "NotAllowedError" || error.name === "SecurityError");
+			setNotice(
+				translate(
+					permissionDenied
+						? text({
+								en: "Microphone access was blocked. Allow microphone access, then try again.",
+								hi: "माइक्रोफ़ोन की अनुमति नहीं मिली। अनुमति देकर फिर कोशिश करें।",
+							})
+						: text({
+								en: "The recording could not be processed. Try again or type your message.",
+								hi: "रिकॉर्डिंग तैयार नहीं हो सकी। दोबारा कोशिश करें या संदेश टाइप करें।",
+							}),
+				),
+			);
+		} finally {
+			textVoiceFinishingRef.current = false;
+		}
+	}, [
+		beginUserTurn,
+		chatState.final,
+		chatState.sendMessage,
+		clearTextVoiceStopTimer,
+		setVoiceEnabled,
+		stopTextRecorder,
+		textVoiceRecording,
+		translate,
+	]);
+	finishTextRecordingRef.current = finishTextVoiceRecording;
+
+	const startTextVoiceRecording = useCallback(async () => {
+		if (!textVoiceSupported) {
 			setVoiceEnabled(false);
 			setNotice(
 				translate(
 					text({
-						en: "Voice input is not supported here. You can continue by typing.",
-						hi: "यहाँ आवाज़ से लिखना उपलब्ध नहीं है। आप टाइप करके जारी रख सकते हैं।",
+						en: "Voice recording is not supported here. You can continue by typing.",
+						hi: "यहाँ वॉइस रिकॉर्डिंग उपलब्ध नहीं है। आप टाइप करके जारी रख सकते हैं।",
 					}),
 				),
 			);
 			return;
 		}
-		const recognition = new Recognition();
-		recognition.lang = language === "hi" ? "hi-IN" : "en-IN";
-		recognition.continuous = false;
-		recognition.interimResults = false;
-		recognition.onresult = (event) => {
-			const transcript = event.results[0]?.[0]?.transcript?.trim();
-			if (!transcript) return;
-			speakFallbackRef.current = true;
-			setHistoryOpen(true);
-			void chatState.sendMessage(transcript);
-		};
-		recognition.onerror = () => {
-			recognitionRef.current = null;
-			setBrowserListening(false);
+		if (typeof window !== "undefined" && "speechSynthesis" in window)
+			window.speechSynthesis.cancel();
+		setTextVoicePending(false);
+		setTextVoiceSpeaking(false);
+		setLastVoiceTranscript(null);
+		try {
+			await startTextRecorder();
+			if (!voiceRequestedRef.current) {
+				cancelTextRecorder();
+				return;
+			}
+			setNotice(
+				translate(
+					text({
+						en: "Recording. Tap voice again to stop and send.",
+						hi: "रिकॉर्डिंग चालू है। रोककर भेजने के लिए वॉइस फिर दबाएँ।",
+					}),
+				),
+			);
+			clearTextVoiceStopTimer();
+			textVoiceStopTimerRef.current = window.setTimeout(
+				() => void finishTextRecordingRef.current(),
+				TEXT_VOICE_MAX_DURATION_MS,
+			);
+		} catch (error) {
 			setVoiceEnabled(false);
-		};
-		recognition.onend = () => {
-			if (recognitionRef.current !== recognition) return;
-			recognitionRef.current = null;
-			setBrowserListening(false);
-			setVoiceEnabled(false);
-		};
-		recognitionRef.current = recognition;
-		setBrowserListening(true);
-		recognition.start();
-	}, [chatState.sendMessage, language, setVoiceEnabled, translate]);
+			const permissionDenied =
+				error instanceof DOMException &&
+				(error.name === "NotAllowedError" || error.name === "SecurityError");
+			setNotice(
+				translate(
+					permissionDenied
+						? text({
+								en: "Microphone access was blocked. Allow microphone access, then try again.",
+								hi: "माइक्रोफ़ोन की अनुमति नहीं मिली। अनुमति देकर फिर कोशिश करें।",
+							})
+						: text({
+								en: "Voice recording could not start. Try again or type your message.",
+								hi: "वॉइस रिकॉर्डिंग शुरू नहीं हो सकी। दोबारा कोशिश करें या संदेश टाइप करें।",
+							}),
+				),
+			);
+		}
+	}, [
+		cancelTextRecorder,
+		clearTextVoiceStopTimer,
+		setVoiceEnabled,
+		startTextRecorder,
+		textVoiceSupported,
+		translate,
+	]);
 
 	async function stopVoice() {
 		setVoiceEnabled(false);
-		stopBrowserVoice();
+		clearTextVoiceStopTimer();
+		cancelTextRecorder();
+		speakFallbackRef.current = false;
+		setTextVoicePending(false);
+		setTextVoiceSpeaking(false);
 		realtime.interrupt();
 		realtime.stopListening();
 		await realtime.disconnect().catch(() => undefined);
@@ -512,7 +998,7 @@ export function AssistantLauncher() {
 		chatState.stop();
 		if (
 			voiceRequestedRef.current ||
-			browserListening ||
+			textVoiceRecording ||
 			realtime.status !== "idle"
 		) {
 			await stopVoice();
@@ -525,21 +1011,36 @@ export function AssistantLauncher() {
 	async function toggleVoice() {
 		setNotice(null);
 		if (voiceRequestedRef.current) {
+			if (assistantMode === "text" && textVoiceRecording) {
+				await finishTextVoiceRecording();
+				return;
+			}
 			await stopVoice();
 			return;
 		}
 		setVoiceEnabled(true);
+		if (assistantMode === "text") {
+			realtime.interrupt();
+			realtime.stopListening();
+			await realtime.disconnect().catch(() => undefined);
+			if (voiceRequestedRef.current) await startTextVoiceRecording();
+			return;
+		}
 		try {
 			realtime.updateSession({
 				instructions: voiceInstructions,
-				voice: "Kore",
+				voice: "Charon",
 				vadMode: "server",
 				outputModalities: ["audio", "text"],
+				providerOptions: geminiRealtimeProviderOptions,
 			});
 			await realtime.connect();
 		} catch {
 			await realtime.disconnect().catch(() => undefined);
-			if (voiceRequestedRef.current) startBrowserVoice();
+			if (voiceRequestedRef.current) {
+				setAssistantMode("text");
+				await startTextVoiceRecording();
+			}
 		}
 	}
 
@@ -569,30 +1070,32 @@ export function AssistantLauncher() {
 				setNotice(
 					translate(
 						text({
-							en: "The live voice session ended. Using browser voice for this message.",
-							hi: "लाइव आवाज़ सत्र बंद हो गया। इस संदेश के लिए ब्राउज़र की आवाज़ सुविधा का उपयोग हो रहा है।",
+							en: "The live voice session ended. Record this message for the text model instead.",
+							hi: "लाइव वॉइस सत्र बंद हो गया। यह संदेश टेक्स्ट मॉडल के लिए रिकॉर्ड करें।",
 						}),
 					),
 				);
-				startBrowserVoice();
+				setAssistantMode("text");
+				void startTextVoiceRecording();
 			});
-	}, [realtime.disconnect, realtime.status, startBrowserVoice, translate]);
+	}, [
+		realtime.disconnect,
+		realtime.status,
+		startTextVoiceRecording,
+		translate,
+	]);
 
 	useEffect(
 		() => () => {
 			voiceRequestedRef.current = false;
-			const recognition = recognitionRef.current;
-			if (recognition) {
-				recognition.onresult = null;
-				recognition.onerror = null;
-				recognition.onend = null;
-				recognition.stop();
-			}
+			if (textVoiceStopTimerRef.current)
+				window.clearTimeout(textVoiceStopTimerRef.current);
+			cancelTextRecorder();
 			if (typeof window !== "undefined" && "speechSynthesis" in window) {
 				window.speechSynthesis.cancel();
 			}
 		},
-		[],
+		[cancelTextRecorder],
 	);
 
 	async function openRecommendation(turn: typeof chatState.final) {
@@ -612,60 +1115,6 @@ export function AssistantLauncher() {
 		});
 	}
 
-	useEffect(() => {
-		const turn = chatState.final;
-		if (!turn || chatState.isLoading || handledChatTurnRef.current === turn)
-			return;
-		handledChatTurnRef.current = turn;
-
-		if (
-			turn.intent === "fill-form" &&
-			currentForm &&
-			turn.extractedFields.length
-		) {
-			const result = applyFields(turn.extractedFields);
-			setNotice(
-				translate(
-					text({
-						en: `${result.applied} form fields filled. Review them before continuing.`,
-						hi: `${result.applied} फ़ील्ड भर दिए गए हैं। आगे बढ़ने से पहले उनकी जाँच करें।`,
-					}),
-				),
-			);
-			return;
-		}
-
-		if (turn.intent !== "navigate" && turn.intent !== "login-required") return;
-		const destination =
-			turn.formId && turn.authoritySlug
-				? canonicalFormDestination(turn.authoritySlug, turn.formId)
-				: "/services";
-		if (!session?.user) {
-			void navigate({
-				to: "/login",
-				search: { redirect: destination },
-			});
-			return;
-		}
-		if (turn.formId && turn.authoritySlug) {
-			void navigate({
-				to: "/services/$authoritySlug",
-				params: {
-					authoritySlug: turn.authoritySlug,
-				},
-				search: { form: turn.formId, review: false, draft: undefined },
-			});
-		}
-	}, [
-		applyFields,
-		chatState.final,
-		chatState.isLoading,
-		currentForm,
-		navigate,
-		session?.user,
-		translate,
-	]);
-
 	const voiceActive = voiceRequested;
 	const assistantBusy = voiceActive || chatState.isLoading;
 	const lastRealtimeMessage = realtime.messages.at(-1);
@@ -678,37 +1127,104 @@ export function AssistantLauncher() {
 					: [],
 		)
 		.join(" ");
-	const latestVoiceReply = voiceActive
-		? (realtime.pendingUserTranscript ??
-			realtime.pendingAssistantTranscript ??
-			lastRealtimeTranscript)
-		: null;
+	const latestVoiceReply =
+		voiceActive && assistantMode === "realtime"
+			? (realtime.pendingUserTranscript ??
+				realtime.pendingAssistantTranscript ??
+				lastRealtimeTranscript)
+			: null;
 	const latestDockReply =
 		latestVoiceReply ?? chatState.partial.message ?? chatState.final?.message;
-	const voiceStatus = browserListening
-		? translate(text({ en: "Listening now…", hi: "अभी सुन रहे हैं…" }))
-		: realtime.status === "connected"
-			? realtime.mode === "speaking"
-				? translate(text({ en: "UGAAP is speaking…", hi: "UGAAP बोल रहा है…" }))
-				: translate(
-						text({
-							en: "Listening—speak naturally",
-							hi: "सुन रहे हैं—सहज रूप से बोलें",
-						}),
-					)
-			: voiceActive
+	const voiceStatus =
+		assistantMode === "text"
+			? textVoiceRecording
 				? translate(
 						text({
-							en: "Connecting realtime voice…",
-							hi: "रीयलटाइम आवाज़ जुड़ रही है…",
+							en: "Recording now. Tap voice to stop and send.",
+							hi: "रिकॉर्डिंग चालू है। रोककर भेजने के लिए वॉइस दबाएँ।",
 						}),
 					)
-				: translate(
-						text({
-							en: "Speak naturally and hear the answer aloud",
-							hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
-						}),
-					);
+				: textVoiceSpeaking
+					? translate(
+							text({ en: "UGAAP is speaking…", hi: "UGAAP बोल रहा है…" }),
+						)
+					: textVoicePending
+						? translate(
+								text({
+									en: "The text model is preparing a response…",
+									hi: "टेक्स्ट मॉडल जवाब तैयार कर रहा है…",
+								}),
+							)
+						: translate(
+								text({
+									en: "Speak naturally and hear the answer aloud",
+									hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
+								}),
+							)
+			: textVoiceRecording
+				? translate(text({ en: "Listening now…", hi: "अभी सुन रहे हैं…" }))
+				: realtime.status === "connected"
+					? realtime.mode === "speaking"
+						? translate(
+								text({ en: "UGAAP is speaking…", hi: "UGAAP बोल रहा है…" }),
+							)
+						: translate(
+								text({
+									en: "Listening—speak naturally",
+									hi: "सुन रहे हैं—सहज रूप से बोलें",
+								}),
+							)
+					: voiceActive
+						? translate(
+								text({
+									en: "Connecting realtime voice…",
+									hi: "रीयलटाइम आवाज़ जुड़ रही है…",
+								}),
+							)
+						: translate(
+								text({
+									en: "Speak naturally and hear the answer aloud",
+									hi: "सहज रूप से बोलें और जवाब आवाज़ में सुनें",
+								}),
+							);
+	const voicePhase = !voiceActive
+		? "idle"
+		: assistantMode === "text"
+			? textVoiceRecording
+				? "listening"
+				: textVoiceSpeaking
+					? "speaking"
+					: "connecting"
+			: textVoiceRecording ||
+					(realtime.status === "connected" && realtime.mode !== "speaking")
+				? "listening"
+				: realtime.status === "connected" && realtime.mode === "speaking"
+					? "speaking"
+					: "connecting";
+	const voiceButtonLabel =
+		voicePhase === "idle"
+			? translate(
+					text({
+						en: "Start voice guide",
+						hi: "आवाज़ मार्गदर्शक शुरू करें",
+					}),
+				)
+			: voicePhase === "listening" && assistantMode === "text"
+				? translate(text({ en: "Stop and send", hi: "रोककर भेजें" }))
+				: voicePhase === "connecting"
+					? translate(text({ en: "Connecting voice", hi: "आवाज़ जुड़ रही है" }))
+					: voicePhase === "speaking"
+						? translate(
+								text({ en: "UGAAP is speaking", hi: "UGAAP बोल रहा है" }),
+							)
+						: translate(text({ en: "Listening", hi: "सुन रहा है" }));
+	async function confirmPendingSubmission() {
+		if (!pendingSubmission) return;
+		const result = await submitConfirmedGrievance(pendingSubmission.id, {
+			allowCurrentTurn: true,
+		});
+		setNotice(result.reason);
+	}
 	return (
 		<>
 			<Sheet open={historyOpen} onOpenChange={setHistoryOpen}>
@@ -923,23 +1439,97 @@ export function AssistantLauncher() {
 				onSubmit={(event) => void submit(event)}
 				className="assistant-dock px-3 py-2 sm:px-4"
 			>
+				<div
+					className="assistant-response mb-2 border-b border-[var(--line)] px-1 pb-2 text-sm leading-5 text-[var(--ink-muted)]"
+					aria-live="polite"
+				>
+					{pendingSubmission ? (
+						<div className="flex flex-wrap items-center justify-between gap-2">
+							<span className="font-semibold text-[var(--ink)]">
+								{translate(
+									text({
+										en: `Ready to submit ${pendingSubmission.formTitle}. Confirm after checking the review.`,
+										hi: `${pendingSubmission.formTitle} जमा करने के लिए तैयार है। समीक्षा जाँचकर पुष्टि करें।`,
+									}),
+								)}
+							</span>
+							<span className="flex items-center gap-2">
+								<button
+									type="button"
+									onClick={() => void confirmPendingSubmission()}
+									className="min-h-9 rounded-md bg-[var(--action)] px-3 text-xs font-bold text-white"
+								>
+									{translate(
+										text({
+											en: "Confirm and submit",
+											hi: "पुष्टि करके जमा करें",
+										}),
+									)}
+								</button>
+								<button
+									type="button"
+									onClick={cancelPendingSubmission}
+									className="min-h-9 px-2 text-xs font-bold text-[var(--ink-muted)] underline"
+								>
+									{translate(text({ en: "Cancel", hi: "रद्द करें" }))}
+								</button>
+							</span>
+						</div>
+					) : (
+						<span className="block truncate">
+							{voiceActive
+								? voiceStatus
+								: latestDockReply ||
+									notice ||
+									translate(
+										text({
+											en: "I can help you file a grievance, navigate UGAAP, and guide you through each step.",
+											hi: "मैं शिकायत दर्ज करने, UGAAP वेबसाइट पर जाने और हर चरण में आपका मार्गदर्शन करने में मदद कर सकता हूँ।",
+										}),
+									)}
+						</span>
+					)}
+				</div>
+				{lastVoiceTranscript ? (
+					<p
+						className="m-0 mb-2 border-b border-[var(--line)] px-1 pb-2 text-sm leading-5 text-[var(--ink)]"
+						aria-live="polite"
+					>
+						<span className="mr-1 font-extrabold text-[var(--action)]">
+							{translate(text({ en: "You said:", hi: "आपने कहा:" }))}
+						</span>
+						{lastVoiceTranscript}
+					</p>
+				) : null}
 				<div className="flex items-center gap-2">
 					<button
 						type="button"
 						onClick={() => void toggleVoice()}
 						aria-pressed={voiceActive}
+						aria-label={voiceButtonLabel}
 						className={`inline-flex min-h-12 shrink-0 items-center gap-2 rounded-lg px-3 text-sm font-extrabold transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)] ${voiceActive ? "bg-[var(--action)] text-white" : "bg-[var(--highlight)] text-[var(--ink)] hover:bg-[var(--highlight-soft)]"}`}
 					>
-						{voiceActive ? (
-							<MicOff size={20} aria-hidden="true" />
-						) : (
+						{voicePhase === "idle" ? (
 							<Mic size={20} aria-hidden="true" />
+						) : voicePhase === "connecting" ? (
+							<LoaderCircle
+								className="animate-spin"
+								size={19}
+								aria-hidden="true"
+							/>
+						) : assistantMode === "text" && textVoiceRecording ? (
+							<Square size={17} fill="currentColor" aria-hidden="true" />
+						) : (
+							<span
+								className="flex h-7 items-center gap-0.5"
+								aria-hidden="true"
+							>
+								<span className="voice-bar w-1 rounded-full bg-current" />
+								<span className="voice-bar w-1 rounded-full bg-current [animation-delay:140ms]" />
+								<span className="voice-bar w-1 rounded-full bg-current [animation-delay:280ms]" />
+							</span>
 						)}
-						<span className="hidden sm:inline">
-							{voiceActive
-								? translate(text({ en: "Stop voice", hi: "आवाज़ रोकें" }))
-								: translate(text({ en: "Speak", hi: "बोलें" }))}
-						</span>
+						<span className="hidden sm:inline">{voiceButtonLabel}</span>
 					</button>
 
 					<label className="sr-only" htmlFor="ugaap-command-input">
@@ -998,7 +1588,45 @@ export function AssistantLauncher() {
 					</button>
 				</div>
 
+				<div className="mt-2 inline-flex overflow-hidden rounded-md border border-[var(--line-strong)] text-xs font-semibold text-[var(--ink-muted)]">
+					{(
+						[
+							{
+								id: "realtime",
+								label: text({ en: "Realtime", hi: "रीयलटाइम" }),
+							},
+							{
+								id: "text",
+								label: text({ en: "Text model", hi: "टेक्स्ट मॉडल" }),
+							},
+							{
+								id: "local",
+								label: text({ en: "Local", hi: "लोकल" }),
+							},
+						] as const
+					).map((option) => {
+						const selected = assistantMode === option.id;
+						const disabled = option.id === "local" || voiceActive;
+						return (
+							<button
+								key={option.id}
+								type="button"
+								aria-pressed={selected}
+								disabled={disabled}
+								onClick={() => {
+									if (option.id === "realtime" || option.id === "text")
+										setAssistantMode(option.id);
+								}}
+								className={`min-h-8 border-r border-[var(--line-strong)] px-2.5 last:border-r-0 transition-colors focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--highlight)] ${selected ? "bg-[var(--blue-50)] text-[var(--action)]" : "hover:bg-[var(--blue-50)] hover:text-[var(--ink)]"} ${disabled ? "cursor-not-allowed opacity-50" : ""}`}
+							>
+								<span>{translate(option.label)}</span>
+							</button>
+						);
+					})}
+				</div>
+
 				<p
+					hidden
 					className="m-0 mt-1 min-h-4 truncate px-1 text-left text-[11px] leading-4 text-[var(--ink-muted)]"
 					aria-live="polite"
 				>

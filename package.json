@@ -18,6 +18,7 @@
     "catalogue:enrich": "tsx scripts/catalogue/enrich.ts",
     "catalogue:check": "tsx scripts/catalogue/check.ts",
     "catalogue:search:test": "tsx --test scripts/catalogue/search.test.ts",
+    "assistant:test": "tsx --test scripts/assistant/routes.test.ts scripts/assistant/audio.test.ts scripts/assistant/input.test.ts scripts/assistant/speech.test.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",

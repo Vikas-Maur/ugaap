@@ -2,6 +2,20 @@ import { z } from "zod";
 
 export const assistantLanguageSchema = z.enum(["en", "hi"]);
 
+export const assistantTranscriptionRequestSchema = z
+	.object({
+		audio: z.string().min(1).max(2_800_000),
+		mimeType: z.literal("audio/wav"),
+	})
+	.strict();
+
+export const assistantTranscriptionSchema = z
+	.object({
+		transcript: z.string().max(4_000),
+		language: assistantLanguageSchema,
+	})
+	.strict();
+
 export const assistantCandidateSchema = z
 	.object({
 		formId: z.string().min(1).max(180),
@@ -23,6 +37,7 @@ export const extractedFieldSchema = z
 
 export const assistantTurnSchema = z
 	.object({
+		inputTranscript: z.string().min(1).max(4_000).nullable(),
 		message: z.string().min(1).max(1_200),
 		intent: z.enum([
 			"classify",
@@ -62,13 +77,25 @@ export const assistantChatRequestSchema = z
 		forwardedProps: z
 			.object({
 				language: assistantLanguageSchema.default("en"),
+				messageLanguage: assistantLanguageSchema.nullable().default(null),
 				pathname: z.string().max(500).default("/"),
+				route: z
+					.object({
+						destination: z.string().max(80),
+						label: z.string().max(160),
+						purpose: z.string().max(500),
+						access: z.enum(["public", "authenticated"]),
+					})
+					.strict()
+					.nullable()
+					.default(null),
 				currentForm: z
 					.object({
 						id: z.string().max(180),
 						title: z.string().max(320),
 						heading: z.string().max(320).nullable(),
 						categoryPath: z.array(z.string().max(240)).max(16),
+						stage: z.enum(["edit", "review"]),
 						fields: z
 							.array(
 								z
@@ -81,6 +108,8 @@ export const assistantChatRequestSchema = z
 										maximumLength: z.number().int().positive().optional(),
 										pattern: z.string().max(500).optional(),
 										options: z.array(z.string().max(240)).max(100).optional(),
+										value: z.string().max(4_000),
+										error: z.string().max(500).nullable(),
 									})
 									.strict(),
 							)
@@ -94,7 +123,9 @@ export const assistantChatRequestSchema = z
 			.strict()
 			.default({
 				language: "en",
+				messageLanguage: null,
 				pathname: "/",
+				route: null,
 				currentForm: null,
 				pageContent: "",
 			}),
