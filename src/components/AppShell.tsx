@@ -96,7 +96,13 @@ function PublicLinks() {
 			<Link
 				className={publicLinkClass}
 				to="/public-grievances"
-				search={{ q: "", status: "all", organization: "all", sort: "recent" }}
+				search={{
+					q: "",
+					status: "all",
+					organization: "all",
+					category: "all",
+					sort: "recent",
+				}}
 			>
 				{translate(
 					text({
@@ -107,10 +113,13 @@ function PublicLinks() {
 			</Link>
 			<Link
 				className={publicLinkClass}
-				to="/leaderboard"
-				search={{ group: "central", compare: "" }}
+				to="/accountability"
+				search={{
+					group: "central",
+					windowDays: 90,
+				}}
 			>
-				{translate(text({ en: "Performance", hi: "प्रदर्शन" }))}
+				{translate(text({ en: "Accountability", hi: "जवाबदेही" }))}
 			</Link>
 			<Link className={publicLinkClass} to="/about">
 				{translate(text({ en: "About", hi: "परिचय" }))}
@@ -118,8 +127,8 @@ function PublicLinks() {
 			<Link className={publicLinkClass} to="/methodology">
 				{translate(
 					text({
-						en: "How scores work",
-						hi: "स्कोर कैसे बनते हैं",
+						en: "How measures work",
+						hi: "मापदंड कैसे काम करते हैं",
 					}),
 				)}
 			</Link>

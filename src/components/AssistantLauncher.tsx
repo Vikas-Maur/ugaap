@@ -465,6 +465,7 @@ export function AssistantLauncher() {
 							q: "",
 							status: "all",
 							organization: "all",
+							category: "all",
 							sort: "recent",
 						},
 					});
@@ -475,10 +476,17 @@ export function AssistantLauncher() {
 						params: { publicId: request.publicId ?? "" },
 					});
 					break;
-				case "leaderboard":
+				case "accountability":
 					await navigateRef.current({
-						to: "/leaderboard",
-						search: { group: "central", compare: "" },
+						to: "/accountability",
+						search: { group: "central", windowDays: 90 },
+					});
+					break;
+				case "authority-accountability":
+					await navigateRef.current({
+						to: "/accountability/authorities/$authoritySlug",
+						params: { authoritySlug: request.authoritySlug ?? "" },
+						search: { windowDays: 90 },
 					});
 					break;
 				case "methodology":

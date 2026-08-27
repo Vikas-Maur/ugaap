@@ -3,7 +3,8 @@ export const assistantRouteDestinations = [
 	"about",
 	"public-grievances",
 	"public-grievance",
-	"leaderboard",
+	"accountability",
+	"authority-accountability",
 	"methodology",
 	"terms",
 	"privacy",
@@ -64,11 +65,19 @@ export const assistantRoutes: readonly AssistantRouteDefinition[] = [
 		requiredParameter: "publicId",
 	},
 	{
-		destination: "leaderboard",
-		path: "/leaderboard",
-		label: "Authority performance",
-		purpose: "Compare public authority performance",
+		destination: "accountability",
+		path: "/accountability",
+		label: "Public accountability",
+		purpose: "Compare authority performance across public measures",
 		access: "public",
+	},
+	{
+		destination: "authority-accountability",
+		path: "/accountability/authorities/$authoritySlug",
+		label: "Authority accountability profile",
+		purpose: "Review one authority's measures, ranks, and trends",
+		access: "public",
+		requiredParameter: "authoritySlug",
 	},
 	{
 		destination: "methodology",
@@ -176,11 +185,13 @@ export function routeDefinitionForPath(pathname: string) {
 }
 
 export function assistantRouteSummary() {
-	return assistantRoutes.map(({ destination, path, label, purpose, access }) => ({
-		destination,
-		path,
-		label,
-		purpose,
-		access,
-	}));
+	return assistantRoutes.map(
+		({ destination, path, label, purpose, access }) => ({
+			destination,
+			path,
+			label,
+			purpose,
+			access,
+		}),
+	);
 }

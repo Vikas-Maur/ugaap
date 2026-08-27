@@ -7,16 +7,16 @@ import { and, eq, inArray, or, sql } from "drizzle-orm";
 import type { AuthorityChunk, CatalogueCategory, CatalogueForm } from "../../src/features/catalogue/schema.ts";
 import * as dbSchema from "../../src/db/schema.ts";
 import {
-	calculateLeaderboardScore,
-	snapshotRawMetrics,
-} from "../../src/features/leaderboard/scoring.ts";
+	ACCOUNTABILITY_METRIC_VERSION,
+	calculateAccountabilityMetrics,
+} from "../../src/features/accountability/metrics.ts";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const CATALOGUE_DIR = join(ROOT, "public", "catalogue", "authorities");
 const SEED_NAMESPACE = "ugaap:p0.3:synthetic-seed:v1";
 const BASE_TIME = new Date("2026-08-23T12:00:00.000Z");
 const DAY = 24 * 60 * 60 * 1000;
-const INSERT_CHUNK_SIZE = 100;
+const INSERT_CHUNK_SIZE = 300;
 // Better Auth scrypt hash for the intentionally public DEMO_MODE password "admin".
 const DEMO_PASSWORD_HASH = "3dab4e02313f06c356bd8bc16bfdd4f1:68b298325ea07802fe052c0c6e662257fdf4fc46f3ad5121b7090f1ea95eefd3de8fa241e09e73cd14c9988d118f4d7071c31b551de57d74e04d2a33743c6a09";
 
@@ -27,6 +27,8 @@ type ClosureReason = "citizen_confirmed" | "department_action_unconfirmed" | "ci
 type EventType = "created" | "submitted" | "status_changed" | "message" | "clarification_requested" | "clarification_replied" | "feedback_received" | "appeal_filed" | "appeal_resolved" | "publication_changed";
 type ActorType = "citizen" | "officer" | "system" | "agent";
 type AppealStatus = "filed" | "under_review" | "resolved" | "rejected";
+type AppealDecisionOutcome = "original_decision_upheld" | "original_decision_modified" | "original_decision_overturned";
+type ResolutionAssessment = "resolved" | "partially_resolved" | "not_resolved";
 
 type OrganizationSeed = {
 	id: string;
@@ -135,8 +137,8 @@ type SeedData = {
 		metadata: Record<string, unknown>;
 		createdAt: Date;
 	}>;
-	feedback: Array<{ id: string; grievanceId: string; userId: string; score: number; comment: string; createdAt: Date; updatedAt: Date }>;
-	appeals: Array<{ id: string; grievanceId: string; userId: string; reason: string; status: AppealStatus; resolution: string | null; createdAt: Date; updatedAt: Date }>;
+	feedback: Array<{ id: string; grievanceId: string; userId: string; score: number; resolutionAssessment: ResolutionAssessment; comment: string; createdAt: Date; updatedAt: Date }>;
+	appeals: Array<{ id: string; grievanceId: string; userId: string; reason: string; status: AppealStatus; decisionOutcome: AppealDecisionOutcome | null; resolvedAt: Date | null; resolution: string | null; createdAt: Date; updatedAt: Date }>;
 	publicGrievances: Array<{
 		id: string;
 		grievanceId: string;
@@ -164,12 +166,19 @@ type SeedData = {
 	snapshots: Array<{
 		id: string;
 		organizationId: string;
+		categoryNodeId: string | null;
+		metricKey: string;
+		metricVersion: string;
+		windowDays: number;
 		windowStart: Date;
 		windowEnd: Date;
-		rawMetrics: Record<string, number>;
-		compositeScore: string;
-		grade: string;
+		value: string;
 		sampleSize: number;
+		numerator: number | null;
+		denominator: number | null;
+		eligible: boolean;
+		supportingMetrics: Record<string, number | null>;
+		sourceKind: "synthetic";
 		createdAt: Date;
 	}>;
 };
@@ -332,6 +341,50 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 			formById.set(`${form.id}:${form.version}`, formSeed);
 		}
 	}
+	for (const syntheticAuthority of [centralServices, maharashtra, karnataka]) {
+		const categoryId = deterministicUuid(
+			`category:${syntheticAuthority.id}:general-services`,
+		);
+		const formKey = `synthetic-${syntheticAuthority.slug}-general-services`;
+		const formId = deterministicUuid(
+			`form:${syntheticAuthority.id}:${formKey}:version:1`,
+		);
+		categories.push({
+			id: categoryId,
+			organizationId: syntheticAuthority.id,
+			parentCategoryId: null,
+			slug: "general-services",
+			name: "General public services",
+			ancestry: [categoryId],
+			depth: 0,
+			active: true,
+			createdAt: cloneDate(BASE_TIME),
+			updatedAt: cloneDate(BASE_TIME),
+		});
+		const formSchema = {
+			id: formKey,
+			title: "General public service grievance",
+			heading: "Describe the public service issue",
+			categoryPath: ["General public services"],
+			fields: [],
+			active: true,
+		};
+		const form: FormSeed = {
+			id: formId,
+			formKey,
+			organizationId: syntheticAuthority.id,
+			categoryNodeId: categoryId,
+			version: 1,
+			formSchema,
+			sourcePath: "synthetic-seed",
+			checksum: digest(formSchema),
+			active: true,
+			createdAt: cloneDate(BASE_TIME),
+			updatedAt: cloneDate(BASE_TIME),
+		};
+		forms.push(form);
+		formById.set(`${form.formKey}:${form.version}`, form);
+	}
 	if (forms.length === 0) throw new Error("Generated catalogue contains no forms");
 
 	const userId = "synthetic-demo-citizen-template";
@@ -442,20 +495,20 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 		}
 	}
 
-	const feedback = [
-		{ caseKey: "resolved-poor", score: 1, comment: "Synthetic poor-resolution rating; appeal action should be available." },
-		{ caseKey: "resolved-positive", score: 5, comment: "Synthetic positive resolution rating." },
-		{ caseKey: "appealed", score: 1, comment: "Synthetic poor rating retained on appealed case." },
+	const feedback: SeedData["feedback"] = [
+		{ caseKey: "resolved-poor", score: 1, resolutionAssessment: "not_resolved" as const, comment: "Synthetic poor-resolution rating; appeal action should be available." },
+		{ caseKey: "resolved-positive", score: 5, resolutionAssessment: "resolved" as const, comment: "Synthetic positive resolution rating." },
+		{ caseKey: "appealed", score: 1, resolutionAssessment: "not_resolved" as const, comment: "Synthetic poor rating retained on appealed case." },
 	].map((entry) => {
 		const grievance = grievances.find((item) => item.id === deterministicUuid(`grievance:${entry.caseKey}`));
 		if (!grievance) throw new Error(`Missing feedback grievance ${entry.caseKey}`);
-		return { id: deterministicUuid(`feedback:${entry.caseKey}`), grievanceId: grievance.id, userId, score: entry.score, comment: entry.comment, createdAt: cloneDate(BASE_TIME), updatedAt: cloneDate(BASE_TIME) };
+		return { id: deterministicUuid(`feedback:${entry.caseKey}`), grievanceId: grievance.id, userId, score: entry.score, resolutionAssessment: entry.resolutionAssessment, comment: entry.comment, createdAt: cloneDate(BASE_TIME), updatedAt: cloneDate(BASE_TIME) };
 	});
 	const appealedGrievance = grievances.find((item) => item.id === deterministicUuid("grievance:appealed"));
 	if (!appealedGrievance) throw new Error("Missing appealed synthetic grievance");
-	const appeals = [{ id: deterministicUuid("appeal:appealed"), grievanceId: appealedGrievance.id, userId, reason: "Synthetic appeal: the resolution did not address the reported issue.", status: "filed" as const, resolution: null, createdAt: cloneDate(BASE_TIME), updatedAt: cloneDate(BASE_TIME) }];
+	const appeals: SeedData["appeals"] = [{ id: deterministicUuid("appeal:appealed"), grievanceId: appealedGrievance.id, userId, reason: "Synthetic appeal: the resolution did not address the reported issue.", status: "filed", decisionOutcome: null, resolvedAt: null, resolution: null, createdAt: cloneDate(BASE_TIME), updatedAt: cloneDate(BASE_TIME) }];
 
-	const publicGrievances = ["action-taken", "resolved-poor", "appeal-resolved"].map((caseKey, index) => {
+	const publicGrievances: SeedData["publicGrievances"] = ["action-taken", "resolved-poor", "appeal-resolved"].map((caseKey, index) => {
 		const grievance = grievances.find((item) => item.id === deterministicUuid(`grievance:${caseKey}`));
 		if (!grievance) throw new Error(`Missing public grievance ${caseKey}`);
 		const selectedForm = forms.find((item) => item.id === grievance.formDefinitionId);
@@ -477,6 +530,167 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 			updatedAt: cloneDate(BASE_TIME),
 		};
 	});
+
+	const activeFormsByOrganization = new Map<string, FormSeed[]>();
+	for (const form of forms.filter((item) => item.active)) {
+		const organizationForms = activeFormsByOrganization.get(form.organizationId) ?? [];
+		organizationForms.push(form);
+		activeFormsByOrganization.set(form.organizationId, organizationForms);
+	}
+	const bulkStatuses: Status[] = [
+		"resolved",
+		"resolved",
+		"resolved",
+		"in_review",
+		"acknowledged",
+		"needs_information",
+		"appeal_resolved",
+		"appeal_resolved",
+	];
+	for (const [organizationIndex, organization] of organizations.entries()) {
+		const organizationForms = activeFormsByOrganization.get(organization.id);
+		if (!organizationForms?.length) continue;
+		for (let caseIndex = 0; caseIndex < 120; caseIndex += 1) {
+			const form = organizationForms[caseIndex % organizationForms.length];
+			if (!form) continue;
+			const daysAgo = 2 + ((caseIndex * 5 + organizationIndex * 11) % 358);
+			const submittedAt = at(daysAgo, 6 + (caseIndex % 10));
+			const status = bulkStatuses[(caseIndex + organizationIndex) % bulkStatuses.length] ?? "in_review";
+			const responseHours = 3 + ((organizationIndex * 13 + caseIndex * 7) % 110);
+			const resolutionDays = 4 + ((organizationIndex * 9 + caseIndex * 11) % 72);
+			const isClosed = status === "resolved" || status === "appeal_resolved";
+			const possibleClosedAt = new Date(submittedAt.getTime() + resolutionDays * DAY);
+			const closedAt = isClosed && possibleClosedAt <= BASE_TIME ? possibleClosedAt : null;
+			const finalStatus: Status = isClosed && !closedAt ? "in_review" : status;
+			const closureReason: ClosureReason | null = closedAt
+				? finalStatus === "appeal_resolved"
+					? "appeal_decided"
+					: caseIndex % 4 === 0
+						? "department_action_unconfirmed"
+						: "citizen_confirmed"
+				: null;
+			const caseKey = `bulk:${organization.slug}:${caseIndex}`;
+			const grievanceId = deterministicUuid(`grievance:${caseKey}`);
+			const rating = 1 + ((caseIndex * 3 + organizationIndex * 2) % 5);
+			const resolutionAssessment: ResolutionAssessment = rating <= 2 ? "not_resolved" : rating === 3 ? "partially_resolved" : "resolved";
+			const categoryPathValue = form.formSchema.categoryPath;
+			const categoryPath = Array.isArray(categoryPathValue) && categoryPathValue.every((part): part is string => typeof part === "string") ? categoryPathValue : ["Public services"];
+			const reviewHash = digest({ formChecksum: form.checksum, caseKey });
+			const grievance: CaseSeed = {
+				id: grievanceId,
+				registrationId: `SYN-${String(organizationIndex + 1).padStart(2, "0")}-${String(caseIndex + 1).padStart(4, "0")}`,
+				userId,
+				draftId: null,
+				organizationId: organization.id,
+				categoryNodeId: form.categoryNodeId,
+				formDefinitionId: form.id,
+				status: finalStatus,
+				language: "en",
+				answers: {},
+				remarks: `Synthetic public-service grievance ${caseIndex + 1}; no real citizen data.`,
+				reviewHash,
+				idempotencyKey: `synthetic-seed:accountability:${organization.slug}:${caseIndex}`,
+				publicConsent: caseIndex % 3 === 0 ? "opted_in" : "opted_out",
+				closureReason,
+				closedAt,
+				closureNote: closureReason ? "Synthetic department closure for accountability calculations." : null,
+				citizenResponseDueAt: finalStatus === "needs_information" ? new Date(BASE_TIME.getTime() + 7 * DAY) : null,
+				appealEligibleUntil: finalStatus === "resolved" && closedAt ? new Date(closedAt.getTime() + 45 * DAY) : null,
+				submittedAt,
+				createdAt: submittedAt,
+				updatedAt: cloneDate(BASE_TIME),
+			};
+			grievances.push(grievance);
+			events.push({
+				id: deterministicUuid(`event:${caseKey}:submitted`),
+				grievanceId,
+				eventType: "submitted",
+				actorType: "system",
+				actorUserId: null,
+				fromStatus: null,
+				toStatus: "submitted",
+				message: "Grievance submitted.",
+				metadata: { synthetic: true },
+				createdAt: submittedAt,
+			});
+			const firstResponseAt = new Date(submittedAt.getTime() + responseHours * 60 * 60 * 1_000);
+			if (firstResponseAt <= BASE_TIME) {
+				events.push({
+					id: deterministicUuid(`event:${caseKey}:response`),
+					grievanceId,
+					eventType: "status_changed",
+					actorType: "officer",
+					actorUserId: null,
+					fromStatus: "submitted",
+					toStatus: "acknowledged",
+					message: "The authority acknowledged the grievance.",
+					metadata: { synthetic: true },
+					createdAt: firstResponseAt,
+				});
+			}
+			if (closedAt) {
+				events.push({
+					id: deterministicUuid(`event:${caseKey}:closed`),
+					grievanceId,
+					eventType: finalStatus === "appeal_resolved" ? "appeal_resolved" : "status_changed",
+					actorType: "officer",
+					actorUserId: null,
+					fromStatus: "in_review",
+					toStatus: finalStatus,
+					message: finalStatus === "appeal_resolved" ? "The appeal was decided." : "The grievance was closed after department action.",
+					metadata: { synthetic: true },
+					createdAt: closedAt,
+				});
+				const feedbackAt = new Date(Math.min(BASE_TIME.getTime(), closedAt.getTime() + DAY));
+				if (caseIndex % 5 !== 4) {
+					feedback.push({
+						id: deterministicUuid(`feedback:${caseKey}`),
+						grievanceId,
+						userId,
+						score: rating,
+						resolutionAssessment,
+						comment: `Synthetic ${resolutionAssessment.replaceAll("_", " ")} feedback.`,
+						createdAt: feedbackAt,
+						updatedAt: feedbackAt,
+					});
+				}
+			}
+			if (finalStatus === "appeal_resolved" && closedAt) {
+				const outcomes: AppealDecisionOutcome[] = ["original_decision_upheld", "original_decision_modified", "original_decision_overturned"];
+				const decisionOutcome = outcomes[(caseIndex + organizationIndex) % outcomes.length] ?? "original_decision_upheld";
+				appeals.push({
+					id: deterministicUuid(`appeal:${caseKey}`),
+					grievanceId,
+					userId,
+					reason: "The citizen asked for the original decision to be reviewed.",
+					status: "resolved",
+					decisionOutcome,
+					resolvedAt: closedAt,
+					resolution: "Synthetic appeal decision used for accountability calculations.",
+					createdAt: new Date(Math.max(submittedAt.getTime(), closedAt.getTime() - 5 * DAY)),
+					updatedAt: closedAt,
+				});
+			}
+			if (grievance.publicConsent === "opted_in") {
+				const topics = ["service request delay", "document processing issue", "public facility maintenance", "benefit application follow-up", "local office response"];
+				publicGrievances.push({
+					id: deterministicUuid(`public:${caseKey}`),
+					grievanceId,
+					publicId: `SYN-PUBLIC-${digest(caseKey).slice(0, 12).toUpperCase()}`,
+					summary: `A resident reported a ${topics[(caseIndex + organizationIndex) % topics.length]} and requested an update from the responsible authority. Identifying details have been removed.`,
+					categoryPath,
+					organizationId: organization.id,
+					status: finalStatus,
+					broadLocation: organization.jurisdiction === "India" ? "India" : `${organization.jurisdiction}, India`,
+					synthetic: true,
+					publishedAt: submittedAt,
+					withdrawnAt: null,
+					createdAt: submittedAt,
+					updatedAt: cloneDate(BASE_TIME),
+				});
+			}
+		}
+	}
 	const publicStatusLabels: Record<Status, string> = {
 		draft: "Grievance prepared",
 		submitted: "Grievance submitted",
@@ -516,38 +730,49 @@ function buildSeedData(chunks: AuthorityChunk[]): SeedData {
 	);
 
 	const snapshots: SeedData["snapshots"] = [];
-	for (const [organizationIndex, organization] of organizations.entries()) {
-		for (const [period, [windowStart, windowEnd]] of [["current", [at(90), cloneDate(BASE_TIME)]], ["previous", [at(180), at(90)]]] as const) {
-			const currentPeriod = period === "current";
-			const eligible = organization.type === "state" || organization.type === "state_department" || organizationIndex % 3 !== 0;
-			const closedCases = eligible ? 24 + (organizationIndex % 7) * 4 : 8 + (organizationIndex % 8);
-			const ratingCount = eligible ? 11 + (organizationIndex % 8) : 3 + (organizationIndex % 5);
-			const qualityShift = ((organizationIndex * 9 + (currentPeriod ? 7 : 2)) % 28) / 100;
-			const timelyClosedCases = Math.min(closedCases, Math.round(closedCases * (0.58 + qualityShift)));
-			const reopenedCases = Math.min(closedCases, (organizationIndex + (currentPeriod ? 0 : 1)) % 5);
-			const averageRating = 2.8 + ((organizationIndex * 5 + (currentPeriod ? 3 : 1)) % 19) / 10;
-			const openCases = 9 + (organizationIndex % 6) * 3;
-			const overdueOpenCases = Math.min(openCases, 1 + ((organizationIndex * 2 + (currentPeriod ? 0 : 2)) % 8));
-			const decidedAppeals = 3 + (organizationIndex % 6);
-			const upheldAppeals = Math.min(decidedAppeals, (organizationIndex + (currentPeriod ? 1 : 2)) % 4);
-			const totalCases = closedCases + openCases;
-			const publicCaseCount = Math.min(totalCases, 1 + (organizationIndex % 5));
-			const metrics = calculateLeaderboardScore({
-				closedCases,
-				ratingCount,
-				timelyClosedCases,
-				reopenedCases,
-				ratingSum: averageRating * ratingCount,
-				openCases,
-				overdueOpenCases,
-				decidedAppeals,
-				upheldAppeals,
-				casesWithMeaningfulUpdates: Math.min(totalCases, Math.round(totalCases * (0.62 + qualityShift))),
-				totalCases,
-				publicCaseCount,
-				privateCaseCount: totalCases - publicCaseCount,
+	const materializeSnapshot = (organization: OrganizationSeed, categoryNodeId: string | null, windowDays: number, windowEnd: Date) => {
+		const windowStart = new Date(windowEnd.getTime() - windowDays * DAY);
+		const scopedCases = grievances.filter((item) => item.organizationId === organization.id && (categoryNodeId === null || item.categoryNodeId === categoryNodeId));
+		const caseIds = new Set(scopedCases.map((item) => item.id));
+		const metrics = calculateAccountabilityMetrics({
+			cases: scopedCases,
+			events: events.filter((item) => caseIds.has(item.grievanceId)),
+			feedback: feedback.filter((item) => caseIds.has(item.grievanceId)),
+			appeals: appeals.filter((item) => caseIds.has(item.grievanceId)),
+			windowStart,
+			windowEnd,
+		});
+		for (const metric of metrics) {
+			if (categoryNodeId !== null && metric.sampleSize === 0) continue;
+			const scopeKey = categoryNodeId ?? "authority";
+			snapshots.push({
+				id: deterministicUuid(`accountability:${organization.slug}:${scopeKey}:${metric.metricKey}:${windowDays}:${windowEnd.toISOString()}`),
+				organizationId: organization.id,
+				categoryNodeId,
+				metricKey: metric.metricKey,
+				metricVersion: ACCOUNTABILITY_METRIC_VERSION,
+				windowDays,
+				windowStart,
+				windowEnd: cloneDate(windowEnd),
+				value: metric.value.toFixed(4),
+				sampleSize: metric.sampleSize,
+				numerator: metric.numerator,
+				denominator: metric.denominator,
+				eligible: metric.eligible,
+				supportingMetrics: metric.supportingMetrics,
+				sourceKind: "synthetic",
+				createdAt: cloneDate(BASE_TIME),
 			});
-			snapshots.push({ id: deterministicUuid(`snapshot:${organization.slug}:${period}`), organizationId: organization.id, windowStart: cloneDate(windowStart), windowEnd: cloneDate(windowEnd), rawMetrics: snapshotRawMetrics(metrics), compositeScore: metrics.compositeScore.toFixed(4), grade: metrics.grade, sampleSize: metrics.closedCases, createdAt: cloneDate(BASE_TIME) });
+		}
+	};
+	for (const organization of organizations) {
+		for (const windowDays of [30, 90, 365]) {
+			materializeSnapshot(organization, null, windowDays, cloneDate(BASE_TIME));
+			materializeSnapshot(organization, null, windowDays, new Date(BASE_TIME.getTime() - windowDays * DAY));
+		}
+		for (const period of [1, 2, 4, 5, 6, 7]) materializeSnapshot(organization, null, 90, new Date(BASE_TIME.getTime() - period * 30 * DAY));
+		for (const category of categories.filter((item) => item.organizationId === organization.id)) {
+			for (const windowDays of [30, 90, 365]) materializeSnapshot(organization, category.id, windowDays, cloneDate(BASE_TIME));
 		}
 	}
 
@@ -573,7 +798,8 @@ function validateSeedData(data: SeedData, chunks: AuthorityChunk[]): void {
 	}
 	const generatedForms = chunks.flatMap((chunk) => chunk.forms);
 	const catalogueFormKeys = new Set(generatedForms.map((form) => `${form.id}:${form.version}`));
-	if (data.forms.length !== catalogueFormKeys.size || data.forms.some((form) => !catalogueFormKeys.has(`${form.formKey}:${form.version}`))) throw new Error("Seed coverage does not include every generated catalogue form version");
+	const catalogueSeedForms = data.forms.filter((form) => form.sourcePath !== "synthetic-seed");
+	if (catalogueSeedForms.length !== catalogueFormKeys.size || catalogueSeedForms.some((form) => !catalogueFormKeys.has(`${form.formKey}:${form.version}`))) throw new Error("Seed coverage does not include every generated catalogue form version");
 	for (const generatedForm of generatedForms) {
 		const storedForm = data.forms.find((form) => form.formKey === generatedForm.id && form.version === generatedForm.version);
 		if (!storedForm || storedForm.checksum !== generatedForm.checksum || storedForm.active !== generatedForm.active) throw new Error(`Seed form metadata mismatch for ${generatedForm.id} version ${generatedForm.version}`);
@@ -582,7 +808,7 @@ function validateSeedData(data: SeedData, chunks: AuthorityChunk[]): void {
 	for (const formKey of new Set(generatedForms.map((form) => form.id))) {
 		if (generatedForms.filter((form) => form.id === formKey && form.active).length > 1) throw new Error(`Multiple active generated versions for form ${formKey}`);
 	}
-	if (data.categories.length !== chunks.reduce((sum, chunk) => sum + chunk.categories.length, 0)) throw new Error("Seed coverage does not include every generated category");
+	if (data.categories.length !== chunks.reduce((sum, chunk) => sum + chunk.categories.length, 0) + 3) throw new Error("Seed coverage does not include every generated and synthetic category");
 	if (!data.organizations.some((organization) => organization.type === "state" && organization.name.startsWith("[SYNTHETIC]"))) throw new Error("Missing synthetic state organization coverage");
 	if (!data.organizations.some((organization) => organization.type === "union_ministry" && organization.name.startsWith("[SYNTHETIC]"))) throw new Error("Missing synthetic central organization coverage");
 	const poor = data.grievances.find((grievance) => grievance.id === deterministicUuid("grievance:resolved-poor"));
@@ -593,10 +819,16 @@ function validateSeedData(data: SeedData, chunks: AuthorityChunk[]): void {
 		if (Boolean(grievance.closureReason) !== Boolean(grievance.closedAt)) throw new Error(`Closure reason/timestamp mismatch for ${grievance.registrationId}`);
 		if (grievance.appealEligibleUntil && grievance.closedAt && grievance.appealEligibleUntil < grievance.closedAt) throw new Error(`Appeal deadline precedes closure for ${grievance.registrationId}`);
 	}
-	if (data.publicGrievances.length < 2 || data.publicGrievances.some((item) => !item.synthetic || /@|\\+91|account|phone/i.test(item.summary))) throw new Error("Missing redacted public synthetic examples");
+	if (data.publicGrievances.length < 100 || data.publicGrievances.some((item) => !item.synthetic || /@|\\+91|account|phone/i.test(item.summary))) throw new Error("Missing redacted public synthetic examples");
 	if (data.publicEvents.length < data.publicGrievances.length) throw new Error("Each public synthetic example needs a safe status timeline");
 	if (uniqueCount(data.organizations.map((item) => item.id)) !== data.organizations.length || uniqueCount(data.forms.map((item) => item.id)) !== data.forms.length || uniqueCount(data.grievances.map((item) => item.id)) !== data.grievances.length) throw new Error("Seed contains duplicate deterministic IDs");
-	if (data.snapshots.length !== data.organizations.length * 2) throw new Error("Each organization must have current and previous 90-day snapshots");
+	if (uniqueCount(data.publicGrievances.map((item) => item.publicId)) !== data.publicGrievances.length) throw new Error("Seed contains duplicate public IDs");
+	if (data.feedback.some((item) => !item.resolutionAssessment)) throw new Error("Every feedback response must include a resolution assessment");
+	if (data.appeals.some((item) => (item.status === "resolved") !== Boolean(item.decisionOutcome && item.resolvedAt))) throw new Error("Resolved appeal decisions need an outcome and resolution timestamp");
+	for (const organization of data.organizations) {
+		const authoritySnapshots = data.snapshots.filter((item) => item.organizationId === organization.id && item.categoryNodeId === null);
+		if (!authoritySnapshots.some((item) => item.windowDays === 30) || !authoritySnapshots.some((item) => item.windowDays === 90) || !authoritySnapshots.some((item) => item.windowDays === 365)) throw new Error(`Missing accountability windows for ${organization.slug}`);
+	}
 }
 
 function report(data: SeedData, chunks: AuthorityChunk[], mode: "dry-run" | "apply"): void {
@@ -605,7 +837,7 @@ function report(data: SeedData, chunks: AuthorityChunk[], mode: "dry-run" | "app
 	const inactiveForms = data.forms.filter((form) => !form.active).length;
 	const nonV1Forms = data.forms.filter((form) => form.version !== 1).length;
 	if (inactiveForms > 0 || nonV1Forms > 0) console.log(`Catalogue version coverage: ${nonV1Forms} non-v1 forms, ${inactiveForms} inactive forms.`);
-	console.log(`Rows: ${data.organizations.length} organizations, 1 demo citizen, ${data.grievances.length} grievances, ${data.events.length} events, ${data.feedback.length} feedback, ${data.appeals.length} appeals, ${data.publicGrievances.length} public cases, ${data.publicEvents.length} public events, ${data.snapshots.length} performance snapshots.`);
+	console.log(`Rows: ${data.organizations.length} organizations, 1 demo citizen, ${data.grievances.length} grievances, ${data.events.length} events, ${data.feedback.length} feedback, ${data.appeals.length} appeals, ${data.publicGrievances.length} public cases, ${data.publicEvents.length} public events, ${data.snapshots.length} accountability metric snapshots.`);
 	console.log(`Lifecycle coverage: ${[...new Set(["draft" as Status, ...data.grievances.map((grievance) => grievance.status)])].sort().join(", ")}.`);
 }
 
@@ -647,11 +879,12 @@ async function applySeed(data: SeedData): Promise<void> {
 		await tx.delete(dbSchema.grievance).where(and(eq(dbSchema.grievance.id, deterministicUuid("grievance:draft")), eq(dbSchema.grievance.userId, data.user.id)));
 		for (const rows of chunkRows(data.grievances)) await tx.insert(dbSchema.grievance).values(rows).onConflictDoUpdate({ target: dbSchema.grievance.id, set: { registrationId: sql`excluded.registration_id`, userId: sql`excluded.user_id`, draftId: sql`excluded.draft_id`, organizationId: sql`excluded.organization_id`, categoryNodeId: sql`excluded.category_node_id`, formDefinitionId: sql`excluded.form_definition_id`, status: sql`excluded.status`, language: sql`excluded.language`, answers: sql`excluded.answers`, remarks: sql`excluded.remarks`, reviewHash: sql`excluded.review_hash`, idempotencyKey: sql`excluded.idempotency_key`, publicConsent: sql`excluded.public_consent`, closureReason: sql`excluded.closure_reason`, closedAt: sql`excluded.closed_at`, closureNote: sql`excluded.closure_note`, citizenResponseDueAt: sql`excluded.citizen_response_due_at`, appealEligibleUntil: sql`excluded.appeal_eligible_until`, submittedAt: sql`excluded.submitted_at`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.events)) await tx.insert(dbSchema.grievanceEvent).values(rows).onConflictDoNothing();
-		for (const rows of chunkRows(data.feedback)) await tx.insert(dbSchema.feedback).values(rows).onConflictDoUpdate({ target: dbSchema.feedback.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, score: sql`excluded.score`, comment: sql`excluded.comment`, updatedAt: sql`excluded.updated_at` } });
-		for (const rows of chunkRows(data.appeals)) await tx.insert(dbSchema.appeal).values(rows).onConflictDoUpdate({ target: dbSchema.appeal.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, reason: sql`excluded.reason`, status: sql`excluded.status`, resolution: sql`excluded.resolution`, updatedAt: sql`excluded.updated_at` } });
+		for (const rows of chunkRows(data.feedback)) await tx.insert(dbSchema.feedback).values(rows).onConflictDoUpdate({ target: dbSchema.feedback.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, score: sql`excluded.score`, resolutionAssessment: sql`excluded.resolution_assessment`, comment: sql`excluded.comment`, updatedAt: sql`excluded.updated_at` } });
+		for (const rows of chunkRows(data.appeals)) await tx.insert(dbSchema.appeal).values(rows).onConflictDoUpdate({ target: dbSchema.appeal.id, set: { grievanceId: sql`excluded.grievance_id`, userId: sql`excluded.user_id`, reason: sql`excluded.reason`, status: sql`excluded.status`, decisionOutcome: sql`excluded.decision_outcome`, resolvedAt: sql`excluded.resolved_at`, resolution: sql`excluded.resolution`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.publicGrievances)) await tx.insert(dbSchema.publicGrievance).values(rows).onConflictDoUpdate({ target: dbSchema.publicGrievance.id, set: { grievanceId: sql`excluded.grievance_id`, publicId: sql`excluded.public_id`, summary: sql`excluded.summary`, categoryPath: sql`excluded.category_path`, organizationId: sql`excluded.organization_id`, status: sql`excluded.status`, broadLocation: sql`excluded.broad_location`, synthetic: sql`excluded.synthetic`, publishedAt: sql`excluded.published_at`, withdrawnAt: sql`excluded.withdrawn_at`, updatedAt: sql`excluded.updated_at` } });
 		for (const rows of chunkRows(data.publicEvents)) await tx.insert(dbSchema.publicGrievanceEvent).values(rows).onConflictDoUpdate({ target: dbSchema.publicGrievanceEvent.id, set: { publicGrievanceId: sql`excluded.public_grievance_id`, sourceEventId: sql`excluded.source_event_id`, status: sql`excluded.status`, label: sql`excluded.label`, occurredAt: sql`excluded.occurred_at` } });
-		for (const rows of chunkRows(data.snapshots)) await tx.insert(dbSchema.performanceSnapshot).values(rows).onConflictDoUpdate({ target: dbSchema.performanceSnapshot.id, set: { organizationId: sql`excluded.organization_id`, windowStart: sql`excluded.window_start`, windowEnd: sql`excluded.window_end`, rawMetrics: sql`excluded.raw_metrics`, compositeScore: sql`excluded.composite_score`, grade: sql`excluded.grade`, sampleSize: sql`excluded.sample_size` } });
+		await tx.delete(dbSchema.accountabilityMetricSnapshot).where(eq(dbSchema.accountabilityMetricSnapshot.sourceKind, "synthetic"));
+		for (const rows of chunkRows(data.snapshots)) await tx.insert(dbSchema.accountabilityMetricSnapshot).values(rows).onConflictDoUpdate({ target: dbSchema.accountabilityMetricSnapshot.id, set: { organizationId: sql`excluded.organization_id`, categoryNodeId: sql`excluded.category_node_id`, metricKey: sql`excluded.metric_key`, metricVersion: sql`excluded.metric_version`, windowDays: sql`excluded.window_days`, windowStart: sql`excluded.window_start`, windowEnd: sql`excluded.window_end`, value: sql`excluded.value`, sampleSize: sql`excluded.sample_size`, numerator: sql`excluded.numerator`, denominator: sql`excluded.denominator`, eligible: sql`excluded.eligible`, supportingMetrics: sql`excluded.supporting_metrics`, sourceKind: sql`excluded.source_kind`, createdAt: sql`excluded.created_at` } });
 	});
 }
 

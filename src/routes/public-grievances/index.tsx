@@ -29,15 +29,17 @@ const feedSearchSchema = z.object({
 	q: z.string().trim().max(80).catch(""),
 	status: feedStatusSchema.catch("all"),
 	organization: z.string().trim().max(120).catch("all"),
+	category: z.string().trim().max(160).catch("all"),
 	sort: z.enum(["recent", "updated"]).catch("recent"),
 });
 
 export const Route = createFileRoute("/public-grievances/")({
 	validateSearch: feedSearchSchema,
-	loaderDeps: ({ search: { q, status, organization, sort } }) => ({
+	loaderDeps: ({ search: { q, status, organization, category, sort } }) => ({
 		q,
 		status,
 		organization,
+		category,
 		sort,
 	}),
 	loader: ({ deps }) => listPublicGrievances({ data: deps }),
@@ -45,19 +47,22 @@ export const Route = createFileRoute("/public-grievances/")({
 });
 
 function PublicGrievanceFeed() {
-	const { items, metrics, organizationOptions } = Route.useLoaderData();
+	const { items, metrics, organizationOptions, categoryOptions } =
+		Route.useLoaderData();
 	const search = Route.useSearch();
 	const navigate = useNavigate({ from: Route.fullPath });
-	const { text } = useI18n();
+	const { language, text } = useI18n();
 	const [query, setQuery] = useState(search.q);
 	const [status, setStatus] = useState(search.status);
 	const [organization, setOrganization] = useState(search.organization);
+	const [category, setCategory] = useState(search.category);
 	const [sort, setSort] = useState(search.sort);
 
 	useEffect(() => {
 		setQuery(search.q);
 		setStatus(search.status);
 		setOrganization(search.organization);
+		setCategory(search.category);
 		setSort(search.sort);
 	}, [search]);
 
@@ -68,6 +73,7 @@ function PublicGrievanceFeed() {
 				q: query,
 				status,
 				organization,
+				category,
 				sort,
 			}),
 		});
@@ -113,7 +119,7 @@ function PublicGrievanceFeed() {
 						</p>
 					</div>
 					<p className="text-xs font-semibold text-[var(--ink-muted)]">
-						{formatWindow(metrics.windowStart, metrics.windowEnd)}
+						{formatWindow(metrics.windowStart, metrics.windowEnd, language)}
 					</p>
 				</div>
 				{metrics.syntheticCaseCount > 0 ? (
@@ -124,7 +130,7 @@ function PublicGrievanceFeed() {
 						})}
 					</p>
 				) : null}
-				<dl className="grid border-t border-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
+				<dl className="grid border-t border-[var(--line)] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
 					<Metric
 						label={text({ en: "Official cases", hi: "आधिकारिक मामले" })}
 						value={String(metrics.total)}
@@ -142,7 +148,35 @@ function PublicGrievanceFeed() {
 								? text({ en: "No ratings", hi: "कोई रेटिंग नहीं" })
 								: `${metrics.averageSatisfaction.toFixed(1)} / 5`
 						}
-						note={`${metrics.ratingCount} ${text({ en: "ratings", hi: "रेटिंग" })}`}
+						note={
+							metrics.ratingStandardDeviation === null
+								? `${metrics.ratingCount} ${text({ en: "ratings", hi: "रेटिंग" })}`
+								: `SD ${metrics.ratingStandardDeviation.toFixed(2)} · ${metrics.ratingCount} ratings`
+						}
+					/>
+					<Metric
+						label={text({ en: "Dissatisfied", hi: "असंतुष्ट" })}
+						value={
+							metrics.dissatisfactionRate === null
+								? text({ en: "No ratings", hi: "कोई रेटिंग नहीं" })
+								: `${metrics.dissatisfactionRate}%`
+						}
+						note={text({ en: "Ratings of 1 or 2", hi: "1 या 2 की रेटिंग" })}
+					/>
+					<Metric
+						label={text({
+							en: "Citizen says unresolved",
+							hi: "नागरिक के अनुसार अनसुलझा",
+						})}
+						value={
+							metrics.citizenUnresolvedRate === null
+								? text({ en: "No responses", hi: "कोई जवाब नहीं" })
+								: `${metrics.citizenUnresolvedRate}%`
+						}
+						note={text({
+							en: "Direct resolution assessment",
+							hi: "सीधा समाधान आकलन",
+						})}
 					/>
 					<Metric
 						label={text({ en: "Publicly shared", hi: "सार्वजनिक रूप से साझा" })}
@@ -153,7 +187,7 @@ function PublicGrievanceFeed() {
 			</section>
 
 			<form
-				className="grid gap-3 border-b border-[var(--line)] py-6 md:grid-cols-[minmax(14rem,1fr)_minmax(10rem,0.45fr)_minmax(12rem,0.55fr)_minmax(9rem,0.35fr)_auto] md:items-end"
+				className="grid gap-3 border-b border-[var(--line)] py-6 sm:grid-cols-2 lg:grid-cols-[minmax(13rem,1fr)_minmax(9rem,0.55fr)_minmax(11rem,0.7fr)_minmax(11rem,0.7fr)_minmax(9rem,0.5fr)_auto] lg:items-end"
 				onSubmit={applyFilters}
 			>
 				<label className="text-xs font-bold text-[var(--blue-950)]">
@@ -214,10 +248,25 @@ function PublicGrievanceFeed() {
 						},
 					]}
 				/>
+				<FeedSelect
+					label={text({ en: "Category", hi: "श्रेणी" })}
+					value={category}
+					onChange={setCategory}
+					options={[
+						{
+							value: "all",
+							label: text({ en: "All categories", hi: "सभी श्रेणियां" }),
+						},
+						...categoryOptions.map((option) => ({
+							value: option.name,
+							label: option.name,
+						})),
+					]}
+				/>
 				<button className="action-primary" type="submit">
 					{text({ en: "Apply", hi: "लागू करें" })}
 				</button>
-				<div className="md:col-span-full">
+				<div className="sm:col-span-full">
 					<Link
 						className="text-xs font-bold text-[var(--blue-800)] underline-offset-4 hover:underline"
 						to="/public-grievances"
@@ -225,6 +274,7 @@ function PublicGrievanceFeed() {
 							q: "",
 							status: "all",
 							organization: "all",
+							category: "all",
 							sort: "recent",
 						}}
 					>
@@ -244,7 +294,7 @@ function PublicGrievanceFeed() {
 
 			{items.length ? (
 				<section
-					className="border-t-2 border-[var(--ink)]"
+					className="columns-1 gap-7 border-t-2 border-[var(--ink)] md:columns-2 xl:columns-3"
 					aria-label={text({
 						en: "Public grievance posts",
 						hi: "सार्वजनिक शिकायत पोस्ट",
@@ -253,7 +303,7 @@ function PublicGrievanceFeed() {
 					{items.map((grievance) => (
 						<article
 							key={grievance.publicId}
-							className="grid gap-5 border-b border-[var(--line-strong)] py-7 md:grid-cols-[13rem_minmax(0,1fr)_auto] md:items-start md:gap-8"
+							className="mb-0 inline-block w-full break-inside-avoid border-b border-[var(--line-strong)] py-7"
 						>
 							<header className="flex items-start gap-3">
 								<span className="grid size-11 shrink-0 place-items-center border border-[var(--line-strong)] bg-[var(--highlight)] text-[var(--ink)]">
@@ -280,12 +330,12 @@ function PublicGrievanceFeed() {
 									</div>
 									<p className="mt-0.5 text-xs text-[var(--ink-muted)]">
 										@{grievance.organizationSlug} ·{" "}
-										{formatDate(grievance.publishedAt)}
+										{formatDate(grievance.publishedAt, language)}
 									</p>
 								</div>
 							</header>
 
-							<div>
+							<div className="mt-5">
 								<p className="whitespace-pre-wrap text-[0.98rem] leading-7 text-[var(--ink)]">
 									{grievance.summary}
 								</p>
@@ -304,7 +354,7 @@ function PublicGrievanceFeed() {
 									</p>
 								) : null}
 							</div>
-							<footer className="flex items-center justify-between gap-3 md:flex-col md:items-end">
+							<footer className="mt-5 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-4">
 								<span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ink-muted)]">
 									<MessageCircle size={15} aria-hidden="true" />
 									{grievance.updateCount} {text({ en: "updates", hi: "अपडेट" })}
@@ -408,13 +458,19 @@ function titleCase(value: string) {
 		.replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-function formatDate(value: string) {
+function formatDate(value: string, language: "en" | "hi") {
 	const date = new Date(value);
 	return Number.isNaN(date.getTime())
 		? value
-		: new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(date);
+		: new Intl.DateTimeFormat(language === "hi" ? "hi-IN" : "en-IN", {
+				dateStyle: "medium",
+			}).format(date);
 }
 
-function formatWindow(startValue: string, endValue: string) {
-	return `${formatDate(startValue)} to ${formatDate(endValue)}`;
+function formatWindow(
+	startValue: string,
+	endValue: string,
+	language: "en" | "hi",
+) {
+	return `${formatDate(startValue, language)} to ${formatDate(endValue, language)}`;
 }

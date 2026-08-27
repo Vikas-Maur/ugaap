@@ -34,6 +34,9 @@ function GrievanceDetailScreen() {
 	const [actionError, setActionError] = useState<string | null>(null);
 	const [clarification, setClarification] = useState("");
 	const [score, setScore] = useState<number | null>(null);
+	const [resolutionAssessment, setResolutionAssessment] = useState<
+		"resolved" | "partially_resolved" | "not_resolved" | null
+	>(null);
 	const [comment, setComment] = useState("");
 	const [appealReason, setAppealReason] = useState("");
 	const [broadLocation, setBroadLocation] = useState("");
@@ -157,6 +160,15 @@ function GrievanceDetailScreen() {
 
 	function sendFeedback(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
+		if (!resolutionAssessment) {
+			setActionError(
+				text({
+					en: "Choose whether the grievance was resolved.",
+					hi: "चुनें कि शिकायत का समाधान हुआ या नहीं।",
+				}),
+			);
+			return;
+		}
 		if (!score) {
 			setActionError(
 				text({
@@ -171,6 +183,7 @@ function GrievanceDetailScreen() {
 				data: {
 					registrationId: grievance.registrationId,
 					score,
+					resolutionAssessment,
 					comment: comment.trim() || undefined,
 				},
 			}),
@@ -640,7 +653,48 @@ function GrievanceDetailScreen() {
 					>
 						<fieldset>
 							<legend className="text-sm font-bold text-[var(--blue-950)]">
-								{text({ en: "Rate this resolution", hi: "इस समाधान को अंक दें" })}
+								{text({
+									en: "Was your grievance resolved?",
+									hi: "क्या आपकी शिकायत का समाधान हुआ?",
+								})}
+							</legend>
+							<div className="mt-3 flex flex-wrap gap-x-6 gap-y-3">
+								{[
+									{
+										value: "resolved" as const,
+										label: text({ en: "Yes", hi: "हाँ" }),
+									},
+									{
+										value: "partially_resolved" as const,
+										label: text({ en: "Partly", hi: "आंशिक रूप से" }),
+									},
+									{
+										value: "not_resolved" as const,
+										label: text({ en: "No", hi: "नहीं" }),
+									},
+								].map(({ value, label }) => (
+									<label
+										key={value}
+										className="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-[var(--ink)]"
+									>
+										<input
+											type="radio"
+											name="resolution-assessment"
+											value={value}
+											checked={resolutionAssessment === value}
+											onChange={() => setResolutionAssessment(value)}
+										/>
+										<span>{label}</span>
+									</label>
+								))}
+							</div>
+						</fieldset>
+						<fieldset>
+							<legend className="mt-6 text-sm font-bold text-[var(--blue-950)]">
+								{text({
+									en: "How satisfied are you with how it was handled?",
+									hi: "शिकायत के निपटारे से आप कितने संतुष्ट हैं?",
+								})}
 							</legend>
 							<div className="mt-3 flex flex-wrap gap-2">
 								{[1, 2, 3, 4, 5].map((value) => (
@@ -685,7 +739,7 @@ function GrievanceDetailScreen() {
 				) : null}
 
 				{grievance.feedback &&
-				grievance.feedback.score <= 2 &&
+				grievance.feedback.resolutionAssessment !== "resolved" &&
 				appealIsOpen &&
 				!grievance.appeal ? (
 					<form
@@ -728,7 +782,7 @@ function GrievanceDetailScreen() {
 					</form>
 				) : null}
 				{grievance.feedback &&
-				grievance.feedback.score <= 2 &&
+				grievance.feedback.resolutionAssessment !== "resolved" &&
 				grievance.status === "resolved" &&
 				!appealIsOpen &&
 				!grievance.appeal ? (

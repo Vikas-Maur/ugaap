@@ -17,31 +17,31 @@ import {
 import { z } from "zod";
 import { db } from "#/db/index";
 import {
-	formDefinition,
+	appeal,
 	feedback,
+	formDefinition,
 	grievance,
 	grievanceEvent,
 	organization,
-	appeal,
 	publicationPreview,
 	publicGrievance,
 	publicGrievanceEvent,
 } from "#/db/schema";
+import { configuredTextModel, hasConfiguredTextModel } from "#/server/ai/model";
+import { createAiTelemetry } from "#/server/ai/telemetry";
 import { authMiddleware } from "#/server/auth/middleware";
 import {
 	CITIZEN_PERMISSIONS,
 	requirePermissionForSession,
 } from "#/server/auth/permissions";
-import { configuredTextModel, hasConfiguredTextModel } from "#/server/ai/model";
-import { createAiTelemetry } from "#/server/ai/telemetry";
+import { publicStatusLabel } from "./projection.server";
 import {
-	PUBLIC_REDACTION_VERSION,
 	fieldIsPrivate,
 	normalizeBroadLocation,
+	PUBLIC_REDACTION_VERSION,
 	publicationContentHash,
 	redactPublicText,
 } from "./redaction.server";
-import { publicStatusLabel } from "./projection.server";
 
 const previewRequestSchema = z
 	.object({
@@ -80,6 +80,7 @@ const publicFeedSchema = z
 		q: z.string().trim().max(80).default(""),
 		status: feedStatusSchema.default("all"),
 		organization: z.string().trim().max(120).default("all"),
+		category: z.string().trim().max(160).default("all"),
 		sort: z.enum(["recent", "updated"]).default("recent"),
 	})
 	.strict();
@@ -530,7 +531,10 @@ export const withdrawPublicGrievance = createServerFn({ method: "POST" })
 function setPublicResponseHeaders() {
 	return import("@tanstack/react-start/server").then(
 		({ setResponseHeader }) => {
-			setResponseHeader("Cache-Control", "no-store");
+			setResponseHeader(
+				"Cache-Control",
+				"public, max-age=30, s-maxage=120, stale-while-revalidate=300",
+			);
 			setResponseHeader("X-Content-Type-Options", "nosniff");
 		},
 	);
@@ -545,6 +549,10 @@ export const listPublicGrievances = createServerFn({ method: "GET" })
 			conditions.push(eq(publicGrievance.status, data.status));
 		if (data.organization !== "all")
 			conditions.push(eq(organization.slug, data.organization));
+		if (data.category !== "all")
+			conditions.push(
+				sql`(${publicGrievance.categoryPath})[1] = ${data.category}`,
+			);
 		if (data.q) {
 			const pattern = `%${data.q}%`;
 			const searchCondition = or(
@@ -592,6 +600,13 @@ export const listPublicGrievances = createServerFn({ method: "GET" })
 			)
 			.where(isNull(publicGrievance.withdrawnAt))
 			.orderBy(asc(organization.name));
+		const categoryOptions = await db
+			.selectDistinct({
+				name: sql<string>`(${publicGrievance.categoryPath})[1]`,
+			})
+			.from(publicGrievance)
+			.where(isNull(publicGrievance.withdrawnAt))
+			.orderBy(asc(sql`(${publicGrievance.categoryPath})[1]`));
 
 		const windowEnd = new Date();
 		const windowStart = new Date(
@@ -625,7 +640,18 @@ export const listPublicGrievances = createServerFn({ method: "GET" })
 				db
 					.select({
 						average: sql<string | null>`avg(${feedback.score})`,
+						standardDeviation: sql<
+							string | null
+						>`stddev_pop(${feedback.score})`,
 						count: sql<number>`count(*)::int`.mapWith(Number),
+						dissatisfied:
+							sql<number>`count(*) filter (where ${feedback.score} <= 2)::int`.mapWith(
+								Number,
+							),
+						unresolved:
+							sql<number>`count(*) filter (where ${eq(feedback.resolutionAssessment, "not_resolved")})::int`.mapWith(
+								Number,
+							),
 					})
 					.from(feedback)
 					.innerJoin(grievance, eq(grievance.id, feedback.grievanceId))
@@ -669,6 +695,7 @@ export const listPublicGrievances = createServerFn({ method: "GET" })
 				updateCount: countByPublicId.get(row.id) ?? 0,
 			})),
 			organizationOptions,
+			categoryOptions: categoryOptions.filter((option) => option.name.trim()),
 			metrics: {
 				total,
 				active,
@@ -676,7 +703,25 @@ export const listPublicGrievances = createServerFn({ method: "GET" })
 				resolutionRate:
 					total > 0 ? Math.round((resolved / total) * 1_000) / 10 : 0,
 				averageSatisfaction,
+				ratingStandardDeviation: ratingTotals?.standardDeviation
+					? Math.round(Number(ratingTotals.standardDeviation) * 100) / 100
+					: null,
 				ratingCount: ratingTotals?.count ?? 0,
+				dissatisfactionRate:
+					(ratingTotals?.count ?? 0) > 0
+						? Math.round(
+								((ratingTotals?.dissatisfied ?? 0) /
+									(ratingTotals?.count ?? 1)) *
+									1_000,
+							) / 10
+						: null,
+				citizenUnresolvedRate:
+					(ratingTotals?.count ?? 0) > 0
+						? Math.round(
+								((ratingTotals?.unresolved ?? 0) / (ratingTotals?.count ?? 1)) *
+									1_000,
+							) / 10
+						: null,
 				appealCount: appealTotals?.count ?? 0,
 				publicCopyCount: publicationTotals?.count ?? 0,
 				syntheticCaseCount: caseTotals?.synthetic ?? 0,
