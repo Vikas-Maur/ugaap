@@ -1,5 +1,7 @@
 type SpeechVoice = Pick<SpeechSynthesisVoice, "lang" | "localService" | "name">;
 
+const DEFAULT_SPEECH_SEGMENT_LENGTH = 220;
+
 function normalizedLocale(locale: string) {
 	return locale.replace("_", "-").toLowerCase();
 }
@@ -27,4 +29,32 @@ export function selectSpeechVoice<T extends SpeechVoice>(
 				return score(right) - score(left);
 			})[0] ?? null
 	);
+}
+
+export function splitSpeechText(
+	content: string,
+	maximumLength = DEFAULT_SPEECH_SEGMENT_LENGTH,
+) {
+	const normalized = content.replace(/\s+/g, " ").trim();
+	if (!normalized) return [];
+	if (maximumLength < 1) return [normalized];
+
+	const segments: Array<string> = [];
+	let remaining = normalized;
+	while (remaining.length > maximumLength) {
+		const window = remaining.slice(0, maximumLength + 1);
+		const sentenceEnd = Math.max(
+			window.lastIndexOf(". "),
+			window.lastIndexOf("! "),
+			window.lastIndexOf("? "),
+			window.lastIndexOf("। "),
+		);
+		const wordEnd = window.lastIndexOf(" ");
+		const splitAt = sentenceEnd >= 0 ? sentenceEnd + 1 : wordEnd;
+		const safeSplit = splitAt > 0 ? splitAt : maximumLength;
+		segments.push(remaining.slice(0, safeSplit).trim());
+		remaining = remaining.slice(safeSplit).trimStart();
+	}
+	if (remaining) segments.push(remaining);
+	return segments;
 }

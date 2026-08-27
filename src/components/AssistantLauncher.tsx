@@ -43,7 +43,10 @@ import {
 	routeDefinitionForPath,
 } from "#/features/assistant/routes";
 import { assistantTranscriptionSchema } from "#/features/assistant/schema";
-import { selectSpeechVoice } from "#/features/assistant/speech";
+import {
+	selectSpeechVoice,
+	splitSpeechText,
+} from "#/features/assistant/speech";
 import {
 	changeInterfaceLanguageDef,
 	editVisibleFormDef,
@@ -112,6 +115,14 @@ type AssistantMessagePart = {
 	state?: unknown;
 	output?: unknown;
 };
+
+type VoiceSpeechItem = {
+	content: string;
+	language: "en" | "hi";
+};
+
+const SPEECH_START_TIMEOUT_MS = 8_000;
+const SPEECH_FINISH_TIMEOUT_MS = 30_000;
 
 const toolNames = {
 	list_website_routes: {
@@ -269,6 +280,8 @@ export function AssistantLauncher() {
 	const [historyOpen, setHistoryOpen] = useState(false);
 	const [textVoicePending, setTextVoicePending] = useState(false);
 	const [textVoiceSpeaking, setTextVoiceSpeaking] = useState(false);
+	const [textVoiceResponseComplete, setTextVoiceResponseComplete] =
+		useState(false);
 	const [voiceElapsedSeconds, setVoiceElapsedSeconds] = useState(0);
 	const [voiceRequested, setVoiceRequested] = useState(false);
 	const [pageContent, setPageContent] = useState("");
@@ -283,6 +296,11 @@ export function AssistantLauncher() {
 	const textVoiceSpokenLengthRef = useRef(0);
 	const textVoiceSpeechPendingRef = useRef(0);
 	const textVoiceResponseFinishedRef = useRef(false);
+	const textVoiceSpeechQueueRef = useRef<Array<VoiceSpeechItem>>([]);
+	const textVoiceActiveUtteranceRef = useRef<SpeechSynthesisUtterance | null>(
+		null,
+	);
+	const textVoicePlaybackFailedRef = useRef(false);
 	const messageLanguageRef = useRef<"en" | "hi" | null>(null);
 	const voiceRequestedRef = useRef(false);
 	const compactTranscriptRef = useRef<HTMLDivElement>(null);
@@ -777,9 +795,17 @@ export function AssistantLauncher() {
 		onError: () => {
 			const failedVoiceTurn = speakFallbackRef.current;
 			speakFallbackRef.current = false;
+			textVoiceSpeechPendingRef.current = 0;
+			textVoiceResponseFinishedRef.current = false;
+			textVoiceSpeechQueueRef.current = [];
+			textVoiceActiveUtteranceRef.current = null;
 			setTextVoicePending(false);
 			setTextVoiceSpeaking(false);
+			setTextVoiceResponseComplete(false);
 			if (failedVoiceTurn) {
+				if (typeof window !== "undefined" && "speechSynthesis" in window) {
+					window.speechSynthesis.cancel();
+				}
 				voiceRequestedRef.current = false;
 				setVoiceRequested(false);
 			}
@@ -807,8 +833,11 @@ export function AssistantLauncher() {
 		speakFallbackRef.current = false;
 		textVoiceSpeechPendingRef.current = 0;
 		textVoiceResponseFinishedRef.current = false;
+		textVoiceSpeechQueueRef.current = [];
+		textVoiceActiveUtteranceRef.current = null;
 		setTextVoicePending(false);
 		setTextVoiceSpeaking(false);
+		setTextVoiceResponseComplete(false);
 		voiceRequestedRef.current = false;
 		setVoiceRequested(false);
 	}, []);
@@ -816,46 +845,143 @@ export function AssistantLauncher() {
 		(content: string) => {
 			if (!content.trim()) return;
 			if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+				setNotice(
+					translate(
+						text({
+							en: "Voice playback is not supported here. The answer is still shown in the conversation.",
+							hi: "यहाँ आवाज़ में जवाब चलाने की सुविधा उपलब्ध नहीं है। जवाब बातचीत में लिखा हुआ है।",
+						}),
+					),
+				);
 				finishVoiceTurn();
 				return;
 			}
 
-			const language = /[\u0900-\u097f]/.test(content) ? "hi" : "en";
-			const utterance = new SpeechSynthesisUtterance(content.trim());
-			const voice = selectSpeechVoice(
-				window.speechSynthesis.getVoices(),
-				language,
-			);
-			utterance.lang = voice?.lang ?? (language === "hi" ? "hi-IN" : "en-IN");
-			if (voice) utterance.voice = voice;
-			utterance.rate = language === "hi" ? 0.94 : 0.97;
-			utterance.pitch = 1;
-			textVoiceSpeechPendingRef.current += 1;
-			let settled = false;
-			const settle = () => {
-				if (settled) return;
-				settled = true;
-				textVoiceSpeechPendingRef.current = Math.max(
-					0,
-					textVoiceSpeechPendingRef.current - 1,
-				);
-				if (
-					textVoiceResponseFinishedRef.current &&
-					textVoiceSpeechPendingRef.current === 0
-				) {
-					finishVoiceTurn();
-				}
-			};
-			utterance.onstart = () => setTextVoiceSpeaking(true);
-			utterance.onend = settle;
-			utterance.onerror = settle;
-			try {
-				window.speechSynthesis.speak(utterance);
-			} catch {
-				settle();
+			const segments = splitSpeechText(content);
+			for (const segment of segments) {
+				textVoiceSpeechQueueRef.current.push({
+					content: segment,
+					language: /[\u0900-\u097f]/.test(segment) ? "hi" : "en",
+				});
 			}
+			textVoiceSpeechPendingRef.current += segments.length;
+
+			const playNext = () => {
+				if (
+					textVoiceActiveUtteranceRef.current ||
+					!textVoiceSpeechQueueRef.current.length
+				)
+					return;
+				const item = textVoiceSpeechQueueRef.current.shift();
+				if (!item) return;
+				const voice = selectSpeechVoice(
+					window.speechSynthesis.getVoices(),
+					item.language,
+				);
+				let segmentSettled = false;
+				const settleSegment = () => {
+					if (segmentSettled) return;
+					segmentSettled = true;
+					textVoiceSpeechPendingRef.current = Math.max(
+						0,
+						textVoiceSpeechPendingRef.current - 1,
+					);
+					if (
+						textVoiceResponseFinishedRef.current &&
+						textVoiceSpeechPendingRef.current === 0
+					) {
+						finishVoiceTurn();
+						return;
+					}
+					playNext();
+				};
+				const speak = (attempt: number) => {
+					if (!speakFallbackRef.current) {
+						settleSegment();
+						return;
+					}
+					const utterance = new SpeechSynthesisUtterance(item.content);
+					utterance.lang =
+						voice?.lang ?? (item.language === "hi" ? "hi-IN" : "en-IN");
+					if (attempt === 0 && voice) utterance.voice = voice;
+					utterance.rate = item.language === "hi" ? 0.94 : 0.97;
+					utterance.pitch = 1;
+					textVoiceActiveUtteranceRef.current = utterance;
+					let started = false;
+					let finishTimer = 0;
+					const startTimer = window.setTimeout(() => {
+						if (started || textVoiceActiveUtteranceRef.current !== utterance)
+							return;
+						utterance.onstart = null;
+						utterance.onend = null;
+						utterance.onerror = null;
+						textVoiceActiveUtteranceRef.current = null;
+						window.speechSynthesis.cancel();
+						handleFailure();
+					}, SPEECH_START_TIMEOUT_MS);
+					const releaseUtterance = () => {
+						window.clearTimeout(startTimer);
+						if (finishTimer) window.clearTimeout(finishTimer);
+						if (textVoiceActiveUtteranceRef.current === utterance) {
+							textVoiceActiveUtteranceRef.current = null;
+						}
+					};
+					const handleFailure = () => {
+						if (attempt === 0 && speakFallbackRef.current) {
+							speak(1);
+							return;
+						}
+						if (
+							speakFallbackRef.current &&
+							!textVoicePlaybackFailedRef.current
+						) {
+							textVoicePlaybackFailedRef.current = true;
+							setNotice(
+								translate(
+									text({
+										en: "Voice playback failed. The answer is still shown in the conversation.",
+										hi: "आवाज़ में जवाब नहीं चल सका। जवाब बातचीत में लिखा हुआ है।",
+									}),
+								),
+							);
+						}
+						settleSegment();
+					};
+					utterance.onstart = () => {
+						started = true;
+						window.clearTimeout(startTimer);
+						setTextVoiceSpeaking(true);
+						finishTimer = window.setTimeout(() => {
+							if (textVoiceActiveUtteranceRef.current !== utterance) return;
+							utterance.onstart = null;
+							utterance.onend = null;
+							utterance.onerror = null;
+							releaseUtterance();
+							window.speechSynthesis.cancel();
+							handleFailure();
+						}, SPEECH_FINISH_TIMEOUT_MS);
+					};
+					utterance.onend = () => {
+						releaseUtterance();
+						settleSegment();
+					};
+					utterance.onerror = () => {
+						releaseUtterance();
+						handleFailure();
+					};
+					try {
+						window.speechSynthesis.resume();
+						window.speechSynthesis.speak(utterance);
+					} catch {
+						releaseUtterance();
+						handleFailure();
+					}
+				};
+				speak(0);
+			};
+			playNext();
 		},
-		[finishVoiceTurn],
+		[finishVoiceTurn, translate],
 	);
 
 	useEffect(() => {
@@ -864,33 +990,34 @@ export function AssistantLauncher() {
 			!latestAssistantReply ||
 			latestAssistantReply.id === textVoiceBaselineRef.current
 		) {
-			if (!chatState.isLoading) finishVoiceTurn();
+			if (textVoiceResponseComplete) finishVoiceTurn();
 			return;
 		}
 
 		if (textVoiceReplyRef.current !== latestAssistantReply.id) {
 			textVoiceReplyRef.current = latestAssistantReply.id;
 			textVoiceSpokenLengthRef.current = 0;
+			textVoiceResponseFinishedRef.current = false;
 			setNotice(null);
 		}
 		const start = textVoiceSpokenLengthRef.current;
-		const end = chatState.isLoading
-			? completedSpeechLength(latestAssistantReply.content, start)
-			: latestAssistantReply.content.length;
+		const end = textVoiceResponseComplete
+			? latestAssistantReply.content.length
+			: completedSpeechLength(latestAssistantReply.content, start);
 		if (end > start) {
 			textVoiceSpokenLengthRef.current = end;
 			queueVoiceSpeech(latestAssistantReply.content.slice(start, end));
 		}
-		if (!chatState.isLoading) {
+		if (textVoiceResponseComplete) {
 			textVoiceResponseFinishedRef.current = true;
 			if (textVoiceSpeechPendingRef.current === 0) finishVoiceTurn();
 		}
 	}, [
-		chatState.isLoading,
 		finishVoiceTurn,
 		latestAssistantReply,
 		queueVoiceSpeech,
 		textVoicePending,
+		textVoiceResponseComplete,
 	]);
 
 	const setVoiceEnabled = useCallback((enabled: boolean) => {
@@ -1060,6 +1187,8 @@ export function AssistantLauncher() {
 			textVoiceSpokenLengthRef.current = 0;
 			textVoiceSpeechPendingRef.current = 0;
 			textVoiceResponseFinishedRef.current = false;
+			textVoicePlaybackFailedRef.current = false;
+			setTextVoiceResponseComplete(false);
 			setNotice(
 				translate(
 					text({
@@ -1072,6 +1201,7 @@ export function AssistantLauncher() {
 			processingStage = "assistant";
 			try {
 				await chatState.sendMessage(transcript);
+				if (speakFallbackRef.current) setTextVoiceResponseComplete(true);
 			} finally {
 				messageLanguageRef.current = null;
 			}
@@ -1203,8 +1333,11 @@ export function AssistantLauncher() {
 		speakFallbackRef.current = false;
 		textVoiceSpeechPendingRef.current = 0;
 		textVoiceResponseFinishedRef.current = false;
+		textVoiceSpeechQueueRef.current = [];
+		textVoiceActiveUtteranceRef.current = null;
 		setTextVoicePending(false);
 		setTextVoiceSpeaking(false);
+		setTextVoiceResponseComplete(false);
 		if (typeof window !== "undefined" && "speechSynthesis" in window) {
 			window.speechSynthesis.cancel();
 		}
@@ -1235,6 +1368,12 @@ export function AssistantLauncher() {
 			await stopVoice();
 			return;
 		}
+		if (
+			chatState.isLoading ||
+			chatState.sessionGenerating ||
+			chatState.status !== "ready"
+		)
+			return;
 		setVoiceEnabled(true);
 		if (voiceRequestedRef.current) await startTextVoiceRecording();
 	}
@@ -1242,6 +1381,11 @@ export function AssistantLauncher() {
 	useEffect(
 		() => () => {
 			voiceRequestedRef.current = false;
+			speakFallbackRef.current = false;
+			textVoiceSpeechPendingRef.current = 0;
+			textVoiceResponseFinishedRef.current = false;
+			textVoiceSpeechQueueRef.current = [];
+			textVoiceActiveUtteranceRef.current = null;
 			if (textVoiceStopTimerRef.current)
 				window.clearTimeout(textVoiceStopTimerRef.current);
 			cancelTextRecorder();
@@ -1293,6 +1437,10 @@ export function AssistantLauncher() {
 		return () => window.clearInterval(timer);
 	}, [textVoiceRecording, voiceActive]);
 	const assistantBusy = voiceActive || chatState.isLoading;
+	const voiceCanStart =
+		!chatState.isLoading &&
+		!chatState.sessionGenerating &&
+		chatState.status === "ready";
 	const latestDockReply = latestAssistantReply?.content;
 	const voiceStatus = textVoiceRecording
 		? translate(
@@ -1843,9 +1991,10 @@ export function AssistantLauncher() {
 							<button
 								type="button"
 								onClick={() => void toggleVoice()}
+								disabled={!voiceCanStart}
 								aria-pressed="false"
 								aria-label={voiceButtonLabel}
-								className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-lg bg-[var(--highlight)] px-3 text-sm font-extrabold text-[var(--ink)] transition-colors hover:bg-[var(--highlight-soft)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)]"
+								className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-lg bg-[var(--highlight)] px-3 text-sm font-extrabold text-[var(--ink)] transition-colors hover:bg-[var(--highlight-soft)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)] disabled:cursor-not-allowed disabled:opacity-45"
 							>
 								<Mic size={20} aria-hidden="true" />
 								<span className="hidden sm:inline">{voiceButtonLabel}</span>

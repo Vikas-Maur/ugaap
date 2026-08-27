@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { selectSpeechVoice } from "../../src/features/assistant/speech";
+import {
+	selectSpeechVoice,
+	splitSpeechText,
+} from "../../src/features/assistant/speech";
 
 const voices = [
 	{ lang: "en-US", localService: true, name: "System English" },
@@ -28,4 +31,18 @@ test("playback does not select the wrong language", () => {
 		),
 		null,
 	);
+});
+
+test("speech text is split into short segments without breaking words", () => {
+	assert.deepEqual(splitSpeechText("One short sentence. Another answer", 20), [
+		"One short sentence.",
+		"Another answer",
+	]);
+});
+
+test("Hindi sentence boundaries are valid speech split points", () => {
+	assert.deepEqual(splitSpeechText("पहला वाक्य। दूसरा वाक्य", 13), [
+		"पहला वाक्य।",
+		"दूसरा वाक्य",
+	]);
 });
