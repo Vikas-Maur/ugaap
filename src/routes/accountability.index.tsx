@@ -37,9 +37,60 @@ const groupLabels = {
 } as const;
 
 const highlightMetrics = [
-	{ key: "adjusted_rating", accent: "#2563eb" },
-	{ key: "first_response_hours", accent: "#16a34a" },
-	{ key: "old_backlog_rate", accent: "#ea580c" },
+	"adjusted_rating",
+	"first_response_hours",
+	"old_backlog_rate",
+] as const;
+
+const authorityPalette = [
+	"#1d4ed8",
+	"#047857",
+	"#b45309",
+	"#7e22ce",
+	"#be123c",
+	"#0369a1",
+	"#3f6212",
+	"#a21caf",
+	"#c2410c",
+	"#4338ca",
+	"#0f766e",
+	"#9f1239",
+	"#6d28d9",
+	"#1e40af",
+	"#065f46",
+	"#92400e",
+	"#86198f",
+	"#075985",
+	"#4d7c0f",
+	"#9d174d",
+	"#5b21b6",
+	"#155e75",
+	"#b91c1c",
+	"#3730a3",
+	"#15803d",
+	"#a16207",
+	"#701a75",
+	"#0c4a6e",
+	"#65a30d",
+	"#be185d",
+	"#4c1d95",
+	"#0e7490",
+	"#991b1b",
+	"#312e81",
+	"#166534",
+	"#854d0e",
+	"#581c87",
+	"#164e63",
+	"#3a5f0b",
+	"#831843",
+	"#6b21a8",
+	"#1e3a8a",
+	"#14532d",
+	"#7c2d12",
+	"#7a1f5c",
+	"#083344",
+	"#365314",
+	"#881337",
 ] as const;
 
 function AccountabilityOverview() {
@@ -47,6 +98,10 @@ function AccountabilityOverview() {
 	const search = Route.useSearch();
 	const [query, setQuery] = useState("");
 	const [sortKey, setSortKey] = useState<MetricKey>("adjusted_rating");
+	const authorityColors = useMemo(
+		() => assignAuthorityColors(data.entries),
+		[data.entries],
+	);
 	const metricGroups = Object.entries(groupLabels).map(([key, label]) => ({
 		key,
 		label,
@@ -130,28 +185,26 @@ function AccountabilityOverview() {
 					direction, so the strongest result appears first.
 				</SectionHeading>
 
-				<ScrollArea
-					className="mt-6 w-full border-y border-[var(--line-strong)]"
-					scrollbars="horizontal"
-					type="always"
-				>
-					<div className="grid min-w-[1120px] grid-cols-3 pb-3">
-						{highlightMetrics.map((highlight, index) => {
-							const definition = data.metrics.find(
-								(metric) => metric.key === highlight.key,
-							);
-							return definition ? (
-								<LeaderboardChart
-									key={highlight.key}
-									accent={highlight.accent}
-									className={index > 0 ? "border-l border-[var(--line)]" : ""}
-									definition={definition}
-									entries={data.entries}
-								/>
-							) : null;
-						})}
-					</div>
-				</ScrollArea>
+				<div className="mt-6 grid border-y border-[var(--line-strong)] lg:grid-cols-3">
+					{highlightMetrics.map((highlight, index) => {
+						const definition = data.metrics.find(
+							(metric) => metric.key === highlight,
+						);
+						return definition ? (
+							<LeaderboardChart
+								key={highlight}
+								authorityColors={authorityColors}
+								className={
+									index > 0
+										? "border-t border-[var(--line)] lg:border-l lg:border-t-0"
+										: ""
+								}
+								definition={definition}
+								entries={data.entries}
+							/>
+						) : null;
+					})}
+				</div>
 			</section>
 
 			<section
@@ -212,12 +265,12 @@ function AccountabilityOverview() {
 					scrollbars="both"
 					type="always"
 				>
-					<div className="min-w-[1680px] pb-3 pr-3">
-						<table className="w-full border-collapse text-left text-sm">
+					<div className="w-[1568px] pb-3 pr-3 md:w-[1680px]">
+						<table className="w-full table-fixed border-collapse text-left text-sm">
 							<thead className="sticky top-0 z-30 bg-slate-100 align-bottom text-[var(--ink-muted)] shadow-[0_1px_0_var(--line-strong)]">
 								<tr>
 									<th
-										className="sticky left-0 z-40 min-w-80 border-r border-[var(--line-strong)] bg-slate-100 px-4 py-4"
+										className="w-48 border-r border-[var(--line-strong)] bg-slate-100 px-3 py-4 md:sticky md:left-0 md:z-40 md:w-80 md:px-4"
 										scope="col"
 									>
 										<span className="block text-[0.65rem] font-bold uppercase tracking-wide text-[var(--blue-700)]">
@@ -243,6 +296,9 @@ function AccountabilityOverview() {
 										key={entry.id}
 										definitions={data.metrics}
 										entry={entry}
+										authorityColor={
+											authorityColors.get(entry.id) ?? authorityPalette[0]
+										}
 										sortKey={sortKey}
 										windowDays={search.windowDays}
 									/>
@@ -321,6 +377,40 @@ function metricFor(entry: Entry, key: MetricKey) {
 	return entry.metrics.find((metric) => metric.key === key);
 }
 
+function assignAuthorityColors(entries: Entry[]) {
+	const colors = new Map<string, string>();
+	const used = new Set<number>();
+	for (const entry of [...entries].sort((left, right) =>
+		left.slug.localeCompare(right.slug),
+	)) {
+		let paletteIndex = stableHash(entry.slug) % authorityPalette.length;
+		let attempts = 0;
+		while (used.has(paletteIndex) && attempts < authorityPalette.length) {
+			paletteIndex = (paletteIndex + 1) % authorityPalette.length;
+			attempts += 1;
+		}
+		if (attempts < authorityPalette.length) {
+			used.add(paletteIndex);
+			colors.set(
+				entry.id,
+				authorityPalette[paletteIndex] ?? authorityPalette[0],
+			);
+		} else {
+			colors.set(entry.id, `hsl(${stableHash(entry.id) % 360} 68% 32%)`);
+		}
+	}
+	return colors;
+}
+
+function stableHash(value: string) {
+	let hash = 2166136261;
+	for (let index = 0; index < value.length; index += 1) {
+		hash ^= value.charCodeAt(index);
+		hash = Math.imul(hash, 16777619);
+	}
+	return hash >>> 0;
+}
+
 function SectionHeading({
 	eyebrow,
 	id,
@@ -350,12 +440,12 @@ function SectionHeading({
 function LeaderboardChart({
 	entries,
 	definition,
-	accent,
+	authorityColors,
 	className,
 }: {
 	entries: Entry[];
 	definition: MetricDefinition;
-	accent: string;
+	authorityColors: Map<string, string>;
 	className: string;
 }) {
 	const ranked = entries
@@ -376,8 +466,7 @@ function LeaderboardChart({
 				<h3 className="flex items-center gap-3 text-xl font-extrabold text-[var(--blue-950)]">
 					<span
 						aria-hidden="true"
-						className="size-3.5 shrink-0"
-						style={{ backgroundColor: accent }}
+						className="h-5 w-1 shrink-0 bg-[var(--blue-700)]"
 					/>
 					{definition.shortLabel}
 				</h3>
@@ -401,16 +490,17 @@ function LeaderboardChart({
 								"repeating-linear-gradient(to bottom, transparent 0, transparent 54px, var(--line) 55px)",
 						}}
 					>
-						{ranked.map((item, index) => {
+						{ranked.map((item) => {
 							const height = 18 + (item.metric.current.value / maximum) * 72;
+							const authorityColor =
+								authorityColors.get(item.entry.id) ?? authorityPalette[0];
 							return (
 								<div
 									key={item.entry.id}
 									className="relative flex min-w-0 items-start justify-center"
 									style={{
 										height: `${height}%`,
-										backgroundColor: accent,
-										opacity: Math.max(0.66, 1 - index * 0.045),
+										backgroundColor: authorityColor,
 									}}
 									title={`${item.entry.name}: ${formatMetric(item.metric.current.value, definition.unit)}`}
 								>
@@ -430,6 +520,14 @@ function LeaderboardChart({
 								key={item.entry.id}
 								className="flex min-w-0 gap-2 text-[0.68rem] leading-4 text-[var(--ink-muted)]"
 							>
+								<span
+									aria-hidden="true"
+									className="mt-1 size-2 shrink-0"
+									style={{
+										backgroundColor:
+											authorityColors.get(item.entry.id) ?? authorityPalette[0],
+									}}
+								/>
 								<span className="font-black tabular-nums text-[var(--blue-800)]">
 									{item.metric.rank}.
 								</span>
@@ -468,7 +566,7 @@ function MetricHeader({
 }) {
 	return (
 		<th
-			className={`min-w-44 border-l px-4 py-4 ${selected ? "border-l-2 border-[var(--blue-700)] bg-blue-50" : "border-[var(--line)]"}`}
+			className={`w-[172px] border-l px-4 py-4 md:w-[170px] ${selected ? "border-l-2 border-[var(--blue-700)] bg-blue-50" : "border-[var(--line)]"}`}
 			scope="col"
 		>
 			<button
@@ -500,11 +598,13 @@ function MetricHeader({
 
 function LeaderboardRow({
 	entry,
+	authorityColor,
 	definitions,
 	sortKey,
 	windowDays,
 }: {
 	entry: Entry;
+	authorityColor: string;
 	definitions: MetricDefinition[];
 	sortKey: MetricKey;
 	windowDays: 30 | 90 | 365;
@@ -513,18 +613,21 @@ function LeaderboardRow({
 	return (
 		<tr className="group border-t border-[var(--line)] align-top hover:bg-[var(--blue-50)]/55">
 			<th
-				className="sticky left-0 z-20 border-r border-[var(--line-strong)] bg-[var(--paper)] px-4 py-4 group-hover:bg-[var(--blue-50)]"
+				className="w-48 border-r border-[var(--line-strong)] bg-[var(--paper)] px-3 py-4 group-hover:bg-[var(--blue-50)] md:sticky md:left-0 md:z-20 md:w-80 md:px-4"
 				scope="row"
 			>
-				<div className="flex items-start gap-3">
+				<div className="flex items-start gap-2 md:gap-3">
 					<span
-						className={`mt-0.5 min-w-8 text-center text-lg font-black tabular-nums ${selectedMetric?.rank ? "text-[var(--blue-700)]" : "text-slate-400"}`}
+						className={`mt-0.5 min-w-6 text-center text-lg font-black tabular-nums md:min-w-8 ${selectedMetric?.rank ? "text-[var(--blue-700)]" : "text-slate-400"}`}
 					>
 						{selectedMetric?.rank ?? "-"}
 					</span>
-					<span className="border-l-4 border-[var(--blue-600)] pl-3">
+					<span
+						className="min-w-0 border-l-4 pl-2 md:pl-3"
+						style={{ borderColor: authorityColor }}
+					>
 						<Link
-							className="font-bold text-[var(--blue-950)] underline-offset-4 hover:underline"
+							className="break-words font-bold leading-5 text-[var(--blue-950)] underline-offset-4 hover:underline"
 							to="/accountability/authorities/$authoritySlug"
 							params={{ authoritySlug: entry.slug }}
 							search={{ windowDays }}
