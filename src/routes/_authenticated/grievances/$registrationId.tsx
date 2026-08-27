@@ -1,5 +1,11 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
-import { ArrowLeft, ChevronRight, CircleCheck, Send } from "lucide-react";
+import {
+	ArrowLeft,
+	ChevronRight,
+	CircleCheck,
+	Clock3,
+	Send,
+} from "lucide-react";
 import { type FormEvent, useState } from "react";
 
 import {
@@ -81,6 +87,14 @@ function GrievanceDetailScreen() {
 		].includes(grievance.status) &&
 		(grievance.status !== "needs_information" || hasClarificationReply);
 	const answerEntries = answerPairs(grievance.fields, grievance.answers);
+	const timelineEvents = [...grievance.events].reverse();
+	const latestEvent = timelineEvents[0];
+	const hasCaseActions =
+		canAdvanceDemo ||
+		(grievance.status === "resolved" && !grievance.feedback) ||
+		(grievance.feedback?.resolutionAssessment !== "resolved" &&
+			grievance.status === "resolved" &&
+			!grievance.appeal);
 
 	async function runAction(name: string, action: () => Promise<unknown>) {
 		setPendingAction(name);
@@ -207,594 +221,664 @@ function GrievanceDetailScreen() {
 	}
 
 	return (
-		<main className="page-shell">
+		<main className="mx-auto w-full max-w-[1320px] px-5 py-8 sm:px-6 lg:px-8 lg:py-12">
 			<Link
-				className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--blue-800)] no-underline hover:text-[var(--blue-950)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue-700)]"
+				className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--action)] no-underline hover:text-[var(--ink)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--highlight)]"
 				to="/grievances"
 			>
 				<ArrowLeft size={17} aria-hidden="true" />
 				{text({ en: "My grievances", hi: "मेरी शिकायतें" })}
 			</Link>
 
-			<header className="mt-9 border-b-2 border-[var(--blue-700)] pb-7">
-				<p className="page-eyebrow">
-					{text({ en: "Grievance receipt", hi: "शिकायत रसीद" })}
+			<header className="mt-8 border-b-2 border-[var(--action)] pb-8">
+				<p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[var(--action)]">
+					{text({ en: "Your grievance", hi: "आपकी शिकायत" })}
 				</p>
-				<div className="mt-3 flex flex-wrap items-start justify-between gap-4">
-					<div>
+				<div className="mt-3 flex flex-wrap items-start justify-between gap-5">
+					<div className="max-w-4xl">
 						<h1 className="page-title mt-0">{grievance.form.title}</h1>
-						<p className="mt-3 font-mono text-sm font-bold tracking-wide text-[var(--blue-950)]">
+						<p className="mt-4 font-mono text-sm font-bold tracking-wide text-[var(--action)]">
 							{grievance.registrationId}
 						</p>
 					</div>
 					<StatusLabel status={grievance.status} />
 				</div>
-				<p className="mt-4 text-sm text-[var(--ink-muted)]">
-					{text({ en: "Submitted", hi: "जमा किया" })}{" "}
-					{formatDateTime(grievance.submittedAt)}
-				</p>
 			</header>
 
-			<section
-				className="border-b border-[var(--line)] py-8"
-				aria-labelledby="submission-details-title"
-			>
-				<h2
-					id="submission-details-title"
-					className="text-xl font-bold text-[var(--blue-950)]"
+			<div className="grid gap-x-12 lg:grid-cols-[minmax(0,1fr)_minmax(300px,370px)] xl:gap-x-16">
+				<section
+					className="order-2 border-b border-[var(--line-strong)] py-8 lg:sticky lg:top-24 lg:order-none lg:col-start-2 lg:row-start-1 lg:row-end-[7] lg:self-start lg:border-b-0 lg:border-l lg:py-10 lg:pl-8"
+					aria-labelledby="submission-details-title"
 				>
-					{text({ en: "Submission details", hi: "जमा किए गए विवरण" })}
-				</h2>
-				<dl className="mt-5 border-t border-[var(--line)]">
-					<Detail
-						label={text({ en: "Authority", hi: "प्राधिकरण" })}
-						value={grievance.organization.name}
-					/>
-					<Detail
-						label={text({ en: "Category", hi: "श्रेणी" })}
-						value={grievance.categoryPath.join(" › ")}
-					/>
-					<Detail
-						label={text({ en: "Form", hi: "फ़ॉर्म" })}
-						value={`${grievance.form.title} · ${text({ en: "Version", hi: "संस्करण" })} ${grievance.form.version}`}
-					/>
-					<Detail
-						label={text({ en: "Language", hi: "भाषा" })}
-						value={languageLabel(grievance.language)}
-					/>
-					<Detail
-						label={text({ en: "Remarks", hi: "टिप्पणी" })}
-						value={
-							grievance.remarks ||
-							text({ en: "Not provided", hi: "नहीं दिया गया" })
-						}
-						preserveWhitespace
-					/>
-				</dl>
-			</section>
-
-			<section
-				className="border-b border-[var(--line)] py-8"
-				aria-labelledby="answers-title"
-			>
-				<h2
-					id="answers-title"
-					className="text-xl font-bold text-[var(--blue-950)]"
-				>
-					{text({ en: "Submitted answers", hi: "जमा किए गए उत्तर" })}
-				</h2>
-				<dl className="mt-5 border-t border-[var(--line)]">
-					{answerEntries.map(({ id, label, answer }) => (
-						<Detail
-							key={id}
-							label={label}
-							value={displayAnswer(answer)}
-							preserveWhitespace
+					<p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[var(--action)]">
+						{text({ en: "Application record", hi: "आवेदन रिकॉर्ड" })}
+					</p>
+					<h2
+						id="submission-details-title"
+						className="mt-2 text-2xl font-semibold tracking-[-0.025em] text-[var(--ink)]"
+					>
+						{text({ en: "Application details", hi: "आवेदन विवरण" })}
+					</h2>
+					<div className="mt-5 flex items-center justify-between gap-3 border-y border-[var(--line-strong)] py-4">
+						<span className="text-sm font-bold text-[var(--ink-muted)]">
+							{text({ en: "Current status", hi: "वर्तमान स्थिति" })}
+						</span>
+						<StatusLabel status={grievance.status} />
+					</div>
+					<dl>
+						<AsideDetail
+							label={text({ en: "Registration ID", hi: "पंजीकरण आईडी" })}
+							value={grievance.registrationId}
+							mono
 						/>
-					))}
-				</dl>
-			</section>
+						<AsideDetail
+							label={text({ en: "Submitted", hi: "जमा किया गया" })}
+							value={formatDateTime(grievance.submittedAt)}
+						/>
+						<AsideDetail
+							label={text({ en: "Authority", hi: "प्राधिकरण" })}
+							value={grievance.organization.name}
+						/>
+						<AsideDetail
+							label={text({ en: "Category", hi: "श्रेणी" })}
+							value={grievance.categoryPath.join(" › ")}
+						/>
+						<AsideDetail
+							label={text({ en: "Form", hi: "फ़ॉर्म" })}
+							value={`${grievance.form.title} · ${text({ en: "Version", hi: "संस्करण" })} ${grievance.form.version}`}
+						/>
+						<AsideDetail
+							label={text({ en: "Language", hi: "भाषा" })}
+							value={languageLabel(grievance.language)}
+						/>
+						<AsideDetail
+							label={text({ en: "Remarks", hi: "टिप्पणी" })}
+							value={
+								grievance.remarks ||
+								text({ en: "Not provided", hi: "नहीं दिया गया" })
+							}
+						/>
+					</dl>
+				</section>
 
-			<section
-				className="border-b border-[var(--line)] py-8"
-				aria-labelledby="attachments-title"
-			>
-				<h2
-					id="attachments-title"
-					className="text-xl font-bold text-[var(--blue-950)]"
+				<section
+					className="order-3 border-b border-[var(--line-strong)] py-8 lg:col-start-1 lg:row-start-2"
+					aria-labelledby="answers-title"
 				>
-					{text({ en: "Attachments", hi: "संलग्नक" })}
-				</h2>
-				{grievance.attachments.length ? (
-					<ul className="mt-5 border-t border-[var(--line)]">
-						{grievance.attachments.map((attachment) => (
-							<li
-								key={attachment.id}
-								className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-[var(--line)] py-4 last:border-b-0"
-							>
-								<span className="font-semibold text-[var(--blue-950)]">
-									{attachment.name}
-								</span>
-								<div className="flex flex-wrap items-center gap-4 text-sm">
-									<span className="text-[var(--ink-muted)]">
-										{attachment.mimeType} ·{" "}
-										{formatFileSize(attachment.sizeBytes)}
+					<h2
+						id="answers-title"
+						className="text-xl font-bold text-[var(--blue-950)]"
+					>
+						{text({ en: "What you submitted", hi: "आपने क्या जमा किया" })}
+					</h2>
+					<dl className="mt-5 border-t border-[var(--line)]">
+						{answerEntries.map(({ id, label, answer }) => (
+							<Detail
+								key={id}
+								label={label}
+								value={displayAnswer(answer)}
+								preserveWhitespace
+							/>
+						))}
+					</dl>
+				</section>
+
+				<section
+					className="order-4 border-b border-[var(--line-strong)] py-8 lg:col-start-1 lg:row-start-3"
+					aria-labelledby="attachments-title"
+				>
+					<h2
+						id="attachments-title"
+						className="text-xl font-bold text-[var(--blue-950)]"
+					>
+						{text({ en: "Attachments", hi: "संलग्नक" })}
+					</h2>
+					{grievance.attachments.length ? (
+						<ul className="mt-5 border-t border-[var(--line)]">
+							{grievance.attachments.map((attachment) => (
+								<li
+									key={attachment.id}
+									className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-[var(--line)] py-4 last:border-b-0"
+								>
+									<span className="font-semibold text-[var(--blue-950)]">
+										{attachment.name}
 									</span>
-									<a
-										className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
-										href={`/api/attachments/${encodeURIComponent(attachment.id)}?preview=1`}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										{text({ en: "Preview", hi: "पूर्वावलोकन" })}
-									</a>
-									<a
-										className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
-										href={`/api/attachments/${encodeURIComponent(attachment.id)}`}
-										download
-									>
-										{text({ en: "Download", hi: "डाउनलोड" })}
-									</a>
+									<div className="flex flex-wrap items-center gap-4 text-sm">
+										<span className="text-[var(--ink-muted)]">
+											{attachment.mimeType} ·{" "}
+											{formatFileSize(attachment.sizeBytes)}
+										</span>
+										<a
+											className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
+											href={`/api/attachments/${encodeURIComponent(attachment.id)}?preview=1`}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											{text({ en: "Preview", hi: "पूर्वावलोकन" })}
+										</a>
+										<a
+											className="font-semibold text-[var(--blue-800)] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue-700)]"
+											href={`/api/attachments/${encodeURIComponent(attachment.id)}`}
+											download
+										>
+											{text({ en: "Download", hi: "डाउनलोड" })}
+										</a>
+									</div>
+								</li>
+							))}
+						</ul>
+					) : (
+						<p className="mt-3 text-sm text-[var(--ink-muted)]">
+							{text({
+								en: "No files were attached.",
+								hi: "कोई फ़ाइल संलग्न नहीं की गई।",
+							})}
+						</p>
+					)}
+				</section>
+
+				<section
+					className="order-1 border-b border-[var(--line-strong)] py-8 lg:col-start-1 lg:row-start-1 lg:py-10"
+					aria-labelledby="timeline-title"
+				>
+					<div className="flex flex-wrap items-end justify-between gap-4">
+						<div>
+							<p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[var(--action)]">
+								{text({ en: "Case activity", hi: "मामले की गतिविधि" })}
+							</p>
+							<h2
+								id="timeline-title"
+								className="mt-2 text-3xl font-semibold tracking-[-0.035em] text-[var(--ink)]"
+							>
+								{text({ en: "Timeline", hi: "समयरेखा" })}
+							</h2>
+						</div>
+						{latestEvent ? (
+							<p className="flex items-center gap-2 text-sm font-semibold text-[var(--ink-muted)]">
+								<Clock3 size={16} aria-hidden="true" />
+								{text({ en: "Last updated", hi: "आखिरी अपडेट" })}{" "}
+								{formatDateTime(latestEvent.createdAt)}
+							</p>
+						) : null}
+					</div>
+
+					{grievance.status === "needs_information" &&
+					!hasClarificationReply ? (
+						<form
+							className="mt-7 border-y-2 border-[var(--action)] bg-[var(--blue-50)] px-5 py-5"
+							onSubmit={reply}
+						>
+							<label
+								className="block text-base font-bold text-[var(--ink)]"
+								htmlFor="clarification-reply"
+							>
+								{text({
+									en: "The authority needs a reply from you",
+									hi: "प्राधिकरण को आपके जवाब की ज़रूरत है",
+								})}
+							</label>
+							<p className="mt-1 text-sm leading-6 text-[var(--ink-muted)]">
+								{text({
+									en: "Answer here to keep the grievance moving. Your reply will be added to this timeline.",
+									hi: "शिकायत को आगे बढ़ाने के लिए यहाँ जवाब दें। आपका जवाब इसी समयरेखा में जुड़ जाएगा।",
+								})}
+							</p>
+							<textarea
+								id="clarification-reply"
+								className="field-control mt-4 min-h-28 resize-y bg-white"
+								value={clarification}
+								onChange={(event) => setClarification(event.target.value)}
+							/>
+							<button
+								className="mt-4 inline-flex min-h-11 items-center gap-2 bg-[var(--action)] px-5 text-sm font-bold text-[var(--primary-foreground)] hover:bg-[var(--action-hover)] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--highlight)] disabled:opacity-50"
+								type="submit"
+								disabled={pendingAction !== null}
+							>
+								{pendingAction === "reply"
+									? text({ en: "Sending...", hi: "भेजा जा रहा है..." })
+									: text({ en: "Send reply", hi: "उत्तर भेजें" })}
+								<Send size={16} aria-hidden="true" />
+							</button>
+						</form>
+					) : null}
+
+					<ol className="relative mt-8 border-l-2 border-[var(--blue-200)] pl-7">
+						{timelineEvents.map((event, index) => (
+							<li key={event.id} className="relative pb-8 last:pb-0">
+								<span
+									className={`absolute -left-[2.35rem] top-1 grid size-4 place-items-center rounded-full border-2 border-[var(--action)] ${index === 0 ? "bg-[var(--action)] text-[var(--primary-foreground)]" : "bg-[var(--paper)]"}`}
+								>
+									{event.toStatus === "resolved" ? (
+										<CircleCheck size={9} aria-hidden="true" />
+									) : null}
+								</span>
+								<div className="flex flex-wrap items-center gap-2">
+									<p className="font-bold text-[var(--blue-950)]">
+										{eventTitle(event.eventType, event.toStatus)}
+									</p>
+									{event.toStatus ? (
+										<StatusLabel status={event.toStatus} />
+									) : null}
 								</div>
+								<p className="mt-1 text-xs font-semibold text-[var(--ink-muted)]">
+									{formatDateTime(event.createdAt)}
+								</p>
+								{event.message ? (
+									<p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-[var(--ink)]">
+										{event.message}
+									</p>
+								) : null}
 							</li>
 						))}
-					</ul>
-				) : (
-					<p className="mt-3 text-sm text-[var(--ink-muted)]">
-						{text({
-							en: "No files were attached.",
-							hi: "कोई फ़ाइल संलग्न नहीं की गई।",
-						})}
+					</ol>
+				</section>
+
+				<section
+					className="order-5 border-b border-[var(--line-strong)] py-8 lg:col-start-1 lg:row-start-4"
+					aria-labelledby="public-copy-title"
+				>
+					<p className="page-eyebrow">
+						{text({ en: "Public accountability", hi: "सार्वजनिक जवाबदेही" })}
 					</p>
-				)}
-			</section>
-
-			<section className="py-8" aria-labelledby="timeline-title">
-				<h2
-					id="timeline-title"
-					className="text-xl font-bold text-[var(--blue-950)]"
-				>
-					{text({ en: "Updates", hi: "अपडेट" })}
-				</h2>
-				<ol className="relative mt-6 border-l-2 border-[var(--blue-200)] pl-6">
-					{grievance.events.map((event) => (
-						<li key={event.id} className="relative pb-8 last:pb-0">
-							<span className="absolute -left-[2.05rem] top-1 grid size-4 place-items-center rounded-full border-2 border-[var(--blue-700)] bg-[var(--paper)]">
-								{event.toStatus === "resolved" ? (
-									<CircleCheck size={9} aria-hidden="true" />
-								) : null}
-							</span>
-							<div className="flex flex-wrap items-center gap-2">
-								<p className="font-bold text-[var(--blue-950)]">
-									{eventTitle(event.eventType, event.toStatus)}
-								</p>
-								{event.toStatus ? (
-									<StatusLabel status={event.toStatus} />
-								) : null}
-							</div>
-							<p className="mt-1 text-xs font-medium text-[var(--ink-muted)]">
-								{formatDateTime(event.createdAt)}
+					<h2
+						id="public-copy-title"
+						className="mt-2 text-xl font-bold text-[var(--blue-950)]"
+					>
+						{text({ en: "Public copy", hi: "सार्वजनिक प्रति" })}
+					</h2>
+					{grievance.publication && !grievance.publication.withdrawnAt ? (
+						<div className="mt-5 border-l-4 border-emerald-700 pl-5">
+							<p className="text-sm font-bold text-emerald-900">
+								{text({
+									en: "This grievance has an active public copy.",
+									hi: "इस शिकायत की सार्वजनिक प्रति सक्रिय है।",
+								})}
 							</p>
-							{event.message ? (
-								<p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-[var(--ink)]">
-									{event.message}
-								</p>
-							) : null}
-						</li>
-					))}
-				</ol>
-			</section>
-
-			<section
-				className="border-t border-[var(--line-strong)] py-8"
-				aria-labelledby="public-copy-title"
-			>
-				<p className="page-eyebrow">
-					{text({ en: "Public accountability", hi: "सार्वजनिक जवाबदेही" })}
-				</p>
-				<h2
-					id="public-copy-title"
-					className="mt-2 text-xl font-bold text-[var(--blue-950)]"
-				>
-					{text({ en: "Public copy", hi: "सार्वजनिक प्रति" })}
-				</h2>
-				{grievance.publication && !grievance.publication.withdrawnAt ? (
-					<div className="mt-5 border-l-4 border-emerald-700 pl-5">
-						<p className="text-sm font-bold text-emerald-900">
-							{text({
-								en: "This grievance has an active public copy.",
-								hi: "इस शिकायत की सार्वजनिक प्रति सक्रिय है।",
-							})}
-						</p>
-						<p className="mt-3 max-w-3xl whitespace-pre-wrap text-sm leading-6 text-[var(--ink)]">
-							{grievance.publication.summary}
-						</p>
-						<div className="mt-5 flex flex-wrap gap-3">
-							<Link
-								className="action-secondary inline-flex items-center no-underline"
-								to="/public-grievances/$publicId"
-								params={{ publicId: grievance.publication.publicId }}
-							>
-								{text({ en: "View public copy", hi: "सार्वजनिक प्रति देखें" })}
-							</Link>
-							<button
-								className="action-secondary"
-								type="button"
-								disabled={pendingAction !== null}
-								onClick={withdrawPublication}
-							>
-								{pendingAction === "withdraw-publication"
-									? text({ en: "Withdrawing...", hi: "हटाया जा रहा है..." })
-									: text({
-											en: "Withdraw public copy",
-											hi: "सार्वजनिक प्रति हटाएं",
-										})}
-							</button>
-						</div>
-					</div>
-				) : (
-					<div className="mt-5 max-w-3xl">
-						<p className="text-sm leading-6 text-[var(--ink-muted)]">
-							{text({
-								en: "Sharing is optional and off by default. The public copy excludes attachments, contact details, identifiers, private messages, and internal notes.",
-								hi: "साझा करना वैकल्पिक है और डिफ़ॉल्ट रूप से बंद है। सार्वजनिक प्रति में संलग्नक, संपर्क विवरण, पहचानकर्ता, निजी संदेश और आंतरिक टिप्पणियां शामिल नहीं होती हैं।",
-							})}
-						</p>
-						{publicationPreview ? (
-							<div className="mt-6 border-y border-[var(--line)] py-5">
-								<p className="text-sm font-bold text-[var(--blue-950)]">
-									{text({
-										en: "Exact public preview",
-										hi: "सटीक सार्वजनिक पूर्वावलोकन",
-									})}
-								</p>
-								<p className="mt-3 whitespace-pre-wrap text-base leading-7 text-[var(--ink)]">
-									{publicationPreview.summary}
-								</p>
-								<dl className="mt-5 border-t border-[var(--line)] text-sm">
-									<Detail
-										label={text({ en: "Category", hi: "श्रेणी" })}
-										value={publicationPreview.categoryPath.join(" › ")}
-									/>
-									<Detail
-										label={text({ en: "Broad location", hi: "व्यापक स्थान" })}
-										value={
-											publicationPreview.broadLocation ||
-											text({ en: "Not included", hi: "शामिल नहीं" })
-										}
-									/>
-									<Detail
-										label={text({ en: "Current status", hi: "वर्तमान स्थिति" })}
-										value={grievance.status.replaceAll("_", " ")}
-									/>
-								</dl>
-								<label className="mt-5 flex items-start gap-3 text-sm leading-6 text-[var(--ink)]">
-									<input
-										className="mt-1 size-4 accent-[var(--blue-800)]"
-										type="checkbox"
-										checked={publicationApproved}
-										onChange={(event) =>
-											setPublicationApproved(event.target.checked)
-										}
-									/>
-									<span>
-										{text({
-											en: "I reviewed this exact text and consent to publishing it. Future status changes will appear with privacy-safe wording.",
-											hi: "मैंने इस सटीक पाठ की समीक्षा की है और इसे प्रकाशित करने की सहमति देता/देती हूं। भविष्य के स्थिति बदलाव गोपनीयता-सुरक्षित शब्दों में दिखाई देंगे।",
-										})}
-									</span>
-								</label>
-								<div className="mt-5 flex flex-wrap gap-3">
-									<button
-										className="action-primary"
-										type="button"
-										disabled={pendingAction !== null || !publicationApproved}
-										onClick={approvePublication}
-									>
-										{pendingAction === "publish"
-											? text({
-													en: "Publishing...",
-													hi: "प्रकाशित किया जा रहा है...",
-												})
-											: text({
-													en: "Approve and publish",
-													hi: "स्वीकृत करें और प्रकाशित करें",
-												})}
-									</button>
-									<button
-										className="action-secondary"
-										type="button"
-										disabled={pendingAction !== null}
-										onClick={() => {
-											setPublicationPreview(null);
-											setPublicationApproved(false);
-										}}
-									>
-										{text({ en: "Discard preview", hi: "पूर्वावलोकन हटाएं" })}
-									</button>
-								</div>
-							</div>
-						) : (
-							<>
-								<label
-									className="mt-5 block text-sm font-bold text-[var(--blue-950)]"
-									htmlFor="public-broad-location"
+							<p className="mt-3 max-w-3xl whitespace-pre-wrap text-sm leading-6 text-[var(--ink)]">
+								{grievance.publication.summary}
+							</p>
+							<div className="mt-5 flex flex-wrap gap-3">
+								<Link
+									className="action-secondary inline-flex items-center no-underline"
+									to="/public-grievances/$publicId"
+									params={{ publicId: grievance.publication.publicId }}
 								>
-									{text({
-										en: "Broad location, optional",
-										hi: "व्यापक स्थान, वैकल्पिक",
-									})}
-								</label>
-								<p className="mt-1 text-xs leading-5 text-[var(--ink-muted)]">
-									{text({
-										en: "Use only a district, state, or region. Do not enter an address or postcode.",
-										hi: "केवल जिला, राज्य या क्षेत्र लिखें। पता या पिन कोड न लिखें।",
-									})}
-								</p>
-								<div className="mt-2 flex max-w-3xl flex-col gap-3 sm:flex-row sm:items-start">
-									<input
-										id="public-broad-location"
-										className="field-control min-w-0 flex-1"
-										value={broadLocation}
-										maxLength={120}
-										placeholder={text({
-											en: "e.g. Pune, Maharashtra",
-											hi: "उदा. पुणे, महाराष्ट्र",
-										})}
-										onChange={(event) => setBroadLocation(event.target.value)}
-									/>
-									<button
-										className="action-secondary shrink-0"
-										type="button"
-										disabled={pendingAction !== null}
-										onClick={generatePublicationPreview}
-									>
-										{pendingAction === "publication-preview"
-											? text({
-													en: "Preparing preview...",
-													hi: "पूर्वावलोकन तैयार हो रहा है...",
-												})
-											: text({
-													en: "Prepare redacted preview",
-													hi: "संपादित पूर्वावलोकन तैयार करें",
-												})}
-									</button>
-								</div>
-							</>
-						)}
-					</div>
-				)}
-			</section>
-
-			{actionError ? (
-				<p
-					className="border-l-4 border-red-700 bg-red-50 px-4 py-3 text-sm font-semibold text-red-900"
-					role="alert"
-				>
-					{actionError}
-				</p>
-			) : null}
-
-			<section
-				className="mt-10 border-t border-[var(--line-strong)] pt-8"
-				aria-labelledby="next-step-title"
-			>
-				<h2
-					id="next-step-title"
-					className="text-xl font-bold text-[var(--blue-950)]"
-				>
-					{text({ en: "Next step", hi: "अगला कदम" })}
-				</h2>
-				{canAdvanceDemo ? (
-					<div className="mt-5 border-l-4 border-[var(--blue-700)] bg-[var(--blue-50)] px-4 py-4">
-						<p className="text-sm leading-6 text-[var(--blue-950)]">
-							{text({
-								en: "Demo control. Advance this synthetic grievance by one lifecycle step.",
-								hi: "डेमो नियंत्रण। इस कृत्रिम शिकायत को एक चरण आगे बढ़ाएं।",
-							})}
-						</p>
-						<button
-							className="action-secondary mt-4 inline-flex items-center gap-2 disabled:opacity-50"
-							type="button"
-							disabled={pendingAction !== null}
-							onClick={() =>
-								void runAction("advance", () =>
-									advanceDemoGrievance({
-										data: { registrationId: grievance.registrationId },
-									}),
-								)
-							}
-						>
-							{pendingAction === "advance"
-								? text({ en: "Advancing...", hi: "आगे बढ़ाया जा रहा है..." })
-								: text({ en: "Advance demo status", hi: "डेमो स्थिति आगे बढ़ाएं" })}
-							<ChevronRight size={17} aria-hidden="true" />
-						</button>
-					</div>
-				) : null}
-
-				{grievance.status === "needs_information" && !hasClarificationReply ? (
-					<form
-						className="mt-6 border-l-4 border-[var(--blue-700)] pl-5"
-						onSubmit={reply}
-					>
-						<label
-							className="block text-sm font-bold text-[var(--blue-950)]"
-							htmlFor="clarification-reply"
-						>
-							{text({
-								en: "Reply to the clarification request",
-								hi: "स्पष्टीकरण अनुरोध का उत्तर दें",
-							})}
-						</label>
-						<textarea
-							id="clarification-reply"
-							className="field-control mt-3 min-h-28 resize-y"
-							value={clarification}
-							onChange={(event) => setClarification(event.target.value)}
-						/>
-						<button
-							className="action-primary mt-4 inline-flex items-center gap-2 disabled:opacity-50"
-							type="submit"
-							disabled={pendingAction !== null}
-						>
-							{pendingAction === "reply"
-								? text({ en: "Sending...", hi: "भेजा जा रहा है..." })
-								: text({ en: "Send reply", hi: "उत्तर भेजें" })}
-							<Send size={16} aria-hidden="true" />
-						</button>
-					</form>
-				) : null}
-
-				{grievance.status === "resolved" && !grievance.feedback ? (
-					<form
-						className="mt-6 border-l-4 border-[var(--blue-700)] pl-5"
-						onSubmit={sendFeedback}
-					>
-						<fieldset>
-							<legend className="text-sm font-bold text-[var(--blue-950)]">
-								{text({
-									en: "Was your grievance resolved?",
-									hi: "क्या आपकी शिकायत का समाधान हुआ?",
-								})}
-							</legend>
-							<div className="mt-3 flex flex-wrap gap-x-6 gap-y-3">
-								{[
-									{
-										value: "resolved" as const,
-										label: text({ en: "Yes", hi: "हाँ" }),
-									},
-									{
-										value: "partially_resolved" as const,
-										label: text({ en: "Partly", hi: "आंशिक रूप से" }),
-									},
-									{
-										value: "not_resolved" as const,
-										label: text({ en: "No", hi: "नहीं" }),
-									},
-								].map(({ value, label }) => (
-									<label
-										key={value}
-										className="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-[var(--ink)]"
-									>
-										<input
-											type="radio"
-											name="resolution-assessment"
-											value={value}
-											checked={resolutionAssessment === value}
-											onChange={() => setResolutionAssessment(value)}
-										/>
-										<span>{label}</span>
-									</label>
-								))}
+									{text({ en: "View public copy", hi: "सार्वजनिक प्रति देखें" })}
+								</Link>
+								<button
+									className="action-secondary"
+									type="button"
+									disabled={pendingAction !== null}
+									onClick={withdrawPublication}
+								>
+									{pendingAction === "withdraw-publication"
+										? text({ en: "Withdrawing...", hi: "हटाया जा रहा है..." })
+										: text({
+												en: "Withdraw public copy",
+												hi: "सार्वजनिक प्रति हटाएं",
+											})}
+								</button>
 							</div>
-						</fieldset>
-						<fieldset>
-							<legend className="mt-6 text-sm font-bold text-[var(--blue-950)]">
+						</div>
+					) : (
+						<div className="mt-5 max-w-3xl">
+							<p className="text-sm leading-6 text-[var(--ink-muted)]">
 								{text({
-									en: "How satisfied are you with how it was handled?",
-									hi: "शिकायत के निपटारे से आप कितने संतुष्ट हैं?",
+									en: "Sharing is optional and off by default. The public copy excludes attachments, contact details, identifiers, private messages, and internal notes.",
+									hi: "साझा करना वैकल्पिक है और डिफ़ॉल्ट रूप से बंद है। सार्वजनिक प्रति में संलग्नक, संपर्क विवरण, पहचानकर्ता, निजी संदेश और आंतरिक टिप्पणियां शामिल नहीं होती हैं।",
 								})}
-							</legend>
-							<div className="mt-3 flex flex-wrap gap-2">
-								{[1, 2, 3, 4, 5].map((value) => (
-									<label key={value} className="cursor-pointer">
-										<input
-											className="peer sr-only"
-											type="radio"
-											name="score"
-											value={value}
-											checked={score === value}
-											onChange={() => setScore(value)}
+							</p>
+							{publicationPreview ? (
+								<div className="mt-6 border-y border-[var(--line)] py-5">
+									<p className="text-sm font-bold text-[var(--blue-950)]">
+										{text({
+											en: "Exact public preview",
+											hi: "सटीक सार्वजनिक पूर्वावलोकन",
+										})}
+									</p>
+									<p className="mt-3 whitespace-pre-wrap text-base leading-7 text-[var(--ink)]">
+										{publicationPreview.summary}
+									</p>
+									<dl className="mt-5 border-t border-[var(--line)] text-sm">
+										<Detail
+											label={text({ en: "Category", hi: "श्रेणी" })}
+											value={publicationPreview.categoryPath.join(" › ")}
 										/>
-										<span className="grid size-11 place-items-center rounded-full border border-[var(--blue-400)] font-bold text-[var(--blue-900)] peer-checked:border-[var(--blue-800)] peer-checked:bg-[var(--blue-800)] peer-checked:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--blue-700)]">
-											{value}
+										<Detail
+											label={text({ en: "Broad location", hi: "व्यापक स्थान" })}
+											value={
+												publicationPreview.broadLocation ||
+												text({ en: "Not included", hi: "शामिल नहीं" })
+											}
+										/>
+										<Detail
+											label={text({ en: "Current status", hi: "वर्तमान स्थिति" })}
+											value={grievance.status.replaceAll("_", " ")}
+										/>
+									</dl>
+									<label className="mt-5 flex items-start gap-3 text-sm leading-6 text-[var(--ink)]">
+										<input
+											className="mt-1 size-4 accent-[var(--blue-800)]"
+											type="checkbox"
+											checked={publicationApproved}
+											onChange={(event) =>
+												setPublicationApproved(event.target.checked)
+											}
+										/>
+										<span>
+											{text({
+												en: "I reviewed this exact text and consent to publishing it. Future status changes will appear with privacy-safe wording.",
+												hi: "मैंने इस सटीक पाठ की समीक्षा की है और इसे प्रकाशित करने की सहमति देता/देती हूं। भविष्य के स्थिति बदलाव गोपनीयता-सुरक्षित शब्दों में दिखाई देंगे।",
+											})}
 										</span>
 									</label>
-								))}
-							</div>
-						</fieldset>
-						<label
-							className="mt-5 block text-sm font-semibold text-[var(--blue-950)]"
-							htmlFor="feedback-comment"
-						>
-							{text({ en: "Comment, optional", hi: "टिप्पणी, वैकल्पिक" })}
-						</label>
-						<textarea
-							id="feedback-comment"
-							className="field-control mt-2 min-h-24 resize-y"
-							value={comment}
-							onChange={(event) => setComment(event.target.value)}
-						/>
-						<button
-							className="action-primary mt-4 disabled:opacity-50"
-							type="submit"
-							disabled={pendingAction !== null}
-						>
-							{pendingAction === "feedback"
-								? text({ en: "Saving...", hi: "सहेजा जा रहा है..." })
-								: text({ en: "Submit rating", hi: "अंक जमा करें" })}
-						</button>
-					</form>
-				) : null}
+									<div className="mt-5 flex flex-wrap gap-3">
+										<button
+											className="action-primary"
+											type="button"
+											disabled={pendingAction !== null || !publicationApproved}
+											onClick={approvePublication}
+										>
+											{pendingAction === "publish"
+												? text({
+														en: "Publishing...",
+														hi: "प्रकाशित किया जा रहा है...",
+													})
+												: text({
+														en: "Approve and publish",
+														hi: "स्वीकृत करें और प्रकाशित करें",
+													})}
+										</button>
+										<button
+											className="action-secondary"
+											type="button"
+											disabled={pendingAction !== null}
+											onClick={() => {
+												setPublicationPreview(null);
+												setPublicationApproved(false);
+											}}
+										>
+											{text({ en: "Discard preview", hi: "पूर्वावलोकन हटाएं" })}
+										</button>
+									</div>
+								</div>
+							) : (
+								<>
+									<label
+										className="mt-5 block text-sm font-bold text-[var(--blue-950)]"
+										htmlFor="public-broad-location"
+									>
+										{text({
+											en: "Broad location, optional",
+											hi: "व्यापक स्थान, वैकल्पिक",
+										})}
+									</label>
+									<p className="mt-1 text-xs leading-5 text-[var(--ink-muted)]">
+										{text({
+											en: "Use only a district, state, or region. Do not enter an address or postcode.",
+											hi: "केवल जिला, राज्य या क्षेत्र लिखें। पता या पिन कोड न लिखें।",
+										})}
+									</p>
+									<div className="mt-2 flex max-w-3xl flex-col gap-3 sm:flex-row sm:items-start">
+										<input
+											id="public-broad-location"
+											className="field-control min-w-0 flex-1"
+											value={broadLocation}
+											maxLength={120}
+											placeholder={text({
+												en: "e.g. Pune, Maharashtra",
+												hi: "उदा. पुणे, महाराष्ट्र",
+											})}
+											onChange={(event) => setBroadLocation(event.target.value)}
+										/>
+										<button
+											className="action-secondary shrink-0"
+											type="button"
+											disabled={pendingAction !== null}
+											onClick={generatePublicationPreview}
+										>
+											{pendingAction === "publication-preview"
+												? text({
+														en: "Preparing preview...",
+														hi: "पूर्वावलोकन तैयार हो रहा है...",
+													})
+												: text({
+														en: "Prepare redacted preview",
+														hi: "संपादित पूर्वावलोकन तैयार करें",
+													})}
+										</button>
+									</div>
+								</>
+							)}
+						</div>
+					)}
+				</section>
 
-				{grievance.feedback &&
-				grievance.feedback.resolutionAssessment !== "resolved" &&
-				appealIsOpen &&
-				!grievance.appeal ? (
-					<form
-						className="mt-6 border-l-4 border-amber-700 pl-5"
-						onSubmit={fileAppeal}
+				{actionError ? (
+					<p
+						className="order-6 mt-6 border-l-4 border-red-700 bg-red-50 px-4 py-3 text-sm font-semibold text-red-900 lg:col-start-1 lg:row-start-5"
+						role="alert"
 					>
-						<label
-							className="block text-sm font-bold text-[var(--blue-950)]"
-							htmlFor="appeal-reason"
-						>
-							{text({
-								en: "Why are you appealing?",
-								hi: "आप अपील क्यों कर रहे हैं?",
-							})}
-						</label>
-						<p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
-							{text({
-								en: "Review this reason carefully. Submitting an appeal is final for this step.",
-								hi: "कारण ध्यान से पढ़ें। इस चरण में अपील जमा करना अंतिम कार्रवाई है।",
-							})}
-						</p>
-						<textarea
-							id="appeal-reason"
-							className="field-control mt-3 min-h-28 resize-y"
-							value={appealReason}
-							onChange={(event) => setAppealReason(event.target.value)}
-						/>
-						<button
-							className="action-primary mt-4 disabled:opacity-50"
-							type="submit"
-							disabled={pendingAction !== null}
-						>
-							{pendingAction === "appeal"
-								? text({
-										en: "Submitting appeal...",
-										hi: "अपील जमा की जा रही है...",
-									})
-								: text({ en: "Submit appeal", hi: "अपील जमा करें" })}
-						</button>
-					</form>
-				) : null}
-				{grievance.feedback &&
-				grievance.feedback.resolutionAssessment !== "resolved" &&
-				grievance.status === "resolved" &&
-				!appealIsOpen &&
-				!grievance.appeal ? (
-					<p className="mt-6 border-l-4 border-slate-400 pl-5 text-sm text-[var(--ink-muted)]">
-						{text({
-							en: "The appeal period for this grievance has ended.",
-							hi: "इस शिकायत की अपील अवधि समाप्त हो गई है।",
-						})}
+						{actionError}
 					</p>
 				) : null}
-			</section>
+
+				{hasCaseActions ? (
+					<section
+						className="order-7 py-8 lg:col-start-1 lg:row-start-6"
+						aria-labelledby="next-step-title"
+					>
+						<h2
+							id="next-step-title"
+							className="text-xl font-bold text-[var(--blue-950)]"
+						>
+							{text({ en: "Actions", hi: "कार्रवाई" })}
+						</h2>
+						{canAdvanceDemo ? (
+							<div className="mt-5 border-l-4 border-[var(--blue-700)] bg-[var(--blue-50)] px-4 py-4">
+								<p className="text-sm leading-6 text-[var(--blue-950)]">
+									{text({
+										en: "Demo control. Advance this synthetic grievance by one lifecycle step.",
+										hi: "डेमो नियंत्रण। इस कृत्रिम शिकायत को एक चरण आगे बढ़ाएं।",
+									})}
+								</p>
+								<button
+									className="action-secondary mt-4 inline-flex items-center gap-2 disabled:opacity-50"
+									type="button"
+									disabled={pendingAction !== null}
+									onClick={() =>
+										void runAction("advance", () =>
+											advanceDemoGrievance({
+												data: { registrationId: grievance.registrationId },
+											}),
+										)
+									}
+								>
+									{pendingAction === "advance"
+										? text({ en: "Advancing...", hi: "आगे बढ़ाया जा रहा है..." })
+										: text({
+												en: "Advance demo status",
+												hi: "डेमो स्थिति आगे बढ़ाएं",
+											})}
+									<ChevronRight size={17} aria-hidden="true" />
+								</button>
+							</div>
+						) : null}
+
+						{grievance.status === "resolved" && !grievance.feedback ? (
+							<form
+								className="mt-6 border-l-4 border-[var(--blue-700)] pl-5"
+								onSubmit={sendFeedback}
+							>
+								<fieldset>
+									<legend className="text-sm font-bold text-[var(--blue-950)]">
+										{text({
+											en: "Was your grievance resolved?",
+											hi: "क्या आपकी शिकायत का समाधान हुआ?",
+										})}
+									</legend>
+									<div className="mt-3 flex flex-wrap gap-x-6 gap-y-3">
+										{[
+											{
+												value: "resolved" as const,
+												label: text({ en: "Yes", hi: "हाँ" }),
+											},
+											{
+												value: "partially_resolved" as const,
+												label: text({ en: "Partly", hi: "आंशिक रूप से" }),
+											},
+											{
+												value: "not_resolved" as const,
+												label: text({ en: "No", hi: "नहीं" }),
+											},
+										].map(({ value, label }) => (
+											<label
+												key={value}
+												className="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-[var(--ink)]"
+											>
+												<input
+													type="radio"
+													name="resolution-assessment"
+													value={value}
+													checked={resolutionAssessment === value}
+													onChange={() => setResolutionAssessment(value)}
+												/>
+												<span>{label}</span>
+											</label>
+										))}
+									</div>
+								</fieldset>
+								<fieldset>
+									<legend className="mt-6 text-sm font-bold text-[var(--blue-950)]">
+										{text({
+											en: "How satisfied are you with how it was handled?",
+											hi: "शिकायत के निपटारे से आप कितने संतुष्ट हैं?",
+										})}
+									</legend>
+									<div className="mt-3 flex flex-wrap gap-2">
+										{[1, 2, 3, 4, 5].map((value) => (
+											<label key={value} className="cursor-pointer">
+												<input
+													className="peer sr-only"
+													type="radio"
+													name="score"
+													value={value}
+													checked={score === value}
+													onChange={() => setScore(value)}
+												/>
+												<span className="grid size-11 place-items-center rounded-full border border-[var(--blue-400)] font-bold text-[var(--blue-900)] peer-checked:border-[var(--blue-800)] peer-checked:bg-[var(--blue-800)] peer-checked:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--blue-700)]">
+													{value}
+												</span>
+											</label>
+										))}
+									</div>
+								</fieldset>
+								<label
+									className="mt-5 block text-sm font-semibold text-[var(--blue-950)]"
+									htmlFor="feedback-comment"
+								>
+									{text({ en: "Comment, optional", hi: "टिप्पणी, वैकल्पिक" })}
+								</label>
+								<textarea
+									id="feedback-comment"
+									className="field-control mt-2 min-h-24 resize-y"
+									value={comment}
+									onChange={(event) => setComment(event.target.value)}
+								/>
+								<button
+									className="action-primary mt-4 disabled:opacity-50"
+									type="submit"
+									disabled={pendingAction !== null}
+								>
+									{pendingAction === "feedback"
+										? text({ en: "Saving...", hi: "सहेजा जा रहा है..." })
+										: text({ en: "Submit rating", hi: "अंक जमा करें" })}
+								</button>
+							</form>
+						) : null}
+
+						{grievance.feedback &&
+						grievance.feedback.resolutionAssessment !== "resolved" &&
+						appealIsOpen &&
+						!grievance.appeal ? (
+							<form
+								className="mt-6 border-l-4 border-amber-700 pl-5"
+								onSubmit={fileAppeal}
+							>
+								<label
+									className="block text-sm font-bold text-[var(--blue-950)]"
+									htmlFor="appeal-reason"
+								>
+									{text({
+										en: "Why are you appealing?",
+										hi: "आप अपील क्यों कर रहे हैं?",
+									})}
+								</label>
+								<p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">
+									{text({
+										en: "Review this reason carefully. Submitting an appeal is final for this step.",
+										hi: "कारण ध्यान से पढ़ें। इस चरण में अपील जमा करना अंतिम कार्रवाई है।",
+									})}
+								</p>
+								<textarea
+									id="appeal-reason"
+									className="field-control mt-3 min-h-28 resize-y"
+									value={appealReason}
+									onChange={(event) => setAppealReason(event.target.value)}
+								/>
+								<button
+									className="action-primary mt-4 disabled:opacity-50"
+									type="submit"
+									disabled={pendingAction !== null}
+								>
+									{pendingAction === "appeal"
+										? text({
+												en: "Submitting appeal...",
+												hi: "अपील जमा की जा रही है...",
+											})
+										: text({ en: "Submit appeal", hi: "अपील जमा करें" })}
+								</button>
+							</form>
+						) : null}
+						{grievance.feedback &&
+						grievance.feedback.resolutionAssessment !== "resolved" &&
+						grievance.status === "resolved" &&
+						!appealIsOpen &&
+						!grievance.appeal ? (
+							<p className="mt-6 border-l-4 border-slate-400 pl-5 text-sm text-[var(--ink-muted)]">
+								{text({
+									en: "The appeal period for this grievance has ended.",
+									hi: "इस शिकायत की अपील अवधि समाप्त हो गई है।",
+								})}
+							</p>
+						) : null}
+					</section>
+				) : null}
+			</div>
 		</main>
+	);
+}
+
+function AsideDetail({
+	label,
+	value,
+	mono = false,
+}: {
+	label: string;
+	value: string;
+	mono?: boolean;
+}) {
+	return (
+		<div className="border-b border-[var(--line)] py-4">
+			<dt className="text-xs font-extrabold uppercase tracking-[0.08em] text-[var(--ink-muted)]">
+				{label}
+			</dt>
+			<dd
+				className={`mt-1 break-words text-sm font-semibold leading-6 text-[var(--ink)] ${mono ? "font-mono tracking-wide text-[var(--action)]" : ""}`}
+			>
+				{value}
+			</dd>
+		</div>
 	);
 }
 
