@@ -1,5 +1,7 @@
 # Form delivery observability test
 
+The first Windows and curl results are recorded in [`form-delivery-results-2026-08-31.md`](./form-delivery-results-2026-08-31.md).
+
 ## Purpose
 
 This test compares ways to deliver the complete grievance-form catalogue to a browser. It measures the real Vercel response, browser processing, search-index construction, local storage, and offline read cost. Option values remain in every form payload but are excluded from the search index.
