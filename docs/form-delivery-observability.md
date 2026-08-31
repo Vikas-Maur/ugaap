@@ -17,7 +17,7 @@ Run `pnpm catalogue:diagnostics:prepare` after changing the catalogue. This rege
 
 ## Browser measurements
 
-Open `/diagnostics/forms` on the deployed Vercel preview. Run one strategy at a time, especially on low-memory phones. Reload the page between tests when comparing memory.
+Open `/diagnostics/forms` on the deployed Vercel preview and press **Run all tests**. The page runs every strategy in sequence and produces one combined result.
 
 The page records:
 
@@ -46,12 +46,12 @@ Repeat with `identity`, `gzip`, and `br`. Run each request several times and com
 
 Use the same Vercel deployment for every device. Record one run on desktop Chrome, one modern phone, and the lowest-memory Android phone available. On the low-memory phone, also use the slowest real connection available or Chrome's network throttling.
 
-For each strategy:
+For each device:
 
-1. Reload the diagnostics page.
-2. Close other browser tabs where practical.
-3. Run the strategy once and wait for completion.
-4. Export the JSON before moving to the next strategy.
+1. Close other browser tabs where practical.
+2. Open the diagnostics page and press **Run all tests**.
+3. Wait until the status says that all tests finished.
+4. Copy or download the combined JSON.
 5. Confirm that the tab did not reload or get killed during indexing.
 
 The final choice should use median timings across repeated runs. A strategy is unsuitable if the low-memory phone reloads the tab, indexing causes long freezes, or offline retrieval requires parsing the entire catalogue just to open one authority.

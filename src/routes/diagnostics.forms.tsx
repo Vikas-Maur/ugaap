@@ -51,6 +51,12 @@ type TestResult = {
 	network: NetworkMetric[];
 };
 
+type TestFailure = {
+	strategyId: string;
+	label: string;
+	error: string;
+};
+
 type SearchDocument = {
 	id: string;
 	authority: string;
@@ -506,31 +512,41 @@ function formatMb(bytes: number | null): string {
 
 function FormDiagnostics() {
 	const [results, setResults] = useState<TestResult[]>([]);
-	const [running, setRunning] = useState<string | null>(null);
+	const [failures, setFailures] = useState<TestFailure[]>([]);
+	const [running, setRunning] = useState(false);
 	const [status, setStatus] = useState("Ready.");
 	const [device, setDevice] = useState<ReturnType<typeof deviceDetails> | null>(
 		null,
 	);
 	useEffect(() => setDevice(deviceDetails()), []);
-	const output = JSON.stringify({ device, results }, null, 2);
+	const output = JSON.stringify({ device, results, failures }, null, 2);
 
-	async function execute(strategy: Strategy) {
-		setRunning(strategy.id);
-		setStatus(`Starting ${strategy.label}...`);
-		try {
-			const result = await runTest(strategy, setStatus);
-			setResults((current) => [
-				...current.filter((item) => item.strategyId !== strategy.id),
-				result,
-			]);
-			setStatus(`${strategy.label} finished.`);
-		} catch (error) {
-			setStatus(
-				`Failed: ${error instanceof Error ? error.message : String(error)}`,
-			);
-		} finally {
-			setRunning(null);
+	async function executeAll() {
+		setRunning(true);
+		setResults([]);
+		setFailures([]);
+		const completed: TestResult[] = [];
+		const failed: TestFailure[] = [];
+		for (const [index, strategy] of strategies.entries()) {
+			setStatus(`Test ${index + 1} of ${strategies.length}: ${strategy.label}`);
+			try {
+				completed.push(await runTest(strategy, setStatus));
+				setResults([...completed]);
+			} catch (error) {
+				failed.push({
+					strategyId: strategy.id,
+					label: strategy.label,
+					error: error instanceof Error ? error.message : String(error),
+				});
+				setFailures([...failed]);
+			}
 		}
+		setRunning(false);
+		setStatus(
+			failed.length
+				? `Finished with ${failed.length} failed test(s). The combined JSON is ready.`
+				: "All tests finished. The combined JSON is ready.",
+		);
 	}
 
 	async function copyResults() {
@@ -553,44 +569,67 @@ function FormDiagnostics() {
 		<main style={{ margin: "0 auto", maxWidth: 1100, padding: 24 }}>
 			<h1>Form delivery diagnostics</h1>
 			<p>
-				Run one test at a time. Reload this page between tests when comparing
-				memory on a low-memory phone. Results stay on this device.
+				Run the full comparison once. It may take several minutes on a slow
+				phone. Results stay on this device.
 			</p>
 			<p>
 				<strong>Status:</strong> {status}
 			</p>
-			<div
-				style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "16px 0" }}
-			>
-				{strategies.map((strategy) => (
-					<button
-						disabled={running !== null}
-						key={strategy.id}
-						onClick={() => execute(strategy)}
-						type="button"
-					>
-						{running === strategy.id ? "Running..." : strategy.label}
-					</button>
-				))}
+			<div style={{ margin: "20px 0" }}>
+				<button
+					disabled={running}
+					onClick={executeAll}
+					style={{
+						background: running ? "#64748b" : "#1d4ed8",
+						border: "2px solid #1e3a8a",
+						borderRadius: 4,
+						color: "white",
+						cursor: running ? "wait" : "pointer",
+						fontSize: 16,
+						fontWeight: 700,
+						padding: "12px 20px",
+					}}
+					type="button"
+				>
+					{running ? "Running all tests..." : "Run all tests"}
+				</button>
 			</div>
 			<div style={{ display: "flex", gap: 8, margin: "16px 0" }}>
 				<button
-					disabled={results.length === 0 || running !== null}
+					disabled={(results.length === 0 && failures.length === 0) || running}
 					onClick={copyResults}
+					style={{
+						border: "1px solid #334155",
+						cursor: "pointer",
+						padding: "8px 12px",
+					}}
 					type="button"
 				>
 					Copy JSON
 				</button>
 				<button
-					disabled={results.length === 0 || running !== null}
+					disabled={(results.length === 0 && failures.length === 0) || running}
 					onClick={downloadResults}
+					style={{
+						border: "1px solid #334155",
+						cursor: "pointer",
+						padding: "8px 12px",
+					}}
 					type="button"
 				>
 					Download JSON
 				</button>
 				<button
-					disabled={running !== null}
-					onClick={() => setResults([])}
+					disabled={running}
+					onClick={() => {
+						setResults([]);
+						setFailures([]);
+					}}
+					style={{
+						border: "1px solid #334155",
+						cursor: "pointer",
+						padding: "8px 12px",
+					}}
 					type="button"
 				>
 					Clear results
