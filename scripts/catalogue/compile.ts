@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { persist } from '@orama/plugin-data-persistence'
 import { buildSearchDocuments, createSearchEngine, ORAMA_VERSION, SEARCH_SCHEMA_VERSION } from '../../src/features/catalogue/search-core.ts'
 import { searchEnrichmentSchema } from '../../src/features/catalogue/search-enrichment.ts'
-import { captureSchema, type Capture, type CaptureField, type AuthorityChunk, type CatalogueCategory, type CatalogueField, type CatalogueForm, type CatalogueIndex, type CatalogueManifest, type CatalogueWarning, type SearchDocument, type SearchIndexArtifact } from '../../src/features/catalogue/schema.ts'
+import { captureSchema, completeCaptureFields, type Capture, type CaptureField, type AuthorityChunk, type CatalogueCategory, type CatalogueField, type CatalogueForm, type CatalogueIndex, type CatalogueManifest, type CatalogueWarning, type SearchDocument, type SearchIndexArtifact } from '../../src/features/catalogue/schema.ts'
 
 type CompilerOptions = {
   capturesDir?: string
@@ -116,11 +116,6 @@ function outputField(field: CaptureField, id = slugify(field.id || field.name ||
   return result
 }
 
-function makeSyntheticField(id: 'remarks' | 'attachment'): CatalogueField {
-  if (id === 'remarks') return { id, label: 'Remarks', kind: 'textarea', required: true, maximumLength: 2000 }
-  return { id, label: 'Attachment', kind: 'file', required: false }
-}
-
 function createCategory(authorityId: string, path: string[]): MutableCategory {
   const authoritySlug = authorityId.replace(/^authority-/, '')
   const slugPath = path.map(slugify)
@@ -154,10 +149,11 @@ function formTitle(path: string[], heading: string | null): string {
   return heading?.trim() || path.at(-1) || 'General grievance'
 }
 
-function buildForm(record: SourceRecord, authority: { name: string; slug: string }, category: MutableCategory, terminal: boolean, warnings: CatalogueWarning[]): CatalogueForm {
+function buildForm(record: SourceRecord, authority: { name: string; slug: string }, category: MutableCategory, warnings: CatalogueWarning[]): CatalogueForm {
   const sourceFields = record.capture.snapshot.fields.filter((field) => !isNavigationField(field))
+  const completedFields = completeCaptureFields(sourceFields)
   const usedFieldIds = new Set<string>()
-  const fields = sourceFields.map((field) => {
+  const fields = completedFields.fields.map((field) => {
     const baseId = slugify(field.id || field.name || field.label || 'field')
     let fieldId = baseId
     if (usedFieldIds.has(fieldId)) {
@@ -167,12 +163,7 @@ function buildForm(record: SourceRecord, authority: { name: string; slug: string
     usedFieldIds.add(fieldId)
     return outputField(field, fieldId)
   })
-  const hasRemarks = sourceFields.some((field) => /remark/i.test(field.id || '') || /remark/i.test(field.name || '') || /remark/i.test(field.label || ''))
-  const hasFile = sourceFields.some((field) => field.kind === 'file')
-  const synthesized: string[] = []
-  if (terminal && !hasRemarks) { fields.push(makeSyntheticField('remarks')); synthesized.push('remarks') }
-  if (terminal && !hasFile) { fields.push(makeSyntheticField('attachment')); synthesized.push('attachment') }
-  if (synthesized.length) warnings.push({ sourcePath: record.relativePath, message: 'Synthesized missing terminal field(s)', fields: synthesized })
+  if (completedFields.synthesized.length) warnings.push({ sourcePath: record.relativePath, message: 'Synthesized missing completion field(s)', fields: completedFields.synthesized })
   fields.sort((a, b) => (kindOrder[a.kind] - kindOrder[b.kind]) || a.id.localeCompare(b.id))
   const categoryPath = category.path
   const categoryId = category.id
@@ -240,10 +231,7 @@ function compileArtifacts(records: SourceRecord[], errors: Array<{ sourcePath: s
   for (const bucket of [...authorities.values()].sort((a, b) => a.slug.localeCompare(b.slug))) {
     const forms: CatalogueForm[] = []
     for (const item of bucket.records.sort((a, b) => a.category.id.localeCompare(b.category.id))) {
-      const terminal = item.category.children.length === 0
-      const hasNonNavigationFields = item.record.capture.snapshot.fields.some((field) => !isNavigationField(field))
-      if (!terminal && !hasNonNavigationFields) continue
-      const form = buildForm(item.record, bucket, item.category, terminal, warnings)
+      const form = buildForm(item.record, bucket, item.category, warnings)
       item.category.formCapable = true
       item.category.formId = form.id
       forms.push(form)

@@ -13,7 +13,8 @@
         "category-expenditure-administrative-matters-pertaining-to-employees-of-doe-non-gazetted",
         "category-expenditure-administrative-matters-pertaining-to-employees-of-ia-and-as-service"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-administrative-matters",
       "id": "category-expenditure-administrative-matters",
       "name": "Administrative matters",
       "navigationOptions": [
@@ -215,7 +216,8 @@
         "category-expenditure-allowance-transport-allowance",
         "category-expenditure-allowance-travelling-allowance"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-allowance",
       "id": "category-expenditure-allowance",
       "name": "Allowance",
       "navigationOptions": [
@@ -405,7 +407,8 @@
         "category-expenditure-allowance-dearness-allowance-da-da-as-per-6th-cpc",
         "category-expenditure-allowance-dearness-allowance-da-da-as-per-7th-cpc"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-allowance-dearness-allowance-da",
       "id": "category-expenditure-allowance-dearness-allowance-da",
       "name": "Dearness allowance (DA)",
       "navigationOptions": [
@@ -709,7 +712,8 @@
         "category-expenditure-allowance-miscellaneous-allowances-nursing-allowance",
         "category-expenditure-allowance-miscellaneous-allowances-rummage-allowance"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-allowance-miscellaneous-allowances",
       "id": "category-expenditure-allowance-miscellaneous-allowances",
       "name": "Miscellaneous allowances",
       "navigationOptions": [
@@ -1246,7 +1250,8 @@
         "category-expenditure-allowance-tough-location-allowance-sunderban-allowance",
         "category-expenditure-allowance-tough-location-allowance-tribal-area-allowance"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-allowance-tough-location-allowance",
       "id": "category-expenditure-allowance-tough-location-allowance",
       "name": "Tough Location Allowance",
       "navigationOptions": [
@@ -1653,7 +1658,8 @@
         "category-expenditure-cadre-review-formation-of-new-cadres",
         "category-expenditure-cadre-review-restructuring-cadre-review-policy-matters"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-cadre-review",
       "id": "category-expenditure-cadre-review",
       "name": "Cadre Review",
       "navigationOptions": [
@@ -1983,7 +1989,8 @@
         "category-expenditure-creation-of-posts-policy-matter-for-post-creation",
         "category-expenditure-creation-of-posts-policy-matter-of-post-revival"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-creation-of-posts",
       "id": "category-expenditure-creation-of-posts",
       "name": "Creation of posts",
       "navigationOptions": [
@@ -2132,7 +2139,8 @@
         "category-expenditure-finance-commission-ndrf",
         "category-expenditure-finance-commission-release-of-grants"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-finance-commission",
       "id": "category-expenditure-finance-commission",
       "name": "Finance Commission",
       "navigationOptions": [
@@ -2243,7 +2251,8 @@
         "category-expenditure-funds-to-schemes-finances-of-states",
         "category-expenditure-funds-to-schemes-release-of-funds-to-state-governments"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-funds-to-schemes",
       "id": "category-expenditure-funds-to-schemes",
       "name": "Funds to Schemes",
       "navigationOptions": [
@@ -2437,7 +2446,8 @@
         "category-expenditure-government-rules-rules-of-advances",
         "category-expenditure-government-rules-staff-car-rules"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-government-rules",
       "id": "category-expenditure-government-rules",
       "name": "Government Rules",
       "navigationOptions": [
@@ -2672,7 +2682,8 @@
         "category-expenditure-indian-civil-accounts-service-office-of-cga",
         "category-expenditure-indian-civil-accounts-service-pfms"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-indian-civil-accounts-service",
       "id": "category-expenditure-indian-civil-accounts-service",
       "name": "Indian Civil Accounts Service",
       "navigationOptions": [
@@ -2713,7 +2724,8 @@
         "category-expenditure-indian-civil-accounts-service-office-of-cga-transfer-and-posting",
         "category-expenditure-indian-civil-accounts-service-office-of-cga-vigilance-matters"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-indian-civil-accounts-service-office-of-cga",
       "id": "category-expenditure-indian-civil-accounts-service-office-of-cga",
       "name": "Office of CGA",
       "navigationOptions": [
@@ -3016,7 +3028,8 @@
         "category-expenditure-indian-civil-accounts-service-pfms-technical-help",
         "category-expenditure-indian-civil-accounts-service-pfms-updation-on-pfms"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-indian-civil-accounts-service-pfms",
       "id": "category-expenditure-indian-civil-accounts-service-pfms",
       "name": "PFMS",
       "navigationOptions": [
@@ -3177,7 +3190,8 @@
         "category-expenditure-indian-cost-account-service-appointment-or-exam",
         "category-expenditure-indian-cost-account-service-transfer-and-posting"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-indian-cost-account-service",
       "id": "category-expenditure-indian-cost-account-service",
       "name": "Indian Cost Account Service",
       "navigationOptions": [
@@ -3325,7 +3339,8 @@
         "category-expenditure-pay-related-matters-standing-committee-or-jcm",
         "category-expenditure-pay-related-matters-stipend"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters",
       "id": "category-expenditure-pay-related-matters",
       "name": "Pay related Matters",
       "navigationOptions": [
@@ -3370,7 +3385,8 @@
         "category-expenditure-pay-related-matters-ad-hoc-or-plb-bonus-central-government-employees",
         "category-expenditure-pay-related-matters-ad-hoc-or-plb-bonus-contractual-employees"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-ad-hoc-or-plb-bonus",
       "id": "category-expenditure-pay-related-matters-ad-hoc-or-plb-bonus",
       "name": "Ad-hoc or PLB Bonus",
       "navigationOptions": [
@@ -3607,7 +3623,8 @@
         "category-expenditure-pay-related-matters-non-practicing-allowance-extension-to-new-categories",
         "category-expenditure-pay-related-matters-non-practicing-allowance-revision-of-rates-as-per-pay-commission"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-non-practicing-allowance",
       "id": "category-expenditure-pay-related-matters-non-practicing-allowance",
       "name": "Non Practicing Allowance",
       "navigationOptions": [
@@ -3793,7 +3810,8 @@
         "category-expenditure-pay-related-matters-other-allowances-special-allowance",
         "category-expenditure-pay-related-matters-other-allowances-training-allowance"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-other-allowances",
       "id": "category-expenditure-pay-related-matters-other-allowances",
       "name": "Other Allowances",
       "navigationOptions": [
@@ -3980,7 +3998,8 @@
         "category-expenditure-pay-related-matters-pay-commission-revision-of-consolidated-pay-package-of-chairman-and-members-of-regulatory-bodies",
         "category-expenditure-pay-related-matters-pay-commission-setting-up-of-pay-commissions"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-pay-commission",
       "id": "category-expenditure-pay-related-matters-pay-commission",
       "name": "Pay Commission",
       "navigationOptions": [
@@ -4218,7 +4237,8 @@
         "category-expenditure-pay-related-matters-pay-fixation-macp-acp",
         "category-expenditure-pay-related-matters-pay-fixation-nfsg"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-pay-fixation",
       "id": "category-expenditure-pay-related-matters-pay-fixation",
       "name": "Pay fixation",
       "navigationOptions": [
@@ -4266,7 +4286,8 @@
         "category-expenditure-pay-related-matters-pay-fixation-ccs-rp-rules-rules-2008-and-before",
         "category-expenditure-pay-related-matters-pay-fixation-ccs-rp-rules-rules-2016"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-pay-fixation-ccs-rp-rules",
       "id": "category-expenditure-pay-related-matters-pay-fixation-ccs-rp-rules",
       "name": "CCS(RP) Rules",
       "navigationOptions": [
@@ -4558,7 +4579,8 @@
         "category-expenditure-pay-related-matters-research-fellowships-extension-to-new-categories",
         "category-expenditure-pay-related-matters-research-fellowships-revision-of-rates"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-research-fellowships",
       "id": "category-expenditure-pay-related-matters-research-fellowships",
       "name": "Research fellowships",
       "navigationOptions": [
@@ -4736,7 +4758,8 @@
         "category-expenditure-pay-related-matters-stipend-extension-to-new-categories",
         "category-expenditure-pay-related-matters-stipend-revision-of-rates"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-related-matters-stipend",
       "id": "category-expenditure-pay-related-matters-stipend",
       "name": "Stipend",
       "navigationOptions": [
@@ -4873,7 +4896,8 @@
         "category-expenditure-pay-upgradation-revision-of-pay-scale",
         "category-expenditure-pay-upgradation-upgradation-of-posts"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pay-upgradation",
       "id": "category-expenditure-pay-upgradation",
       "name": "Pay Upgradation",
       "navigationOptions": [
@@ -5026,7 +5050,8 @@
         "category-expenditure-payment-payment-to-retired-employee-of-doe",
         "category-expenditure-payment-payment-to-vendors"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-payment",
       "id": "category-expenditure-payment",
       "name": "Payment",
       "navigationOptions": [
@@ -5321,7 +5346,8 @@
         "category-expenditure-pension-retirement-pension-to-super-senior-retired-employees",
         "category-expenditure-pension-retirement-retiral-benefits-of-central-government-defence-pensioners"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pension-retirement",
       "id": "category-expenditure-pension-retirement",
       "name": "Pension/ Retirement",
       "navigationOptions": [
@@ -5472,7 +5498,8 @@
         "category-expenditure-pension-retirement-cgegis-central-autonomous-bodies-cabs",
         "category-expenditure-pension-retirement-cgegis-central-government"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pension-retirement-cgegis",
       "id": "category-expenditure-pension-retirement-cgegis",
       "name": "CGEGIS",
       "navigationOptions": [
@@ -5632,7 +5659,8 @@
         "category-expenditure-pension-retirement-cghs-cs-ma-central-autonomous-bodies-cabs",
         "category-expenditure-pension-retirement-cghs-cs-ma-central-government"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pension-retirement-cghs-cs-ma",
       "id": "category-expenditure-pension-retirement-cghs-cs-ma",
       "name": "CGHS/CS-MA",
       "navigationOptions": [
@@ -5892,7 +5920,8 @@
         "category-expenditure-pension-retirement-fixed-medical-allowance-payment-related",
         "category-expenditure-pension-retirement-fixed-medical-allowance-policy-related"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pension-retirement-fixed-medical-allowance",
       "id": "category-expenditure-pension-retirement-fixed-medical-allowance",
       "name": "Fixed medical Allowance",
       "navigationOptions": [
@@ -6252,7 +6281,8 @@
         "category-expenditure-pension-retirement-national-pension-system-central-autonomous-bodies-cabs",
         "category-expenditure-pension-retirement-national-pension-system-other-sectors-corporate-all-citizen-model"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-pension-retirement-national-pension-system",
       "id": "category-expenditure-pension-retirement-national-pension-system",
       "name": "National Pension System",
       "navigationOptions": [
@@ -6615,7 +6645,8 @@
         "category-expenditure-policy-matters-of-expenses-office-telephone",
         "category-expenditure-policy-matters-of-expenses-purchase-of-vehicle"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-policy-matters-of-expenses",
       "id": "category-expenditure-policy-matters-of-expenses",
       "name": "Policy matters of Expenses",
       "navigationOptions": [
@@ -6854,7 +6885,8 @@
         "category-expenditure-procurement-staff-car-to-officers-of-doe",
         "category-expenditure-procurement-swachhta-action-plan-of-doe"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-procurement",
       "id": "category-expenditure-procurement",
       "name": "Procurement",
       "navigationOptions": [
@@ -7015,7 +7047,8 @@
         "category-expenditure-procurement-procurement-by-doe-gem-procurement",
         "category-expenditure-procurement-procurement-by-doe-non-gem-procurement"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-procurement-procurement-by-doe",
       "id": "category-expenditure-procurement-procurement-by-doe",
       "name": "Procurement by DoE",
       "navigationOptions": [
@@ -7226,7 +7259,8 @@
         "category-expenditure-salary-and-allowance-revision-judiciary",
         "category-expenditure-salary-and-allowance-revision-legislative"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-salary-and-allowance-revision",
       "id": "category-expenditure-salary-and-allowance-revision",
       "name": "Salary and allowance revision",
       "navigationOptions": [
@@ -7301,7 +7335,8 @@
         "category-expenditure-salary-and-allowance-revision-judiciary-serving-judges-of-high-court",
         "category-expenditure-salary-and-allowance-revision-judiciary-serving-judges-of-supreme-court"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-salary-and-allowance-revision-judiciary",
       "id": "category-expenditure-salary-and-allowance-revision-judiciary",
       "name": "Judiciary",
       "navigationOptions": [
@@ -7428,7 +7463,8 @@
         "category-expenditure-salary-and-allowance-revision-legislative-president",
         "category-expenditure-salary-and-allowance-revision-legislative-vice-president"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-expenditure-salary-and-allowance-revision-legislative",
       "id": "category-expenditure-salary-and-allowance-revision-legislative",
       "name": "Legislative",
       "navigationOptions": [
@@ -7838,8 +7874,38 @@
       "sourcePath": "expenditure/salary-and-allowance-revision/legislative/vice-president/form.json"
     }
   ],
-  "checksum": "671b0c6271ee6b5d4bc0ba93e2fa3ddcfbceaf866d21bb2b184e3a958dc06bfd",
+  "checksum": "ed97e66d76f7d2e27252a394e97ed27e041de11830da33ff12fc6dc2283b107b",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-administrative-matters",
+      "categoryPath": [
+        "Administrative matters"
+      ],
+      "checksum": "8a4ab77b47ee05deb53b63871de35666979e45a0e84096ff83cb779828e0e61c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-administrative-matters",
+      "sourcePath": "expenditure/administrative-matters/form.json",
+      "title": "Administrative matters",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-expenditure",
@@ -7967,6 +8033,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-allowance",
+      "categoryPath": [
+        "Allowance"
+      ],
+      "checksum": "fecd2cbec3eced8eb44182168964085b174b9ce43afc1215b5b86d26912e0887",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-allowance",
+      "sourcePath": "expenditure/allowance/form.json",
+      "title": "Allowance",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-allowance-additional-house-rent-allowance",
       "categoryPath": [
         "Allowance",
@@ -8055,6 +8151,37 @@
       "id": "form-expenditure-allowance-daily-allowance",
       "sourcePath": "expenditure/allowance/daily-allowance/form.json",
       "title": "Daily Allowance",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-allowance-dearness-allowance-da",
+      "categoryPath": [
+        "Allowance",
+        "Dearness allowance (DA)"
+      ],
+      "checksum": "b8f2e586b83d49853c4af85f7a03c8fb3880b986784e5a4676f504ea8f730e7c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-allowance-dearness-allowance-da",
+      "sourcePath": "expenditure/allowance/dearness-allowance-da/form.json",
+      "title": "Dearness allowance (DA)",
       "version": 1
     },
     {
@@ -8213,6 +8340,37 @@
       "id": "form-expenditure-allowance-island-special-duty-allowance",
       "sourcePath": "expenditure/allowance/island-special-duty-allowance/form.json",
       "title": "Island Special Duty Allowance",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-allowance-miscellaneous-allowances",
+      "categoryPath": [
+        "Allowance",
+        "Miscellaneous allowances"
+      ],
+      "checksum": "4a7d7cab0110b8f340cf0134902c9a04bcd1122e39473e4e3d7f1dc0954b1ffb",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-allowance-miscellaneous-allowances",
+      "sourcePath": "expenditure/allowance/miscellaneous-allowances/form.json",
+      "title": "Miscellaneous allowances",
       "version": 1
     },
     {
@@ -8504,6 +8662,37 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-allowance-tough-location-allowance",
+      "categoryPath": [
+        "Allowance",
+        "Tough Location Allowance"
+      ],
+      "checksum": "61865c1a77c47a1252481bd07636cb7e54b2ce47d383b6ad498f0f4702f06cdc",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-allowance-tough-location-allowance",
+      "sourcePath": "expenditure/allowance/tough-location-allowance/form.json",
+      "title": "Tough Location Allowance",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-allowance-tough-location-allowance-bad-climate-allowance",
       "categoryPath": [
         "Allowance",
@@ -8720,6 +8909,36 @@
       "id": "form-expenditure-allowance-travelling-allowance",
       "sourcePath": "expenditure/allowance/travelling-allowance/form.json",
       "title": "Travelling Allowance",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-cadre-review",
+      "categoryPath": [
+        "Cadre Review"
+      ],
+      "checksum": "5c7ec836c1445f27ce79cfd607e1fab100db5ae6689501e4037d0bc17b9fc163",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-cadre-review",
+      "sourcePath": "expenditure/cadre-review/form.json",
+      "title": "Cadre Review",
       "version": 1
     },
     {
@@ -8942,6 +9161,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-creation-of-posts",
+      "categoryPath": [
+        "Creation of posts"
+      ],
+      "checksum": "0dc0dd8062180e75eab8e77166b1d3972099b86586b7a38c5f5120aad0964942",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-creation-of-posts",
+      "sourcePath": "expenditure/creation-of-posts/form.json",
+      "title": "Creation of posts",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-creation-of-posts-continuation-of-posts",
       "categoryPath": [
         "Creation of posts",
@@ -9035,6 +9284,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-finance-commission",
+      "categoryPath": [
+        "Finance Commission"
+      ],
+      "checksum": "b7d2ef242457a52a9c30ce8010ebfd0d5f9ac4ea839e64e4bf814669836be060",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-finance-commission",
+      "sourcePath": "expenditure/finance-commission/form.json",
+      "title": "Finance Commission",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-finance-commission-ndrf",
       "categoryPath": [
         "Finance Commission",
@@ -9092,6 +9371,36 @@
       "id": "form-expenditure-finance-commission-release-of-grants",
       "sourcePath": "expenditure/finance-commission/release-of-grants/form.json",
       "title": "Release of grants",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-funds-to-schemes",
+      "categoryPath": [
+        "Funds to Schemes"
+      ],
+      "checksum": "5bdb73c88848d425d7732b4c1de1fb7eae335f609b529915ed82199b585e6732",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-funds-to-schemes",
+      "sourcePath": "expenditure/funds-to-schemes/form.json",
+      "title": "Funds to Schemes",
       "version": 1
     },
     {
@@ -9216,6 +9525,36 @@
       "id": "form-expenditure-funds-to-schemes-release-of-funds-to-state-governments",
       "sourcePath": "expenditure/funds-to-schemes/release-of-funds-to-state-governments/form.json",
       "title": "Release of funds to state Governments",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-government-rules",
+      "categoryPath": [
+        "Government Rules"
+      ],
+      "checksum": "0f851492ef5d693f7869985706c26700a21d746b6df3bd15349f6e0513aada11",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-government-rules",
+      "sourcePath": "expenditure/government-rules/form.json",
+      "title": "Government Rules",
       "version": 1
     },
     {
@@ -9371,6 +9710,67 @@
       "id": "form-expenditure-government-rules-staff-car-rules",
       "sourcePath": "expenditure/government-rules/staff-car-rules/form.json",
       "title": "Staff car rules",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-indian-civil-accounts-service",
+      "categoryPath": [
+        "Indian Civil Accounts Service"
+      ],
+      "checksum": "d5274066a2e6e3f42de6107cb39aa9002203eaa20276f378e572435b88ff0d5d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-indian-civil-accounts-service",
+      "sourcePath": "expenditure/indian-civil-accounts-service/form.json",
+      "title": "Indian Civil Accounts Service",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-indian-civil-accounts-service-office-of-cga",
+      "categoryPath": [
+        "Indian Civil Accounts Service",
+        "Office of CGA"
+      ],
+      "checksum": "a944486286831707225d23f8f662d76725d26cd940560501127648d346e2034e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-indian-civil-accounts-service-office-of-cga",
+      "sourcePath": "expenditure/indian-civil-accounts-service/office-of-cga/form.json",
+      "title": "Office of CGA",
       "version": 1
     },
     {
@@ -9568,6 +9968,37 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-indian-civil-accounts-service-pfms",
+      "categoryPath": [
+        "Indian Civil Accounts Service",
+        "PFMS"
+      ],
+      "checksum": "8ba6b9b35b9e345f8688e17ea6ee39710b5954588c079c0482ecc0ef9812e826",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-indian-civil-accounts-service-pfms",
+      "sourcePath": "expenditure/indian-civil-accounts-service/pfms/form.json",
+      "title": "PFMS",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-indian-civil-accounts-service-pfms-delay-in-payment",
       "categoryPath": [
         "Indian Civil Accounts Service",
@@ -9664,6 +10095,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-indian-cost-account-service",
+      "categoryPath": [
+        "Indian Cost Account Service"
+      ],
+      "checksum": "651bdf7209fe2928767152b89fa3004d820e63b28d908a9eea626d8b24718377",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-indian-cost-account-service",
+      "sourcePath": "expenditure/indian-cost-account-service/form.json",
+      "title": "Indian Cost Account Service",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-indian-cost-account-service-appointment-or-exam",
       "categoryPath": [
         "Indian Cost Account Service",
@@ -9751,6 +10212,67 @@
       "id": "form-expenditure-other-miscellaneous",
       "sourcePath": "expenditure/other-miscellaneous/form.json",
       "title": "Other Miscellaneous",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters",
+      "categoryPath": [
+        "Pay related Matters"
+      ],
+      "checksum": "89a35e24473fd68bd5515365d423414934f3354a500bd5926a605bf08cbddd80",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters",
+      "sourcePath": "expenditure/pay-related-matters/form.json",
+      "title": "Pay related Matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-ad-hoc-or-plb-bonus",
+      "categoryPath": [
+        "Pay related Matters",
+        "Ad-hoc or PLB Bonus"
+      ],
+      "checksum": "dc1ce6286ad5df509a23560ba37a2e9f7615536519ddde993c734fd1e2a470d0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-ad-hoc-or-plb-bonus",
+      "sourcePath": "expenditure/pay-related-matters/ad-hoc-or-plb-bonus/form.json",
+      "title": "Ad-hoc or PLB Bonus",
       "version": 1
     },
     {
@@ -9884,6 +10406,37 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-non-practicing-allowance",
+      "categoryPath": [
+        "Pay related Matters",
+        "Non Practicing Allowance"
+      ],
+      "checksum": "1062865b30c574547e06d83243abdc9c2c1eb36b3c8323f71f6d9b726bbd46b6",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-non-practicing-allowance",
+      "sourcePath": "expenditure/pay-related-matters/non-practicing-allowance/form.json",
+      "title": "Non Practicing Allowance",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-pay-related-matters-non-practicing-allowance-applicability-of-npa",
       "categoryPath": [
         "Pay related Matters",
@@ -9980,6 +10533,37 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-other-allowances",
+      "categoryPath": [
+        "Pay related Matters",
+        "Other Allowances"
+      ],
+      "checksum": "4b9d38bd68b288a51ab3dff311bcb2f9d018616c7594124522e5a0f84e89f7f4",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-other-allowances",
+      "sourcePath": "expenditure/pay-related-matters/other-allowances/form.json",
+      "title": "Other Allowances",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-pay-related-matters-other-allowances-professional-update-allowance",
       "categoryPath": [
         "Pay related Matters",
@@ -10071,6 +10655,37 @@
       "id": "form-expenditure-pay-related-matters-other-allowances-training-allowance",
       "sourcePath": "expenditure/pay-related-matters/other-allowances/training-allowance/form.json",
       "title": "Training allowance",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-pay-commission",
+      "categoryPath": [
+        "Pay related Matters",
+        "Pay Commission"
+      ],
+      "checksum": "85b169df1634b6468c6efae009552fc8a1dd5be00e5f04a043a85714179346aa",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-pay-commission",
+      "sourcePath": "expenditure/pay-related-matters/pay-commission/form.json",
+      "title": "Pay Commission",
       "version": 1
     },
     {
@@ -10199,6 +10814,69 @@
       "id": "form-expenditure-pay-related-matters-pay-commission-setting-up-of-pay-commissions",
       "sourcePath": "expenditure/pay-related-matters/pay-commission/setting-up-of-pay-commissions/form.json",
       "title": "Setting up of pay commissions",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-pay-fixation",
+      "categoryPath": [
+        "Pay related Matters",
+        "Pay fixation"
+      ],
+      "checksum": "ac5bf0620b698ced9af527e079b2fd9fe67541f9eb1dede014b1f3481729cc20",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-pay-fixation",
+      "sourcePath": "expenditure/pay-related-matters/pay-fixation/form.json",
+      "title": "Pay fixation",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-pay-fixation-ccs-rp-rules",
+      "categoryPath": [
+        "Pay related Matters",
+        "Pay fixation",
+        "CCS(RP) Rules"
+      ],
+      "checksum": "efc59d343cb6ce1dd372c1b4ea390ae0d818366847d3510253d6b7172094181c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-pay-fixation-ccs-rp-rules",
+      "sourcePath": "expenditure/pay-related-matters/pay-fixation/ccs-rp-rules/form.json",
+      "title": "CCS(RP) Rules",
       "version": 1
     },
     {
@@ -10366,6 +11044,37 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-research-fellowships",
+      "categoryPath": [
+        "Pay related Matters",
+        "Research fellowships"
+      ],
+      "checksum": "987249496128edb422de181ec12f95c7d0956247cf8a451a0e5db22c02716091",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-research-fellowships",
+      "sourcePath": "expenditure/pay-related-matters/research-fellowships/form.json",
+      "title": "Research fellowships",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-pay-related-matters-research-fellowships-extension-to-new-categories",
       "categoryPath": [
         "Pay related Matters",
@@ -10461,6 +11170,37 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-related-matters-stipend",
+      "categoryPath": [
+        "Pay related Matters",
+        "Stipend"
+      ],
+      "checksum": "ba7126cd3b81a1df8e21c956c489b23c224ca35ae4f4711f4703a2b221124491",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-related-matters-stipend",
+      "sourcePath": "expenditure/pay-related-matters/stipend/form.json",
+      "title": "Stipend",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-pay-related-matters-stipend-extension-to-new-categories",
       "categoryPath": [
         "Pay related Matters",
@@ -10520,6 +11260,36 @@
       "id": "form-expenditure-pay-related-matters-stipend-revision-of-rates",
       "sourcePath": "expenditure/pay-related-matters/stipend/revision-of-rates/form.json",
       "title": "Revision of rates",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pay-upgradation",
+      "categoryPath": [
+        "Pay Upgradation"
+      ],
+      "checksum": "70085438daacd4ba9b8df83ad9ed4b1a2bb0ec1edca3280198232f5488cafb6a",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pay-upgradation",
+      "sourcePath": "expenditure/pay-upgradation/form.json",
+      "title": "Pay Upgradation",
       "version": 1
     },
     {
@@ -10620,6 +11390,36 @@
       "id": "form-expenditure-pay-upgradation-upgradation-of-posts",
       "sourcePath": "expenditure/pay-upgradation/upgradation-of-posts/form.json",
       "title": "Upgradation of posts",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-payment",
+      "categoryPath": [
+        "Payment"
+      ],
+      "checksum": "b22b70bf68e73f7913aa98bd7ff93bed64045204d6691b03ff4e0b699388783f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-payment",
+      "sourcePath": "expenditure/payment/form.json",
+      "title": "Payment",
       "version": 1
     },
     {
@@ -10811,6 +11611,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pension-retirement",
+      "categoryPath": [
+        "Pension/ Retirement"
+      ],
+      "checksum": "c96c069f92ae17b2d5ab0a1cc33a34824377767902ae6aef2c466f525e2ac1fe",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pension-retirement",
+      "sourcePath": "expenditure/pension-retirement/form.json",
+      "title": "Pension/ Retirement",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-pension-retirement-age-of-retirement",
       "categoryPath": [
         "Pension/ Retirement",
@@ -10868,6 +11698,37 @@
       "id": "form-expenditure-pension-retirement-ccs-pension-rules",
       "sourcePath": "expenditure/pension-retirement/ccs-pension-rules/form.json",
       "title": "CCS(Pension) Rules",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pension-retirement-cgegis",
+      "categoryPath": [
+        "Pension/ Retirement",
+        "CGEGIS"
+      ],
+      "checksum": "7991eaf03bb946a0cf3d94cef6db6ca021d3428c4e3d35c2c38f4a2dc2c01d7f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pension-retirement-cgegis",
+      "sourcePath": "expenditure/pension-retirement/cgegis/form.json",
+      "title": "CGEGIS",
       "version": 1
     },
     {
@@ -10932,6 +11793,37 @@
       "id": "form-expenditure-pension-retirement-cgegis-central-government",
       "sourcePath": "expenditure/pension-retirement/cgegis/central-government/form.json",
       "title": "Central Government",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pension-retirement-cghs-cs-ma",
+      "categoryPath": [
+        "Pension/ Retirement",
+        "CGHS/CS-MA"
+      ],
+      "checksum": "249b11cae3528b04a99ac65b8aeb55b4833cd6e60afeb491ec45c553ab99d845",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pension-retirement-cghs-cs-ma",
+      "sourcePath": "expenditure/pension-retirement/cghs-cs-ma/form.json",
+      "title": "CGHS/CS-MA",
       "version": 1
     },
     {
@@ -11079,6 +11971,37 @@
       "id": "form-expenditure-pension-retirement-family-pension",
       "sourcePath": "expenditure/pension-retirement/family-pension/form.json",
       "title": "Family pension",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pension-retirement-fixed-medical-allowance",
+      "categoryPath": [
+        "Pension/ Retirement",
+        "Fixed medical Allowance"
+      ],
+      "checksum": "8838b1f28e655a637a4c0b84ce5fa3005034cf95739b3cc9b1da1b4d56a2169c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pension-retirement-fixed-medical-allowance",
+      "sourcePath": "expenditure/pension-retirement/fixed-medical-allowance/form.json",
+      "title": "Fixed medical Allowance",
       "version": 1
     },
     {
@@ -11281,6 +12204,37 @@
       "id": "form-expenditure-pension-retirement-issuance-of-ppo",
       "sourcePath": "expenditure/pension-retirement/issuance-of-ppo/form.json",
       "title": "Issuance of PPO",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-pension-retirement-national-pension-system",
+      "categoryPath": [
+        "Pension/ Retirement",
+        "National Pension System"
+      ],
+      "checksum": "4e439751fb540acaa1f36bd06968e59c7788755a98f5325d1f6833b22c700644",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-pension-retirement-national-pension-system",
+      "sourcePath": "expenditure/pension-retirement/national-pension-system/form.json",
+      "title": "National Pension System",
       "version": 1
     },
     {
@@ -11502,6 +12456,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-policy-matters-of-expenses",
+      "categoryPath": [
+        "Policy matters of Expenses"
+      ],
+      "checksum": "9db275f4533b910afe5d6a8501fa5ea6bdd8458eee0ba216f61a8aaf0e75823d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-policy-matters-of-expenses",
+      "sourcePath": "expenditure/policy-matters-of-expenses/form.json",
+      "title": "Policy matters of Expenses",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-policy-matters-of-expenses-expenditure-control",
       "categoryPath": [
         "Policy matters of Expenses",
@@ -11657,6 +12641,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-procurement",
+      "categoryPath": [
+        "Procurement"
+      ],
+      "checksum": "1468fe7af2105d38f9b5d2c26ee19581a6bd93739114d5a6f4a3c59c4fc9274d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-procurement",
+      "sourcePath": "expenditure/procurement/form.json",
+      "title": "Procurement",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-procurement-gem-matters",
       "categoryPath": [
         "Procurement",
@@ -11745,6 +12759,37 @@
       "id": "form-expenditure-procurement-policy-matters",
       "sourcePath": "expenditure/procurement/policy-matters/form.json",
       "title": "Policy matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-procurement-procurement-by-doe",
+      "categoryPath": [
+        "Procurement",
+        "Procurement by DoE"
+      ],
+      "checksum": "fccf99c92f86dbb302dec6be601d63fd1658bd5bab512a5e7d1c379aaefbbab2",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-procurement-procurement-by-doe",
+      "sourcePath": "expenditure/procurement/procurement-by-doe/form.json",
+      "title": "Procurement by DoE",
       "version": 1
     },
     {
@@ -11876,6 +12921,36 @@
     {
       "active": true,
       "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-salary-and-allowance-revision",
+      "categoryPath": [
+        "Salary and allowance revision"
+      ],
+      "checksum": "dabe15b3a410ae312fd1cc06a374e4886e694edc55b8595577e4fbabb707dfad",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-salary-and-allowance-revision",
+      "sourcePath": "expenditure/salary-and-allowance-revision/form.json",
+      "title": "Salary and allowance revision",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
       "categoryId": "category-expenditure-salary-and-allowance-revision-honorarium-to-members-in-boards-commissions-panels-etc",
       "categoryPath": [
         "Salary and allowance revision",
@@ -11902,6 +12977,37 @@
       "id": "form-expenditure-salary-and-allowance-revision-honorarium-to-members-in-boards-commissions-panels-etc",
       "sourcePath": "expenditure/salary-and-allowance-revision/honorarium-to-members-in-boards-commissions-panels-etc/form.json",
       "title": "Honorarium to members in boards/commissions/panels etc.",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-salary-and-allowance-revision-judiciary",
+      "categoryPath": [
+        "Salary and allowance revision",
+        "Judiciary"
+      ],
+      "checksum": "e53e970e42f3c3227f6c8a40cb3208343797dfc76c21bc0242206cbde808054f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-salary-and-allowance-revision-judiciary",
+      "sourcePath": "expenditure/salary-and-allowance-revision/judiciary/form.json",
+      "title": "Judiciary",
       "version": 1
     },
     {
@@ -11966,6 +13072,37 @@
       "id": "form-expenditure-salary-and-allowance-revision-judiciary-serving-judges-of-supreme-court",
       "sourcePath": "expenditure/salary-and-allowance-revision/judiciary/serving-judges-of-supreme-court/form.json",
       "title": "Serving judges of Supreme Court",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-expenditure",
+      "categoryId": "category-expenditure-salary-and-allowance-revision-legislative",
+      "categoryPath": [
+        "Salary and allowance revision",
+        "Legislative"
+      ],
+      "checksum": "4390c0110daad569ad8e7e82eb425c2128d22badde80e34eca6943b2d40c20f5",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-expenditure-salary-and-allowance-revision-legislative",
+      "sourcePath": "expenditure/salary-and-allowance-revision/legislative/form.json",
+      "title": "Legislative",
       "version": 1
     },
     {

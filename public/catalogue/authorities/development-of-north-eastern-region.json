@@ -12,7 +12,8 @@
         "category-development-of-north-eastern-region-allegation-of-corruption-employee-related",
         "category-development-of-north-eastern-region-allegation-of-corruption-scheme-related"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-development-of-north-eastern-region-allegation-of-corruption",
       "id": "category-development-of-north-eastern-region-allegation-of-corruption",
       "name": "Allegation of Corruption",
       "navigationOptions": [
@@ -109,7 +110,8 @@
         "category-development-of-north-eastern-region-cpses-related-nehhdc",
         "category-development-of-north-eastern-region-cpses-related-neramac"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-development-of-north-eastern-region-cpses-related",
       "id": "category-development-of-north-eastern-region-cpses-related",
       "name": "CPSEs related",
       "navigationOptions": [
@@ -186,7 +188,8 @@
         "category-development-of-north-eastern-region-employee-related-service-related",
         "category-development-of-north-eastern-region-employee-related-vigilance-related"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-development-of-north-eastern-region-employee-related",
       "id": "category-development-of-north-eastern-region-employee-related",
       "name": "Employee related",
       "navigationOptions": [
@@ -292,7 +295,8 @@
         "category-development-of-north-eastern-region-implementation-of-schemes-other-schemes",
         "category-development-of-north-eastern-region-implementation-of-schemes-schemes-of-nec"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-development-of-north-eastern-region-implementation-of-schemes",
       "id": "category-development-of-north-eastern-region-implementation-of-schemes",
       "name": "Implementation of Schemes",
       "navigationOptions": [
@@ -398,7 +402,8 @@
         "category-development-of-north-eastern-region-recruitment-related-ministry-of-doner",
         "category-development-of-north-eastern-region-recruitment-related-nec"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-development-of-north-eastern-region-recruitment-related",
       "id": "category-development-of-north-eastern-region-recruitment-related",
       "name": "Recruitment related",
       "navigationOptions": [
@@ -504,7 +509,8 @@
         "category-development-of-north-eastern-region-suggestion-other-stakeholders",
         "category-development-of-north-eastern-region-suggestion-scheme-related"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-development-of-north-eastern-region-suggestion",
       "id": "category-development-of-north-eastern-region-suggestion",
       "name": "Suggestion",
       "navigationOptions": [
@@ -600,8 +606,38 @@
       "sourcePath": "development-of-north-eastern-region/suggestion/scheme-related/form.json"
     }
   ],
-  "checksum": "7d27e2c4dc08d5723381a42bb2d9654bee49bbd7f5495d39f3086e1fa4b73982",
+  "checksum": "48b8411dda88965cfa2f5703c7956a078076a6b925e57d0cf217f23f9d2da33e",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-development-of-north-eastern-region",
+      "categoryId": "category-development-of-north-eastern-region-allegation-of-corruption",
+      "categoryPath": [
+        "Allegation of Corruption"
+      ],
+      "checksum": "5999abc451823ea48cdf59700d692bd884837572e0213b1b6999ffe6effeee23",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-development-of-north-eastern-region-allegation-of-corruption",
+      "sourcePath": "development-of-north-eastern-region/allegation-of-corruption/form.json",
+      "title": "Allegation of Corruption",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-development-of-north-eastern-region",
@@ -761,6 +797,36 @@
     {
       "active": true,
       "authorityId": "authority-development-of-north-eastern-region",
+      "categoryId": "category-development-of-north-eastern-region-cpses-related",
+      "categoryPath": [
+        "CPSEs related"
+      ],
+      "checksum": "444c7dabc262ab4f2595d4012d63a3c2ffa28f5e4892d21f3e4ae3d266a0c689",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-development-of-north-eastern-region-cpses-related",
+      "sourcePath": "development-of-north-eastern-region/cpses-related/form.json",
+      "title": "CPSEs related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-development-of-north-eastern-region",
       "categoryId": "category-development-of-north-eastern-region-cpses-related-nehhdc",
       "categoryPath": [
         "CPSEs related",
@@ -860,6 +926,36 @@
       "id": "form-development-of-north-eastern-region-cpses-related-neramac",
       "sourcePath": "development-of-north-eastern-region/cpses-related/neramac/form.json",
       "title": "NERAMAC",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-development-of-north-eastern-region",
+      "categoryId": "category-development-of-north-eastern-region-employee-related",
+      "categoryPath": [
+        "Employee related"
+      ],
+      "checksum": "94c3e457ad3be4c1167be01fed65fbd9531c3a845df4d17395e0cce920d92a32",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-development-of-north-eastern-region-employee-related",
+      "sourcePath": "development-of-north-eastern-region/employee-related/form.json",
+      "title": "Employee related",
       "version": 1
     },
     {
@@ -1021,6 +1117,36 @@
     {
       "active": true,
       "authorityId": "authority-development-of-north-eastern-region",
+      "categoryId": "category-development-of-north-eastern-region-implementation-of-schemes",
+      "categoryPath": [
+        "Implementation of Schemes"
+      ],
+      "checksum": "9f9ea56e3e4f5f0f75ea9fef9d7f26e9ae9a9457ba5ee1ca25a66d6135611594",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-development-of-north-eastern-region-implementation-of-schemes",
+      "sourcePath": "development-of-north-eastern-region/implementation-of-schemes/form.json",
+      "title": "Implementation of Schemes",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-development-of-north-eastern-region",
       "categoryId": "category-development-of-north-eastern-region-implementation-of-schemes-nesids",
       "categoryPath": [
         "Implementation of Schemes",
@@ -1177,6 +1303,36 @@
     {
       "active": true,
       "authorityId": "authority-development-of-north-eastern-region",
+      "categoryId": "category-development-of-north-eastern-region-recruitment-related",
+      "categoryPath": [
+        "Recruitment related"
+      ],
+      "checksum": "abac4d07c02aaabe2b281f75ddabcddb7b76f45b823929faa5d96e287ad81c49",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-development-of-north-eastern-region-recruitment-related",
+      "sourcePath": "development-of-north-eastern-region/recruitment-related/form.json",
+      "title": "Recruitment related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-development-of-north-eastern-region",
       "categoryId": "category-development-of-north-eastern-region-recruitment-related-cpses",
       "categoryPath": [
         "Recruitment related",
@@ -1328,6 +1484,36 @@
       "id": "form-development-of-north-eastern-region-recruitment-related-nec",
       "sourcePath": "development-of-north-eastern-region/recruitment-related/nec/form.json",
       "title": "NEC",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-development-of-north-eastern-region",
+      "categoryId": "category-development-of-north-eastern-region-suggestion",
+      "categoryPath": [
+        "Suggestion"
+      ],
+      "checksum": "497909963ad1ca91e13d6a36dd51210b85b1a15ed4066c045e327f2dcc54a310",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-development-of-north-eastern-region-suggestion",
+      "sourcePath": "development-of-north-eastern-region/suggestion/form.json",
+      "title": "Suggestion",
       "version": 1
     },
     {

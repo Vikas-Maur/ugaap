@@ -19,7 +19,8 @@
         "category-consumer-affairs-bureau-of-indian-standard-organisation-related-division-related-recruitment",
         "category-consumer-affairs-bureau-of-indian-standard-organisation-related-division-related-regulations-under-bis-act"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-bureau-of-indian-standard-organisation-related-division-related",
       "id": "category-consumer-affairs-bureau-of-indian-standard-organisation-related-division-related",
       "name": "Bureau of Indian Standard Organisation Related/ Division Related",
       "navigationOptions": [
@@ -485,7 +486,8 @@
         "category-consumer-affairs-consumer-protection-unit-related-nch-related-complaints",
         "category-consumer-affairs-consumer-protection-unit-related-policy-matters"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-consumer-protection-unit-related",
       "id": "category-consumer-affairs-consumer-protection-unit-related",
       "name": "Consumer Protection Unit Related",
       "navigationOptions": [
@@ -709,7 +711,8 @@
         "category-consumer-affairs-consumer-welfare-fund-related-consumer-welfare-fund-related",
         "category-consumer-affairs-consumer-welfare-fund-related-miscellaneous"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-consumer-welfare-fund-related",
       "id": "category-consumer-affairs-consumer-welfare-fund-related",
       "name": "Consumer welfare Fund Related",
       "navigationOptions": [
@@ -851,7 +854,8 @@
         "category-consumer-affairs-emblems-and-names-related-implementation-of-e-n-piu-act",
         "category-consumer-affairs-emblems-and-names-related-miscellaneous"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-emblems-and-names-related",
       "id": "category-consumer-affairs-emblems-and-names-related",
       "name": "Emblems and Names Related",
       "navigationOptions": [
@@ -1003,7 +1007,8 @@
         "category-consumer-affairs-employee-services-related-transfer-posting-deputation",
         "category-consumer-affairs-employee-services-related-vigilance-matters"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-employee-services-related",
       "id": "category-consumer-affairs-employee-services-related",
       "name": "Employee Services Related",
       "navigationOptions": [
@@ -1637,7 +1642,8 @@
         "category-consumer-affairs-essential-commodity-regulation-and-enforcement-ecre-division-related-orders-under-pbmmsec-act",
         "category-consumer-affairs-essential-commodity-regulation-and-enforcement-ecre-division-related-prevention-of-blackmarketing-and-maintenance-of-supplies-of-essential-commodities-pbmmsec-act-related"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-essential-commodity-regulation-and-enforcement-ecre-division-related",
       "id": "category-consumer-affairs-essential-commodity-regulation-and-enforcement-ecre-division-related",
       "name": "(Essential Commodity Regulation and Enforcement) ECRE Division Related",
       "navigationOptions": [
@@ -1862,7 +1868,8 @@
         "category-consumer-affairs-legal-metrology-division-related-violation-of-legal-meterology-packaged-commoditities-rules-2011",
         "category-consumer-affairs-legal-metrology-division-related-violation-of-other-rules-of-legal-meterology"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-legal-metrology-division-related",
       "id": "category-consumer-affairs-legal-metrology-division-related",
       "name": "Legal Metrology Division Related",
       "navigationOptions": [
@@ -2044,7 +2051,8 @@
         "category-consumer-affairs-misbehaviour-corruption-harassment-misbehaviour",
         "category-consumer-affairs-misbehaviour-corruption-harassment-sexual-harassment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-misbehaviour-corruption-harassment",
       "id": "category-consumer-affairs-misbehaviour-corruption-harassment",
       "name": "Misbehaviour/ Corruption/ Harassment",
       "navigationOptions": [
@@ -2221,7 +2229,8 @@
         "category-consumer-affairs-national-test-house-division-related-policy-matters",
         "category-consumer-affairs-national-test-house-division-related-testing-facilities"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-national-test-house-division-related",
       "id": "category-consumer-affairs-national-test-house-division-related",
       "name": "National Test House Division Related",
       "navigationOptions": [
@@ -2536,7 +2545,8 @@
         "category-consumer-affairs-parliament-coordination-division-related-o-m-related-matters",
         "category-consumer-affairs-parliament-coordination-division-related-parliament-related-matters"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-parliament-coordination-division-related",
       "id": "category-consumer-affairs-parliament-coordination-division-related",
       "name": "Parliament & Coordination Division Related",
       "navigationOptions": [
@@ -2749,7 +2759,8 @@
         "category-consumer-affairs-price-monitoring-cell-related-price-monitoring-of-essential-food-items",
         "category-consumer-affairs-price-monitoring-cell-related-price-stabilization-fund"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-price-monitoring-cell-related",
       "id": "category-consumer-affairs-price-monitoring-cell-related",
       "name": "Price Monitoring Cell Related",
       "navigationOptions": [
@@ -2893,7 +2904,8 @@
         "category-consumer-affairs-publicity-division-related-publicity-material",
         "category-consumer-affairs-publicity-division-related-purchase-of-services"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-publicity-division-related",
       "id": "category-consumer-affairs-publicity-division-related",
       "name": "Publicity Division Related",
       "navigationOptions": [
@@ -3120,7 +3132,8 @@
         "category-consumer-affairs-the-central-consumer-protection-authority-unfair-trade-practices",
         "category-consumer-affairs-the-central-consumer-protection-authority-working-of-ccpa"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-consumer-affairs-the-central-consumer-protection-authority",
       "id": "category-consumer-affairs-the-central-consumer-protection-authority",
       "name": "The Central Consumer Protection Authority",
       "navigationOptions": [
@@ -3382,8 +3395,38 @@
       "sourcePath": "consumer-affairs/the-central-consumer-protection-authority/working-of-ccpa/form.json"
     }
   ],
-  "checksum": "293fca0e0a5d9a78008ed0d6b19eb359ac0ad835a819acdbedd58db19f5251e8",
+  "checksum": "ed0882fe20e88b2b7a50ba90c0fe49f91191c290a5a4c78fc1d433ba3486b813",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-bureau-of-indian-standard-organisation-related-division-related",
+      "categoryPath": [
+        "Bureau of Indian Standard Organisation Related/ Division Related"
+      ],
+      "checksum": "dde3b756c445e318a7032963c02c11c03ea732dfb5ddfc2b7fd36199784974b1",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-bureau-of-indian-standard-organisation-related-division-related",
+      "sourcePath": "consumer-affairs/bureau-of-indian-standard-organisation-related-division-related/form.json",
+      "title": "Bureau of Indian Standard Organisation Related/ Division Related",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
@@ -3697,6 +3740,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-consumer-protection-unit-related",
+      "categoryPath": [
+        "Consumer Protection Unit Related"
+      ],
+      "checksum": "5c0e65d376eda85379ba100ac86a0bce86472c478e062a8210e3131c224ff2bb",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-consumer-protection-unit-related",
+      "sourcePath": "consumer-affairs/consumer-protection-unit-related/form.json",
+      "title": "Consumer Protection Unit Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-consumer-protection-unit-related-complaint-against-ncdrc",
       "categoryPath": [
         "Consumer Protection Unit Related",
@@ -3852,6 +3925,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-consumer-welfare-fund-related",
+      "categoryPath": [
+        "Consumer welfare Fund Related"
+      ],
+      "checksum": "3ada1563b0f3e8360478e6504bf88611f4ba033539837c5bbb2de62a76a6c570",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-consumer-welfare-fund-related",
+      "sourcePath": "consumer-affairs/consumer-welfare-fund-related/form.json",
+      "title": "Consumer welfare Fund Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-consumer-welfare-fund-related-administration-of-cwf",
       "categoryPath": [
         "Consumer welfare Fund Related",
@@ -3945,6 +4048,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-emblems-and-names-related",
+      "categoryPath": [
+        "Emblems and Names Related"
+      ],
+      "checksum": "ada5c333f7cdadf08edbc10f7260d122796e153a2c4ae0e0cfbc8439dcf956ac",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-emblems-and-names-related",
+      "sourcePath": "consumer-affairs/emblems-and-names-related/form.json",
+      "title": "Emblems and Names Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-emblems-and-names-related-emblems-and-names-piu-act",
       "categoryPath": [
         "Emblems and Names Related",
@@ -4033,6 +4166,36 @@
       "id": "form-consumer-affairs-emblems-and-names-related-miscellaneous",
       "sourcePath": "consumer-affairs/emblems-and-names-related/miscellaneous/form.json",
       "title": "Miscellaneous",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-employee-services-related",
+      "categoryPath": [
+        "Employee Services Related"
+      ],
+      "checksum": "30d30b7117dd3f35408b3e745b38826635208ecff27cbeafd6a7b0e19963d7a8",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-employee-services-related",
+      "sourcePath": "consumer-affairs/employee-services-related/form.json",
+      "title": "Employee Services Related",
       "version": 1
     },
     {
@@ -4441,6 +4604,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-essential-commodity-regulation-and-enforcement-ecre-division-related",
+      "categoryPath": [
+        "(Essential Commodity Regulation and Enforcement) ECRE Division Related"
+      ],
+      "checksum": "13df2d1491f5f1d5fdfcac85854df6f5eb367c5c9066e34164999f6180f9d691",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-essential-commodity-regulation-and-enforcement-ecre-division-related",
+      "sourcePath": "consumer-affairs/essential-commodity-regulation-and-enforcement-ecre-division-related/form.json",
+      "title": "(Essential Commodity Regulation and Enforcement) ECRE Division Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-essential-commodity-regulation-and-enforcement-ecre-division-related-essential-commodities-ec-act-related",
       "categoryPath": [
         "(Essential Commodity Regulation and Enforcement) ECRE Division Related",
@@ -4596,6 +4789,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-legal-metrology-division-related",
+      "categoryPath": [
+        "Legal Metrology Division Related"
+      ],
+      "checksum": "a8441890e3c88fa9e3f741b226ce6dcc5a5429c92ec267ba4ca85017e3a10281",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-legal-metrology-division-related",
+      "sourcePath": "consumer-affairs/legal-metrology-division-related/form.json",
+      "title": "Legal Metrology Division Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-legal-metrology-division-related-miscellaneous",
       "categoryPath": [
         "Legal Metrology Division Related",
@@ -4720,6 +4943,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-misbehaviour-corruption-harassment",
+      "categoryPath": [
+        "Misbehaviour/ Corruption/ Harassment"
+      ],
+      "checksum": "e2c462d90e6cd752e7fddabc899a8683ddfaaccdddc9dbf4f378b027253648ce",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-misbehaviour-corruption-harassment",
+      "sourcePath": "consumer-affairs/misbehaviour-corruption-harassment/form.json",
+      "title": "Misbehaviour/ Corruption/ Harassment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-misbehaviour-corruption-harassment-corruption",
       "categoryPath": [
         "Misbehaviour/ Corruption/ Harassment",
@@ -4838,6 +5091,36 @@
       "id": "form-consumer-affairs-national-consumer-helpline",
       "sourcePath": "consumer-affairs/national-consumer-helpline/form.json",
       "title": "National Consumer Helpline",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-national-test-house-division-related",
+      "categoryPath": [
+        "National Test House Division Related"
+      ],
+      "checksum": "dbb34679976ccd273cd241d2a0325fdd00bfce11b08e8c1e61a59c5ff2cc31e8",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-national-test-house-division-related",
+      "sourcePath": "consumer-affairs/national-test-house-division-related/form.json",
+      "title": "National Test House Division Related",
       "version": 1
     },
     {
@@ -5060,6 +5343,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-parliament-coordination-division-related",
+      "categoryPath": [
+        "Parliament & Coordination Division Related"
+      ],
+      "checksum": "79dca6d6b715a7fe92570137e0ab8f73de77ae12c27edb2651f6d586244c4c62",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-parliament-coordination-division-related",
+      "sourcePath": "consumer-affairs/parliament-coordination-division-related/form.json",
+      "title": "Parliament & Coordination Division Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-parliament-coordination-division-related-annual-reports",
       "categoryPath": [
         "Parliament & Coordination Division Related",
@@ -5214,6 +5527,36 @@
     {
       "active": true,
       "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-price-monitoring-cell-related",
+      "categoryPath": [
+        "Price Monitoring Cell Related"
+      ],
+      "checksum": "aaf19aca8fb7116b7ad83ad0dabe6d2f0402cccf4f6881862431ffaaacf5f0c9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-price-monitoring-cell-related",
+      "sourcePath": "consumer-affairs/price-monitoring-cell-related/form.json",
+      "title": "Price Monitoring Cell Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
       "categoryId": "category-consumer-affairs-price-monitoring-cell-related-miscellaneous",
       "categoryPath": [
         "Price Monitoring Cell Related",
@@ -5302,6 +5645,36 @@
       "id": "form-consumer-affairs-price-monitoring-cell-related-price-stabilization-fund",
       "sourcePath": "consumer-affairs/price-monitoring-cell-related/price-stabilization-fund/form.json",
       "title": "Price Stabilization Fund",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-publicity-division-related",
+      "categoryPath": [
+        "Publicity Division Related"
+      ],
+      "checksum": "bc131f1c41483ac9bebe36b8f519e8758a7178bd70f693a3a01f4ce52113b30f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-publicity-division-related",
+      "sourcePath": "consumer-affairs/publicity-division-related/form.json",
+      "title": "Publicity Division Related",
       "version": 1
     },
     {
@@ -5457,6 +5830,36 @@
       "id": "form-consumer-affairs-publicity-division-related-purchase-of-services",
       "sourcePath": "consumer-affairs/publicity-division-related/purchase-of-services/form.json",
       "title": "Purchase of Services",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-consumer-affairs",
+      "categoryId": "category-consumer-affairs-the-central-consumer-protection-authority",
+      "categoryPath": [
+        "The Central Consumer Protection Authority"
+      ],
+      "checksum": "ae9cdfd86bc31effccfa9f97d1441302f1bc30f81d6de01b7d70b63a0acf49d0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-consumer-affairs-the-central-consumer-protection-authority",
+      "sourcePath": "consumer-affairs/the-central-consumer-protection-authority/form.json",
+      "title": "The Central Consumer Protection Authority",
       "version": 1
     },
     {

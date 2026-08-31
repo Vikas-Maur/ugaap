@@ -12,7 +12,8 @@
         "category-earth-sciences-atmospheric-climate-science-and-services-across-air-quality-early-warning",
         "category-earth-sciences-atmospheric-climate-science-and-services-across-weather-forecast"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-earth-sciences-atmospheric-climate-science-and-services-across",
       "id": "category-earth-sciences-atmospheric-climate-science-and-services-across",
       "name": "Atmospheric, Climate Science and Services (ACROSS)",
       "navigationOptions": [
@@ -229,7 +230,8 @@
         "category-earth-sciences-employee-related-moes-recruitment",
         "category-earth-sciences-employee-related-moes-retirement-benefits-related"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-earth-sciences-employee-related-moes",
       "id": "category-earth-sciences-employee-related-moes",
       "name": "Employee related (MoES)",
       "navigationOptions": [
@@ -685,7 +687,8 @@
         "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-services",
         "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-technology"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
       "id": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
       "name": "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
       "navigationOptions": [
@@ -900,7 +903,8 @@
         "category-earth-sciences-research-education-training-and-outreach-reachout-extra-mural-funding",
         "category-earth-sciences-research-education-training-and-outreach-reachout-outreach-awareness"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-earth-sciences-research-education-training-and-outreach-reachout",
       "id": "category-earth-sciences-research-education-training-and-outreach-reachout",
       "name": "Research, Education, Training and Outreach (REACHOUT)",
       "navigationOptions": [
@@ -1009,7 +1013,8 @@
         "category-earth-sciences-sage-seismology-and-geosciences-earthquake-monitoring",
         "category-earth-sciences-sage-seismology-and-geosciences-seismic-hazard-assessment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-earth-sciences-sage-seismology-and-geosciences",
       "id": "category-earth-sciences-sage-seismology-and-geosciences",
       "name": "SAGE (Seismology and Geosciences)",
       "navigationOptions": [
@@ -1113,8 +1118,38 @@
       "sourcePath": "earth-sciences/sage-seismology-and-geosciences/seismic-hazard-assessment/form.json"
     }
   ],
-  "checksum": "845059c034b9bea04e584b8d318bc9c2136fc51bdaa71c3dc7a5ac5ae7d82f16",
+  "checksum": "74aa95deeefdc799ca1329c692a5b1d9c5b2f6035290cc082bf025bbade60455",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-atmospheric-climate-science-and-services-across",
+      "categoryPath": [
+        "Atmospheric, Climate Science and Services (ACROSS)"
+      ],
+      "checksum": "abbf45cb173f64fa9fd3962dd34c1f3bbc4bbb56a095cf9d4a7de3db83f0a08c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-atmospheric-climate-science-and-services-across",
+      "sourcePath": "earth-sciences/atmospheric-climate-science-and-services-across/form.json",
+      "title": "Atmospheric, Climate Science and Services (ACROSS)",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-earth-sciences",
@@ -1266,6 +1301,36 @@
       "id": "form-earth-sciences-deep-ocean-mission-dom",
       "sourcePath": "earth-sciences/deep-ocean-mission-dom/form.json",
       "title": "Deep Ocean Mission (DOM)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-employee-related-moes",
+      "categoryPath": [
+        "Employee related (MoES)"
+      ],
+      "checksum": "df510eefe4cd71bde89565b798b9a8980e684ad8ad6e6e1aa3fea8aef93dac7a",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-employee-related-moes",
+      "sourcePath": "earth-sciences/employee-related-moes/form.json",
+      "title": "Employee related (MoES)",
       "version": 1
     },
     {
@@ -1649,6 +1714,36 @@
     {
       "active": true,
       "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
+      "categoryPath": [
+        "(OSMART) Ocean services, Modelling, Application, Resources and Technology"
+      ],
+      "checksum": "d5b4a36488a8a3243b257476764f112f26bd4dc59e89936c25f06ec4dc8ac4ff",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology",
+      "sourcePath": "earth-sciences/osmart-ocean-services-modelling-application-resources-and-technology/form.json",
+      "title": "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
       "categoryId": "category-earth-sciences-osmart-ocean-services-modelling-application-resources-and-technology-ocean-observation",
       "categoryPath": [
         "(OSMART) Ocean services, Modelling, Application, Resources and Technology",
@@ -1802,6 +1897,36 @@
     {
       "active": true,
       "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-research-education-training-and-outreach-reachout",
+      "categoryPath": [
+        "Research, Education, Training and Outreach (REACHOUT)"
+      ],
+      "checksum": "5bbd96304acb09e8df0b1017fcc97bdeae30e224bc7acb5ef8626a9abeefc472",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-research-education-training-and-outreach-reachout",
+      "sourcePath": "earth-sciences/research-education-training-and-outreach-reachout/form.json",
+      "title": "Research, Education, Training and Outreach (REACHOUT)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
       "categoryId": "category-earth-sciences-research-education-training-and-outreach-reachout-extra-mural-funding",
       "categoryPath": [
         "Research, Education, Training and Outreach (REACHOUT)",
@@ -1859,6 +1984,36 @@
       "id": "form-earth-sciences-research-education-training-and-outreach-reachout-outreach-awareness",
       "sourcePath": "earth-sciences/research-education-training-and-outreach-reachout/outreach-awareness/form.json",
       "title": "Outreach awareness",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-earth-sciences",
+      "categoryId": "category-earth-sciences-sage-seismology-and-geosciences",
+      "categoryPath": [
+        "SAGE (Seismology and Geosciences)"
+      ],
+      "checksum": "7a1be6b5d636ed47184e9debe06ff4ed2e519637ed2b6d763f3cf54024d2e4d0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-earth-sciences-sage-seismology-and-geosciences",
+      "sourcePath": "earth-sciences/sage-seismology-and-geosciences/form.json",
+      "title": "SAGE (Seismology and Geosciences)",
       "version": 1
     },
     {

@@ -14,7 +14,8 @@
         "category-cooperation-administration-and-cet-national-database-on-cooperative",
         "category-cooperation-administration-and-cet-vaikunth-mehta-national-institute-of-cooperative-management-vamnicom"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-cooperation-administration-and-cet",
       "id": "category-cooperation-administration-and-cet",
       "name": "Administration and CET",
       "navigationOptions": [
@@ -179,7 +180,8 @@
         "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
         "category-cooperation-central-registrar-and-cooperative-society-national-cooperative-policy-related-matters"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society",
       "id": "category-cooperation-central-registrar-and-cooperative-society",
       "name": "Central Registrar and Cooperative Society",
       "navigationOptions": [
@@ -259,7 +261,8 @@
         "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-other-multi-state-cooperative-society-related-issues",
         "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters-registration-related-issues"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
       "id": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
       "name": "Multi State Cooperative Society related matters",
       "navigationOptions": [
@@ -407,7 +410,8 @@
         "category-cooperation-cooperative-development-federation-sectoral-issues-including-matters-related-to-cooperative-banking",
         "category-cooperation-cooperative-development-national-cooperative-development-corporation"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-cooperation-cooperative-development",
       "id": "category-cooperation-cooperative-development",
       "name": "Cooperative Development",
       "navigationOptions": [
@@ -532,7 +536,8 @@
         "category-cooperation-primary-agriculture-cooperative-society-pacs-umbrella-scheme",
         "category-cooperation-primary-agriculture-cooperative-society-pacs-website-e-governance"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-cooperation-primary-agriculture-cooperative-society-pacs",
       "id": "category-cooperation-primary-agriculture-cooperative-society-pacs",
       "name": "Primary Agriculture Cooperative Society PACS",
       "navigationOptions": [
@@ -690,8 +695,38 @@
       "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/website-e-governance/form.json"
     }
   ],
-  "checksum": "1ccd6f9b8e204f94b16c619e490b8a4c6c827061eadda869ea0f216200f74ba0",
+  "checksum": "d22d1e6d297f3d87f218c06ee6950cdcd8c37322d90b186330d4c6dc8dce7224",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-administration-and-cet",
+      "categoryPath": [
+        "Administration and CET"
+      ],
+      "checksum": "347d00151c56c09db4b8cdbb5ba1ae9c850bd806283ff59de84b29e20f6134ee",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-administration-and-cet",
+      "sourcePath": "cooperation/administration-and-cet/form.json",
+      "title": "Administration and CET",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-cooperation",
@@ -850,6 +885,36 @@
     {
       "active": true,
       "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society"
+      ],
+      "checksum": "5c974cd634f4a34ee63e82f155c5917228e3193eeaccfc342e9c82e9074651be",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/form.json",
+      "title": "Central Registrar and Cooperative Society",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
       "categoryId": "category-cooperation-central-registrar-and-cooperative-society-issue-related-of-mscs-and-banks-registered-under-mscs-act-2002",
       "categoryPath": [
         "Central Registrar and Cooperative Society",
@@ -907,6 +972,37 @@
       "id": "form-cooperation-central-registrar-and-cooperative-society-modal-state-cooperative-related-matters",
       "sourcePath": "cooperation/central-registrar-and-cooperative-society/modal-state-cooperative-related-matters/form.json",
       "title": "Modal State Cooperative related matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
+      "categoryPath": [
+        "Central Registrar and Cooperative Society",
+        "Multi State Cooperative Society related matters"
+      ],
+      "checksum": "7bcc043f69d9853e3d74e0de6618c635f29118e8f01013b10e08caa43563b983",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-central-registrar-and-cooperative-society-multi-state-cooperative-society-related-matters",
+      "sourcePath": "cooperation/central-registrar-and-cooperative-society/multi-state-cooperative-society-related-matters/form.json",
+      "title": "Multi State Cooperative Society related matters",
       "version": 1
     },
     {
@@ -1081,6 +1177,36 @@
     {
       "active": true,
       "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-cooperative-development",
+      "categoryPath": [
+        "Cooperative Development"
+      ],
+      "checksum": "d1a241693675269c256c14c7d448837b5886b949d2957b01a7c6812b1e67a9d5",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-cooperative-development",
+      "sourcePath": "cooperation/cooperative-development/form.json",
+      "title": "Cooperative Development",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
       "categoryId": "category-cooperation-cooperative-development-coordination-of-cooperation-activities-in-all-sectors",
       "categoryPath": [
         "Cooperative Development",
@@ -1199,6 +1325,36 @@
       "id": "form-cooperation-others",
       "sourcePath": "cooperation/others/form.json",
       "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-cooperation",
+      "categoryId": "category-cooperation-primary-agriculture-cooperative-society-pacs",
+      "categoryPath": [
+        "Primary Agriculture Cooperative Society PACS"
+      ],
+      "checksum": "7d8e6cd810166d4aa43ab18e56af646e618f8e2055082632ea03dc40a01ec774",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-cooperation-primary-agriculture-cooperative-society-pacs",
+      "sourcePath": "cooperation/primary-agriculture-cooperative-society-pacs/form.json",
+      "title": "Primary Agriculture Cooperative Society PACS",
       "version": 1
     },
     {

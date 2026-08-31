@@ -24,6 +24,7 @@ import { Route as AuthenticatedContinuationRouteImport } from './routes/_authent
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDraftsRouteImport } from './routes/_authenticated/drafts'
 import { Route as AccountabilityIndexRouteImport } from './routes/accountability.index'
+import { Route as DiagnosticsFormsRouteImport } from './routes/diagnostics.forms'
 import { Route as PublicGrievancesIndexRouteImport } from './routes/public-grievances/index'
 import { Route as PublicGrievancesPublicIdRouteImport } from './routes/public-grievances/$publicId'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -114,6 +115,11 @@ const AccountabilityIndexRoute = AccountabilityIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AccountabilityRoute,
+} as any)
+const DiagnosticsFormsRoute = DiagnosticsFormsRouteImport.update({
+  id: '/diagnostics/forms',
+  path: '/diagnostics/forms',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const PublicGrievancesIndexRoute = PublicGrievancesIndexRouteImport.update({
   id: '/public-grievances/',
@@ -212,6 +218,7 @@ export interface FileRoutesByFullPath {
   '/continuation': typeof AuthenticatedContinuationRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/drafts': typeof AuthenticatedDraftsRoute
+  '/diagnostics/forms': typeof DiagnosticsFormsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
   '/accountability/': typeof AccountabilityIndexRoute
@@ -241,6 +248,7 @@ export interface FileRoutesByTo {
   '/continuation': typeof AuthenticatedContinuationRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/drafts': typeof AuthenticatedDraftsRoute
+  '/diagnostics/forms': typeof DiagnosticsFormsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/accountability': typeof AccountabilityIndexRoute
   '/public-grievances': typeof PublicGrievancesIndexRoute
@@ -273,6 +281,7 @@ export interface FileRoutesById {
   '/_authenticated/continuation': typeof AuthenticatedContinuationRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/drafts': typeof AuthenticatedDraftsRoute
+  '/diagnostics/forms': typeof DiagnosticsFormsRoute
   '/public-grievances/$publicId': typeof PublicGrievancesPublicIdRoute
   '/services/$authoritySlug': typeof ServicesAuthoritySlugRouteWithChildren
   '/accountability/': typeof AccountabilityIndexRoute
@@ -306,6 +315,7 @@ export interface FileRouteTypes {
     | '/continuation'
     | '/dashboard'
     | '/drafts'
+    | '/diagnostics/forms'
     | '/public-grievances/$publicId'
     | '/services/$authoritySlug'
     | '/accountability/'
@@ -335,6 +345,7 @@ export interface FileRouteTypes {
     | '/continuation'
     | '/dashboard'
     | '/drafts'
+    | '/diagnostics/forms'
     | '/public-grievances/$publicId'
     | '/accountability'
     | '/public-grievances'
@@ -366,6 +377,7 @@ export interface FileRouteTypes {
     | '/_authenticated/continuation'
     | '/_authenticated/dashboard'
     | '/_authenticated/drafts'
+    | '/diagnostics/forms'
     | '/public-grievances/$publicId'
     | '/services/$authoritySlug'
     | '/accountability/'
@@ -396,6 +408,7 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   TermsRoute: typeof TermsRoute
+  DiagnosticsFormsRoute: typeof DiagnosticsFormsRoute
   PublicGrievancesPublicIdRoute: typeof PublicGrievancesPublicIdRoute
   PublicGrievancesIndexRoute: typeof PublicGrievancesIndexRoute
   ApiAiChatRoute: typeof ApiAiChatRoute
@@ -512,6 +525,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/accountability/'
       preLoaderRoute: typeof AccountabilityIndexRouteImport
       parentRoute: typeof AccountabilityRoute
+    }
+    '/diagnostics/forms': {
+      id: '/diagnostics/forms'
+      path: '/diagnostics/forms'
+      fullPath: '/diagnostics/forms'
+      preLoaderRoute: typeof DiagnosticsFormsRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/public-grievances/': {
       id: '/public-grievances/'
@@ -698,6 +718,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   ServicesRoute: ServicesRouteWithChildren,
   TermsRoute: TermsRoute,
+  DiagnosticsFormsRoute: DiagnosticsFormsRoute,
   PublicGrievancesPublicIdRoute: PublicGrievancesPublicIdRoute,
   PublicGrievancesIndexRoute: PublicGrievancesIndexRoute,
   ApiAiChatRoute: ApiAiChatRoute,

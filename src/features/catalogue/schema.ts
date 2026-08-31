@@ -36,6 +36,24 @@ export const captureSchema = z
 export type Capture = z.infer<typeof captureSchema>;
 export type CaptureField = z.infer<typeof captureFieldSchema>;
 
+export function completeCaptureFields(fields: CaptureField[]): { fields: CaptureField[]; synthesized: string[] } {
+	const completed = [...fields];
+	const synthesized: string[] = [];
+	const hasRemarks = fields.some((field) => /remark/i.test(field.id || "") || /remark/i.test(field.name || "") || /remark/i.test(field.label || ""));
+	const hasFile = fields.some((field) => field.kind === "file");
+
+	if (!hasRemarks) {
+		completed.push({ id: "remarks", name: "Remarks", label: "Text of grievance (Remarks)", kind: "textarea", required: true, placeholder: "Please Enter Text of Grievance (Remarks)", maximumLength: "2000", pattern: null });
+		synthesized.push("remarks");
+	}
+	if (!hasFile) {
+		completed.push({ id: "attachment", name: "Attachment", label: null, kind: "file", required: false, placeholder: null, maximumLength: null, pattern: null });
+		synthesized.push("attachment");
+	}
+
+	return { fields: completed, synthesized };
+}
+
 export type CatalogueField = {
 	id: string;
 	label: string;

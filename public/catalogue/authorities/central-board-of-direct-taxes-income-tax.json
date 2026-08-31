@@ -15,7 +15,8 @@
         "category-central-board-of-direct-taxes-income-tax-direct-taxes-search-seizure-matters-reward-to-informer-tax-evasion-petition-release-of-assets",
         "category-central-board-of-direct-taxes-income-tax-direct-taxes-tax-policy-matter-suggestions"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes",
       "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
       "name": "Direct Taxes",
       "navigationOptions": [
@@ -110,7 +111,8 @@
         "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-refund-matter-wrong-demand",
         "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal-tds-mismatch"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
       "id": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
       "name": "Issues with IT Returns/Assessment/Appeal",
       "navigationOptions": [
@@ -593,7 +595,8 @@
         "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-any-type-of-bill-dues-for-payment",
         "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-disciplinary-vigilance-matter"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
       "id": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
       "name": "Employee Services Related/ Administration",
       "navigationOptions": [
@@ -834,7 +837,8 @@
         "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-corruption",
         "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-misbehaviour-harassment-sexual-harassment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment",
       "id": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment",
       "name": "Misbehaviour/ Corruption/ Harassment",
       "navigationOptions": [
@@ -914,7 +918,8 @@
         "category-central-board-of-direct-taxes-income-tax-pan-issues-same-pan-numbers-allotted-to-multiple-users",
         "category-central-board-of-direct-taxes-income-tax-pan-issues-transfer-of-pan"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pan-issues",
       "id": "category-central-board-of-direct-taxes-income-tax-pan-issues",
       "name": "PAN Issues",
       "navigationOptions": [
@@ -1121,7 +1126,8 @@
         "category-central-board-of-direct-taxes-income-tax-pension-related-retirement-benefits",
         "category-central-board-of-direct-taxes-income-tax-pension-related-revision-recalculation-of-pension"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-direct-taxes-income-tax-pension-related",
       "id": "category-central-board-of-direct-taxes-income-tax-pension-related",
       "name": "Pension Related",
       "navigationOptions": [
@@ -1307,8 +1313,38 @@
       "sourcePath": "central-board-of-direct-taxes-income-tax/technical-issues-with-website/form.json"
     }
   ],
-  "checksum": "3ce1c73fee87e09a5bcba415c3901389dad264c25451beb275f5af85e3dc3ae6",
+  "checksum": "be327ed84690692adbf0b33946f1828de990c09ddeed6a5ec9afe8652f37e5df",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "categoryPath": [
+        "Direct Taxes"
+      ],
+      "checksum": "ebe6cf5d5a69ae37c5776ca8b9a7a36ed2bcbfc61291f0edb90bfc382a642003",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/form.json",
+      "title": "Direct Taxes",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-central-board-of-direct-taxes-income-tax",
@@ -1460,6 +1496,37 @@
       "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/information-about-undisclosed-foreign-income-and-assets-including-financial-inte/form.json",
       "title": "Information about Undisclosed Foreign Income and Assets (including financial interest in any entity) located outside India",
       "version": 2
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "categoryPath": [
+        "Direct Taxes",
+        "Issues with IT Returns/Assessment/Appeal"
+      ],
+      "checksum": "93066fd37ce8d1ea181c84b53b5d254db3f3e613d67e0b5228960c4a064a4fcf",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-issues-with-it-returns-assessment-appeal",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/issues-with-it-returns-assessment-appeal/form.json",
+      "title": "Issues with IT Returns/Assessment/Appeal",
+      "version": 1
     },
     {
       "active": true,
@@ -2198,13 +2265,14 @@
         "Direct Taxes",
         "Others"
       ],
-      "checksum": "7450d928852be949d4383c8dc0d746d0f47ce1b7b5f0b08af0026fdbb459cad5",
+      "checksum": "296b8b7175d9cb4d9540d5b135f10b54063eb8601e0856b72d1669bd36217a56",
       "fields": [
         {
           "id": "remarks",
           "kind": "textarea",
-          "label": "Remarks",
+          "label": "Text of grievance (Remarks)",
           "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
           "required": true
         },
         {
@@ -2218,7 +2286,7 @@
       "id": "form-central-board-of-direct-taxes-income-tax-direct-taxes-others",
       "sourcePath": "central-board-of-direct-taxes-income-tax/direct-taxes/others/form.json",
       "title": "Others",
-      "version": 1
+      "version": 2
     },
     {
       "active": true,
@@ -2344,18 +2412,49 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "categoryPath": [
+        "Employee Services Related/ Administration"
+      ],
+      "checksum": "dccbcacfe5bc92a93393a0085d1b7ea8dbdbf9a715ab33ebb16f6d1227d2c98e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/form.json",
+      "title": "Employee Services Related/ Administration",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
       "categoryId": "category-central-board-of-direct-taxes-income-tax-employee-services-related-administration-cadre-matters",
       "categoryPath": [
         "Employee Services Related/ Administration",
         "Cadre Matters"
       ],
-      "checksum": "833e77bdd07e559881dfe1d74b1043d5b3645ae644738770dc28fc8686166cd9",
+      "checksum": "cfcbbca048c1d903c8be99bb44ade2884a874ce0b6a7f3717da416511d017d0c",
       "fields": [
         {
           "id": "remarks",
           "kind": "textarea",
-          "label": "Remarks",
+          "label": "Text of grievance (Remarks)",
           "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
           "required": true
         },
         {
@@ -2369,7 +2468,7 @@
       "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-cadre-matters",
       "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/cadre-matters/form.json",
       "title": "Cadre Matters",
-      "version": 1
+      "version": 2
     },
     {
       "active": true,
@@ -2883,13 +2982,14 @@
         "Employee Services Related/ Administration",
         "Pending any type of Bill/dues for payment"
       ],
-      "checksum": "4194f6dbf558c9914fe7d567b929281a7503e440341384ee3d581dd61a51ecce",
+      "checksum": "0068e37bb3768a4e8993c7975cdbd5df1f9a2d880c5d7eb38fc5ab5c4d92f2c6",
       "fields": [
         {
           "id": "remarks",
           "kind": "textarea",
-          "label": "Remarks",
+          "label": "Text of grievance (Remarks)",
           "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
           "required": true
         },
         {
@@ -2903,7 +3003,7 @@
       "id": "form-central-board-of-direct-taxes-income-tax-employee-services-related-administration-pending-any-type-of-bill-dues-for-payment",
       "sourcePath": "central-board-of-direct-taxes-income-tax/employee-services-related-administration/pending-any-type-of-bill-dues-for-payment/form.json",
       "title": "Pending any type of Bill/dues for payment",
-      "version": 1
+      "version": 2
     },
     {
       "active": true,
@@ -3034,6 +3134,36 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment",
+      "categoryPath": [
+        "Misbehaviour/ Corruption/ Harassment"
+      ],
+      "checksum": "2ce96397ebdc47fa55270054a958018e2a8c4d0499beae4324774b119ff423ac",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/form.json",
+      "title": "Misbehaviour/ Corruption/ Harassment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
       "categoryId": "category-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-corruption",
       "categoryPath": [
         "Misbehaviour/ Corruption/ Harassment",
@@ -3123,13 +3253,14 @@
         "Misbehaviour/ Corruption/ Harassment",
         "Misbehaviour / Harassment / Sexual Harassment"
       ],
-      "checksum": "befbd346b00f1d176ae127c0cbb1e094ea39b0848d6f86496dbf395b4306a9ba",
+      "checksum": "5b71884e6c4358bf761b53bf0c691980cbe93424e9259395f89e1ae086f858cf",
       "fields": [
         {
           "id": "remarks",
           "kind": "textarea",
-          "label": "Remarks",
+          "label": "Text of grievance (Remarks)",
           "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
           "required": true
         },
         {
@@ -3143,6 +3274,36 @@
       "id": "form-central-board-of-direct-taxes-income-tax-misbehaviour-corruption-harassment-misbehaviour-harassment-sexual-harassment",
       "sourcePath": "central-board-of-direct-taxes-income-tax/misbehaviour-corruption-harassment/misbehaviour-harassment-sexual-harassment/form.json",
       "title": "Misbehaviour / Harassment / Sexual Harassment",
+      "version": 2
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pan-issues",
+      "categoryPath": [
+        "PAN Issues"
+      ],
+      "checksum": "11c2a06c69438c8a0466d60015c8445db128c40f33acb526993cb7e9cf55e00b",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pan-issues",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/form.json",
+      "title": "PAN Issues",
       "version": 1
     },
     {
@@ -3205,13 +3366,14 @@
         "PAN Issues",
         "Deduplication of PAN"
       ],
-      "checksum": "5956ab2e715ed974f031d7e8399311649562da5fc955a099389f14cf293712e5",
+      "checksum": "3df0eb425975dc2db3f8e1802777b72f179cc6adb8675106326f527fc277af0f",
       "fields": [
         {
           "id": "remarks",
           "kind": "textarea",
-          "label": "Remarks",
+          "label": "Text of grievance (Remarks)",
           "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
           "required": true
         },
         {
@@ -3225,7 +3387,7 @@
       "id": "form-central-board-of-direct-taxes-income-tax-pan-issues-deduplication-of-pan",
       "sourcePath": "central-board-of-direct-taxes-income-tax/pan-issues/deduplication-of-pan/form.json",
       "title": "Deduplication of PAN",
-      "version": 1
+      "version": 2
     },
     {
       "active": true,
@@ -3510,6 +3672,36 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-direct-taxes-income-tax",
+      "categoryId": "category-central-board-of-direct-taxes-income-tax-pension-related",
+      "categoryPath": [
+        "Pension Related"
+      ],
+      "checksum": "f6d707161b002b03ac67da9eecb3b6e4823df24c28d567deeaf1065a0a37ee04",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-direct-taxes-income-tax-pension-related",
+      "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/form.json",
+      "title": "Pension Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-direct-taxes-income-tax",
       "categoryId": "category-central-board-of-direct-taxes-income-tax-pension-related-family-pension",
       "categoryPath": [
         "Pension Related",
@@ -3753,13 +3945,14 @@
         "Pension Related",
         "PPO Matters"
       ],
-      "checksum": "b429455d856e2bf4baad9a5395503a111574623d134639d0f6ea71a84ac0e2a5",
+      "checksum": "7b769afdb43c840a5c0f027c272819daed6f891e2f7ade6928965c2eb55d1a7f",
       "fields": [
         {
           "id": "remarks",
           "kind": "textarea",
-          "label": "Remarks",
+          "label": "Text of grievance (Remarks)",
           "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
           "required": true
         },
         {
@@ -3773,7 +3966,7 @@
       "id": "form-central-board-of-direct-taxes-income-tax-pension-related-ppo-matters",
       "sourcePath": "central-board-of-direct-taxes-income-tax/pension-related/ppo-matters/form.json",
       "title": "PPO Matters",
-      "version": 1
+      "version": 2
     },
     {
       "active": true,

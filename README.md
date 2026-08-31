@@ -19,6 +19,10 @@ Never commit `.env.local` or expose database, Better Auth, Gemini, or Blob crede
 
 `pnpm catalogue:compile` recursively reads every `local-research/cpgrams-form-catalogue/captures/**/form.json`, validates it, builds the organization/category/form catalogue, and writes the single canonical static artifact set to `public/catalogue`.
 
+Run `pnpm catalogue:export:forms` to write compact runtime form bundles, or `pnpm catalogue:forms:size` to print a JSON file's uncompressed, gzip, and Brotli sizes. Captures that only contain category navigation fields receive a required remarks textarea and an optional attachment field during compilation.
+
+The `test/forms-delivery-diagnostics` branch includes a plain `/diagnostics/forms` page for comparing raw, cleaned, compact, and authority-split delivery on Vercel. Run `pnpm catalogue:diagnostics:prepare` after catalogue changes. The test procedure and exported metrics are documented in [`docs/form-delivery-observability.md`](./docs/form-delivery-observability.md).
+
 `pnpm catalogue:check` is read-only and fails if the tracked artifacts differ from a fresh compilation.
 
 ## Local catalogue search

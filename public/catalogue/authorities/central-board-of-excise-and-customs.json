@@ -15,7 +15,8 @@
         "category-central-board-of-excise-and-customs-employee-service-related-training",
         "category-central-board-of-excise-and-customs-employee-service-related-transfer-posting-deputation"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-employee-service-related",
       "id": "category-central-board-of-excise-and-customs-employee-service-related",
       "name": "Employee Service Related",
       "navigationOptions": [
@@ -77,7 +78,8 @@
         "category-central-board-of-excise-and-customs-employee-service-related-pay-allowances-stepping-up-of-pay",
         "category-central-board-of-excise-and-customs-employee-service-related-pay-allowances-waiver-of-recovery-of-excess-payment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-employee-service-related-pay-allowances",
       "id": "category-central-board-of-excise-and-customs-employee-service-related-pay-allowances",
       "name": "Pay & Allowances",
       "navigationOptions": [
@@ -479,7 +481,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-customs",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related",
       "name": "Indirect Taxes Related",
       "navigationOptions": [
@@ -513,7 +516,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-svldrs-sabka-vishwas-legacy-dispute-resolution-scheme-related",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-trans-1-related-matters"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax",
       "name": "Central Goods and Service Tax, Central Excise, Service Tax",
       "navigationOptions": [
@@ -587,7 +591,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-delay-in-adjudication-order-appeals-directorates",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-delay-in-adjudication-order-appeals-gst"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-delay-in-adjudication-order-appeals",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-delay-in-adjudication-order-appeals",
       "name": "Delay in adjudication / order / appeals",
       "navigationOptions": [
@@ -929,7 +934,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-reward-directorates",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-reward-gst"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-reward",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-reward",
       "name": "Reward",
       "navigationOptions": [
@@ -1170,7 +1176,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-customs-reward",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-customs-surcharges-and-cesses"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-customs",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-customs",
       "name": "Customs",
       "navigationOptions": [
@@ -1583,7 +1590,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-unable-to-view-documents-attached-to-notice-order-etc-even-after-generation-of-the-same-in-the-system",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-user-registration-at-icegate"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues",
       "name": "Systems/Portal Related Issues",
       "navigationOptions": [
@@ -1628,7 +1636,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-appeals-non-receipt-of-acknowledgement-for-submission-of-appeal-in-form-apl-02-even-after-generation-of-the-same-in-the-system",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-appeals-non-receipt-of-ph-personal-hearing-notice-issued-by-appellate-authority-or-summary-of-the-demand-after-issue-of-order-by-the-appellate-authority-in-form-apl-04-appeal-order-even-after-generation-of-the-same-in-the-system"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-appeals",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-appeals",
       "name": "Appeals",
       "navigationOptions": [
@@ -1902,7 +1911,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-e-way-bill-non-receipt-of-order-for-permitting-rejecting-application-for-unblocking-of-the-facility-for-generation-of-eway-bill-ewb-06-even-after-generation-of-the-same-in-the-system",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-e-way-bill-non-receipt-of-ph-personal-hearing-notice-even-after-generation-of-the-same-in-the-system"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-e-way-bill",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-e-way-bill",
       "name": "E-Way Bill",
       "navigationOptions": [
@@ -2265,7 +2275,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-pfms-public-financial-management-system-directorates",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-pfms-public-financial-management-system-gst"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-pfms-public-financial-management-system",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-pfms-public-financial-management-system",
       "name": "PFMS (Public Financial Management System)",
       "navigationOptions": [
@@ -2547,7 +2558,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund-bank-account-invalid",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund-payment-not-credited-to-bank-account"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund",
       "name": "Refund",
       "navigationOptions": [
@@ -2742,7 +2754,8 @@
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-registration-pendency-of-application-for-cancellation-of-registration-reg-16",
         "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-registration-pendency-of-application-for-revocation-of-cancelled-registration-reg-21"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-registration",
       "id": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-registration",
       "name": "Registration",
       "navigationOptions": [
@@ -3142,7 +3155,8 @@
         "category-central-board-of-excise-and-customs-information-clarification-policy-related-tfa-wto-wco",
         "category-central-board-of-excise-and-customs-information-clarification-policy-related-valuation"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-information-clarification-policy-related",
       "id": "category-central-board-of-excise-and-customs-information-clarification-policy-related",
       "name": "Information/Clarification / Policy Related",
       "navigationOptions": [
@@ -4294,7 +4308,8 @@
         "category-central-board-of-excise-and-customs-misbehaviour-corruption-harassment-pending-disciplinary-vigilance-matters",
         "category-central-board-of-excise-and-customs-misbehaviour-corruption-harassment-sexual-harassment-misbehvior"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-misbehaviour-corruption-harassment",
       "id": "category-central-board-of-excise-and-customs-misbehaviour-corruption-harassment",
       "name": "Misbehaviour/Corruption/Harassment",
       "navigationOptions": [
@@ -4400,7 +4415,8 @@
         "category-central-board-of-excise-and-customs-pension-related-pension-not-started-pension-stopped",
         "category-central-board-of-excise-and-customs-pension-related-revision-of-pension"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-central-board-of-excise-and-customs-pension-related",
       "id": "category-central-board-of-excise-and-customs-pension-related",
       "name": "Pension Related",
       "navigationOptions": [
@@ -4628,8 +4644,38 @@
       "sourcePath": "central-board-of-excise-and-customs/pension-related/revision-of-pension/form.json"
     }
   ],
-  "checksum": "381e831a86a1ea22ee1e82074a937b3a1e0dc45016e5d87aecf3be29f2549df5",
+  "checksum": "517d60ddf43e5b855b5dc63a1b3dbcd23f027bed5eed7381292f2cd54eeb70fa",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-employee-service-related",
+      "categoryPath": [
+        "Employee Service Related"
+      ],
+      "checksum": "0bf5025a041690e95565e2126553584c29532181a132eaf5a4a2ede293b3aff1",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-employee-service-related",
+      "sourcePath": "central-board-of-excise-and-customs/employee-service-related/form.json",
+      "title": "Employee Service Related",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-central-board-of-excise-and-customs",
@@ -4761,6 +4807,37 @@
       "id": "form-central-board-of-excise-and-customs-employee-service-related-appointment-on-compassionatory-ground",
       "sourcePath": "central-board-of-excise-and-customs/employee-service-related/appointment-on-compassionatory-ground/form.json",
       "title": "Appointment on compassionatory ground",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-employee-service-related-pay-allowances",
+      "categoryPath": [
+        "Employee Service Related",
+        "Pay & Allowances"
+      ],
+      "checksum": "0a9dd228f911f86b8aaad2620548deccd81bfcc13dff84ad78b0e593e834d5fb",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-employee-service-related-pay-allowances",
+      "sourcePath": "central-board-of-excise-and-customs/employee-service-related/pay-allowances/form.json",
+      "title": "Pay & Allowances",
       "version": 1
     },
     {
@@ -6155,6 +6232,67 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related",
+      "categoryPath": [
+        "Indirect Taxes Related"
+      ],
+      "checksum": "f01dc4413849e4bfaf54f202724f310c76e250f19e1d851aa7d16f45706f4c32",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/form.json",
+      "title": "Indirect Taxes Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Central Goods and Service Tax, Central Excise, Service Tax"
+      ],
+      "checksum": "6b869d437fbaedc42e371dc81971a167ab906a8a6a38cae4b6408ef2fc6e0674",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/central-goods-and-service-tax-central-excise-service-tax/form.json",
+      "title": "Central Goods and Service Tax, Central Excise, Service Tax",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
       "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-anti-profiteeing",
       "categoryPath": [
         "Indirect Taxes Related",
@@ -6203,6 +6341,38 @@
       "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-anti-profiteeing",
       "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/central-goods-and-service-tax-central-excise-service-tax/anti-profiteeing/form.json",
       "title": "Anti - Profiteeing",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-delay-in-adjudication-order-appeals",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Central Goods and Service Tax, Central Excise, Service Tax",
+        "Delay in adjudication / order / appeals"
+      ],
+      "checksum": "8df7432f141aa57d81c041f8f11b055b30b356d68c3413b11b87251b52fba1b0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-delay-in-adjudication-order-appeals",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/central-goods-and-service-tax-central-excise-service-tax/delay-in-adjudication-order-appeals/form.json",
+      "title": "Delay in adjudication / order / appeals",
       "version": 1
     },
     {
@@ -6863,6 +7033,38 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-reward",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Central Goods and Service Tax, Central Excise, Service Tax",
+        "Reward"
+      ],
+      "checksum": "adba80aa6cbb3fd225aeb3358f828c750f26d32b0851a187136c9378115d3ee0",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-reward",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/central-goods-and-service-tax-central-excise-service-tax/reward/form.json",
+      "title": "Reward",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
       "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-reward-customs",
       "categoryPath": [
         "Indirect Taxes Related",
@@ -7245,6 +7447,37 @@
       "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-central-goods-and-service-tax-central-excise-service-tax-trans-1-related-matters",
       "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/central-goods-and-service-tax-central-excise-service-tax/trans-1-related-matters/form.json",
       "title": "Trans 1 related matters",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-customs",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Customs"
+      ],
+      "checksum": "e792b9dec4715ed0ab391260500738c1a5edc282b9849b75b101c42e0bedeb09",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-customs",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/customs/form.json",
+      "title": "Customs",
       "version": 1
     },
     {
@@ -8081,6 +8314,69 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Systems/Portal Related Issues"
+      ],
+      "checksum": "07580c677428a548bb3a1358e20e47db119547bf5be1823e832cac4ab1b6f87c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/form.json",
+      "title": "Systems/Portal Related Issues",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-appeals",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Systems/Portal Related Issues",
+        "Appeals"
+      ],
+      "checksum": "ea32adb9047ae5cc12b56b9d9f66f5e29ad7d08144da5ba75eb36eb94dc900c2",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-appeals",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/appeals/form.json",
+      "title": "Appeals",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
       "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-appeals-non-receipt-of-acknowledgement-for-submission-of-appeal-in-form-apl-02-even-after-generation-of-the-same-in-the-system",
       "categoryPath": [
         "Indirect Taxes Related",
@@ -8399,6 +8695,38 @@
       "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-dgft-license-issues-at-icegate",
       "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/dgft-license-issues-at-icegate/form.json",
       "title": "DGFT - License issues at ICEGATE",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-e-way-bill",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Systems/Portal Related Issues",
+        "E-Way Bill"
+      ],
+      "checksum": "718772088dc107989748b3fa4734833a321c082f9d0716decc90e7e201797d3e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-e-way-bill",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/e-way-bill/form.json",
+      "title": "E-Way Bill",
       "version": 1
     },
     {
@@ -8847,6 +9175,38 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-pfms-public-financial-management-system",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Systems/Portal Related Issues",
+        "PFMS (Public Financial Management System)"
+      ],
+      "checksum": "78ab68a3d83b4fc744690d8b6ea91fda4c61ab4f14d1dd6f2cb02a0b86331d19",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-pfms-public-financial-management-system",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/pfms-public-financial-management-system/form.json",
+      "title": "PFMS (Public Financial Management System)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
       "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-pfms-public-financial-management-system-customs",
       "categoryPath": [
         "Indirect Taxes Related",
@@ -9158,6 +9518,38 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Systems/Portal Related Issues",
+        "Refund"
+      ],
+      "checksum": "bc869546d054fdce500ad6d39c7906ce6c88cbd928302ebbe2c24c3b8f5d8d81",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/refund/form.json",
+      "title": "Refund",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
       "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund-amount-itc-not-re-credited",
       "categoryPath": [
         "Indirect Taxes Related",
@@ -9273,6 +9665,38 @@
       "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-refund-payment-not-credited-to-bank-account",
       "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/refund/payment-not-credited-to-bank-account/form.json",
       "title": "Payment not Credited to Bank Account",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-registration",
+      "categoryPath": [
+        "Indirect Taxes Related",
+        "Systems/Portal Related Issues",
+        "Registration"
+      ],
+      "checksum": "77ce447a80c2d9ca0ef528ac798dfaf7d93df93363f66df460d22856243749d8",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-registration",
+      "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/registration/form.json",
+      "title": "Registration",
       "version": 1
     },
     {
@@ -9606,6 +10030,36 @@
       "id": "form-central-board-of-excise-and-customs-indirect-taxes-related-systems-portal-related-issues-user-registration-at-icegate",
       "sourcePath": "central-board-of-excise-and-customs/indirect-taxes-related/systems-portal-related-issues/user-registration-at-icegate/form.json",
       "title": "User Registration at ICEGATE",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-information-clarification-policy-related",
+      "categoryPath": [
+        "Information/Clarification / Policy Related"
+      ],
+      "checksum": "df08a4acf65b67f16a276a9ab0ff4208cd6d4e9f8d5e8a837734547eaf4caec5",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-information-clarification-policy-related",
+      "sourcePath": "central-board-of-excise-and-customs/information-clarification-policy-related/form.json",
+      "title": "Information/Clarification / Policy Related",
       "version": 1
     },
     {
@@ -10523,6 +10977,36 @@
     {
       "active": true,
       "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-misbehaviour-corruption-harassment",
+      "categoryPath": [
+        "Misbehaviour/Corruption/Harassment"
+      ],
+      "checksum": "72a48fdfa031481e7dbf951e4e261f4415e560c17224c2b382b03168c0f34431",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-misbehaviour-corruption-harassment",
+      "sourcePath": "central-board-of-excise-and-customs/misbehaviour-corruption-harassment/form.json",
+      "title": "Misbehaviour/Corruption/Harassment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
       "categoryId": "category-central-board-of-excise-and-customs-misbehaviour-corruption-harassment-corruption",
       "categoryPath": [
         "Misbehaviour/Corruption/Harassment",
@@ -10917,6 +11401,36 @@
       "id": "form-central-board-of-excise-and-customs-misbehaviour-corruption-harassment-sexual-harassment-misbehvior",
       "sourcePath": "central-board-of-excise-and-customs/misbehaviour-corruption-harassment/sexual-harassment-misbehvior/form.json",
       "title": "Sexual Harassment/Misbehvior",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-central-board-of-excise-and-customs",
+      "categoryId": "category-central-board-of-excise-and-customs-pension-related",
+      "categoryPath": [
+        "Pension Related"
+      ],
+      "checksum": "76074039ca08cafbe7fabb8073796e0f2528dd260dcff8a60616bf1e95101e4b",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-central-board-of-excise-and-customs-pension-related",
+      "sourcePath": "central-board-of-excise-and-customs/pension-related/form.json",
+      "title": "Pension Related",
       "version": 1
     },
     {

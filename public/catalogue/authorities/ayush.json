@@ -14,7 +14,8 @@
         "category-ayush-ayush-drugs-policy-misleading-advertisement",
         "category-ayush-ayush-drugs-policy-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-drugs-policy",
       "id": "category-ayush-ayush-drugs-policy",
       "name": "Ayush Drugs Policy",
       "navigationOptions": [
@@ -210,7 +211,8 @@
         "category-ayush-ayush-education-in-national-institutes-sowa-rigpa",
         "category-ayush-ayush-education-in-national-institutes-unani"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-education-in-national-institutes",
       "id": "category-ayush-ayush-education-in-national-institutes",
       "name": "Ayush Education in National Institutes",
       "navigationOptions": [
@@ -247,7 +249,8 @@
         "category-ayush-ayush-education-in-national-institutes-ayurveda-lack-of-facilities",
         "category-ayush-ayush-education-in-national-institutes-ayurveda-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-education-in-national-institutes-ayurveda",
       "id": "category-ayush-ayush-education-in-national-institutes-ayurveda",
       "name": "Ayurveda",
       "navigationOptions": [
@@ -525,7 +528,8 @@
         "category-ayush-ayush-education-in-national-institutes-homoeopathy-lack-of-facilities",
         "category-ayush-ayush-education-in-national-institutes-homoeopathy-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-education-in-national-institutes-homoeopathy",
       "id": "category-ayush-ayush-education-in-national-institutes-homoeopathy",
       "name": "Homoeopathy",
       "navigationOptions": [
@@ -803,7 +807,8 @@
         "category-ayush-ayush-education-in-national-institutes-siddha-lack-of-facilities",
         "category-ayush-ayush-education-in-national-institutes-siddha-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-education-in-national-institutes-siddha",
       "id": "category-ayush-ayush-education-in-national-institutes-siddha",
       "name": "Siddha",
       "navigationOptions": [
@@ -1081,7 +1086,8 @@
         "category-ayush-ayush-education-in-national-institutes-sowa-rigpa-lack-of-facilities",
         "category-ayush-ayush-education-in-national-institutes-sowa-rigpa-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-education-in-national-institutes-sowa-rigpa",
       "id": "category-ayush-ayush-education-in-national-institutes-sowa-rigpa",
       "name": "Sowa Rigpa",
       "navigationOptions": [
@@ -1359,7 +1365,8 @@
         "category-ayush-ayush-education-in-national-institutes-unani-lack-of-facilities",
         "category-ayush-ayush-education-in-national-institutes-unani-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-education-in-national-institutes-unani",
       "id": "category-ayush-ayush-education-in-national-institutes-unani",
       "name": "Unani",
       "navigationOptions": [
@@ -1636,7 +1643,8 @@
         "category-ayush-ayush-research-unani-central-council-for-research-in-unani-medicine-new-delhi",
         "category-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-research",
       "id": "category-ayush-ayush-research",
       "name": "Ayush Research",
       "navigationOptions": [
@@ -1671,7 +1679,8 @@
         "category-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi-others",
         "category-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi-patents"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi",
       "id": "category-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi",
       "name": "Ayurveda & Sowa Rigpa-Central Council for Research in Ayurvedic Sciences,New Delhi",
       "navigationOptions": [
@@ -1859,7 +1868,8 @@
         "category-ayush-ayush-research-homoeopathy-central-council-for-research-in-homoeopathy-new-delhi-others",
         "category-ayush-ayush-research-homoeopathy-central-council-for-research-in-homoeopathy-new-delhi-patents"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-research-homoeopathy-central-council-for-research-in-homoeopathy-new-delhi",
       "id": "category-ayush-ayush-research-homoeopathy-central-council-for-research-in-homoeopathy-new-delhi",
       "name": "Homoeopathy/Central Council for Research in Homoeopathy,New Delhi",
       "navigationOptions": [
@@ -2047,7 +2057,8 @@
         "category-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu-others",
         "category-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu-patents"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu",
       "id": "category-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu",
       "name": "Siddha/Central Council for Research in Siddha, Tamil Nadu",
       "navigationOptions": [
@@ -2235,7 +2246,8 @@
         "category-ayush-ayush-research-unani-central-council-for-research-in-unani-medicine-new-delhi-others",
         "category-ayush-ayush-research-unani-central-council-for-research-in-unani-medicine-new-delhi-patents"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-research-unani-central-council-for-research-in-unani-medicine-new-delhi",
       "id": "category-ayush-ayush-research-unani-central-council-for-research-in-unani-medicine-new-delhi",
       "name": "Unani/Central Council for Research in Unani Medicine,New Delhi",
       "navigationOptions": [
@@ -2423,7 +2435,8 @@
         "category-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi-others",
         "category-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi-patents"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi",
       "id": "category-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi",
       "name": "Yoga & Naturopathy/Central Council for Research in Yoga & Naturopathy, New Delhi",
       "navigationOptions": [
@@ -2609,7 +2622,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme",
         "category-ayush-ayush-schemes-centrally-sponsered-scheme"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes",
       "id": "category-ayush-ayush-schemes",
       "name": "Ayush Schemes",
       "navigationOptions": [
@@ -2644,7 +2658,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-international-cooperation",
         "category-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme",
       "id": "category-ayush-ayush-schemes-central-sector-scheme",
       "name": "Central Sector Scheme",
       "navigationOptions": [
@@ -2682,7 +2697,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-ayurgyan-approval-of-proposal",
         "category-ayush-ayush-schemes-central-sector-scheme-ayurgyan-release-of-grant"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme-ayurgyan",
       "id": "category-ayush-ayush-schemes-central-sector-scheme-ayurgyan",
       "name": "Ayurgyan",
       "navigationOptions": [
@@ -2803,7 +2819,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-ayurswasthya-approval-of-proposal",
         "category-ayush-ayush-schemes-central-sector-scheme-ayurswasthya-release-of-grant"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme-ayurswasthya",
       "id": "category-ayush-ayush-schemes-central-sector-scheme-ayurswasthya",
       "name": "Ayurswasthya",
       "navigationOptions": [
@@ -2924,7 +2941,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy-approval-of-proposal",
         "category-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy-release-of-grant"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy",
       "id": "category-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy",
       "name": "Ayush Oushadhi Gunvatta Evum Uttapadan Sanvardhan Yojana (AOGUSY)",
       "navigationOptions": [
@@ -3045,7 +3063,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-champion-sector-scheme-approval-of-proposal",
         "category-ayush-ayush-schemes-central-sector-scheme-champion-sector-scheme-release-of-grant"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme-champion-sector-scheme",
       "id": "category-ayush-ayush-schemes-central-sector-scheme-champion-sector-scheme",
       "name": "Champion Sector Scheme",
       "navigationOptions": [
@@ -3166,7 +3185,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec-approval-of-proposal",
         "category-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec-release-of-grant"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec",
       "id": "category-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec",
       "name": "Information, Education and Communication (IEC)",
       "navigationOptions": [
@@ -3287,7 +3307,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-international-cooperation-approval-of-proposal",
         "category-ayush-ayush-schemes-central-sector-scheme-international-cooperation-release-of-grant"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme-international-cooperation",
       "id": "category-ayush-ayush-schemes-central-sector-scheme-international-cooperation",
       "name": "International Cooperation",
       "navigationOptions": [
@@ -3408,7 +3429,8 @@
         "category-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board-approval-of-proposal",
         "category-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board-release-of-grant"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board",
       "id": "category-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board",
       "name": "National Medcine Plant Board",
       "navigationOptions": [
@@ -3528,7 +3550,8 @@
       "children": [
         "category-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-centrally-sponsered-scheme",
       "id": "category-ayush-ayush-schemes-centrally-sponsered-scheme",
       "name": "Centrally Sponsered Scheme",
       "navigationOptions": [
@@ -3562,7 +3585,8 @@
         "category-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission-status-of-functionality-of-hospitals-ayush-wellness-centres",
         "category-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission-submission-of-utilization-certificate"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission",
       "id": "category-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission",
       "name": "National Ayush Mission",
       "navigationOptions": [
@@ -3743,7 +3767,8 @@
         "category-ayush-college-permission-admission-ayurveda-siddha-unani-sowa-rigpa-ncism",
         "category-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-college-permission-admission",
       "id": "category-ayush-college-permission-admission",
       "name": "College Permission & Admission",
       "navigationOptions": [
@@ -3778,7 +3803,8 @@
         "category-ayush-college-permission-admission-ayurveda-siddha-unani-sowa-rigpa-ncism-others",
         "category-ayush-college-permission-admission-ayurveda-siddha-unani-sowa-rigpa-ncism-salary-issue"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-college-permission-admission-ayurveda-siddha-unani-sowa-rigpa-ncism",
       "id": "category-ayush-college-permission-admission-ayurveda-siddha-unani-sowa-rigpa-ncism",
       "name": "Ayurveda, Siddha, Unani & Sowa Rigpa /NCISM",
       "navigationOptions": [
@@ -4080,7 +4106,8 @@
         "category-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy-others",
         "category-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy-salary-issue"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy",
       "id": "category-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy",
       "name": "Homoeopathy/National Commission for Homoeopathy",
       "navigationOptions": [
@@ -4378,7 +4405,8 @@
         "category-ayush-covid-19-ayush-research",
         "category-ayush-covid-19-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-covid-19",
       "id": "category-ayush-covid-19",
       "name": "Covid- 19",
       "navigationOptions": [
@@ -4498,7 +4526,8 @@
         "category-ayush-hospital-related-sowa-related",
         "category-ayush-hospital-related-unani-related"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-hospital-related",
       "id": "category-ayush-hospital-related",
       "name": "Hospital Related",
       "navigationOptions": [
@@ -4536,7 +4565,8 @@
         "category-ayush-hospital-related-ayurveda-related-procurement",
         "category-ayush-hospital-related-ayurveda-related-recruitment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-hospital-related-ayurveda-related",
       "id": "category-ayush-hospital-related-ayurveda-related",
       "name": "Ayurveda Related",
       "navigationOptions": [
@@ -4862,7 +4892,8 @@
         "category-ayush-hospital-related-homoeopathy-related-procurement",
         "category-ayush-hospital-related-homoeopathy-related-recruitment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-hospital-related-homoeopathy-related",
       "id": "category-ayush-hospital-related-homoeopathy-related",
       "name": "Homoeopathy Related",
       "navigationOptions": [
@@ -5188,7 +5219,8 @@
         "category-ayush-hospital-related-siddha-related-procurement",
         "category-ayush-hospital-related-siddha-related-recruitment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-hospital-related-siddha-related",
       "id": "category-ayush-hospital-related-siddha-related",
       "name": "Siddha Related",
       "navigationOptions": [
@@ -5514,7 +5546,8 @@
         "category-ayush-hospital-related-sowa-related-procurement",
         "category-ayush-hospital-related-sowa-related-recruitment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-hospital-related-sowa-related",
       "id": "category-ayush-hospital-related-sowa-related",
       "name": "Sowa Related",
       "navigationOptions": [
@@ -5840,7 +5873,8 @@
         "category-ayush-hospital-related-unani-related-procurement",
         "category-ayush-hospital-related-unani-related-recruitment"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-hospital-related-unani-related",
       "id": "category-ayush-hospital-related-unani-related",
       "name": "Unani Related",
       "navigationOptions": [
@@ -6160,7 +6194,8 @@
       "children": [
         "category-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-lab-pharmocopeia",
       "id": "category-ayush-lab-pharmocopeia",
       "name": "Lab & Pharmocopeia",
       "navigationOptions": [
@@ -6189,7 +6224,8 @@
         "category-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy-asu-h-drug-research",
         "category-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy-asu-h-pharmocopoeia"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy",
       "id": "category-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy",
       "name": "Pharmacopoeia Commission for Indian Medicine & Homoeopathy",
       "navigationOptions": [
@@ -6292,7 +6328,8 @@
         "category-ayush-matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations-retirement-dues",
         "category-ayush-matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations-transfers"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations",
       "id": "category-ayush-matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations",
       "name": "Matters relating to the Employees of Ministry of Ayush and its Organizations",
       "navigationOptions": [
@@ -6750,7 +6787,8 @@
         "category-ayush-miscellaneous-all-sections-of-the-moa",
         "category-ayush-miscellaneous-others"
       ],
-      "formCapable": false,
+      "formCapable": true,
+      "formId": "form-ayush-miscellaneous",
       "id": "category-ayush-miscellaneous",
       "name": "Miscellaneous",
       "navigationOptions": [
@@ -6866,8 +6904,38 @@
       "sourcePath": "ayush/miscellaneous/others/form.json"
     }
   ],
-  "checksum": "237633052d1d2db5dd3a81604d2c46be154fc2e31fe4296b12c4bc8ef31e323a",
+  "checksum": "12409006b0c4121b5b34c643ae14609eb1551dec733d961855fe2ac7600846c3",
   "forms": [
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-drugs-policy",
+      "categoryPath": [
+        "Ayush Drugs Policy"
+      ],
+      "checksum": "4c3503e50e5eec40f9d21b167316cea00b17e2ce5b0c0d8876afe0034db74b17",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-drugs-policy",
+      "sourcePath": "ayush/ayush-drugs-policy/form.json",
+      "title": "Ayush Drugs Policy",
+      "version": 1
+    },
     {
       "active": true,
       "authorityId": "authority-ayush",
@@ -7021,6 +7089,67 @@
       "id": "form-ayush-ayush-drugs-policy-others",
       "sourcePath": "ayush/ayush-drugs-policy/others/form.json",
       "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-education-in-national-institutes",
+      "categoryPath": [
+        "Ayush Education in National Institutes"
+      ],
+      "checksum": "4921b8ad07e9ae212358d63fe88c81b40aa11bea63499f3f9c231aed06df9686",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-education-in-national-institutes",
+      "sourcePath": "ayush/ayush-education-in-national-institutes/form.json",
+      "title": "Ayush Education in National Institutes",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-education-in-national-institutes-ayurveda",
+      "categoryPath": [
+        "Ayush Education in National Institutes",
+        "Ayurveda"
+      ],
+      "checksum": "59f6d9fa72b517370b7a7668f4c3eddc3c8f45697c95f4c804d61493d2842ef4",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-education-in-national-institutes-ayurveda",
+      "sourcePath": "ayush/ayush-education-in-national-institutes/ayurveda/form.json",
+      "title": "Ayurveda",
       "version": 1
     },
     {
@@ -7434,6 +7563,37 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-education-in-national-institutes-homoeopathy",
+      "categoryPath": [
+        "Ayush Education in National Institutes",
+        "Homoeopathy"
+      ],
+      "checksum": "fc75948aa605c9cd5d677961b5ae97f0ec7b4e55ae0b4496b700d394ae8790bd",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-education-in-national-institutes-homoeopathy",
+      "sourcePath": "ayush/ayush-education-in-national-institutes/homoeopathy/form.json",
+      "title": "Homoeopathy",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-education-in-national-institutes-homoeopathy-admission",
       "categoryPath": [
         "Ayush Education in National Institutes",
@@ -7807,6 +7967,37 @@
       "id": "form-ayush-ayush-education-in-national-institutes-homoeopathy-others",
       "sourcePath": "ayush/ayush-education-in-national-institutes/homoeopathy/others/form.json",
       "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-education-in-national-institutes-siddha",
+      "categoryPath": [
+        "Ayush Education in National Institutes",
+        "Siddha"
+      ],
+      "checksum": "377203d8ec5a06f10843df32e1cbb810467b826bb7c8882d218c853d7e024d5f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-education-in-national-institutes-siddha",
+      "sourcePath": "ayush/ayush-education-in-national-institutes/siddha/form.json",
+      "title": "Siddha",
       "version": 1
     },
     {
@@ -8190,6 +8381,37 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-education-in-national-institutes-sowa-rigpa",
+      "categoryPath": [
+        "Ayush Education in National Institutes",
+        "Sowa Rigpa"
+      ],
+      "checksum": "24a1b4ba0912a68040d05846401d5e3f1def8874840934d8fe3d9ac5ca4c5f93",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-education-in-national-institutes-sowa-rigpa",
+      "sourcePath": "ayush/ayush-education-in-national-institutes/sowa-rigpa/form.json",
+      "title": "Sowa Rigpa",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-education-in-national-institutes-sowa-rigpa-admission",
       "categoryPath": [
         "Ayush Education in National Institutes",
@@ -8563,6 +8785,37 @@
       "id": "form-ayush-ayush-education-in-national-institutes-sowa-rigpa-others",
       "sourcePath": "ayush/ayush-education-in-national-institutes/sowa-rigpa/others/form.json",
       "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-education-in-national-institutes-unani",
+      "categoryPath": [
+        "Ayush Education in National Institutes",
+        "Unani"
+      ],
+      "checksum": "5bb7f2e7a46277b3e62a441eba2ae2c7d0b5d7941758c79bc24eb6759e99a847",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-education-in-national-institutes-unani",
+      "sourcePath": "ayush/ayush-education-in-national-institutes/unani/form.json",
+      "title": "Unani",
       "version": 1
     },
     {
@@ -8946,6 +9199,67 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-research",
+      "categoryPath": [
+        "Ayush Research"
+      ],
+      "checksum": "f15227d5eb757d2d8578086adc9886dd13bc9ef900e6095d953ff8d9d7be5078",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-research",
+      "sourcePath": "ayush/ayush-research/form.json",
+      "title": "Ayush Research",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi",
+      "categoryPath": [
+        "Ayush Research",
+        "Ayurveda & Sowa Rigpa-Central Council for Research in Ayurvedic Sciences,New Delhi"
+      ],
+      "checksum": "7857f69472238a024c74f113798a964ba97fdc40c21c3a3d974a98580bafaea3",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi",
+      "sourcePath": "ayush/ayush-research/ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi/form.json",
+      "title": "Ayurveda & Sowa Rigpa-Central Council for Research in Ayurvedic Sciences,New Delhi",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi-drugs-development",
       "categoryPath": [
         "Ayush Research",
@@ -9069,6 +9383,37 @@
       "id": "form-ayush-ayush-research-ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi-patents",
       "sourcePath": "ayush/ayush-research/ayurveda-sowa-rigpa-central-council-for-research-in-ayurvedic-sciences-new-delhi/patents/form.json",
       "title": "Patents",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-research-homoeopathy-central-council-for-research-in-homoeopathy-new-delhi",
+      "categoryPath": [
+        "Ayush Research",
+        "Homoeopathy/Central Council for Research in Homoeopathy,New Delhi"
+      ],
+      "checksum": "f6d6a5b2db09d340370ed4533b9ba3e9a6b6a0c0d8652cf187539a7df26c494f",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-research-homoeopathy-central-council-for-research-in-homoeopathy-new-delhi",
+      "sourcePath": "ayush/ayush-research/homoeopathy-central-council-for-research-in-homoeopathy-new-delhi/form.json",
+      "title": "Homoeopathy/Central Council for Research in Homoeopathy,New Delhi",
       "version": 1
     },
     {
@@ -9202,6 +9547,37 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu",
+      "categoryPath": [
+        "Ayush Research",
+        "Siddha/Central Council for Research in Siddha, Tamil Nadu"
+      ],
+      "checksum": "bb89576dde00c1cf6d1f42f9f6c71da7c4d082009b27f45f724c08dcb15e41e3",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu",
+      "sourcePath": "ayush/ayush-research/siddha-central-council-for-research-in-siddha-tamil-nadu/form.json",
+      "title": "Siddha/Central Council for Research in Siddha, Tamil Nadu",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu-drugs-development",
       "categoryPath": [
         "Ayush Research",
@@ -9325,6 +9701,37 @@
       "id": "form-ayush-ayush-research-siddha-central-council-for-research-in-siddha-tamil-nadu-patents",
       "sourcePath": "ayush/ayush-research/siddha-central-council-for-research-in-siddha-tamil-nadu/patents/form.json",
       "title": "Patents",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-research-unani-central-council-for-research-in-unani-medicine-new-delhi",
+      "categoryPath": [
+        "Ayush Research",
+        "Unani/Central Council for Research in Unani Medicine,New Delhi"
+      ],
+      "checksum": "39838b57a73e7aa377559fb37c5c189a37fbe25afc750cff6764cad7279969b4",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-research-unani-central-council-for-research-in-unani-medicine-new-delhi",
+      "sourcePath": "ayush/ayush-research/unani-central-council-for-research-in-unani-medicine-new-delhi/form.json",
+      "title": "Unani/Central Council for Research in Unani Medicine,New Delhi",
       "version": 1
     },
     {
@@ -9458,6 +9865,37 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi",
+      "categoryPath": [
+        "Ayush Research",
+        "Yoga & Naturopathy/Central Council for Research in Yoga & Naturopathy, New Delhi"
+      ],
+      "checksum": "9ef88e085114de9e906c068ab729d443278e3cf4314dc2954c337dbe9b774e6a",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi",
+      "sourcePath": "ayush/ayush-research/yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi/form.json",
+      "title": "Yoga & Naturopathy/Central Council for Research in Yoga & Naturopathy, New Delhi",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-research-yoga-naturopathy-central-council-for-research-in-yoga-naturopathy-new-delhi-drugs-development",
       "categoryPath": [
         "Ayush Research",
@@ -9586,6 +10024,99 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes",
+      "categoryPath": [
+        "Ayush Schemes"
+      ],
+      "checksum": "a27f8ce2f0f67919d4a349e9631650a446d0201def143c206e63e77d758e94d9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes",
+      "sourcePath": "ayush/ayush-schemes/form.json",
+      "title": "Ayush Schemes",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme"
+      ],
+      "checksum": "7eeb8225201376c138d610fa3cd0acf061e9d7a003764e629d23f810785406c9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/form.json",
+      "title": "Central Sector Scheme",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-ayurgyan",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme",
+        "Ayurgyan"
+      ],
+      "checksum": "9902fb609955f94c7064dcf20660e9dda91262609911d8473c6b292c8855f96d",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme-ayurgyan",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/ayurgyan/form.json",
+      "title": "Ayurgyan",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-ayurgyan-approval-of-proposal",
       "categoryPath": [
         "Ayush Schemes",
@@ -9661,6 +10192,38 @@
       "id": "form-ayush-ayush-schemes-central-sector-scheme-ayurgyan-release-of-grant",
       "sourcePath": "ayush/ayush-schemes/central-sector-scheme/ayurgyan/release-of-grant/form.json",
       "title": "Release of Grant",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-ayurswasthya",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme",
+        "Ayurswasthya"
+      ],
+      "checksum": "e596aaa905266d7fe427156c5b5107369a0133d3fffb91c9f01efc3351df4c16",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme-ayurswasthya",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/ayurswasthya/form.json",
+      "title": "Ayurswasthya",
       "version": 1
     },
     {
@@ -9746,6 +10309,38 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme",
+        "Ayush Oushadhi Gunvatta Evum Uttapadan Sanvardhan Yojana (AOGUSY)"
+      ],
+      "checksum": "da0e9a3532ae23d9aeaefdb77b6f4e7d48538a237fe8ad3806da7067a8849d94",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy/form.json",
+      "title": "Ayush Oushadhi Gunvatta Evum Uttapadan Sanvardhan Yojana (AOGUSY)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy-approval-of-proposal",
       "categoryPath": [
         "Ayush Schemes",
@@ -9821,6 +10416,38 @@
       "id": "form-ayush-ayush-schemes-central-sector-scheme-ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy-release-of-grant",
       "sourcePath": "ayush/ayush-schemes/central-sector-scheme/ayush-oushadhi-gunvatta-evum-uttapadan-sanvardhan-yojana-aogusy/release-of-grant/form.json",
       "title": "Release of Grant",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-champion-sector-scheme",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme",
+        "Champion Sector Scheme"
+      ],
+      "checksum": "1a98f1cbe507493590cea85a251765ef9e5d2cab8b82e1eca71a3abb2060a362",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme-champion-sector-scheme",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/champion-sector-scheme/form.json",
+      "title": "Champion Sector Scheme",
       "version": 1
     },
     {
@@ -9906,6 +10533,38 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme",
+        "Information, Education and Communication (IEC)"
+      ],
+      "checksum": "86cdeae3b9f28d4713f27a88fac67b6dec7b1049ae0398fadeba5f3c5c10ba42",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/information-education-and-communication-iec/form.json",
+      "title": "Information, Education and Communication (IEC)",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec-approval-of-proposal",
       "categoryPath": [
         "Ayush Schemes",
@@ -9981,6 +10640,38 @@
       "id": "form-ayush-ayush-schemes-central-sector-scheme-information-education-and-communication-iec-release-of-grant",
       "sourcePath": "ayush/ayush-schemes/central-sector-scheme/information-education-and-communication-iec/release-of-grant/form.json",
       "title": "Release of Grant",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-international-cooperation",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme",
+        "International Cooperation"
+      ],
+      "checksum": "70b4e329315fd50a4faf74fd77ea90f0ec3310baa0ae47eff87619d14f5aecc8",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme-international-cooperation",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/international-cooperation/form.json",
+      "title": "International Cooperation",
       "version": 1
     },
     {
@@ -10066,6 +10757,38 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Central Sector Scheme",
+        "National Medcine Plant Board"
+      ],
+      "checksum": "eb8b467be1a79d417726c60ecfb99549e122b2a7a2a9055fcdace430b43ccc9c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board",
+      "sourcePath": "ayush/ayush-schemes/central-sector-scheme/national-medcine-plant-board/form.json",
+      "title": "National Medcine Plant Board",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board-approval-of-proposal",
       "categoryPath": [
         "Ayush Schemes",
@@ -10141,6 +10864,69 @@
       "id": "form-ayush-ayush-schemes-central-sector-scheme-national-medcine-plant-board-release-of-grant",
       "sourcePath": "ayush/ayush-schemes/central-sector-scheme/national-medcine-plant-board/release-of-grant/form.json",
       "title": "Release of Grant",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-centrally-sponsered-scheme",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Centrally Sponsered Scheme"
+      ],
+      "checksum": "eb5e057f97b1c5c42de33a97aaafa0fb86e3acac8611dba7a663e9551b55cb59",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-centrally-sponsered-scheme",
+      "sourcePath": "ayush/ayush-schemes/centrally-sponsered-scheme/form.json",
+      "title": "Centrally Sponsered Scheme",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission",
+      "categoryPath": [
+        "Ayush Schemes",
+        "Centrally Sponsered Scheme",
+        "National Ayush Mission"
+      ],
+      "checksum": "d636cabc0af8dd760f385ce79cfcb65bad6289a136acf9aa4eedbe659ab135ef",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission",
+      "sourcePath": "ayush/ayush-schemes/centrally-sponsered-scheme/national-ayush-mission/form.json",
+      "title": "National Ayush Mission",
       "version": 1
     },
     {
@@ -10301,6 +11087,67 @@
       "id": "form-ayush-ayush-schemes-centrally-sponsered-scheme-national-ayush-mission-submission-of-utilization-certificate",
       "sourcePath": "ayush/ayush-schemes/centrally-sponsered-scheme/national-ayush-mission/submission-of-utilization-certificate/form.json",
       "title": "Submission of Utilization Certificate",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-college-permission-admission",
+      "categoryPath": [
+        "College Permission & Admission"
+      ],
+      "checksum": "98818183f7b9ee631192f1dcfcf5070471c800c14439d7aa510f38ce377fe158",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-college-permission-admission",
+      "sourcePath": "ayush/college-permission-admission/form.json",
+      "title": "College Permission & Admission",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-college-permission-admission-ayurveda-siddha-unani-sowa-rigpa-ncism",
+      "categoryPath": [
+        "College Permission & Admission",
+        "Ayurveda, Siddha, Unani & Sowa Rigpa /NCISM"
+      ],
+      "checksum": "fc04ad65a4fe6a9f07b00f768acca139e52a85e865f9f31ac6e444d2b64772fa",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-college-permission-admission-ayurveda-siddha-unani-sowa-rigpa-ncism",
+      "sourcePath": "ayush/college-permission-admission/ayurveda-siddha-unani-sowa-rigpa-ncism/form.json",
+      "title": "Ayurveda, Siddha, Unani & Sowa Rigpa /NCISM",
       "version": 1
     },
     {
@@ -10677,6 +11524,37 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy",
+      "categoryPath": [
+        "College Permission & Admission",
+        "Homoeopathy/National Commission for Homoeopathy"
+      ],
+      "checksum": "662a185336557f38c7695fb44afd7820c9c2dd2679e811a55198df3a231580ea",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy",
+      "sourcePath": "ayush/college-permission-admission/homoeopathy-national-commission-for-homoeopathy/form.json",
+      "title": "Homoeopathy/National Commission for Homoeopathy",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-college-permission-admission-homoeopathy-national-commission-for-homoeopathy-counselling-ug-pg",
       "categoryPath": [
         "College Permission & Admission",
@@ -11048,6 +11926,36 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-covid-19",
+      "categoryPath": [
+        "Covid- 19"
+      ],
+      "checksum": "f8384271ed6c6af99d98458ffe8c130f237f61970b540aa0f31b13b42fd34987",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-covid-19",
+      "sourcePath": "ayush/covid-19/form.json",
+      "title": "Covid- 19",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-covid-19-ayush-medicines",
       "categoryPath": [
         "Covid- 19",
@@ -11136,6 +12044,67 @@
       "id": "form-ayush-covid-19-others",
       "sourcePath": "ayush/covid-19/others/form.json",
       "title": "Others",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-hospital-related",
+      "categoryPath": [
+        "Hospital Related"
+      ],
+      "checksum": "5ea1025d41b39f93fdf37e3647b32be07b5b7acf25c445b57bdb7f5106c69148",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-hospital-related",
+      "sourcePath": "ayush/hospital-related/form.json",
+      "title": "Hospital Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-hospital-related-ayurveda-related",
+      "categoryPath": [
+        "Hospital Related",
+        "Ayurveda Related"
+      ],
+      "checksum": "357f1817e57547ad17fb4c39881be357fb00af21045e02955a233c43c55a68d9",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-hospital-related-ayurveda-related",
+      "sourcePath": "ayush/hospital-related/ayurveda-related/form.json",
+      "title": "Ayurveda Related",
       "version": 1
     },
     {
@@ -11498,6 +12467,37 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-hospital-related-homoeopathy-related",
+      "categoryPath": [
+        "Hospital Related",
+        "Homoeopathy Related"
+      ],
+      "checksum": "2a87eec9ab0e7979a096c707b302517b323f95503fb974ccb1126e622b19a573",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-hospital-related-homoeopathy-related",
+      "sourcePath": "ayush/hospital-related/homoeopathy-related/form.json",
+      "title": "Homoeopathy Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-hospital-related-homoeopathy-related-admission-in-ipd",
       "categoryPath": [
         "Hospital Related",
@@ -11815,6 +12815,37 @@
       "id": "form-ayush-hospital-related-homoeopathy-related-recruitment",
       "sourcePath": "ayush/hospital-related/homoeopathy-related/recruitment/form.json",
       "title": "Recruitment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-hospital-related-siddha-related",
+      "categoryPath": [
+        "Hospital Related",
+        "Siddha Related"
+      ],
+      "checksum": "5472d7d44a351da5d48e079bb4100b9d46819fde2711aea50bf21282db4a11ac",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-hospital-related-siddha-related",
+      "sourcePath": "ayush/hospital-related/siddha-related/form.json",
+      "title": "Siddha Related",
       "version": 1
     },
     {
@@ -12142,6 +13173,37 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-hospital-related-sowa-related",
+      "categoryPath": [
+        "Hospital Related",
+        "Sowa Related"
+      ],
+      "checksum": "1e1b3c12a9560b7580639210829bd59a8299bc60e8a24d6701247f4cf281429c",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-hospital-related-sowa-related",
+      "sourcePath": "ayush/hospital-related/sowa-related/form.json",
+      "title": "Sowa Related",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-hospital-related-sowa-related-admission-in-ipd",
       "categoryPath": [
         "Hospital Related",
@@ -12452,6 +13514,37 @@
       "id": "form-ayush-hospital-related-sowa-related-recruitment",
       "sourcePath": "ayush/hospital-related/sowa-related/recruitment/form.json",
       "title": "Recruitment",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-hospital-related-unani-related",
+      "categoryPath": [
+        "Hospital Related",
+        "Unani Related"
+      ],
+      "checksum": "521443d862795abf3dd358016ab0e6290925eff4a537189aebff0c662891bedd",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-hospital-related-unani-related",
+      "sourcePath": "ayush/hospital-related/unani-related/form.json",
+      "title": "Unani Related",
       "version": 1
     },
     {
@@ -12779,6 +13872,67 @@
     {
       "active": true,
       "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-lab-pharmocopeia",
+      "categoryPath": [
+        "Lab & Pharmocopeia"
+      ],
+      "checksum": "29c65508a5d36b5583a1f196196412d2d0d32a585d973d59dd23fec4f6451568",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-lab-pharmocopeia",
+      "sourcePath": "ayush/lab-pharmocopeia/form.json",
+      "title": "Lab & Pharmocopeia",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy",
+      "categoryPath": [
+        "Lab & Pharmocopeia",
+        "Pharmacopoeia Commission for Indian Medicine & Homoeopathy"
+      ],
+      "checksum": "d502cde8f9258ab39a7a0245bc5c0f93a8150d933e9c6681369f0756062ccc0a",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy",
+      "sourcePath": "ayush/lab-pharmocopeia/pharmacopoeia-commission-for-indian-medicine-homoeopathy/form.json",
+      "title": "Pharmacopoeia Commission for Indian Medicine & Homoeopathy",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
       "categoryId": "category-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy-asu-h-drug-research",
       "categoryPath": [
         "Lab & Pharmocopeia",
@@ -12838,6 +13992,36 @@
       "id": "form-ayush-lab-pharmocopeia-pharmacopoeia-commission-for-indian-medicine-homoeopathy-asu-h-pharmocopoeia",
       "sourcePath": "ayush/lab-pharmocopeia/pharmacopoeia-commission-for-indian-medicine-homoeopathy/asu-h-pharmocopoeia/form.json",
       "title": "ASU&H Pharmocopoeia",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations",
+      "categoryPath": [
+        "Matters relating to the Employees of Ministry of Ayush and its Organizations"
+      ],
+      "checksum": "4e9f5fcdbf71c7010e434fe4468d51c84ed1c8289e6f0a43f8d7199c0f12311e",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations",
+      "sourcePath": "ayush/matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations/form.json",
+      "title": "Matters relating to the Employees of Ministry of Ayush and its Organizations",
       "version": 1
     },
     {
@@ -13608,6 +14792,36 @@
       "id": "form-ayush-matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations-transfers",
       "sourcePath": "ayush/matters-relating-to-the-employees-of-ministry-of-ayush-and-its-organizations/transfers/form.json",
       "title": "Transfers",
+      "version": 1
+    },
+    {
+      "active": true,
+      "authorityId": "authority-ayush",
+      "categoryId": "category-ayush-miscellaneous",
+      "categoryPath": [
+        "Miscellaneous"
+      ],
+      "checksum": "4b4e32d98d0cb64e2cee01f8f958fe34c37863db49ad12a05032fdf4eb501698",
+      "fields": [
+        {
+          "id": "remarks",
+          "kind": "textarea",
+          "label": "Text of grievance (Remarks)",
+          "maximumLength": 2000,
+          "placeholder": "Please Enter Text of Grievance (Remarks)",
+          "required": true
+        },
+        {
+          "id": "attachment",
+          "kind": "file",
+          "label": "Attachment",
+          "required": false
+        }
+      ],
+      "heading": null,
+      "id": "form-ayush-miscellaneous",
+      "sourcePath": "ayush/miscellaneous/form.json",
+      "title": "Miscellaneous",
       "version": 1
     },
     {
